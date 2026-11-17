@@ -1109,7 +1109,12 @@
             }
         }
 
-        const map = L.map('map', { worldCopyJump: true }).setView([5, -145], 2);
+        const map = L.map('map', {
+    center: [5, 195],
+    zoom: 3,
+    minZoom: 2,
+    worldCopyJump: true
+});
 
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, National Geographic',
@@ -1275,7 +1280,10 @@
                 const chl = safeNum(st.merged_chl, 0.15);
                 const fillColor = getChlColor(chl);
 
-                const circle = L.circleMarker([lat, lon], {
+                const pacLon = lon < 0 ? lon + 360 : lon;
+                latlngs.push([lat, pacLon]);
+
+                const circle = L.circleMarker([lat, pacLon], {
                     radius: 8,
                     fillColor: fillColor,
                     color: '#ffffff',
@@ -1373,17 +1381,18 @@
             const diagEl = document.getElementById('trophic-status');
             if (chl < 0.15) {
                 document.getElementById('zone-card-oligo').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#fda4af;">Station regime — Oligotrophic ocean desert> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
+                diagEl.innerHTML = '<strong style="color:#fda4af;">Oligotrophic ocean desert:</strong> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
             } else if (chl <= 0.50) {
                 document.getElementById('zone-card-meso').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#67e8f9;">Station regime — Mesotrophic island wake:</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
+                diagEl.innerHTML = '<strong style="color:#67e8f9;">Mesotrophic island wake:</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
             } else {
                 document.getElementById('zone-card-eutro').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Station regime - Eutrophic / upwelling zone:</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
+                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Eutrophic / upwelling zone:</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
             }
 
-            if (panMap && stationMarkers[currentIndex]) {
-                map.setView([st.lat, st.lon], 4, { animate: true });
+                if (panMap && stationMarkers[currentIndex]) {
+                const pacLon = st.lon < 0 ? st.lon + 360 : st.lon;
+                map.setView([st.lat, pacLon], 4, { animate: true });
                 stationMarkers[currentIndex].openPopup();
             }
         }
