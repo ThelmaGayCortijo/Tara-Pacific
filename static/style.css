@@ -1054,7 +1054,7 @@ h1, h2, h3 {
     bottom: 10px;
     left: 10px;
     background: rgba(7, 25, 43, 0.85);
-    color: #5eead4;
+    color: #efecec;
     padding: 4px 10px;
     font-size: 0.68rem;
     font-weight: 700;
@@ -1526,4 +1526,67 @@ diver-depth-tag {
 
 .brand-dot.hidden-dot {
     display: none;
+}
+
+/* ==========================================================================
+   BANNIÈRE VISUELLE "WELCOME ABOARD" (STYLE MÉDIATION SCIENTIFIQUE)
+   ========================================================================== */
+.welcome-hero-banner {
+    position: relative;
+    width: 100%;
+    background: #07192b;
+    padding: 0;
+    margin: 0;
+}
+
+.banner-img-container {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Grande photo immersive mais qui laisse deviner la suite */
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.banner-banner-img,
+.welcome-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dégradé discret en bas pour faire ressortir le texte blanc proprement */
+.banner-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 25, 43, 0.1) 40%, rgba(7, 25, 43, 0.82) 100%);
+    pointer-events: none;
+}
+
+.welcome-banner-caption {
+    position: absolute;
+    bottom: 48px;
+    left: 56px;
+    z-index: 5;
+}
+
+.banner-subtext {
+    display: block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5eead4;
+    margin-bottom: 8px;
+}
+
+.banner-title {
+    font-family: 'Plus Jakarta Sans', sans-serif; /* Police neutre et géométrique très pro */
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 800; /* Bien épaisse */
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
