@@ -638,9 +638,6 @@
                             <span style="color:#c4aa5c;">0.15 – 0.5 mg/m³</span>
                             <span style="color:#49963c;">0.5 mg/m³</span>
                         </div>
-                        <div class="trophic-diagnosis" id="trophic-status">
-                            Select a station marker on the map to evaluate primary productivity and trophic regime.
-                        </div>
                     </div>
                 </div>
 
@@ -1394,18 +1391,6 @@
             ['oligo', 'meso', 'eutro'].forEach(z => {
                 document.getElementById('zone-card-' + z).classList.remove('active-zone');
             });
-
-            const diagEl = document.getElementById('trophic-status');
-            if (chl < 0.15) {
-                document.getElementById('zone-card-oligo').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#fda4af;">Oligotrophic ocean desert:</strong> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
-            } else if (chl <= 0.50) {
-                document.getElementById('zone-card-meso').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#67e8f9;">Mesotrophic island wake:</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
-            } else {
-                document.getElementById('zone-card-eutro').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Eutrophic / upwelling zone:</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
-            }
 
                 if (panMap && stationMarkers[currentIndex]) {
                 const pacLon = st.lon < 30 ? st.lon + 360 : st.lon;
