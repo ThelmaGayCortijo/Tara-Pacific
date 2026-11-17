@@ -17,6 +17,92 @@
 </head>
 <body>
 
+    <!-- ANIMATION D'INTRO : PLONGÉE OCÉANIQUE -->
+    <div id="ocean-dive-intro" class="dive-intro-overlay">
+        <div class="dive-ocean-bg">
+            <!-- Rayons de soleil sous-marins en surface -->
+            <div class="sun-rays"></div>
+
+            <!-- Bulles qui remontent -->
+            <div class="bubbles-container">
+                <span class="bubble b1"></span>
+                <span class="bubble b2"></span>
+                <span class="bubble b3"></span>
+                <span class="bubble b4"></span>
+                <span class="bubble b5"></span>
+                <span class="bubble b6"></span>
+            </div>
+
+            <!-- Petit plongeur dessiné (SVG animé) + indicateur de profondeur -->
+            <div class="diver-wrapper">
+                <div class="depth-badge" id="dive-depth-counter">DEPTH: -0 m</div>
+                <svg class="diver-svg" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Bulles d'expiration du détendeur -->
+                    <circle class="diver-air a1" cx="165" cy="45" r="3.5" fill="#bae6fd" />
+                    <circle class="diver-air a2" cx="175" cy="30" r="5" fill="#e0f2fe" />
+                    <circle class="diver-air a3" cx="168" cy="14" r="6.5" fill="#f0f9ff" />
+
+                    <!-- Groupe du plongeur (incliné vers les profondeurs) -->
+                    <g transform="rotate(28, 110, 70)">
+                        <!-- Palme arrière -->
+                        <g class="fin-back">
+                            <path d="M 35 72 L 8 62 L 4 75 L 35 78 Z" fill="#f59e0b" />
+                        </g>
+                        <!-- Jambe arrière -->
+                        <path d="M 70 68 L 35 74" stroke="#0f172a" stroke-width="10" stroke-linecap="round" />
+
+                        <!-- Bouteille de plongée (jaune/corail Tara) -->
+                        <rect x="82" y="42" width="44" height="15" rx="7" fill="#e05a47" stroke="#ffffff" stroke-width="1.5" />
+                        <circle cx="128" cy="49" r="3.5" fill="#94a3b8" />
+
+                        <!-- Corps / Combinaison néoprène -->
+                        <ellipse cx="105" cy="64" rx="34" ry="13" fill="#1e293b" />
+                        <!-- Bande turquoise sur la combinaison -->
+                        <path d="M 85 62 Q 105 68 128 61" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round" />
+
+                        <!-- Jambe avant -->
+                        <path d="M 74 66 L 36 66" stroke="#1e293b" stroke-width="11" stroke-linecap="round" />
+                        <!-- Palme avant -->
+                        <g class="fin-front">
+                            <path d="M 36 63 L 6 50 L 2 64 L 36 69 Z" fill="#fbbf24" />
+                        </g>
+
+                        <!-- Tête & Cagoule -->
+                        <circle cx="146" cy="62" r="13" fill="#1e293b" />
+                        <!-- Masque de plongée illuminé -->
+                        <rect x="147" y="57" width="13" height="9" rx="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+                        <!-- Tuba / Détendeur -->
+                        <path d="M 155 68 Q 145 78 130 52" stroke="#94a3b8" stroke-width="2.5" fill="none" />
+
+                        <!-- Bras tenant une lampe torche sous-marine -->
+                        <path d="M 122 68 L 146 78 L 166 75" stroke="#1e293b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                        <!-- Lampe & Faisceau lumineux -->
+                        <rect x="164" y="71" width="9" height="6" rx="2" fill="#f59e0b" />
+                        <polygon points="173,74 218,56 218,92" fill="url(#beamGrad)" opacity="0.55" />
+                    </g>
+
+                    <defs>
+                        <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8" />
+                            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Titre final au fond de l'océan avant d'ouvrir la page -->
+            <div class="dive-title-reveal">
+                <span class="dive-eyebrow">2016 – 2018 • 100,000 KM ACROSS 32 ARCHIPELAGOS</span>
+                <h1 class="dive-main-title">TARA PACIFIC EXPEDITION</h1>
+                <div class="dive-line"></div>
+                <p class="dive-subtitle">Entering the Scientific Observatory...</p>
+            </div>
+        </div>
+
+        <!-- Bouton pour passer l'intro rapidement si besoin -->
+        <button class="skip-dive-btn" onclick="skipDiveIntro()">Skip Intro &rarr;</button>
+    </div>
+
     <!-- Top Navigation Bar -->
     <header class="topbar">
         <div class="topbar-inner">
@@ -511,7 +597,7 @@
 
             <!-- Scientific Report & Synthesis Box -->
             <div class="expedition-report-card">
-                <h3>📋 Tara Pacific Expedition Brief &amp; Synthesis of Results</h3>
+                <h3>Tara Pacific expedition brief &amp; synthesis of results</h3>
                 <p>
                     The <em>Tara Pacific</em> expedition (2016–2018) yielded unprecedented insights into the health and resilience of coral reef ecosystems. By coupling high-frequency underway sensors with deep CTD casts and genomic filtration, researchers discovered that coral symbiosis stability is tightly regulated by local hydrodynamic regimes and temperature anomalies.
                 </p>
@@ -1418,6 +1504,44 @@
         document.getElementById('region-select').addEventListener('change', runAnalysis);
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
+
+        // --- 5. ANIMATION D'INTRO PLONGÉE OCÉANIQUE ---
+        let diveTimer = null;
+        let depthInterval = null;
+
+        function skipDiveIntro() {
+            const overlay = document.getElementById('ocean-dive-intro');
+            if (!overlay) return;
+            overlay.classList.add('fade-out-intro');
+            document.body.classList.remove('intro-locked');
+            if (diveTimer) clearTimeout(diveTimer);
+            if (depthInterval) clearInterval(depthInterval);
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 950);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('ocean-dive-intro');
+            const depthEl = document.getElementById('dive-depth-counter');
+            if (!overlay) return;
+
+            document.body.classList.add('intro-locked');
+
+            // Fait défiler le profondimètre de 0m à -200m pendant la descente du plongeur
+            let currentDepth = 0;
+            depthInterval = setInterval(() => {
+                currentDepth += 8;
+                if (currentDepth <= 200 && depthEl) {
+                    depthEl.textContent = `DEPTH: -${currentDepth} m`;
+                }
+            }, 95);
+
+            // Ouvre automatiquement la page principale après 5.1 secondes
+            diveTimer = setTimeout(() => {
+                skipDiveIntro();
+            }, 5100);
+        });
     </script>
 </body>
 </html>
