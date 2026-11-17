@@ -1,5 +1,5 @@
 :root {
-    --box-ocean-bg: #9bb7d3; 
+    --box-ocean-bg: #8cb7df; 
 
     --chl-low: #e05a47;      /* Rouge corail (< 0.15 mg/m³) */
     --chl-mid: #c4aa5c;      /* Jaune doré / Anis (0.15 - 0.5 mg/m³) */
@@ -828,13 +828,13 @@ h1, h2, h3 {
 
 /* Force les 3 étiquettes de texte sous la jauge à matcher ton gradient */
 .gauge-scale span:nth-child(1) {
-    color: #fca5a5 !important; /* Rouge corail clair lisible sur fond bleu */
+    color: #e05a47 !important; /* Rouge corail clair lisible sur fond bleu */
 }
 .gauge-scale span:nth-child(2) {
-    color: #e2d185 !important; /* Jaune doré (#c4aa5c éclairci pour la lecture) */
+    color: #c4aa5c !important; /* Jaune doré (#c4aa5c éclairci pour la lecture) */
 }
 .gauge-scale span:nth-child(3) {
-    color: #86efac !important; /* Vert (#49963c éclairci pour la lecture) */
+    color: #49963c !important; /* Vert (#49963c éclairci pour la lecture) */
 }
 
 .trophic-diagnosis {
@@ -861,7 +861,7 @@ h1, h2, h3 {
 .telemetry-badge {
     font-size: 0.7rem;
     letter-spacing: 1.4px;
-    color: #5eead4;
+    color: #11384e;
     font-weight: 700;
 }
 
