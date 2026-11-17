@@ -240,21 +240,7 @@
                             <button class="hotspot spot-ocean" id="spot-ocean-7" style="top: 88.8%; left: 42.3%;" onclick="selectOceanInst(7)" title="7. High-speed & Manta nets (300 µm)">7</button>
                             <button class="hotspot spot-ocean" id="spot-ocean-8" style="top: 39.2%; left: 93.8%;" onclick="selectOceanInst(8)" title="8. Handheld Bow-Pole">8</button>
                         </div>
-                        <p class="caption">Click directly on any numbered circle (1–8) on the schematic above or use the buttons below.</p>
-
-                        <div class="instruments-under-image">
-                            <h3 class="instruments-heading">Scientific instruments aboard the Tara Schooner</h3>
-                            <div class="instrument-tabs">
-                                <button class="inst-tab tab-ocean active" id="tab-ocean-1" onclick="selectOceanInst(1)">1. Inline-pump</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-2" onclick="selectOceanInst(2)">2. Mast-pump</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-3" onclick="selectOceanInst(3)">3. Dolphin pump</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-4" onclick="selectOceanInst(4)">4. Raw water distribution</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-5" onclick="selectOceanInst(5)">5. 50L carboys (20 µm)</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-6" onclick="selectOceanInst(6)">6. Decknet-20</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-7" onclick="selectOceanInst(7)">7. High-speed &amp; Manta nets</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-8" onclick="selectOceanInst(8)">8. Handheld bow-pole</button>
-                            </div>
-                        </div>
+                        <p class="caption">Click directly on any numbered circle (1–8) on the schematic above to display the instrument details.</p>
                     </div>
 
                     <div class="instrument-panel">
@@ -267,9 +253,6 @@
                             <div class="inst-img-wrap" id="ocean-img-wrap" style="display: none;">
                                 <img id="ocean-img" src="" alt="Instrument visual" class="inst-detail-img" onerror="this.parentElement.style.display='none'">
                             </div>
-                            <a id="ocean-link" href="https://oceantech.in/product/vertical-inline-single-stage-closed-coupled-split-coupled-pump/" target="_blank" rel="noopener" class="inst-source-link">
-                                View instrument reference / source &rarr;
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -726,65 +709,55 @@
                 badge: "MARKER #1 • HULL INTAKE",
                 title: "1. Inline-pump (hull intake)",
                 desc: "The main artery of the ship. Located beneath the hull, this intake continuously pumps surface seawater directly into the on-board laboratory to feed the internal filtration systems while sailing.",
-                img: "",
-                link: "https://oceantech.in/product/vertical-inline-single-stage-closed-coupled-split-coupled-pump/"
+                img: ""
             },
             2: {
                 badge: "MARKER #2 • ATMOSPHERIC SAMPLING",
                 title: "2. Mast-pump (atmospheric sampling)",
                 desc: "Installed high on the masts to avoid sea spray and ship exhaust, this specialized pump captures aerosols and atmospheric particles, linking the ocean's surface to the air above it.",
-                img: "",
-                link: "https://weathergeeks.org/ambient-weather-ws-2902-vs-ws-1965-which-is-right-for-you/"
+                img: ""
             },
             3: {
                 badge: "MARKER #3 • HIGH-SPEED SURFACE SAMPLER",
                 title: "3. Dolphin Pump",
                 desc: "Towed alongside the ship, the \"Dolphin\" is a high-speed pump. It draws in pristine surface water away from the hull's wake and sends it directly to the deck for processing.",
-                img: "https://www.researchgate.net/publication/337896236/figure/fig4/AS:11431281239648591@1714436467347/Surface-net-and-water-samplers-The-High-Speed-Net-on-board-and-in-work-left-and.tif",
-                link: "https://www.researchgate.net/publication/337896236/figure/fig4/AS:11431281239648591@1714436467347/Surface-net-and-water-samplers-The-High-Speed-Net-on-board-and-in-work-left-and.tif"
+                img: ""
             },
             4: {
                 badge: "MARKER #4 • IN-LINE LABORATORY CIRCUIT",
                 title: "4. Raw water distribution",
                 desc: "The starting point inside the lab. Before any filtration happens, this circuit distributes the raw seawater pumped from the ocean, feeding the in-line sensors that log exact ocean conditions.",
-                img: "",
-                link: ""
+                img: ""
             },
             5: {
                 badge: "MARKER #5 • 20 µm FILTRATION",
                 title: "5. 50L carboys (20 µm filtration)",
                 desc: "Seawater pumped from the ocean is pushed through a 20 µm filter and collected in these massive 50-liter carboys. This concentrates the microscopic life, preparing the samples for deeper genetic analysis.",
-                img: "",
-                link: "https://fondationtaraocean.org/actualite-scientifique/etapes-echantillon-tara/"
+                img: ""
             },
             6: {
                 badge: "MARKER #6 • SUSPENDED DECK NET",
                 title: "6. Decknet-20",
                 desc: "Instead of towing a net through the waves, the ocean is pumped directly through this conical net suspended right on the deck. Its 20 µm mesh safely catches plankton while measuring the exact volume of water processed.",
-                img: "",
-                link: "https://www.carenews.com/carenews-info/news/tara-20-ans-d-explorations-scientifiques-au-service-de-l-ocean"
+                img: ""
             },
             7: {
                 badge: "MARKER #7 • SURFACE & MICROPLASTIC NETS",
                 title: "7. High-speed & Manta nets (300 µm)",
                 desc: "Towed off the stern, these 300 µm mesh nets skim the top layer of the ocean. The winged Manta net is specifically deployed to trap floating microplastics and larger surface plankton.",
-                img: "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg",
-                link: "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg"
+                img: "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg"
             },
             8: {
                 badge: "MARKER #8 • PRISTINE BOW SAMPLING",
                 title: "8. Handheld Bow-Pole",
                 desc: "To get the absolute purest samples, scientists use an extensible pole right at the front of the ship. This grabs surface water before the hull can even touch or contaminate it.",
-                img: "",
-                link: ""
+                img: ""
             }
         };
 
         function selectOceanInst(num) {
             const data = OCEAN_INSTRUMENTS[num];
             if (!data) return;
-            document.querySelectorAll('.tab-ocean').forEach(b => b.classList.remove('active'));
-            document.getElementById('tab-ocean-' + num).classList.add('active');
 
             document.querySelectorAll('.spot-ocean').forEach(s => s.classList.remove('active-spot'));
             if (num === 5) {
@@ -806,14 +779,6 @@
                 imgWrap.style.display = 'block';
             } else {
                 imgWrap.style.display = 'none';
-            }
-
-            const linkEl = document.getElementById('ocean-link');
-            if (data.link) {
-                linkEl.href = data.link;
-                linkEl.style.display = 'inline-block';
-            } else {
-                linkEl.style.display = 'none';
             }
         }
 
