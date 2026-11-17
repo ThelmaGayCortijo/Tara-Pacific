@@ -29,7 +29,6 @@
 
         <!-- Petit plongeur qui suit le scroll vers le bas -->
         <div class="scrolling-diver-sticky" id="scrolling-diver">
-            <div class="diver-depth-tag" id="scroll-depth-val">0 m — SURFACE</div>
             <svg class="diver-scroll-svg" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
                 <circle class="diver-bubble b-1" cx="165" cy="42" r="4" fill="#bae6fd" />
                 <circle class="diver-bubble b-2" cx="176" cy="24" r="5.5" fill="#e0f2fe" />
@@ -136,7 +135,7 @@
     </section>
     <main class="main-wrapper">
 
-        <!-- 1. FOUNDATION INTRODUCTION (Style Éditorial & Académique) -->
+        <!-- 1. FOUNDATION INTRODUCTION (Logos du Consortium + Bulles Océaniques) -->
         <section id="foundation" class="section-block">
             <div class="section-header">
                 <span class="section-tag">01 / INSTITUTIONAL CONTEXT</span>
@@ -144,7 +143,7 @@
             </div>
 
             <div class="editorial-intro-layout">
-                <!-- Colonne de gauche : Texte éditorial + Consortium -->
+                <!-- Colonne de gauche : Texte éditorial + Logos détourés -->
                 <div class="prose-editorial">
                     <p class="lead-paragraph">
                         Created in 2003, the <strong>Tara Ocean Foundation</strong> is the first foundation in France officially recognized as serving the public interest dedicated exclusively to the ocean.
@@ -153,13 +152,16 @@
                         For over two decades, it has pioneered a dual mission: conducting high-level, open-access marine science in collaboration with premier international laboratories while raising public and political awareness about climate threats. By developing standardized sampling protocols from the surface down to the mesopelagic zone, Tara expeditions have built the largest genetic and environmental baseline of marine microorganisms ever assembled.
                     </p>
 
-                    <div class="consortium-bar">
-                        <span class="consortium-label">Scientific Consortium:</span>
-                        <span class="inst-tag">CNRS</span>
-                        <span class="inst-tag">EMBL</span>
-                        <span class="inst-tag">CEA</span>
-                        <span class="inst-tag">Ifremer</span>
-                        <span class="inst-tag">PSL University</span>
+                    <!-- Barre des logos officiels sans fond -->
+                    <div class="consortium-logos-wrap">
+                        <span class="consortium-label">Scientific Consortium Partners</span>
+                        <div class="consortium-logos-row">
+                            <img src="https://thumb.wikimedia.org/wikipedia/fr/thumb/7/72/Logo_Centre_national_de_la_recherche_scientifique_%282023-%29.svg/3840px-Logo_Centre_national_de_la_recherche_scientifique_%282023-%29.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="CNRS" class="partner-logo">
+                            <img src="https://www.embl.org/guidelines/design/wp-content/uploads/2022/02/EMBL_logo_colour_DIGITAL.png" alt="EMBL" class="partner-logo">
+                            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/LOGO_CEA_ORIGINAL_2022.svg/1280px-LOGO_CEA_ORIGINAL_2022.svg.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=thumbnail" alt="CEA" class="partner-logo">
+                            <img src="https://cat.opidor.fr/images/3/30/Ifremer.png" alt="Ifremer" class="partner-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/LOGO-PSL-nov-2017.png?utm_source=fr.wikipedia.org&utm_campaign=index&utm_content=original" alt="Université PSL" class="partner-logo logo-psl">
+                        </div>
                     </div>
 
                     <a href="https://fondationtaraocean.org/en/home/" target="_blank" rel="noopener" class="editorial-link">
@@ -167,37 +169,34 @@
                     </a>
                 </div>
 
-                <!-- Colonne de droite : Matrice de données unifiée (sans bulles ni barres colorées) -->
-                <div class="metrics-matrix-wrapper">
-                    <div class="matrix-header">
-                        <span>GLOBAL EXPEDITION BASELINE</span>
-                        <span>OPEN-SCIENCE METRICS</span>
+                <!-- Colonne de droite : Grappe de bulles d'eau bleu profond de tailles variées -->
+                <div class="ocean-bubbles-cluster">
+                    <!-- Grande bulle 1 -->
+                    <div class="kpi-water-bubble bubble-lg b-pos-1">
+                        <strong class="bubble-val">1,000 <small>m</small></strong>
+                        <span class="bubble-title">Sampling Depth</span>
+                        <p>Surface to mesopelagic waters.</p>
                     </div>
-                    <div class="metrics-matrix">
-                        <div class="matrix-cell">
-                            <span class="matrix-index">01 / VERTICAL PROFILE</span>
-                            <strong class="matrix-val">1,000 <small>m</small></strong>
-                            <span class="matrix-label">Sampling Depth</span>
-                            <p>Continuous water column profiling from surface to mesopelagic twilight zones.</p>
-                        </div>
-                        <div class="matrix-cell">
-                            <span class="matrix-index">02 / SPATIAL COVERAGE</span>
-                            <strong class="matrix-val">&gt; 200</strong>
-                            <span class="matrix-label">Global Stations</span>
-                            <p>Standardized multi-depth sampling sites across all major oceanic basins.</p>
-                        </div>
-                        <div class="matrix-cell">
-                            <span class="matrix-index">03 / GENOMIC CATALOG</span>
-                            <strong class="matrix-val">&times;100</strong>
-                            <span class="matrix-label">Marine DNA Viruses</span>
-                            <p>Order-of-magnitude increase in documented global oceanic viral diversity.</p>
-                        </div>
-                        <div class="matrix-cell">
-                            <span class="matrix-index">04 / TAXONOMY</span>
-                            <strong class="matrix-val">100k+</strong>
-                            <span class="matrix-label">Microalgae Species</span>
-                            <p>Unicellular planktonic protists sequenced and cataloged in open databases.</p>
-                        </div>
+
+                    <!-- Bulle moyenne 2 -->
+                    <div class="kpi-water-bubble bubble-md b-pos-2">
+                        <strong class="bubble-val">&gt; 200</strong>
+                        <span class="bubble-title">Global Stations</span>
+                        <p>Sites across oceanic basins.</p>
+                    </div>
+
+                    <!-- Bulle moyenne 3 -->
+                    <div class="kpi-water-bubble bubble-md b-pos-3">
+                        <strong class="bubble-val">&times;100</strong>
+                        <span class="bubble-title">Marine Viruses</span>
+                        <p>Recorded viral diversity.</p>
+                    </div>
+
+                    <!-- Grande bulle 4 -->
+                    <div class="kpi-water-bubble bubble-xl b-pos-4">
+                        <strong class="bubble-val">100k+</strong>
+                        <span class="bubble-title">Microalgae Species</span>
+                        <p>Unicellular protists discovered.</p>
                     </div>
                 </div>
             </div>

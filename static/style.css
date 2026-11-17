@@ -308,13 +308,13 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   SECTION 01 : STYLE ÉDITORIAL & MATRICE SCIENTIFIQUE (NON-IA / PRO)
+   SECTION 01 : LOGOS DÉTOURÉS & BULLES D'EAU OCÉANIQUES BLEU PROFOND
    ========================================================================== */
 .editorial-intro-layout {
     display: grid;
     grid-template-columns: 1.05fr 1.15fr;
-    gap: 56px;
-    align-items: start;
+    gap: 48px;
+    align-items: center;
 }
 
 @media (max-width: 920px) {
@@ -338,43 +338,55 @@ h1, h2, h3 {
     margin: 0 0 22px;
 }
 
-/* Barre des laboratoires partenaires (CNRS, EMBL...) */
-.consortium-bar {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 14px 0;
-    border-top: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
-    margin-bottom: 20px;
+/* --- LOGOS DU CONSORTIUM SANS FOND --- */
+.consortium-logos-wrap {
+    padding: 18px 0;
+    border-top: 1px solid rgba(13, 39, 66, 0.14);
+    border-bottom: 1px solid rgba(13, 39, 66, 0.14);
+    margin-bottom: 22px;
 }
 
 .consortium-label {
-    font-size: 0.75rem;
+    display: block;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.4px;
     color: var(--text-muted);
-    margin-right: 6px;
+    margin-bottom: 14px;
 }
 
-.inst-tag {
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--navy-900);
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    padding: 3px 10px;
-    border-radius: 4px;
+.consortium-logos-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+.partner-logo {
+    height: 36px;
+    width: auto;
+    max-width: 115px;
+    object-fit: contain;
+    /* Supprime tout fond blanc résiduel et fond le logo directement sur la page */
+    mix-blend-mode: multiply;
+    filter: contrast(1.05);
+    transition: transform 0.25s ease;
+}
+
+.partner-logo.logo-psl {
+    height: 32px;
+}
+
+.partner-logo:hover {
+    transform: scale(1.08);
 }
 
 .editorial-link {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--navy-900);
     text-decoration: none;
@@ -388,94 +400,165 @@ h1, h2, h3 {
     gap: 12px;
 }
 
-/* Matrice de chiffres clés unifiée (Style Rapport Scientifique) */
-.metrics-matrix-wrapper {
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    border-top: 3px solid var(--navy-900); /* Une seule ligne sobre bleu marine en haut */
-    border-radius: 6px;
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-}
-
-.matrix-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 22px;
-    background: var(--sand-100);
-    border-bottom: 1px solid var(--border-light);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 1.4px;
-    color: var(--text-muted);
-}
-
-.metrics-matrix {
+/* --- BULLES D'EAU OCÉANIQUES (BLEU PROFOND & TAILLES VARIÉES) --- */
+.ocean-bubbles-cluster {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+}
+
+/* Petites bulles décoratives d'eau autour */
+.ocean-bubbles-cluster::before,
+.ocean-bubbles-cluster::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(125, 211, 252, 0.55), rgba(13, 39, 66, 0.75));
+    box-shadow: inset 2px 2px 6px rgba(255, 255, 255, 0.45);
+    pointer-events: none;
+}
+
+.ocean-bubbles-cluster::before {
+    width: 26px;
+    height: 26px;
+    top: 4%;
+    left: 48%;
+    animation: floatWaterBubble 4s ease-in-out infinite alternate;
+}
+
+.ocean-bubbles-cluster::after {
+    width: 16px;
+    height: 16px;
+    bottom: 8%;
+    left: 44%;
+    animation: floatWaterBubble 3.2s ease-in-out infinite alternate-reverse;
+}
+
+.kpi-water-bubble {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 22px;
+    color: #ffffff;
+    /* Effet bulle d'eau 3D bleu océan profond */
+    background: radial-gradient(
+        circle at 28% 24%,
+        #1e5288 0%,
+        #0f3156 52%,
+        #07192b 100%
+    );
+    border: 1.5px solid rgba(186, 230, 253, 0.35);
+    box-shadow:
+        inset 0 10px 22px rgba(255, 255, 255, 0.22),
+        inset 0 -12px 24px rgba(3, 9, 20, 0.65),
+        0 14px 28px rgba(7, 25, 43, 0.22);
+    position: relative;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    animation: floatWaterBubble 5s ease-in-out infinite alternate;
+}
+
+/* Reflet lumineux sur le haut gauche de chaque bulle d'eau */
+.kpi-water-bubble::after {
+    content: '';
+    position: absolute;
+    top: 14%;
+    left: 18%;
+    width: 26%;
+    height: 12%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 75%);
+    transform: rotate(-32deg);
+    pointer-events: none;
+}
+
+/* Différentes tailles de bulles */
+.kpi-water-bubble.bubble-xl {
+    width: 235px;
+    height: 235px;
+}
+
+.kpi-water-bubble.bubble-lg {
+    width: 215px;
+    height: 215px;
+}
+
+.kpi-water-bubble.bubble-md {
+    width: 190px;
+    height: 190px;
+}
+
+/* Décalages organiques pour casser la grille rigide */
+.b-pos-1 { transform: translateY(-8px); animation-delay: 0s; }
+.b-pos-2 { transform: translateY(16px); animation-delay: 1.1s; }
+.b-pos-3 { transform: translateY(-12px); animation-delay: 0.6s; }
+.b-pos-4 { transform: translateY(10px); animation-delay: 1.7s; }
+
+@keyframes floatWaterBubble {
+    0% { margin-top: 0px; }
+    100% { margin-top: -10px; }
+}
+
+.kpi-water-bubble:hover {
+    transform: scale(1.05);
+    border-color: rgba(125, 211, 252, 0.7);
+    box-shadow:
+        inset 0 12px 26px rgba(255, 255, 255, 0.3),
+        inset 0 -12px 24px rgba(3, 9, 20, 0.7),
+        0 18px 34px rgba(7, 25, 43, 0.32);
+}
+
+.bubble-val {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.05;
+    margin-bottom: 4px;
+}
+
+.bubble-val small {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #7dd3fc;
+}
+
+.bubble-title {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #7dd3fc;
+    margin-bottom: 5px;
+}
+
+.kpi-water-bubble p {
+    margin: 0;
+    font-size: 0.74rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.35;
+    max-width: 145px;
 }
 
 @media (max-width: 600px) {
-    .metrics-matrix {
+    .ocean-bubbles-cluster {
         grid-template-columns: 1fr;
+    }
+    .b-pos-1, .b-pos-2, .b-pos-3, .b-pos-4 {
+        transform: none;
     }
 }
 
-.matrix-cell {
-    padding: 24px 22px;
-    border-right: 1px solid var(--border-light);
-    border-bottom: 1px solid var(--border-light);
-}
-
-/* Enlève les bordures superflues à droite et en bas */
-.matrix-cell:nth-child(2n) {
-    border-right: none;
-}
-.matrix-cell:nth-child(3),
-.matrix-cell:nth-child(4) {
-    border-bottom: none;
-}
-
-.matrix-index {
-    display: block;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 1.3px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-}
-
-.matrix-val {
-    display: block;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--navy-900);
-    line-height: 1.05;
-    margin-bottom: 6px;
-}
-
-.matrix-val small {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-
-.matrix-label {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--teal-600);
-    margin-bottom: 6px;
-}
-
-.matrix-cell p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
 /* CREW HIGHLIGHT CARD */
 .crew-highlight-card {
     background: #ffffff;
