@@ -1776,28 +1776,96 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   BANDEAU D'OUVERTURE COMPACT ("DECODING THE INVISIBLE OCEAN")
+   CONSOLE DE PASSERELLE / TABLEAU DE BORD DU BATEAU ("DECODING THE OCEAN")
    ========================================================================== */
-.editorial-opening-strip {
-    background: linear-gradient(180deg, #07192b 0%, #0d2742 100%);
+.bridge-console-strip {
+    background:
+        radial-gradient(circle at 80% 20%, rgba(20, 75, 118, 0.35) 0%, transparent 55%),
+        linear-gradient(180deg, #07192b 0%, #0a2138 100%);
     color: #ffffff;
-    padding: 44px 24px 52px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 36px 24px 48px;
+    border-bottom: 1px solid rgba(125, 211, 252, 0.16);
 }
 
-.opening-inner {
+/* Cadre principal façon instrumentation marine */
+.bridge-console-frame {
     max-width: 1200px;
     margin: 0 auto;
+    background: rgba(11, 32, 54, 0.75);
+    border: 1px solid rgba(125, 211, 252, 0.22);
+    border-radius: 10px;
+    box-shadow:
+        0 20px 45px rgba(2, 10, 20, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+}
+
+/* Barre supérieure de télémétrie navale */
+.bridge-hud-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 11px 26px;
+    background: rgba(5, 16, 28, 0.75);
+    border-bottom: 1px solid rgba(125, 211, 252, 0.16);
+    font-family: 'Plus Jakarta Sans', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 1.3px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.hud-status-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.hud-led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 8px #34d399;
+}
+
+.hud-code {
+    font-weight: 700;
+    color: #bae6fd;
+}
+
+.hud-sep {
+    opacity: 0.35;
+}
+
+.hud-telemetry-readout {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hud-telemetry-readout strong {
+    color: #ffffff;
+    font-weight: 700;
+    margin-left: 3px;
+}
+
+/* Grille interne de la console */
+.bridge-main-grid {
+    padding: 34px 32px;
     display: grid;
-    grid-template-columns: 1.25fr 0.95fr;
-    gap: 44px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 38px;
     align-items: center;
 }
 
-@media (max-width: 900px) {
-    .opening-inner {
+@media (max-width: 920px) {
+    .bridge-main-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        padding: 24px 20px;
     }
 }
 
@@ -1805,17 +1873,16 @@ h1, h2, h3 {
     display: block;
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
     color: #7dd3fc;
     margin-bottom: 10px;
 }
 
-/* Titre nettement moins gros que l'ancien hero (2rem à 2.45rem max) */
 .opening-title {
     color: #ffffff;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.3px;
@@ -1823,11 +1890,10 @@ h1, h2, h3 {
 }
 
 .opening-lead {
-    font-size: 0.96rem;
+    font-size: 0.94rem;
     line-height: 1.68;
     color: rgba(255, 255, 255, 0.84);
-    margin: 0 0 22px;
-    max-width: 640px;
+    margin: 0 0 24px;
 }
 
 .opening-actions {
@@ -1860,40 +1926,87 @@ h1, h2, h3 {
     font-weight: 600;
     padding: 10px 18px;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(125, 211, 252, 0.32);
     transition: background 0.2s, border-color 0.2s;
 }
 
 .btn-compact-outline:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(125, 211, 252, 0.12);
+    border-color: #7dd3fc;
 }
 
-/* Encadré de la question scientifique à droite */
-.compact-question-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+/* Écran de droite : Moniteur de question scientifique (Police sobre & droite) */
+.bridge-monitor-card {
+    background: rgba(6, 20, 35, 0.85);
+    border: 1px solid rgba(125, 211, 252, 0.25);
     border-left: 3px solid var(--coral-500, #e05a47);
-    border-radius: 6px;
-    padding: 22px 24px;
-    backdrop-filter: blur(6px);
+    border-radius: 8px;
+    padding: 20px 22px;
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.monitor-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .cq-label {
-    display: block;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 1.6px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #fda4af;
-    margin-bottom: 8px;
+    color: #7dd3fc;
 }
 
-.cq-text {
-    margin: 0;
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.04rem;
-    font-style: italic;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.95);
+/* Police Plus Jakarta Sans sobre, droite et très propre (sans italique ni serif) */
+.cq-text-clean {
+    margin: 0 0 18px;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.62;
+    color: #f8fafc;
+}
+
+/* Petits capteurs en bas du moniteur */
+.monitor-sensors-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.sensor-chip {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 5px;
+    padding: 6px 8px;
+}
+
+.sensor-key {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: rgba(125, 211, 252, 0.8);
+    margin-bottom: 2px;
+}
+
+.sensor-val {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 560px) {
+    .monitor-sensors-footer {
+        grid-template-columns: 1fr;
+    }
 }
