@@ -1776,30 +1776,40 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   CONSOLE DE TIMONERIE EN TECK MARRON, CUIVRE & RELIEF DOUX
+   CONSOLE DE TIMONERIE EN TECK CLAIR (SANS FOND BLEU DERRIÈRE)
    ========================================================================== */
+.editorial-opening-strip,
 .bridge-console-strip {
-    /* Fond océan profond qui laisse un bel espace (85px) sous la photo Welcome Aboard */
-    background: linear-gradient(180deg, #07192b 0%, #0d2742 65%, var(--sand-50, #f4f7f9) 100%);
-    padding: 85px 24px 64px;
+    /* Plus aucun dégradé bleu derrière : repose directement sur le fond de ta page */
+    background: transparent !important;
+    border: none !important;
+    padding: 75px 24px 36px;
 }
 
-/* Coque du tableau de bord en bois de teck / acajou sombre avec relief 3D doux et coins arrondis */
+/* Coque du tableau de bord en bois de teck plus clair et chaleureux */
 .bridge-wood-frame {
     max-width: 1180px;
     margin: 0 auto;
-    background: linear-gradient(145deg, #3b281e 0%, #261811 55%, #1c110c 100%);
-    border: 2px solid #6b4c35;
-    border-radius: 22px;
+    background: linear-gradient(145deg, #7c5438 0%, #613f29 52%, #4a2e1d 100%);
+    border: 2px solid #a67c58;
+    border-radius: 24px;
     box-shadow:
-        0 24px 48px rgba(4, 12, 22, 0.55),
-        inset 0 2px 3px rgba(255, 228, 196, 0.22),
-        inset 0 -4px 10px rgba(0, 0, 0, 0.65);
+        0 20px 42px rgba(13, 39, 66, 0.18),
+        inset 0 2px 4px rgba(255, 238, 215, 0.35),
+        inset 0 -5px 12px rgba(30, 16, 8, 0.55);
     overflow: hidden;
-    color: #f8fafc;
+    color: #fffaf4;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Barre supérieure d'instrumentation (effet laiton / bronze) */
+.bridge-wood-frame.amber-console-mode {
+    border-color: #f59e0b;
+    box-shadow:
+        0 20px 45px rgba(245, 158, 11, 0.22),
+        inset 0 0 30px rgba(245, 158, 11, 0.18);
+}
+
+/* Barre supérieure d'instrumentation (teck moyen & laiton doré) */
 .bridge-hud-topbar {
     display: flex;
     justify-content: space-between;
@@ -1807,11 +1817,11 @@ h1, h2, h3 {
     flex-wrap: wrap;
     gap: 14px;
     padding: 14px 28px;
-    background: linear-gradient(180deg, #21150f 0%, #170e0a 100%);
-    border-bottom: 1px solid rgba(200, 157, 84, 0.32);
+    background: linear-gradient(180deg, #4d3120 0%, #3d2618 100%);
+    border-bottom: 1px solid rgba(234, 182, 118, 0.38);
     font-size: 0.72rem;
     letter-spacing: 1.2px;
-    color: #d4b483;
+    color: #f3d5b5;
 }
 
 .hud-status-group {
@@ -1824,16 +1834,16 @@ h1, h2, h3 {
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background: #f59e0b;
-    box-shadow: 0 0 8px #f59e0b;
+    background: #fbbf24;
+    box-shadow: 0 0 8px #fbbf24;
 }
 
 .hud-code {
     font-weight: 700;
-    color: #f3e5ab;
+    color: #fff3db;
 }
 
-/* Petits boutons physiques de tableau de bord en relief sur lesquels on peut appuyer */
+/* Boutons physiques cliquables en relief */
 .helm-switches-group {
     display: flex;
     gap: 8px;
@@ -1844,50 +1854,50 @@ h1, h2, h3 {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: linear-gradient(180deg, #4a3427 0%, #2e1f17 100%);
-    color: #e6ccb2;
-    border: 1px solid #7c5a3f;
-    border-radius: 8px;
-    padding: 6px 11px;
+    background: linear-gradient(180deg, #8c6244 0%, #68452e 100%);
+    color: #fff5eb;
+    border: 1px solid #b58963;
+    border-radius: 9px;
+    padding: 7px 12px;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.66rem;
+    font-size: 0.67rem;
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
     box-shadow:
-        0 3px 0 #160d08,
-        0 4px 6px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 3px 0 #331f13,
+        0 4px 7px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
     transition: all 0.12s ease;
 }
 
 .helm-push-btn:hover {
-    background: linear-gradient(180deg, #593f30 0%, #38261c 100%);
-    color: #ffffff;
+    background: linear-gradient(180deg, #9e7050 0%, #785036 100%);
+    transform: translateY(-1px);
 }
 
-/* Effet bouton enfoncé quand on clique dessus */
 .helm-push-btn:active,
 .helm-push-btn.active {
     transform: translateY(2px);
+    background: linear-gradient(180deg, #523522 0%, #3d2618 100%);
     box-shadow:
-        0 1px 0 #160d08,
-        inset 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-color: #c89d54;
-    color: #fffbeb;
+        0 1px 0 #26160d,
+        inset 0 2px 5px rgba(0, 0, 0, 0.55);
+    border-color: #fbbf24;
+    color: #fef3c7;
 }
 
 .helm-push-btn .btn-led {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    background: #574335;
+    background: rgba(255, 255, 255, 0.25);
     transition: background 0.2s, box-shadow 0.2s;
 }
 
 .helm-push-btn.active .btn-led {
     background: #34d399;
-    box-shadow: 0 0 6px #34d399;
+    box-shadow: 0 0 8px #34d399;
 }
 
 .hud-telemetry-readout {
@@ -1924,7 +1934,7 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 1.8px;
     text-transform: uppercase;
-    color: #eab676;
+    color: #fde68a;
     margin-bottom: 10px;
 }
 
@@ -1941,7 +1951,7 @@ h1, h2, h3 {
 .opening-lead {
     font-size: 0.94rem;
     line-height: 1.68;
-    color: rgba(255, 248, 240, 0.86);
+    color: rgba(255, 250, 244, 0.92);
     margin: 0 0 24px;
 }
 
@@ -1959,51 +1969,50 @@ h1, h2, h3 {
     font-weight: 600;
     padding: 11px 18px;
     border-radius: 10px;
-    box-shadow: 0 3px 0 #7c2317, 0 5px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 0 #7c2317, 0 5px 12px rgba(0, 0, 0, 0.25);
     transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .btn-compact-primary:hover {
     transform: translateY(1px);
-    box-shadow: 0 2px 0 #7c2317, 0 3px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 0 #7c2317;
 }
 
 .btn-compact-outline {
-    background: rgba(255, 255, 255, 0.06);
-    color: #f3e5ab;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fffbeb;
     text-decoration: none;
     font-size: 0.84rem;
     font-weight: 600;
     padding: 11px 18px;
     border-radius: 10px;
-    border: 1px solid rgba(200, 157, 84, 0.45);
+    border: 1px solid rgba(253, 230, 138, 0.55);
     transition: background 0.2s, border-color 0.2s;
 }
 
 .btn-compact-outline:hover {
-    background: rgba(200, 157, 84, 0.16);
-    border-color: #eab676;
+    background: rgba(253, 230, 138, 0.22);
+    border-color: #fde68a;
 }
 
-/* Cadran encastré à droite avec la boussole et la question */
+/* Cadran encastré à droite (fond brun chaud plus doux) */
 .bridge-monitor-card {
-    background: linear-gradient(145deg, #1b120c 0%, #120b07 100%);
-    border: 1.5px solid #85603f;
+    background: linear-gradient(145deg, #432b1c 0%, #332014 100%);
+    border: 1.5px solid #b58963;
     border-radius: 16px;
     padding: 24px;
     box-shadow:
-        inset 0 4px 14px rgba(0, 0, 0, 0.75),
-        0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: background 0.3s, border-color 0.3s;
+        inset 0 3px 10px rgba(0, 0, 0, 0.55),
+        0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
 }
 
-/* Mode lampe ambrée quand on clique sur le bouton AMBER LAMP */
 .bridge-monitor-card.amber-glow {
-    background: linear-gradient(145deg, #2b180a 0%, #1a0e05 100%);
-    border-color: #f59e0b;
+    background: linear-gradient(145deg, #5c3513 0%, #3d220a 100%);
+    border-color: #fbbf24;
     box-shadow:
-        inset 0 0 25px rgba(245, 158, 11, 0.18),
-        0 0 18px rgba(245, 158, 11, 0.15);
+        inset 0 0 28px rgba(251, 191, 36, 0.28),
+        0 0 18px rgba(251, 191, 36, 0.22);
 }
 
 .monitor-compass-layout {
@@ -2019,7 +2028,7 @@ h1, h2, h3 {
     }
 }
 
-/* Boussole de marine bien visible à gauche de la question */
+/* Boussole de marine en pur CSS (100% compatible et fluide au clic) */
 .nautical-compass-box {
     flex-shrink: 0;
     display: flex;
@@ -2029,23 +2038,84 @@ h1, h2, h3 {
     user-select: none;
 }
 
-.nautical-compass-svg {
-    width: 96px;
-    height: 96px;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
-    transition: transform 0.25s ease;
+.compass-dial {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2e1d12 0%, #1c110a 100%);
+    border: 3px solid #d4a359;
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.45),
+        inset 0 0 10px rgba(212, 163, 89, 0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.nautical-compass-box:hover .nautical-compass-svg {
+.nautical-compass-box:hover .compass-dial {
     transform: scale(1.06);
+    border-color: #fbbf24;
+}
+
+.c-dir {
+    position: absolute;
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #e6ccb2;
+}
+.c-n { top: 6px; left: 50%; transform: translateX(-50%); color: #e05a47; }
+.c-s { bottom: 6px; left: 50%; transform: translateX(-50%); }
+.c-e { right: 8px; top: 50%; transform: translateY(-50%); }
+.c-w { left: 8px; top: 50%; transform: translateY(-50%); }
+
+/* Aiguille qui tourne quand on clique */
+.compass-needle-wrap {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.needle-north {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 30px solid #e05a47;
+}
+
+.needle-south {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 30px solid #f1f5f9;
+}
+
+.needle-pivot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fbbf24;
+    border: 2px solid #2e1d12;
 }
 
 .compass-caption {
     font-size: 0.58rem;
     font-weight: 700;
-    letter-spacing: 1.2px;
-    color: #c89d54;
-    margin-top: 6px;
+    letter-spacing: 1px;
+    color: #fde68a;
+    margin-top: 7px;
 }
 
 .cq-label {
@@ -2054,16 +2124,15 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #eab676;
+    color: #fde68a;
     margin-bottom: 8px;
 }
 
 .cq-text-clean {
     margin: 0;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.96rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    font-style: normal;
     line-height: 1.62;
-    color: #f8fafc;
+    color: #ffffff;
 }
