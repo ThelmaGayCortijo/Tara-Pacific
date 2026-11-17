@@ -1774,3 +1774,126 @@ h1, h2, h3 {
     margin: 0;
     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
+
+/* ==========================================================================
+   BANDEAU D'OUVERTURE COMPACT ("DECODING THE INVISIBLE OCEAN")
+   ========================================================================== */
+.editorial-opening-strip {
+    background: linear-gradient(180deg, #07192b 0%, #0d2742 100%);
+    color: #ffffff;
+    padding: 44px 24px 52px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.opening-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 44px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .opening-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+.opening-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7dd3fc;
+    margin-bottom: 10px;
+}
+
+/* Titre nettement moins gros que l'ancien hero (2rem à 2.45rem max) */
+.opening-title {
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin: 0 0 14px;
+}
+
+.opening-lead {
+    font-size: 0.96rem;
+    line-height: 1.68;
+    color: rgba(255, 255, 255, 0.84);
+    margin: 0 0 22px;
+    max-width: 640px;
+}
+
+.opening-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-compact-primary {
+    background: var(--coral-500, #e05a47);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.btn-compact-primary:hover {
+    background: #c94633;
+    transform: translateY(-1px);
+}
+
+.btn-compact-outline {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-compact-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Encadré de la question scientifique à droite */
+.compact-question-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-left: 3px solid var(--coral-500, #e05a47);
+    border-radius: 6px;
+    padding: 22px 24px;
+    backdrop-filter: blur(6px);
+}
+
+.cq-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #fda4af;
+    margin-bottom: 8px;
+}
+
+.cq-text {
+    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.04rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+}
