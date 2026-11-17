@@ -1776,74 +1776,123 @@ h1, h2, h3 {
 }
 
 /* ==========================================================================
-   CONSOLE DE PASSERELLE / TABLEAU DE BORD DU BATEAU ("DECODING THE OCEAN")
+   CONSOLE DE TIMONERIE EN TECK MARRON, CUIVRE & RELIEF DOUX
    ========================================================================== */
 .bridge-console-strip {
-    background:
-        radial-gradient(circle at 80% 20%, rgba(20, 75, 118, 0.35) 0%, transparent 55%),
-        linear-gradient(180deg, #07192b 0%, #0a2138 100%);
-    color: #ffffff;
-    padding: 36px 24px 48px;
-    border-bottom: 1px solid rgba(125, 211, 252, 0.16);
+    /* Fond océan profond qui laisse un bel espace (85px) sous la photo Welcome Aboard */
+    background: linear-gradient(180deg, #07192b 0%, #0d2742 65%, var(--sand-50, #f4f7f9) 100%);
+    padding: 85px 24px 64px;
 }
 
-/* Cadre principal façon instrumentation marine */
-.bridge-console-frame {
-    max-width: 1200px;
+/* Coque du tableau de bord en bois de teck / acajou sombre avec relief 3D doux et coins arrondis */
+.bridge-wood-frame {
+    max-width: 1180px;
     margin: 0 auto;
-    background: rgba(11, 32, 54, 0.75);
-    border: 1px solid rgba(125, 211, 252, 0.22);
-    border-radius: 10px;
+    background: linear-gradient(145deg, #3b281e 0%, #261811 55%, #1c110c 100%);
+    border: 2px solid #6b4c35;
+    border-radius: 22px;
     box-shadow:
-        0 20px 45px rgba(2, 10, 20, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 24px 48px rgba(4, 12, 22, 0.55),
+        inset 0 2px 3px rgba(255, 228, 196, 0.22),
+        inset 0 -4px 10px rgba(0, 0, 0, 0.65);
     overflow: hidden;
-    backdrop-filter: blur(8px);
+    color: #f8fafc;
 }
 
-/* Barre supérieure de télémétrie navale */
+/* Barre supérieure d'instrumentation (effet laiton / bronze) */
 .bridge-hud-topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 11px 26px;
-    background: rgba(5, 16, 28, 0.75);
-    border-bottom: 1px solid rgba(125, 211, 252, 0.16);
-    font-family: 'Plus Jakarta Sans', monospace;
+    gap: 14px;
+    padding: 14px 28px;
+    background: linear-gradient(180deg, #21150f 0%, #170e0a 100%);
+    border-bottom: 1px solid rgba(200, 157, 84, 0.32);
     font-size: 0.72rem;
-    letter-spacing: 1.3px;
-    color: rgba(255, 255, 255, 0.72);
+    letter-spacing: 1.2px;
+    color: #d4b483;
 }
 
 .hud-status-group {
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .hud-led {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 8px #34d399;
+    background: #f59e0b;
+    box-shadow: 0 0 8px #f59e0b;
 }
 
 .hud-code {
     font-weight: 700;
-    color: #bae6fd;
+    color: #f3e5ab;
 }
 
-.hud-sep {
-    opacity: 0.35;
+/* Petits boutons physiques de tableau de bord en relief sur lesquels on peut appuyer */
+.helm-switches-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.helm-push-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(180deg, #4a3427 0%, #2e1f17 100%);
+    color: #e6ccb2;
+    border: 1px solid #7c5a3f;
+    border-radius: 8px;
+    padding: 6px 11px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow:
+        0 3px 0 #160d08,
+        0 4px 6px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.12s ease;
+}
+
+.helm-push-btn:hover {
+    background: linear-gradient(180deg, #593f30 0%, #38261c 100%);
+    color: #ffffff;
+}
+
+/* Effet bouton enfoncé quand on clique dessus */
+.helm-push-btn:active,
+.helm-push-btn.active {
+    transform: translateY(2px);
+    box-shadow:
+        0 1px 0 #160d08,
+        inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-color: #c89d54;
+    color: #fffbeb;
+}
+
+.helm-push-btn .btn-led {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #574335;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.helm-push-btn.active .btn-led {
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
 }
 
 .hud-telemetry-readout {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
@@ -1853,19 +1902,19 @@ h1, h2, h3 {
     margin-left: 3px;
 }
 
-/* Grille interne de la console */
+/* Grille interne du tableau de bord */
 .bridge-main-grid {
-    padding: 34px 32px;
+    padding: 36px 34px;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 38px;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 36px;
     align-items: center;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 940px) {
     .bridge-main-grid {
         grid-template-columns: 1fr;
-        padding: 24px 20px;
+        padding: 26px 22px;
     }
 }
 
@@ -1875,16 +1924,16 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 1.8px;
     text-transform: uppercase;
-    color: #7dd3fc;
+    color: #eab676;
     margin-bottom: 10px;
 }
 
 .opening-title {
     color: #ffffff;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: clamp(1.7rem, 2.6vw, 2.3rem);
+    font-size: clamp(1.7rem, 2.5vw, 2.25rem);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.22;
     letter-spacing: -0.3px;
     margin: 0 0 14px;
 }
@@ -1892,7 +1941,7 @@ h1, h2, h3 {
 .opening-lead {
     font-size: 0.94rem;
     line-height: 1.68;
-    color: rgba(255, 255, 255, 0.84);
+    color: rgba(255, 248, 240, 0.86);
     margin: 0 0 24px;
 }
 
@@ -1903,110 +1952,118 @@ h1, h2, h3 {
 }
 
 .btn-compact-primary {
-    background: var(--coral-500, #e05a47);
+    background: linear-gradient(180deg, #e05a47 0%, #c84331 100%);
     color: #ffffff;
     text-decoration: none;
     font-size: 0.84rem;
     font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 6px;
-    transition: background 0.2s, transform 0.2s;
+    padding: 11px 18px;
+    border-radius: 10px;
+    box-shadow: 0 3px 0 #7c2317, 0 5px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .btn-compact-primary:hover {
-    background: #c94633;
-    transform: translateY(-1px);
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #7c2317, 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-compact-outline {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.06);
+    color: #f3e5ab;
     text-decoration: none;
     font-size: 0.84rem;
     font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 6px;
-    border: 1px solid rgba(125, 211, 252, 0.32);
+    padding: 11px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(200, 157, 84, 0.45);
     transition: background 0.2s, border-color 0.2s;
 }
 
 .btn-compact-outline:hover {
-    background: rgba(125, 211, 252, 0.12);
-    border-color: #7dd3fc;
+    background: rgba(200, 157, 84, 0.16);
+    border-color: #eab676;
 }
 
-/* Écran de droite : Moniteur de question scientifique (Police sobre & droite) */
+/* Cadran encastré à droite avec la boussole et la question */
 .bridge-monitor-card {
-    background: rgba(6, 20, 35, 0.85);
-    border: 1px solid rgba(125, 211, 252, 0.25);
-    border-left: 3px solid var(--coral-500, #e05a47);
-    border-radius: 8px;
-    padding: 20px 22px;
-    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(145deg, #1b120c 0%, #120b07 100%);
+    border: 1.5px solid #85603f;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow:
+        inset 0 4px 14px rgba(0, 0, 0, 0.75),
+        0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: background 0.3s, border-color 0.3s;
 }
 
-.monitor-top-bar {
+/* Mode lampe ambrée quand on clique sur le bouton AMBER LAMP */
+.bridge-monitor-card.amber-glow {
+    background: linear-gradient(145deg, #2b180a 0%, #1a0e05 100%);
+    border-color: #f59e0b;
+    box-shadow:
+        inset 0 0 25px rgba(245, 158, 11, 0.18),
+        0 0 18px rgba(245, 158, 11, 0.15);
+}
+
+.monitor-compass-layout {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    gap: 22px;
+}
+
+@media (max-width: 580px) {
+    .monitor-compass-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Boussole de marine bien visible à gauche de la question */
+.nautical-compass-box {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nautical-compass-svg {
+    width: 96px;
+    height: 96px;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
+    transition: transform 0.25s ease;
+}
+
+.nautical-compass-box:hover .nautical-compass-svg {
+    transform: scale(1.06);
+}
+
+.compass-caption {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #c89d54;
+    margin-top: 6px;
 }
 
 .cq-label {
+    display: block;
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #7dd3fc;
+    color: #eab676;
+    margin-bottom: 8px;
 }
 
-/* Police Plus Jakarta Sans sobre, droite et très propre (sans italique ni serif) */
 .cq-text-clean {
-    margin: 0 0 18px;
+    margin: 0;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 0.98rem;
+    font-size: 0.96rem;
     font-weight: 500;
     font-style: normal;
     line-height: 1.62;
     color: #f8fafc;
-}
-
-/* Petits capteurs en bas du moniteur */
-.monitor-sensors-footer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.09);
-}
-
-.sensor-chip {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 5px;
-    padding: 6px 8px;
-}
-
-.sensor-key {
-    display: block;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    color: rgba(125, 211, 252, 0.8);
-    margin-bottom: 2px;
-}
-
-.sensor-val {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.92);
-}
-
-@media (max-width: 560px) {
-    .monitor-sensors-footer {
-        grid-template-columns: 1fr;
-    }
 }
