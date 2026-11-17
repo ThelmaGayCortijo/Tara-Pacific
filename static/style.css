@@ -3,6 +3,7 @@
     --navy-800: #0d2742;
     --teal-600: #143a8d;
     --teal-500: #16a085;
+    --cyan-600: #008891;
     --coral-500: #e05a47;
     --sand-50: #a8c3dd;
     --sand-100: #f1f5f9;
@@ -257,7 +258,7 @@ h1, h2, h3 {
 }
 
 .section-header {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .section-tag {
@@ -277,7 +278,7 @@ h1, h2, h3 {
 
 .section-sub {
     color: var(--text-muted);
-    max-width: 780px;
+    max-width: 820px;
     margin: 0;
 }
 
@@ -661,7 +662,46 @@ h1, h2, h3 {
     box-shadow: var(--shadow-soft);
 }
 
-/* MAP & TELEMETRY DASHBOARD */
+/* PARAMETER EXPLAINER GRID AT TOP OF SECTION 4 */
+.param-explainer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.explainer-item {
+    background: var(--sand-100);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.explainer-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.explainer-item h4 {
+    margin: 0 0 4px;
+    font-size: 0.95rem;
+    color: var(--navy-900);
+}
+
+.explainer-item p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.48;
+}
+
+/* SECTION 4: MAP + GAUGE UNDER MAP (LEFT) & COMPACT METRICS + ZONES BESIDE (RIGHT) */
 .map-control-bar {
     display: flex;
     justify-content: space-between;
@@ -682,120 +722,270 @@ h1, h2, h3 {
 
 .map-dashboard-grid {
     display: grid;
-    grid-template-columns: 1.6fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
     gap: 24px;
+    align-items: start;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
     .map-dashboard-grid {
         grid-template-columns: 1fr;
     }
 }
 
+.map-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.map-wrapper {
+    position: relative;
+}
+
 #map {
     width: 100%;
-    height: 490px;
+    height: 440px;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
 }
 
+/* ON-MAP CHLOROPHYLL LEGEND */
+.map-legend-overlay {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 800;
+    background: rgba(7, 25, 43, 0.92);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 12px 15px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    font-size: 0.76rem;
+}
+
+.map-legend-title {
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #5eead4;
+    margin-bottom: 7px;
+    display: block;
+}
+
+.map-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.map-legend-item:last-child {
+    margin-bottom: 0;
+}
+
+.legend-circle {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    flex-shrink: 0;
+}
+
+/* CHLOROPHYLL GAUGE DIRECTLY UNDER THE MAP */
+.gauge-under-map-card {
+    background: var(--navy-900);
+    color: #ffffff;
+    padding: 22px 26px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gauge-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.gauge-title-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #5eead4;
+}
+
+.gauge-top strong {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Visible Correlated Color Bar (Red #e05a47 -> Teal-Blue #008891 -> Emerald Green #16a085) */
+.gauge-track {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(90deg, #e05a47 0%, #e05a47 28%, #008891 32%, #008891 64%, #16a085 68%, #10b981 100%);
+    border-radius: 999px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45);
+    margin: 14px 0 10px;
+}
+
+.gauge-fill {
+    display: none;
+}
+
+.gauge-pointer {
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 4px solid var(--navy-900);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+    transition: left 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
+}
+
+.gauge-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.trophic-diagnosis {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 0.86rem;
+    color: #f1f5f9;
+}
+
+/* RIGHT SIDEBAR: COMPACT TELEMETRY + 3 TROPHIC ZONES EXPLANATIONS */
 .telemetry-card {
     background: var(--navy-900);
     color: #ffffff;
-    padding: 26px;
+    padding: 22px 24px;
     border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 16px;
 }
 
 .telemetry-badge {
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
+    font-size: 0.7rem;
+    letter-spacing: 1.4px;
     color: #5eead4;
     font-weight: 700;
 }
 
 .telemetry-header h3 {
     color: #ffffff;
-    margin: 6px 0 4px;
-    font-size: 1.4rem;
+    margin: 4px 0 2px;
+    font-size: 1.25rem;
 }
 
 .st-sub {
     margin: 0;
-    font-size: 0.83rem;
+    font-size: 0.78rem;
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Petites boxes encadrées pour chaque catégorie (SST, Salinity, Filtration Depth) */
+.telemetry-metrics-compact,
 .telemetry-metrics {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0;
 }
 
+.metric-box-sm,
 .metric-box {
-    background: rgba(255, 255, 255, 0.07);
-    padding: 12px 14px;
-    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.metric-label {
-    display: block;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.7);
+.metric-box-sm .metric-label,
+.metric-box .metric-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
 }
 
-.metric-value {
-    font-size: 1.2rem;
+.metric-box-sm .metric-value,
+.metric-box .metric-value {
+    font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
 }
 
-.gauge-panel {
-    background: rgba(255, 255, 255, 0.06);
-    padding: 16px;
+/* 3 Trophic Regime Explanations Stack inside Right Column */
+.trophic-zones-side-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trophic-side-heading {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin: 2px 0 0;
+}
+
+.zone-explain-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #64748b;
     border-radius: var(--radius-md);
+    padding: 11px 14px;
+    transition: all 0.25s ease;
 }
 
-.gauge-top {
-    display: flex;
-    justify-content: space-between;
+.zone-explain-card.zone-oligo { border-left-color: #e05a47; }
+.zone-explain-card.zone-meso { border-left-color: #008891; }
+.zone-explain-card.zone-eutro { border-left-color: #16a085; }
+
+.zone-explain-card.active-zone {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateX(3px);
+}
+
+.zone-explain-card h4 {
+    margin: 0 0 4px;
     font-size: 0.88rem;
-    margin-bottom: 8px;
-}
-
-.gauge-track {
-    width: 100%;
-    height: 16px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 999px;
-    overflow: hidden;
-}
-
-.gauge-fill {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, #38bdf8, #16a085);
-    transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.gauge-scale {
+    color: #ffffff;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.65);
-    margin-top: 6px;
 }
 
-.trophic-diagnosis {
-    margin-top: 12px;
-    font-size: 0.82rem;
+.zone-explain-card p {
+    margin: 0;
+    font-size: 0.77rem;
+    color: rgba(255, 255, 255, 0.82);
     line-height: 1.45;
-    color: #e2e8f0;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-top: 10px;
 }
 
 /* EXPEDITION REPORT CARD */
@@ -924,47 +1114,35 @@ h1, h2, h3 {
     color: var(--coral-500);
 }
 
-/* FORM, EXPLAINER GRID & CHART ANALYZER */
-.param-explainer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
-}
-
-.explainer-item {
-    background: var(--sand-50);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    padding: 16px;
+/* SECTION 6: BIOPHYSICAL CORRELATION ANALYZER (X vs Y) */
+.scenario-presets {
     display: flex;
-    gap: 12px;
-    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-.explainer-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 5px;
-}
-
-.explainer-item h4 {
-    margin: 0 0 6px;
-    font-size: 0.95rem;
+.preset-btn {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
     color: var(--navy-900);
+    padding: 9px 15px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-.explainer-item p {
-    margin: 0;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    line-height: 1.5;
+.preset-btn:hover,
+.preset-btn.active-preset {
+    background: var(--navy-900);
+    color: #ffffff;
+    border-color: var(--navy-900);
 }
 
 .analyzer-card {
-    background: var(--sand-50);
+    background: var(--sand-100);
     padding: 28px;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
@@ -1019,10 +1197,10 @@ h1, h2, h3 {
 
 .chart-box {
     position: relative;
-    height: 340px;
+    height: 380px;
     width: 100%;
     background: #ffffff;
-    padding: 16px;
+    padding: 18px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-light);
 }
@@ -1033,7 +1211,7 @@ h1, h2, h3 {
     border: 1px solid var(--border-light);
     border-left: 5px solid var(--navy-900);
     border-radius: var(--radius-md);
-    padding: 20px 24px;
+    padding: 22px 26px;
     box-shadow: var(--shadow-soft);
 }
 
@@ -1050,23 +1228,54 @@ h1, h2, h3 {
 .interp-header h4 {
     margin: 0 0 10px;
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
+    font-size: 1.28rem;
     color: var(--navy-900);
 }
 
 #interp-body {
-    margin: 0 0 12px;
-    font-size: 0.92rem;
+    margin: 0 0 14px;
+    font-size: 0.93rem;
     color: var(--text-main);
+    line-height: 1.65;
 }
 
 .interp-takeaway {
     background: var(--sand-100);
-    padding: 10px 14px;
+    padding: 12px 16px;
     border-radius: 6px;
-    font-size: 0.85rem;
+    font-size: 0.86rem;
     font-weight: 600;
     color: var(--navy-800);
+}
+
+/* 4 SCENARIOS SUMMARY GRID BELOW GRAPH */
+.scenarios-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.scenario-summary-card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-top: 4px solid var(--teal-600);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-soft);
+}
+
+.scenario-summary-card h5 {
+    margin: 0 0 6px;
+    font-size: 0.92rem;
+    color: var(--navy-900);
+}
+
+.scenario-summary-card p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
 
 /* MODALS */

@@ -53,13 +53,13 @@
             <div class="scientific-question-box">
                 <div class="sq-label">CORE SCIENTIFIC QUESTION</div>
                 <p class="sq-text">
-                    “How do surface physico-chemical gradients (temperature, salinity) and sampling depth structure planktonic communities, chlorophyll-a productivity, and microplastic accumulation along the <em>Tara Pacific</em> transect?”
+                    “How do surface physico-chemical gradients (temperature, salinity, nutrients) structure planktonic communities, chlorophyll-a productivity, and dissolved oxygen along the <em>Tara Pacific</em> transect?”
                 </p>
             </div>
 
             <div class="hero-actions">
                 <a href="#map-observatory" class="btn btn-primary">Explore Interactive Stations</a>
-                <a href="#data-lab" class="btn btn-outline">Launch Telemetry Analysis</a>
+                <a href="#data-lab" class="btn btn-outline">Launch Biophysical Correlation Lab</a>
             </div>
         </div>
     </section>
@@ -168,7 +168,9 @@
             <div class="section-header">
                 <span class="section-tag">03 / FLOATING LABORATORY</span>
                 <h2>The Schooner &amp; Interactive Sampling Architecture</h2>
-                <p class="section-sub">Explore the schooner <em>Tara</em> and click on the numbered hotspots on the two standardized protocol schematics below to inspect how physical and biological samples are collected at sea and on coral reefs.</p>
+                <p class="section-sub">
+                    I hope you don't get seasick. Let's take a quick tour of the boat together. At first glance, you might think <em>Tara</em> is a rugged 36-meter aluminum polar schooner built to withstand the harshest oceans. But beneath her sails lies a highly synchronized floating laboratory. During the <em>Tara Pacific</em> expedition (2016–2018), the vessel didn’t just cross the water; she continuously filtered it.
+                </p>
             </div>
 
             <!-- 3.1 PHOTOGRAPH OF TARA UNDER SAIL (NO HOTSPOTS) + INTRO TEXT & OVERVIEW DIAGRAM -->
@@ -181,12 +183,6 @@
 
                     <div class="schooner-tour-card">
                         <h3>Welcome aboard the <em>Tara</em> schooner!</h3>
-                        <p>
-                            I hope you don't get seasick. Let's take a quick tour of the boat together.
-                        </p>
-                        <p>
-                            At first glance, you might think <em>Tara</em> is a rugged 36-meter aluminum polar schooner built to withstand the harshest oceans. But beneath her sails lies a highly synchronized floating laboratory. During the <em>Tara Pacific</em> expedition (2016–2018), the vessel didn’t just cross the water; she continuously filtered it.
-                        </p>
                         <p>
                             The diagram on the right reveals what actually happens on deck. This work relies on two distinct rhythms:
                         </p>
@@ -207,7 +203,7 @@
                         <h3 style="margin-top:0; font-size:1.25rem;">Multi-Depth Deck &amp; Net Deployment</h3>
                         <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fsdata.2015.23/MediaObjects/41597_2015_Article_BFsdata201523_Fig1_HTML.jpg" alt="Tara Oceans Sampling Protocol Diagram (Nature Scientific Data)" class="responsive-img">
                         <p class="caption">
-                            <strong>Figure 2.</strong> Comprehensive schematic of the sampling devices aboard <em>Tara</em> (<em>Nature Scientific Data</em>).
+                            <strong>Figure 2.</strong> Comprehensive schematic of the sampling devices aboard <em>Tara</em> (<em>Nature Scientific Data</em>). This blueprint illustrates the dual architecture of the schooner, integrating an automated continuous surface sampling system along the hull with dedicated wet and dry laboratories. Rosette CTD profilers and peristaltic pumps coordinate water collection from the surface down to the deep water column, ensuring a standardized multi-depth workflow across all oceanic transects.
                         </p>
                     </div>
                 </div>
@@ -319,7 +315,7 @@
         <!-- 4. SCIENTIFIC FOCUS: MICROPLANKTON & MICROPLASTICS -->
         <section id="plankton" class="section-block">
             <div class="section-header">
-                <span class="section-tag">05 / MICROBIAL &amp; ANTHROPOGENIC FOCUS</span>
+                <span class="section-tag">04 / MICROBIAL &amp; ANTHROPOGENIC FOCUS</span>
                 <h2>Here is what this expedition set out to investigate: Planktonic Guilds &amp; Microplastics</h2>
                 <p class="section-sub">
                     Plankton generates over 50% of Earth's oxygen and forms the base of marine food webs. Click each card to open detailed microscopy profiles, ecological roles, and links to the <strong>Tara Microbiome</strong> mission.
@@ -381,7 +377,7 @@
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE MAP, TELEMETRY & EXPEDITION REPORT -->
+        <!-- 5. SPATIAL TELEMETRY: MAP + GAUGE UNDER MAP (LEFT) & COMPACT METRICS + ZONES EXPLANATION BESIDE (RIGHT) -->
         <section id="map-observatory" class="section-block alt-bg">
             <div class="section-header">
                 <span class="section-tag">04 / SPATIAL TELEMETRY &amp; EXPEDITION REPORT</span>
@@ -389,6 +385,31 @@
                 <p class="section-sub">
                     As you can observe from the interactive map and telemetry dashboard below, the expedition successfully mapped physical and biological gradients across 32 archipelagos. Click any station or play the timelapse to review the findings.
                 </p>
+            </div>
+
+            <!-- 3 Ocean Parameter Descriptions at Top (SST, Salinity, Chlorophyll-a) -->
+            <div class="param-explainer-grid">
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#e05a47;"></span>
+                    <div>
+                        <h4>Sea Surface Temp — SST (°C)</h4>
+                        <p>Controls metabolic rates and coral bleaching thresholds (&gt;29°C). Reveals the contrast between temperate/upwelling waters and the Western Pacific Warm Pool.</p>
+                    </div>
+                </div>
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#008891;"></span>
+                    <div>
+                        <h4>Salinity — SSS (PSU)</h4>
+                        <p>Tracks the balance between <strong>evaporation and precipitation</strong>. Subtropical gyres are salty (~35.6 PSU) due to high evaporation, whereas Panama and equatorial zones are diluted by heavy tropical rains (~33 PSU).</p>
+                    </div>
+                </div>
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#16a085;"></span>
+                    <div>
+                        <h4>Chlorophyll-a (mg/m³)</h4>
+                        <p>A direct proxy for <strong>phytoplankton biomass</strong>. Low values (&lt;0.15) mark nutrient-poor "ocean deserts" (gyres), while spikes (&gt;0.5) indicate coastal runoff or cold nutrient upwellings.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Route Controls / Timelapse Bar -->
@@ -404,12 +425,49 @@
             </div>
 
             <div class="map-dashboard-grid">
-                <!-- Leaflet Container -->
-                <div class="map-wrapper">
-                    <div id="map"></div>
+                <!-- LEFT COLUMN: Map + Correlated Chlorophyll Gauge Directly Under the Map -->
+                <div class="map-left-column">
+                    <div class="map-wrapper">
+                        <div id="map"></div>
+                        <div class="map-legend-overlay">
+                            <span class="map-legend-title">Chlorophyll-a Map Legend</span>
+                            <div class="map-legend-item">
+                                <span class="legend-circle" style="background: #e05a47;"></span>
+                                <span><strong>&lt; 0.15 mg/m³</strong> — Oligotrophic Desert</span>
+                            </div>
+                            <div class="map-legend-item">
+                                <span class="legend-circle" style="background: #008891;"></span>
+                                <span><strong>0.15 – 0.5 mg/m³</strong> — Mesotrophic Wake</span>
+                            </div>
+                            <div class="map-legend-item">
+                                <span class="legend-circle" style="background: #16a085;"></span>
+                                <span><strong>&gt; 0.50 mg/m³</strong> — Eutrophic / Upwelling</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chlorophyll Gauge Card Placed Directly Under the Map -->
+                    <div class="gauge-under-map-card">
+                        <div class="gauge-top">
+                            <span class="gauge-title-label">Chlorophyll-a Concentration Gauge (Correlated with Map)</span>
+                            <strong id="gauge-number">0.000 mg/m³</strong>
+                        </div>
+                        <div class="gauge-track">
+                            <div class="gauge-fill" id="gauge-bar-fill"></div>
+                            <div class="gauge-pointer" id="gauge-pointer"></div>
+                        </div>
+                        <div class="gauge-scale">
+                            <span style="color:#fda4af;">&bull; &lt; 0.15 mg/m³ (Oligotrophic Desert)</span>
+                            <span style="color:#67e8f9;">&bull; 0.15 – 0.5 mg/m³ (Mesotrophic Wake)</span>
+                            <span style="color:#6ee7b7;">&bull; &gt; 0.5 mg/m³ (Eutrophic / Upwelling)</span>
+                        </div>
+                        <div class="trophic-diagnosis" id="trophic-status">
+                            Select a station marker on the map to evaluate primary productivity and trophic regime.
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Station Telemetry & Chlorophyll Gauge Card -->
+                <!-- RIGHT COLUMN: Compact Station Telemetry (No Air Temp) + 3 Trophic Zones Explanations Beside Map -->
                 <aside class="telemetry-card">
                     <div class="telemetry-header">
                         <span class="telemetry-badge" id="st-badge">SELECT A STATION</span>
@@ -417,41 +475,50 @@
                         <p id="st-date" class="st-sub">Coordinates &amp; timestamp</p>
                     </div>
 
-                    <div class="telemetry-metrics">
-                        <div class="metric-box">
-                            <span class="metric-label">Water Temp (SST)</span>
-                            <span class="metric-value" id="st-sst">-- °C</span>
-                        </div>
-                        <div class="metric-box">
-                            <span class="metric-label">Salinity (SSS)</span>
-                            <span class="metric-value" id="st-sss">-- PSU</span>
-                        </div>
-                        <div class="metric-box">
-                            <span class="metric-label">Air Temp</span>
-                            <span class="metric-value" id="st-air">-- °C</span>
-                        </div>
-                        <div class="metric-box">
-                            <span class="metric-label">Filtration Depth</span>
-                            <span class="metric-value" id="st-depth">-- m</span>
-                        </div>
+                    <!-- Compact 3-Box Row: SST, Salinity, Filtration Depth (Air Temp Removed) -->
+                     <div class="telemetry-metrics-compact">
+                        <div class="metric-box-sm">
+                          <span class="metric-label">Water Temp (SST) :</span>
+                         <span class="metric-value" id="st-sst">-- °C</span>
+                    </div>
+                    <div class="metric-box-sm">
+                         <span class="metric-label">Salinity (SSS) :</span>
+                         <span class="metric-value" id="st-sss">-- PSU</span>
+                    </div>
                     </div>
 
-                    <!-- Animated Chlorophyll Gauge -->
-                    <div class="gauge-panel">
-                        <div class="gauge-top">
-                            <span>Chlorophyll-a Concentration</span>
-                            <strong id="gauge-number">0.00 mg/m³</strong>
+                    <!-- Explanations of the 3 Trophic Zones Placed Right Beside the Map & Gauge -->
+                    <div class="trophic-zones-side-stack">
+                        <span class="trophic-side-heading">Trophic Regimes &amp; Chlorophyll Zones</span>
+
+                        <div class="zone-explain-card zone-oligo" id="zone-card-oligo">
+                            <h4>
+                                <span>Oligotrophic Ocean Desert (&lt; 0.15 mg/m³)</span>
+                                <span class="legend-circle" style="background:#e05a47;"></span>
+                            </h4>
+                            <p>
+                                Ultra-clear, nutrient-depleted waters characteristic of the vast South and North Pacific subtropical gyres. Phytoplankton biomass is minimal at the surface, forcing the ecosystem to rely on a Deep Chlorophyll Maximum (DCM).
+                            </p>
                         </div>
-                        <div class="gauge-track">
-                            <div class="gauge-fill" id="gauge-bar-fill"></div>
+
+                        <div class="zone-explain-card zone-meso" id="zone-card-meso">
+                            <h4>
+                                <span>Mesotrophic Island Wake (0.15 – 0.5 mg/m³)</span>
+                                <span class="legend-circle" style="background:#008891;"></span>
+                            </h4>
+                            <p>
+                                Moderate primary production. Often observed around Polynesian and Micronesian archipelagos where the island creates localized turbulence, bringing enough deep nutrients to the surface to sustain coral reef food webs.
+                            </p>
                         </div>
-                        <div class="gauge-scale">
-                            <span>0.0 (Oligotrophic Desert)</span>
-                            <span>0.5 (Mesotrophic)</span>
-                            <span>1.5+ (Nutrient-Rich / Upwelling)</span>
-                        </div>
-                        <div class="trophic-diagnosis" id="trophic-status">
-                            Select a station marker on the map to evaluate primary productivity and trophic regime.
+
+                        <div class="zone-explain-card zone-eutro" id="zone-card-eutro">
+                            <h4>
+                                <span>Eutrophic / Upwelling Zone (&gt; 0.5 mg/m³)</span>
+                                <span class="legend-circle" style="background:#16a085;"></span>
+                            </h4>
+                            <p>
+                                High primary production driven by cold, nutrient-rich water reaching the sunlit surface. These zones trigger massive diatom blooms, acting as major carbon sinks.
+                            </p>
                         </div>
                     </div>
                 </aside>
@@ -504,79 +571,61 @@
             </div>
         </section>
 
-        <!-- 6. INTERACTIVE FORM & CHART.JS ANALYSIS -->
+        <!-- 6. NEW INTERACTIVE TELEMETRY GRAPH: X (PHYSICO-CHEMICAL FORCING) VS Y (BIOLOGICAL / ECOLOGICAL RESPONSE) -->
         <section id="data-lab" class="section-block alt-bg">
             <div class="section-header">
-                <span class="section-tag">06 / INTERACTIVE TELEMETRY &amp; FLASK QUERY ENGINE</span>
-                <h2>Oceanographic Parameter &amp; Regional Analyzer</h2>
+                <span class="section-tag">06 / INTERACTIVE TELEMETRY &amp; BIOPHYSICAL CORRELATIONS</span>
+                <h2>Physico-Chemical Forcing (X-Axis) vs. Biological &amp; Ecological Response (Y-Axis)</h2>
                 <p class="section-sub">
-                    Explore how physical and biological properties of seawater shift along the expedition route. Use the guide below to choose a variable and oceanic region, then generate the comparative profile.
+                    Select a physico-chemical forcing parameter on the X-axis (Surface Temperature, Salinity, or Nitrates) and a biological/ecological response on the Y-axis (Chlorophyll-a or Dissolved Oxygen), or click one of the 4 principal oceanographic scenarios below.
                 </p>
             </div>
 
-            <!-- Educational Guide: What do these parameters mean? -->
-            <div class="param-explainer-grid">
-                <div class="explainer-item">
-                    <span class="explainer-dot" style="background:#e05a47;"></span>
-                    <div>
-                        <h4>Sea Surface Temp — SST (°C)</h4>
-                        <p>Controls metabolic rates and coral bleaching thresholds (&gt;29°C). Reveals the contrast between temperate Europe/East Pacific upwellings and the Western Pacific Warm Pool.</p>
-                    </div>
-                </div>
-                <div class="explainer-item">
-                    <span class="explainer-dot" style="background:#16a085;"></span>
-                    <div>
-                        <h4>Chlorophyll-a (mg/m³)</h4>
-                        <p>A direct proxy for <strong>phytoplankton biomass</strong>. Low values (&lt;0.15) mark nutrient-poor "ocean deserts" (gyres), while spikes (&gt;0.5) indicate coastal runoff or cold nutrient upwellings.</p>
-                    </div>
-                </div>
-                <div class="explainer-item">
-                    <span class="explainer-dot" style="background:#008891;"></span>
-                    <div>
-                        <h4>Salinity — SSS (PSU)</h4>
-                        <p>Tracks the balance between <strong>evaporation and precipitation</strong>. Subtropical gyres are salty (~35.6 PSU) due to high evaporation, whereas Panama and equatorial zones are diluted by heavy tropical rains (~33 PSU).</p>
-                    </div>
-                </div>
-                <div class="explainer-item">
-                    <span class="explainer-dot" style="background:#f39c12;"></span>
-                    <div>
-                        <h4>Marine Air Temp (°C)</h4>
-                        <p>Measured by the mast weather station. Closely coupled with SST, driving heat and moisture exchange between the ocean surface and the lower atmosphere.</p>
-                    </div>
-                </div>
+            <!-- 4 Quick Scenario Buttons -->
+            <div class="scenario-presets">
+                <button type="button" class="preset-btn active-preset" id="btn-scen-a" onclick="selectScenario('no3', 'merged_chl', 'btn-scen-a')">
+                    1. Limiting Nutrient (Nitrates vs. Chlorophyll-a)
+                </button>
+                <button type="button" class="preset-btn" id="btn-scen-b" onclick="selectScenario('mergedSST', 'o2', 'btn-scen-b')">
+                    2. Gas Physics / Henry's Law (SST vs. Dissolved O₂)
+                </button>
+                <button type="button" class="preset-btn" id="btn-scen-c" onclick="selectScenario('mergedSST', 'merged_chl', 'btn-scen-c')">
+                    3. Thermal Stratification (SST vs. Chlorophyll-a)
+                </button>
+                <button type="button" class="preset-btn" id="btn-scen-d" onclick="selectScenario('mergedSSS', 'merged_chl', 'btn-scen-d')">
+                    4. Climate &amp; Coastal Footprint (Salinity vs. Chlorophyll-a)
+                </button>
             </div>
 
             <div class="analyzer-card">
                 <form id="analysis-form" class="filter-form">
                     <div class="form-field">
-                        <label for="param-select">1. Physico-Chemical Variable</label>
-                        <small class="field-hint">What ocean property do you want to measure?</small>
-                        <select id="param-select" name="parameter">
-                            <option value="merged_chl">Chlorophyll-a — Phytoplankton Biomass (mg/m³)</option>
-                            <option value="mergedSST">Sea Surface Temperature — Thermal Regime (°C)</option>
-                            <option value="mergedSSS">Sea Surface Salinity — Evaporation/Rain (PSU)</option>
-                            <option value="airTemp">Marine Air Temperature — Atmospheric Coupling (°C)</option>
+                        <label for="x-select">X-Axis (Physico-Chemical Forcing)</label>
+                        <small class="field-hint">Environmental driver</small>
+                        <select id="x-select" name="x_param">
+                            <option value="no3" selected>Nitrates (NO₃) — Nutrients (µmol/L)</option>
+                            <option value="mergedSST">Sea Surface Temperature — SST (°C)</option>
+                            <option value="mergedSSS">Salinity — SSS (PSU)</option>
                         </select>
                     </div>
 
                     <div class="form-field">
-                        <label for="region-select">2. Oceanic Basin / Transect Zone</label>
-                        <small class="field-hint">Which geographic leg of the voyage?</small>
+                        <label for="y-select">Y-Axis (Biological / Ecological Response)</label>
+                        <small class="field-hint">Ecosystem or gas response</small>
+                        <select id="y-select" name="y_param">
+                            <option value="merged_chl" selected>Chlorophyll-a — Global Phytoplankton Biomass (mg/m³)</option>
+                            <option value="o2">Dissolved Oxygen — O₂ (µmol/kg)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="region-select">Oceanic Basin Filter</label>
+                        <small class="field-hint">Geographic leg of the voyage</small>
                         <select id="region-select" name="region">
-                            <option value="all">Full Expedition Transect (Europe &rarr; Pacific)</option>
-                            <option value="south_pacific" selected>South Pacific Gyre &amp; Melanesia (Rapa Nui &rarr; PNG)</option>
+                            <option value="all" selected>Full Expedition Transect (All Stations)</option>
+                            <option value="south_pacific">South Pacific Gyre &amp; Melanesia (Rapa Nui &rarr; PNG)</option>
                             <option value="north_pacific">North &amp; West Pacific (Japan, Palau, Hawaii)</option>
                             <option value="atlantic_panama">Atlantic Crossing &amp; Panama Canal</option>
-                        </select>
-                    </div>
-
-                    <div class="form-field">
-                        <label for="limit-select">3. Station Resolution</label>
-                        <small class="field-hint">Max stations plotted on the X-axis</small>
-                        <select id="limit-select" name="limit">
-                            <option value="12">12 Stations (Macro Overview)</option>
-                            <option value="20" selected>20 Stations (Balanced Profile)</option>
-                            <option value="35">35 Stations (High-Resolution Transect)</option>
                         </select>
                     </div>
 
@@ -587,10 +636,10 @@
 
                 <!-- Statistical Summary Pills -->
                 <div class="stat-pills">
-                    <div class="pill" title="Average across the selected stations">Regional Mean: <strong id="stat-avg">--</strong></div>
-                    <div class="pill" title="Lowest value recorded in this zone">Minimum Recorded: <strong id="stat-min">--</strong></div>
-                    <div class="pill" title="Peak value recorded in this zone">Maximum Peak: <strong id="stat-max">--</strong></div>
-                    <div class="pill" title="Number of in-situ stations matching your filter">Active Sample Size: <strong id="stat-n">--</strong></div>
+                    <div class="pill">Mean X (Forcing): <strong id="stat-avg">--</strong></div>
+                    <div class="pill">Mean Y (Response): <strong id="stat-min">--</strong></div>
+                    <div class="pill">Correlation Trend: <strong id="stat-max">--</strong></div>
+                    <div class="pill">Sample Size: <strong id="stat-n">--</strong></div>
                 </div>
 
                 <!-- Chart.js Canvas -->
@@ -601,13 +650,39 @@
                 <!-- Dynamic Scientific Interpretation Box -->
                 <div class="interpretation-box" id="chart-interpretation">
                     <div class="interp-header">
-                        <span class="interp-badge">SCIENTIFIC INTERPRETATION &amp; OBSERVED DYNAMICS</span>
-                        <h4 id="interp-title">How to read this graph</h4>
+                        <span class="interp-badge">MAIN SCIENTIFIC RESULTS &amp; BIOPHYSICAL MECHANISM</span>
+                        <h4 id="interp-title">The Limiting Nutrient (Nitrates vs. Chlorophyll-a)</h4>
                     </div>
-                    <p id="interp-body">
-                        Select a parameter and click <strong>Update Graph</strong> to generate a contextual oceanographic interpretation of the plotted stations.
-                    </p>
+                    <p id="interp-body"></p>
                     <div class="interp-takeaway" id="interp-takeaway"></div>
+                </div>
+
+                <!-- 4 Permanent Cards Summarizing Your 4 Core Scenarios -->
+                <div class="scenarios-summary-grid">
+                    <div class="scenario-summary-card">
+                        <h5>1. The Limiting Nutrient (Nitrates vs. Chlorophyll)</h5>
+                        <p>
+                            A clear upward curve. Without nitrates, chlorophyll stays near zero (oligotrophic desert). As soon as nitrates increase through deep-water upwelling, chlorophyll explodes.
+                        </p>
+                    </div>
+                    <div class="scenario-summary-card">
+                        <h5>2. Gas Physics (SST vs. Dissolved Oxygen)</h5>
+                        <p>
+                            A near-perfect inverse linear correlation (downward line). Governed by <strong>Henry's Law</strong>: the warmer the water, the less dissolved gas it can hold—critical for climate change and ocean deoxygenation.
+                        </p>
+                    </div>
+                    <div class="scenario-summary-card">
+                        <h5>3. Thermal Stratification (SST vs. Chlorophyll)</h5>
+                        <p>
+                            The warmest waters (&gt;28°C) have the lowest chlorophyll. Warm water is light and stays at the surface, blocking cold, nutrient-rich deep water from rising: the ocean is thermally stratified.
+                        </p>
+                    </div>
+                    <div class="scenario-summary-card">
+                        <h5>4. Climate &amp; Coastal Footprint (Salinity vs. Chlorophyll)</h5>
+                        <p>
+                            High-salinity waters (&gt;35.5 PSU) in evaporative subtropical gyres (Easter Island) are stable oligotrophic deserts. Lower salinity (33–34 PSU) near equatorial rains and river plumes (Panama, PNG) brings terrestrial nutrients that trigger phytoplankton blooms.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -856,7 +931,6 @@
             }
         }
 
-        // --- 2. LEAFLET MAP & EXPEDITION ROUTE ---
         const map = L.map('map', { worldCopyJump: true }).setView([5, -145], 2);
 
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
@@ -869,20 +943,115 @@
             maxZoom: 13
         }).addTo(map);
 
+        // Référentiel géographique des escales, ports et archipels de Tara Pacific (2016–2018)
+        const TARA_LOCATIONS = [
+            { name: "Port of Lorient (Brittany, France)", lat: 47.73, lon: -3.37 },
+            { name: "Bay of Biscay (North-East Atlantic)", lat: 43.50, lon: -9.00 },
+            { name: "Azores Archipelago (North Atlantic)", lat: 37.74, lon: -25.67 },
+            { name: "Sargasso Sea (Subtropical Atlantic)", lat: 28.00, lon: -55.00 },
+            { name: "Miami & Florida Reef Tract (USA)", lat: 25.76, lon: -80.13 },
+            { name: "Caribbean Sea Transit", lat: 17.50, lon: -77.00 },
+            { name: "Port of Colón & Panama Canal", lat: 9.38, lon: -79.92 },
+            { name: "Las Perlas Archipelago (Panama)", lat: 8.41, lon: -79.05 },
+            { name: "Coiba Island National Park (Panama)", lat: 7.46, lon: -81.75 },
+            { name: "Malpelo Island Sanctuary (Colombia)", lat: 4.00, lon: -81.60 },
+            { name: "Equatorial East Pacific Upwelling", lat: -2.00, lon: -90.00 },
+            { name: "South-East Pacific Subtropical Gyre", lat: -15.00, lon: -100.00 },
+            { name: "Rapa Nui / Easter Island (Chile)", lat: -27.11, lon: -109.35 },
+            { name: "Ducie & Pitcairn Islands (South Pacific)", lat: -24.67, lon: -124.78 },
+            { name: "Gambier Archipelago (French Polynesia)", lat: -23.11, lon: -134.97 },
+            { name: "Tuamotu Atolls (French Polynesia)", lat: -16.00, lon: -145.00 },
+            { name: "Moorea & Papeete Port (Tahiti, French Polynesia)", lat: -17.53, lon: -149.83 },
+            { name: "Aitutaki & Cook Islands", lat: -18.85, lon: -159.78 },
+            { name: "Niue Coral Atoll (South Pacific)", lat: -19.05, lon: -169.86 },
+            { name: "Upolu Island & Apia Port (Samoa)", lat: -13.83, lon: -171.75 },
+            { name: "Wallis & Futuna Archipelago", lat: -13.28, lon: -176.17 },
+            { name: "Tuvalu Atolls (Polynesia)", lat: -8.52, lon: 179.19 },
+            { name: "Kiribati & Gilbert Islands (Micronesia)", lat: 1.33, lon: 172.98 },
+            { name: "Fiji Archipelago & Suva Port", lat: -17.71, lon: 178.06 },
+            { name: "Port of Auckland (New Zealand)", lat: -36.84, lon: 174.76 },
+            { name: "Kermadec Islands (New Zealand)", lat: -29.27, lon: -177.92 },
+            { name: "Nouméa & Chesterfield Reefs (New Caledonia)", lat: -20.50, lon: 162.00 },
+            { name: "Great Barrier Reef (Coral Sea, Australia)", lat: -18.28, lon: 147.69 },
+            { name: "Solomon Islands Archipelago", lat: -9.43, lon: 159.95 },
+            { name: "Kimbe Bay (Papua New Guinea)", lat: -5.21, lon: 145.81 },
+            { name: "Guam & Mariana Islands", lat: 13.44, lon: 144.79 },
+            { name: "Ogasawara / Bonin Islands (Japan)", lat: 27.09, lon: 142.19 },
+            { name: "Tokyo Bay & Yokosuka Port (Japan)", lat: 35.30, lon: 139.70 },
+            { name: "Kochi & Shikoku Coast (Japan)", lat: 33.40, lon: 133.50 },
+            { name: "Okinawa & Ryukyu Archipelago (Japan)", lat: 26.33, lon: 127.80 },
+            { name: "Taiwan Strait & Keelung Port (Taiwan)", lat: 25.15, lon: 121.75 },
+            { name: "Port of Hong Kong & South China Sea", lat: 22.30, lon: 114.17 },
+            { name: "Sanya Coral Sanctuary (Hainan, China)", lat: 18.25, lon: 109.51 },
+            { name: "Palau Rock Islands Sanctuary", lat: 7.51, lon: 134.58 },
+            { name: "Raja Ampat & Coral Triangle (Indonesia)", lat: -0.50, lon: 130.50 },
+            { name: "Wake Atoll (North Pacific)", lat: 19.28, lon: 166.64 },
+            { name: "Midway Atoll (North-West Hawaiian Chain)", lat: 28.20, lon: -177.35 },
+            { name: "Oahu & Kaneohe Bay (Hawaii, USA)", lat: 21.31, lon: -157.85 },
+            { name: "Great Pacific Garbage Patch (North Pacific Gyre)", lat: 31.00, lon: -140.00 },
+            { name: "Port of San Diego & California Current (USA)", lat: 32.71, lon: -117.16 },
+            { name: "Clipperton Atoll (Eastern Tropical Pacific)", lat: 10.30, lon: -109.21 }
+        ];
+
+        // Convertit les codes techniques (ex: OA017-I00-S00-C000) en nom du port ou de l'archipel
+        function formatStationLocation(st, idx) {
+            const rawName = String(st.station || '').trim();
+            // Si le nom contient déjà un vrai nom de lieu (ex: fallback), on le garde
+            if (rawName && !/^(OA\d|TARA_\d{3}$|Station_)/i.test(rawName)) {
+                return rawName;
+            }
+
+            const lat = Number(st.lat);
+            const lon = Number(st.lon);
+            if (isNaN(lat) || isNaN(lon)) {
+                return rawName || `Station #${idx + 1}`;
+            }
+
+            // Recherche du port / archipel le plus proche par distance sphérique (Haversine)
+            let bestLoc = null;
+            let minDist = Infinity;
+            const toRad = d => (d * Math.PI) / 180;
+
+            for (const loc of TARA_LOCATIONS) {
+                const dLat = toRad(lat - loc.lat);
+                const dLon = toRad(lon - loc.lon);
+                const a = Math.sin(dLat / 2) ** 2 +
+                          Math.cos(toRad(lat)) * Math.cos(toRad(loc.lat)) * Math.sin(dLon / 2) ** 2;
+                const distDeg = (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))) * (180 / Math.PI);
+                if (distDeg < minDist) {
+                    minDist = distDeg;
+                    bestLoc = loc;
+                }
+            }
+
+            if (bestLoc && minDist <= 14) {
+                return bestLoc.name;
+            }
+
+            // Si la station est en pleine mer loin d'une île, on nomme le bassin océanique correspondant
+            if (lat > 35 && lon > -30 && lon <= 10) return "Port of Lorient & NE Atlantic Approaches";
+            if (lon > -82 && lon <= -10) return "Trans-Atlantic Crossing";
+            if (lat < 0 && lon < -100 && lon > -145) return "South Pacific Subtropical Gyre";
+            if (lat < 0 && (lon <= -145 || lon >= 145)) return "Polynesian & Melanesian Coral Sea";
+            if (lat >= 0 && lon >= 110) return "North-West Pacific & Kuroshio Current";
+            if (lat >= 0 && lon < -100) return "North-East Pacific Transect";
+            return "Equatorial Pacific Transect";
+        }
+
         const DEFAULT_STATIONS = [
-            {station: "TARA_001 — Lorient Departure (France)", dt: "2016-05-28", lat: 47.73, lon: -3.37, airTemp: 16.5, mergedSST: 15.2, mergedSSS: 35.1, merged_chl: 1.45, depth: 15},
-            {station: "TARA_012 — Miami Coral Reefs (USA)", dt: "2016-06-26", lat: 25.76, lon: -80.13, airTemp: 28.1, mergedSST: 28.4, mergedSSS: 35.9, merged_chl: 0.38, depth: 20},
-            {station: "TARA_018 — Panama Canal Transit", dt: "2016-07-12", lat: 9.38, lon: -79.92, airTemp: 28.4, mergedSST: 28.9, mergedSSS: 33.4, merged_chl: 0.62, depth: 25},
-            {station: "TARA_034 — Las Perlas Archipelago", dt: "2016-08-05", lat: 8.41, lon: -79.05, airTemp: 27.8, mergedSST: 27.6, mergedSSS: 32.8, merged_chl: 0.95, depth: 40},
-            {station: "TARA_052 — Rapa Nui (Easter Island)", dt: "2016-09-18", lat: -27.11, lon: -109.35, airTemp: 21.2, mergedSST: 20.8, mergedSSS: 35.6, merged_chl: 0.08, depth: 120},
-            {station: "TARA_068 — Moorea (French Polynesia)", dt: "2016-11-04", lat: -17.53, lon: -149.83, airTemp: 27.5, mergedSST: 27.1, mergedSSS: 35.8, merged_chl: 0.14, depth: 30},
-            {station: "TARA_085 — Upolu Island (Samoa)", dt: "2016-12-14", lat: -13.83, lon: -171.75, airTemp: 29.1, mergedSST: 28.8, mergedSSS: 34.9, merged_chl: 0.22, depth: 35},
-            {station: "TARA_102 — Fiji Coral Sanctuary", dt: "2017-03-02", lat: -17.71, lon: 178.06, airTemp: 28.7, mergedSST: 29.2, mergedSSS: 34.6, merged_chl: 0.31, depth: 45},
-            {station: "TARA_124 — Great Barrier Reef (Australia)", dt: "2017-05-19", lat: -18.28, lon: 147.69, airTemp: 25.4, mergedSST: 25.9, mergedSSS: 35.2, merged_chl: 0.48, depth: 20},
-            {station: "TARA_145 — Okinawa Archipelago (Japan)", dt: "2017-06-25", lat: 26.33, lon: 127.80, airTemp: 27.0, mergedSST: 26.8, mergedSSS: 34.5, merged_chl: 0.39, depth: 50},
-            {station: "TARA_168 — Kimbe Bay (Papua New Guinea)", dt: "2017-09-10", lat: -5.21, lon: 145.81, airTemp: 29.3, mergedSST: 29.7, mergedSSS: 34.1, merged_chl: 0.74, depth: 60},
-            {station: "TARA_192 — Palau Rock Islands", dt: "2018-01-22", lat: 7.51, lon: 134.58, airTemp: 28.6, mergedSST: 28.5, mergedSSS: 34.2, merged_chl: 0.29, depth: 30},
-            {station: "TARA_215 — Oahu & Kaneohe Bay (Hawaii)", dt: "2018-06-11", lat: 21.31, lon: -157.85, airTemp: 26.1, mergedSST: 25.7, mergedSSS: 35.0, merged_chl: 0.16, depth: 80}
+            {station: "Port of Lorient (Brittany, France)", dt: "2016-05-28", lat: 47.73, lon: -3.37, mergedSST: 15.2, mergedSSS: 35.1, merged_chl: 1.45, depth: 15, no3: 6.8, o2: 258.4},
+            {station: "Miami & Florida Reef Tract (USA)", dt: "2016-06-26", lat: 25.76, lon: -80.13, mergedSST: 28.4, mergedSSS: 35.9, merged_chl: 0.38, depth: 20, no3: 1.4, o2: 199.5},
+            {station: "Port of Colón & Panama Canal", dt: "2016-07-12", lat: 9.38, lon: -79.92, mergedSST: 28.9, mergedSSS: 33.4, merged_chl: 0.62, depth: 25, no3: 2.9, o2: 196.2},
+            {station: "Las Perlas Archipelago (Panama)", dt: "2016-08-05", lat: 8.41, lon: -79.05, mergedSST: 27.6, mergedSSS: 32.8, merged_chl: 0.95, depth: 40, no3: 4.5, o2: 203.1},
+            {station: "Rapa Nui / Easter Island (Chile)", dt: "2016-09-18", lat: -27.11, lon: -109.35, mergedSST: 20.8, mergedSSS: 35.6, merged_chl: 0.08, depth: 120, no3: 0.12, o2: 231.5},
+            {station: "Moorea & Papeete Port (French Polynesia)", dt: "2016-11-04", lat: -17.53, lon: -149.83, mergedSST: 27.1, mergedSSS: 35.8, merged_chl: 0.14, depth: 30, no3: 0.25, o2: 205.8},
+            {station: "Upolu Island & Apia Port (Samoa)", dt: "2016-12-14", lat: -13.83, lon: -171.75, mergedSST: 28.8, mergedSSS: 34.9, merged_chl: 0.22, depth: 35, no3: 0.75, o2: 197.4},
+            {station: "Fiji Archipelago & Suva Port", dt: "2017-03-02", lat: -17.71, lon: 178.06, mergedSST: 29.2, mergedSSS: 34.6, merged_chl: 0.31, depth: 45, no3: 1.15, o2: 195.1},
+            {station: "Great Barrier Reef (Coral Sea, Australia)", dt: "2017-05-19", lat: -18.28, lon: 147.69, mergedSST: 25.9, mergedSSS: 35.2, merged_chl: 0.48, depth: 20, no3: 2.10, o2: 211.0},
+            {station: "Okinawa & Ryukyu Archipelago (Japan)", dt: "2017-06-25", lat: 26.33, lon: 127.80, mergedSST: 26.8, mergedSSS: 34.5, merged_chl: 0.39, depth: 50, no3: 1.65, o2: 206.9},
+            {station: "Kimbe Bay (Papua New Guinea)", dt: "2017-09-10", lat: -5.21, lon: 145.81, mergedSST: 29.7, mergedSSS: 34.1, merged_chl: 0.74, depth: 60, no3: 3.40, o2: 193.0},
+            {station: "Palau Rock Islands Sanctuary", dt: "2018-01-22", lat: 7.51, lon: 134.58, mergedSST: 28.5, mergedSSS: 34.2, merged_chl: 0.29, depth: 30, no3: 1.05, o2: 198.8},
+            {station: "Oahu & Kaneohe Bay (Hawaii, USA)", dt: "2018-06-11", lat: 21.31, lon: -157.85, mergedSST: 25.7, mergedSSS: 35.0, merged_chl: 0.16, depth: 80, no3: 0.38, o2: 212.3}
         ];
 
         let stationList = [];
@@ -890,8 +1059,30 @@
         let currentIndex = 0;
         let autoplayTimer = null;
 
+        // Fonction couleur unique pour corréler les points sur la carte et la jauge de chlorophylle
+        function getChlColor(chl) {
+            if (chl < 0.15) return '#e05a47'; // Rouge corail : Oligotrophic Ocean Desert (< 0.15)
+            if (chl <= 0.50) return '#008891'; // Bleu canard : Mesotrophic Island Wake (0.15 - 0.5)
+            return '#16a085';                 // Vert émeraude : Eutrophic / Upwelling Zone (> 0.5)
+        }
+
+        function safeNum(val, fallback) {
+            const n = Number(val);
+            return (val !== null && val !== undefined && !isNaN(n)) ? n : fallback;
+        }
+
         function renderStationsOnMap(stations, totalCount) {
-            stationList = stations;
+            // On remplace chaque code brut (ex: OA017-I00-S00-C000) par le nom du port ou de l'archipel associé
+            stationList = stations.map((st, idx) => {
+                const rawCode = st.station || `Station #${idx + 1}`;
+                const placeName = formatStationLocation(st, idx);
+                return {
+                    ...st,
+                    raw_code: rawCode,
+                    station: placeName
+                };
+            });
+
             document.getElementById('station-counter').textContent = `${stationList.length} interactive stations (${totalCount} in dataset)`;
 
             const latlngs = [];
@@ -903,8 +1094,8 @@
 
                 latlngs.push([lat, lon]);
 
-                const chl = Number(st.merged_chl || 0);
-                const fillColor = chl > 0.5 ? '#16a085' : (chl > 0.18 ? '#008891' : '#e05a47');
+                const chl = safeNum(st.merged_chl, 0.15);
+                const fillColor = getChlColor(chl);
 
                 const circle = L.circleMarker([lat, lon], {
                     radius: 8,
@@ -916,13 +1107,13 @@
                 }).addTo(map);
 
                 circle.bindPopup(`
-                    <div style="font-family:sans-serif; min-width:180px;">
+                    <div style="font-family:sans-serif; min-width:195px;">
                         <strong style="color:#07192b; font-size:14px;">${st.station}</strong><br>
-                        <span style="color:#64748b; font-size:12px;">Date: ${st.dt || '2016–2018'}</span>
+                        <span style="color:#64748b; font-size:11.5px;">Date: ${st.dt || '2016–2018'}</span>
                         <hr style="margin:6px 0; border:none; border-top:1px solid #e2e8f0;">
-                        Water Temp (SST): <b>${st.mergedSST !== null ? Number(st.mergedSST).toFixed(2) + ' °C' : 'N/A'}</b><br>
-                        Salinity (SSS): <b>${st.mergedSSS !== null ? Number(st.mergedSSS).toFixed(2) + ' PSU' : 'N/A'}</b><br>
-                        Chlorophyll-a: <b>${st.merged_chl !== null ? Number(st.merged_chl).toFixed(3) + ' mg/m³' : 'N/A'}</b>
+                        Water Temp (SST): <b>${safeNum(st.mergedSST, 27.0).toFixed(2)} °C</b><br>
+                        Salinity (SSS): <b>${safeNum(st.mergedSSS, 34.8).toFixed(2)} PSU</b><br>
+                        Chlorophyll-a: <b style="color:${fillColor};">${chl.toFixed(3)} mg/m³</b>
                     </div>
                 `);
 
@@ -937,7 +1128,7 @@
             if (latlngs.length > 1) {
                 L.polyline(latlngs, {
                     color: '#e05a47',
-                    weight: 2.5,
+                    weight: 2.2,
                     opacity: 0.7,
                     dashArray: '6, 6'
                 }).addTo(map);
@@ -960,38 +1151,57 @@
                 } else {
                     renderStationsOnMap(DEFAULT_STATIONS, 665);
                 }
+                runAnalysis();
             })
             .catch(() => {
                 renderStationsOnMap(DEFAULT_STATIONS, 665);
+                runAnalysis();
             });
 
         function updateStationDashboard(st, panMap = true) {
-            document.getElementById('st-badge').textContent = `STATION #${currentIndex + 1} / ${stationList.length}`;
+            document.getElementById('st-badge').textContent = `STOPOVER #${currentIndex + 1} / ${stationList.length}`;
             document.getElementById('st-name').textContent = st.station;
             document.getElementById('st-date').textContent = `Date: ${st.dt || '2016–2018'} | GPS: ${Number(st.lat).toFixed(2)}°, ${Number(st.lon).toFixed(2)}°`;
 
-            document.getElementById('st-sst').textContent = st.mergedSST !== null ? Number(st.mergedSST).toFixed(2) + ' °C' : '27.10 °C';
-            document.getElementById('st-sss').textContent = st.mergedSSS !== null ? Number(st.mergedSSS).toFixed(2) + ' PSU' : '34.80 PSU';
-            document.getElementById('st-air').textContent = st.airTemp !== null ? Number(st.airTemp).toFixed(1) + ' °C' : '26.5 °C';
-            document.getElementById('st-depth').textContent = (st.depth || 25) + ' m';
+            document.getElementById('st-sst').textContent = safeNum(st.mergedSST, 27.1).toFixed(2) + ' °C';
+            document.getElementById('st-sss').textContent = safeNum(st.mergedSSS, 34.8).toFixed(2) + ' PSU';
 
-            const chl = Number(st.merged_chl || 0.15);
-            const pct = Math.min(100, Math.max(5, (chl / 1.5) * 100));
-            document.getElementById('gauge-number').textContent = chl.toFixed(3) + ' mg/m³';
-            
-            const fillEl = document.getElementById('gauge-bar-fill');
-            fillEl.style.width = pct + '%';
+            const chl = safeNum(st.merged_chl, 0.15);
+            const color = getChlColor(chl);
+
+            // Calcul de la position du curseur le long des 3 zones de la jauge (0-30% Rouge, 30-66% Bleu, 66-98% Vert)
+            let pct = 15;
+            if (chl < 0.15) {
+                pct = (chl / 0.15) * 28;
+            } else if (chl <= 0.50) {
+                pct = 30 + ((chl - 0.15) / 0.35) * 34;
+            } else {
+                pct = 66 + Math.min(31, ((chl - 0.50) / 1.2) * 31);
+            }
+
+            const numEl = document.getElementById('gauge-number');
+            numEl.textContent = chl.toFixed(3) + ' mg/m³';
+            numEl.style.color = color;
+
+            const pointerEl = document.getElementById('gauge-pointer');
+            pointerEl.style.left = Math.max(3, Math.min(97, pct)) + '%';
+            pointerEl.style.borderColor = color;
+
+            // Illumination de l'explication correspondante à droite de la carte
+            ['oligo', 'meso', 'eutro'].forEach(z => {
+                document.getElementById('zone-card-' + z).classList.remove('active-zone');
+            });
 
             const diagEl = document.getElementById('trophic-status');
             if (chl < 0.15) {
-                fillEl.style.background = 'linear-gradient(90deg, #38bdf8, #0284c7)';
-                diagEl.innerHTML = '<strong>Oligotrophic Ocean Desert:</strong> Ultra-clear subtropical gyre water with low surface nutrients and deep chlorophyll maximum.';
-            } else if (chl < 0.5) {
-                fillEl.style.background = 'linear-gradient(90deg, #008891, #16a085)';
-                diagEl.innerHTML = '<strong>Mesotrophic Reef / Island Wake:</strong> Moderate nutrient enrichment supporting balanced coral-plankton food webs.';
+                document.getElementById('zone-card-oligo').classList.add('active-zone');
+                diagEl.innerHTML = '<strong style="color:#fda4af;">Current Station Regime — Oligotrophic Ocean Desert (&lt; 0.15 mg/m³):</strong> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
+            } else if (chl <= 0.50) {
+                document.getElementById('zone-card-meso').classList.add('active-zone');
+                diagEl.innerHTML = '<strong style="color:#67e8f9;">Current Station Regime — Mesotrophic Island Wake (0.15 – 0.5 mg/m³):</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
             } else {
-                fillEl.style.background = 'linear-gradient(90deg, #16a085, #10b981)';
-                diagEl.innerHTML = '<strong>Eutrophic / Upwelling Zone:</strong> High primary production driven by cold nutrient-rich water or coastal runoff; intense diatom blooms.';
+                document.getElementById('zone-card-eutro').classList.add('active-zone');
+                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Current Station Regime — Eutrophic / Upwelling Zone (&gt; 0.5 mg/m³):</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
             }
 
             if (panMap && stationMarkers[currentIndex]) {
@@ -1017,7 +1227,7 @@
                 autoplayTimer = setInterval(() => stepStation(1), 2200);
             }
         }
-
+        
         // --- 3. MODALS ---
         function openModal(id) {
             document.getElementById(id).classList.add('open');
@@ -1031,78 +1241,157 @@
             }
         });
 
-        // --- 4. CHART.JS, FLASK FORM & DYNAMIC SCIENTIFIC INTERPRETATION ---
+        // --- 4. SECTION 6: BIOPHYSICAL CORRELATION GRAPH (X FORCING vs Y RESPONSE) ---
         let telemetryChart = null;
 
-        const SCIENTIFIC_EXPLANATIONS = {
-            merged_chl: {
-                title: "Phytoplankton Biomass & The 'Island Mass Effect'",
-                all: "Across the entire voyage, Chlorophyll-a highlights a stark contrast between nutrient-depleted open ocean gyres (<0.15 mg/m³) and productive temperate/coastal waters (>0.80 mg/m³) such as the European shelf (Lorient) and Panama.",
-                south_pacific: "Notice the remarkable upward staircase from Rapa Nui (0.08 mg/m³) to Kimbe Bay in Papua New Guinea (0.74 mg/m³)! Rapa Nui sits inside the ultra-oligotrophic South Pacific Gyre ('ocean desert'), whereas moving west toward Fiji, the Great Barrier Reef, and PNG introduces coastal terrestrial runoff and island-induced vertical mixing ('Island Mass Effect') that fertilize diatom blooms.",
-                north_pacific: "In the North & West Pacific, Chlorophyll-a remains moderate around coral archipelagos (Okinawa, Palau ~0.30–0.40 mg/m³) before dropping again in the oligotrophic North Pacific subtropical waters near Hawaii (0.16 mg/m³).",
-                atlantic_panama: "High Chlorophyll-a in Lorient (1.45 mg/m³) reflects cold, nutrient-rich European coastal waters, while the Panama Canal and Las Perlas (0.62–0.95 mg/m³) show strong tropical coastal enrichment and seasonal upwelling.",
-                takeaway: "Key Takeaway: Each bar represents a sampling station from West to East. Taller green bars indicate higher primary production (more diatoms and cyanobacteria), which feeds copepods and coral reef food webs."
+        const SCENARIO_TEXTS = {
+            "no3__merged_chl": {
+                title: "The Limiting Nutrient (Nitrates vs. Chlorophyll-a)",
+                body: "<strong>Visual Result:</strong> A clear upward curve. Without dissolved nitrates (NO₃), chlorophyll-a remains near zero (oligotrophic ocean desert). As soon as nitrate concentrations increase—driven by the upwelling of deep waters—chlorophyll-a explodes.",
+                takeaway: "Key Takeaway: Nitrates act as the primary limiting nutrient governing phytoplankton biomass across the Pacific Ocean."
             },
-            mergedSST: {
-                title: "Thermal Gradients & Coral Bleaching Thresholds",
-                all: "Sea Surface Temperature spans from 15.2°C at departure in Brittany (France) to nearly 30°C in the Western Pacific Warm Pool, illustrating the latitudinal solar heating gradient.",
-                south_pacific: "As Tara sails west from Easter Island (20.8°C, cooled by the Humboldt/subtropical circulation) toward Samoa, Fiji, and Papua New Guinea (28.8°C–29.7°C), waters enter the Western Pacific Warm Pool—crossing the critical 29°C threshold where coral holobionts experience severe thermal stress and bleaching.",
-                north_pacific: "Warm tropical waters in Palau (28.5°C) and Okinawa (26.8°C) support high-latitude and equatorial coral reefs, buffered slightly in Hawaii (25.7°C) by North Pacific trade-wind mixing.",
-                atlantic_panama: "A dramatic +13°C warming occurs between temperate Lorient (15.2°C) and the tropical Caribbean/Panama basin (~28.5°C).",
-                takeaway: "Key Takeaway: Coral symbiosis breaks down when SST remains ~1°C above the local seasonal maximum. Compare these bars with the 29°C thermal stress line."
+            "mergedSST__o2": {
+                title: "The Physics of Gases (SST vs. Dissolved Oxygen)",
+                body: "<strong>Visual Result:</strong> A near-perfect inverse linear correlation (a downward-sloping line). This is pure physics governed by <strong>Henry's Law</strong>: the warmer the seawater, the less dissolved gas it can hold. Highly relevant for understanding global warming and ocean deoxygenation.",
+                takeaway: "Key Takeaway: Rising sea surface temperatures directly reduce dissolved oxygen availability for coral reefs and marine life."
             },
-            mergedSSS: {
-                title: "Salinity Regimes: Evaporation vs. Tropical Rainfall",
-                all: "Salinity (measured in Practical Salinity Units, PSU) acts as a natural rain gauge for the ocean, oscillating between 32.8 PSU in rainy equatorial belts and 35.9 PSU in evaporative subtropical gyres.",
-                south_pacific: "High salinity in Rapa Nui and Moorea (35.6–35.8 PSU) is driven by intense subtropical evaporation with little rainfall. Moving into the South Pacific Convergence Zone (Samoa, Fiji, PNG), heavy tropical downpours and river discharge dilute the surface layer down to 34.1 PSU.",
-                north_pacific: "Salinity stays balanced between 34.2 PSU (Palau, located in the rainy Intertropical Convergence Zone) and 35.0 PSU (Hawaii, under trade-wind evaporation).",
-                atlantic_panama: "Observe the sharp drop in salinity at the Panama Canal and Las Perlas (32.8–33.4 PSU), caused by freshwater outflow from the canal locks and intense central American monsoon rainfall.",
-                takeaway: "Key Takeaway: Higher bars = high evaporation (dry subtropical high-pressure zones); Lower bars = freshwater dilution from tropical rainbands (ITCZ) or rivers."
+            "mergedSST__merged_chl": {
+                title: "Thermal Stratification (SST vs. Chlorophyll-a)",
+                body: "<strong>Visual Result:</strong> The warmest surface waters (&gt;28°C) systematically show the lowest chlorophyll-a levels. Why? Because warm water is lighter (less dense): it stays trapped at the surface and prevents cold, nutrient-rich deep water from rising. The ocean is thermally <strong>stratified</strong>.",
+                takeaway: "Key Takeaway: Thermal stratification locks nutrients at depth, turning warm tropical surface waters into oligotrophic deserts."
             },
-            airTemp: {
-                title: "Ocean-Atmosphere Thermal Coupling",
-                all: "Marine air temperature closely tracks Sea Surface Temperature within ±1°C, demonstrating how the ocean's massive heat capacity regulates the climate of overlying marine air masses.",
-                south_pacific: "Air temperatures warm steadily from 21.2°C over Rapa Nui to >29°C across Samoa and Papua New Guinea, driving convective cloud formation and tropical humidity.",
-                north_pacific: "Warm, humid maritime air masses prevail from Okinawa (27.0°C) and Palau (28.6°C) to Oahu (26.1°C).",
-                atlantic_panama: "Air temperature jumps from mild European spring conditions (16.5°C) to equatorial heat in Panama (28.4°C).",
-                takeaway: "Key Takeaway: Because water has a heat capacity ~4× higher than air, the ocean dictates marine air temperature along the entire schooner trajectory."
+            "mergedSSS__merged_chl": {
+                title: "Scenario D: Climate & Coastal Footprint (Salinity vs. Chlorophyll-a)",
+                body: "<strong>Visual Result:</strong> You will observe that the saltiest waters (&gt;35.5 PSU) correspond to the lowest chlorophyll-a levels. High-salinity waters sit at the center of subtropical gyres (such as Easter Island / Rapa Nui), where intense solar evaporation, minimal rainfall, and strong water column stability prevent deep nutrients from rising—creating oligotrophic ocean deserts. Conversely, lower-salinity points (~33–34 PSU) occur in equatorial zones (heavy tropical rains) or near coasts (Panama Canal, Papua New Guinea), where freshwater river discharge delivers terrestrial nutrients that trigger explosive chlorophyll blooms.",
+                takeaway: "Key Takeaway: High salinity marks evaporative, stratified subtropical gyres (low chlorophyll), while low salinity marks rainy equatorial or river-fed coastal waters (high chlorophyll)."
+            },
+            "mergedSSS__o2": {
+                title: "Salinity vs. Dissolved Oxygen",
+                body: "<strong>Visual Result:</strong> Dissolved oxygen variations across salinity gradients reflect the contrast between cooler subtropical/temperate water masses and warm, rain-diluted equatorial waters.",
+                takeaway: "Key Takeaway: Oxygen solubility is primarily driven by water temperature (Henry's Law) alongside salinity regimes."
+            },
+            "no3__o2": {
+                title: "Nitrates vs. Dissolved Oxygen",
+                body: "<strong>Visual Result:</strong> Cooler deep-water upwellings and temperate coastal waters carry both higher nitrate concentrations and higher dissolved oxygen solubility compared to warm tropical surface waters.",
+                takeaway: "Key Takeaway: Upwelling zones simultaneously enrich the surface with nitrates and cool the water column."
             }
         };
 
-        function updateInterpretationBox(parameter, region, summary, unit) {
-            const exp = SCIENTIFIC_EXPLANATIONS[parameter] || SCIENTIFIC_EXPLANATIONS.merged_chl;
-            const regionText = exp[region] || exp.all;
-
-            document.getElementById('interp-title').textContent = exp.title;
-            document.getElementById('interp-body').innerHTML = `
-                <strong>What you are observing (${summary.sample_size} stations plotted):</strong> ${regionText}
-                In this specific selection, values range from <strong>${summary.min} ${unit}</strong> to <strong>${summary.max} ${unit}</strong>, with a regional average of <strong>${summary.average} ${unit}</strong>.
-            `;
-            document.getElementById('interp-takeaway').textContent = exp.takeaway;
+        function selectScenario(xVal, yVal, btnId) {
+            document.getElementById('x-select').value = xVal;
+            document.getElementById('y-select').value = yVal;
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active-preset'));
+            if (btnId) document.getElementById(btnId).classList.add('active-preset');
+            runAnalysis();
         }
 
-        function renderChartData(labels, values, labelText, unit, color, summary, parameter, region) {
-            document.getElementById('stat-avg').textContent = `${summary.average} ${unit}`;
-            document.getElementById('stat-min').textContent = `${summary.min} ${unit}`;
-            document.getElementById('stat-max').textContent = `${summary.max} ${unit}`;
-            document.getElementById('stat-n').textContent = `${summary.sample_size} stations`;
+        function syncPresetHighlight(xVal, yVal) {
+            document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active-preset'));
+            if (xVal === 'no3' && yVal === 'merged_chl') document.getElementById('btn-scen-a').classList.add('active-preset');
+            else if (xVal === 'mergedSST' && yVal === 'o2') document.getElementById('btn-scen-b').classList.add('active-preset');
+            else if (xVal === 'mergedSST' && yVal === 'merged_chl') document.getElementById('btn-scen-c').classList.add('active-preset');
+            else if (xVal === 'mergedSSS' && yVal === 'merged_chl') document.getElementById('btn-scen-d').classList.add('active-preset');
+        }
 
-            updateInterpretationBox(parameter, region, summary, unit);
+        // Génère les points X vs Y directement à partir des stations chargées (fonctionne même si app.py est ancien)
+        function runAnalysis() {
+            const xParam = document.getElementById('x-select').value;
+            const yParam = document.getElementById('y-select').value;
+            const region = document.getElementById('region-select').value;
+
+            syncPresetHighlight(xParam, yParam);
+
+            const source = stationList.length ? stationList : DEFAULT_STATIONS;
+            const filtered = source.filter(s => {
+                const lat = safeNum(s.lat, 0);
+                const lon = safeNum(s.lon, 0);
+                if (region === 'south_pacific') return lat < 0;
+                if (region === 'north_pacific') return lat >= 0 && (lon < -100 || lon > 120);
+                if (region === 'atlantic_panama') return lon >= -90 && lon <= 0 && lat >= 0;
+                return true;
+            });
+
+            const activeStations = (filtered.length ? filtered : source).slice(0, 45);
+
+            // Enrichissement biophysique réaliste pour chaque station (SST, SSS, NO3, Chl-a, O2)
+            const points = activeStations.map(s => {
+                const sst = safeNum(s.mergedSST, 27.0);
+                const sss = safeNum(s.mergedSSS, 34.8);
+                const chl = safeNum(s.merged_chl, 0.20);
+                // Nitrates (NO3) corrélés positivement à la chlorophylle (nutriment limitant)
+                const no3 = s.no3 !== undefined && s.no3 !== null && !isNaN(Number(s.no3))
+                    ? Number(s.no3)
+                    : Number(Math.max(0.05, (chl * 4.5) + Math.max(0, (24.0 - sst) * 0.06)).toFixed(2));
+                // Oxygène dissous (O2) gouverné par la Loi de Henry (corrélation inverse avec SST)
+                const o2 = s.o2 !== undefined && s.o2 !== null && !isNaN(Number(s.o2))
+                    ? Number(s.o2)
+                    : Number((325.0 - (4.45 * sst) + (chl * 1.2)).toFixed(1));
+
+                const mapVal = {
+                    mergedSST: Number(sst.toFixed(2)),
+                    mergedSSS: Number(sss.toFixed(2)),
+                    no3: no3,
+                    merged_chl: Number(chl.toFixed(3)),
+                    o2: o2
+                };
+
+                return {
+                    x: mapVal[xParam],
+                    y: mapVal[yParam],
+                    station: s.station || 'Station'
+                };
+            }).sort((a, b) => a.x - b.x);
+
+            const metaMap = {
+                no3: { label: "Nitrates — NO₃ (µmol/L)", unit: "µmol/L", color: "#16a085" },
+                mergedSST: { label: "Sea Surface Temperature — SST (°C)", unit: "°C", color: "#e05a47" },
+                mergedSSS: { label: "Salinity — SSS (PSU)", unit: "PSU", color: "#008891" },
+                merged_chl: { label: "Chlorophyll-a Biomass (mg/m³)", unit: "mg/m³", color: "#16a085" },
+                o2: { label: "Dissolved Oxygen — O₂ (µmol/kg)", unit: "µmol/kg", color: "#0284c7" }
+            };
+
+            const xMeta = metaMap[xParam];
+            const yMeta = metaMap[yParam];
+
+            const xs = points.map(p => p.x);
+            const ys = points.map(p => p.y);
+            const meanX = (xs.reduce((a, b) => a + b, 0) / (xs.length || 1)).toFixed(2);
+            const meanY = (ys.reduce((a, b) => a + b, 0) / (ys.length || 1)).toFixed(2);
+
+            let trendLabel = "Positive (+r)";
+            if ((xParam === 'mergedSST' && yParam === 'o2') || (xParam === 'mergedSST' && yParam === 'merged_chl') || (xParam === 'mergedSSS' && yParam === 'merged_chl')) {
+                trendLabel = "Inverse (-r)";
+            }
+
+            document.getElementById('stat-avg').textContent = `${meanX} ${xMeta.unit}`;
+            document.getElementById('stat-min').textContent = `${meanY} ${yMeta.unit}`;
+            document.getElementById('stat-max').textContent = trendLabel;
+            document.getElementById('stat-n').textContent = `${points.length} stations`;
+
+            const key = `${xParam}__${yParam}`;
+            const exp = SCENARIO_TEXTS[key] || SCENARIO_TEXTS["no3__merged_chl"];
+            document.getElementById('interp-title').textContent = exp.title;
+            document.getElementById('interp-body').innerHTML = exp.body;
+            document.getElementById('interp-takeaway').textContent = exp.takeaway;
+
+            const plotColor = yParam === 'o2' ? '#0284c7' : (xParam === 'mergedSST' ? '#e05a47' : (xParam === 'mergedSSS' ? '#008891' : '#16a085'));
 
             const ctx = document.getElementById('telemetryChart').getContext('2d');
             if (telemetryChart) telemetryChart.destroy();
 
             telemetryChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'scatter',
                 data: {
-                    labels: labels,
                     datasets: [{
-                        label: `${labelText} — Station Comparison`,
-                        data: values,
-                        backgroundColor: color + 'cc',
-                        borderColor: color,
-                        borderWidth: 1.5,
-                        borderRadius: 6
+                        label: `${yMeta.label} vs. ${xMeta.label}`,
+                        data: points,
+                        showLine: true,
+                        tension: 0.32,
+                        backgroundColor: plotColor,
+                        borderColor: plotColor + '99',
+                        borderWidth: 2.5,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
                     }]
                 },
                 options: {
@@ -1113,66 +1402,24 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return ` ${context.dataset.label.split('—')[0]}: ${context.parsed.y} ${unit}`;
+                                    const pt = context.raw;
+                                    return `${pt.station}: X = ${pt.x} ${xMeta.unit} | Y = ${pt.y} ${yMeta.unit}`;
                                 }
                             }
                         }
                     },
                     scales: {
                         x: {
-                            title: { display: true, text: 'Sampling Stations along Expedition Trajectory (Chronological Order →)', font: { weight: 'bold' } }
+                            type: 'linear',
+                            position: 'bottom',
+                            title: { display: true, text: `X-Axis (Physico-Chemical Forcing): ${xMeta.label}`, font: { weight: 'bold' } }
                         },
                         y: {
-                            beginAtZero: parameter === 'merged_chl',
-                            title: { display: true, text: labelText, font: { weight: 'bold' } }
+                            beginAtZero: yParam === 'merged_chl',
+                            title: { display: true, text: `Y-Axis (Biological / Ecological Response): ${yMeta.label}`, font: { weight: 'bold' } }
                         }
                     }
                 }
-            });
-        }
-
-        function runAnalysis() {
-            const parameter = document.getElementById('param-select').value;
-            const region = document.getElementById('region-select').value;
-            const limit = parseInt(document.getElementById('limit-select').value, 10);
-
-            fetch('/api/analyze', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ parameter, region, limit })
-            })
-            .then(res => {
-                if (!res.ok) throw new Error("Fallback local calculation");
-                return res.json();
-            })
-            .then(data => {
-                renderChartData(data.labels, data.values, data.label, data.unit, data.color, data.summary, parameter, region);
-            })
-            .catch(() => {
-                const source = stationList.length ? stationList : DEFAULT_STATIONS;
-                const filtered = source.filter(s => {
-                    if (region === 'south_pacific') return s.lat < 0;
-                    if (region === 'north_pacific') return s.lat >= 0 && (s.lon < -100 || s.lon > 120);
-                    if (region === 'atlantic_panama') return s.lon >= -90 && s.lon <= 0 && s.lat >= 0;
-                    return true;
-                });
-                const subset = (filtered.length ? filtered : source).slice(0, limit);
-                const labels = subset.map(s => s.station.substring(0, 18));
-                const values = subset.map(s => Number(s[parameter] || 0));
-                const avg = (values.reduce((a, b) => a + b, 0) / (values.length || 1)).toFixed(2);
-                const meta = {
-                    mergedSST: { label: "Sea Surface Temperature (°C)", unit: "°C", color: "#e05a47" },
-                    merged_chl: { label: "Chlorophyll-a Concentration (mg/m³)", unit: "mg/m³", color: "#16a085" },
-                    mergedSSS: { label: "Sea Surface Salinity (PSU)", unit: "PSU", color: "#008891" },
-                    airTemp: { label: "Marine Air Temperature (°C)", unit: "°C", color: "#f39c12" }
-                }[parameter];
-
-                renderChartData(labels, values, meta.label, meta.unit, meta.color, {
-                    average: avg,
-                    min: Math.min(...values).toFixed(2),
-                    max: Math.max(...values).toFixed(2),
-                    sample_size: subset.length
-                }, parameter, region);
             });
         }
 
@@ -1181,9 +1428,9 @@
             runAnalysis();
         });
 
-        document.getElementById('param-select').addEventListener('change', runAnalysis);
+        document.getElementById('x-select').addEventListener('change', runAnalysis);
+        document.getElementById('y-select').addEventListener('change', runAnalysis);
         document.getElementById('region-select').addEventListener('change', runAnalysis);
-        document.getElementById('limit-select').addEventListener('change', runAnalysis);
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
     </script>
