@@ -274,7 +274,7 @@
                     <span class="inst-badge">INTERACTIVE SCHEMATIC A • CONTINUOUS UNDERWAY &amp; SURFACE SAMPLING</span>
                     <h3>Onboard filtration circuit &amp; towed nets</h3>
                     <p class="protocol-intro">
-                        Now, let's take a look at the instruments. To study marine life, the scientists on board rely on a specific set of tools to sample the water and collect data.<br>
+                        Now, let's take a look at the instruments. To study marine life, the scientists on board rely on a specific set of tools to sample the water and collect data.
                         <strong>Ready to explore? Follow the numbers on the schematic to see exactly how the crew works!</strong>
                     </p>
                 </div>
@@ -338,18 +338,6 @@
                         </div>
                         <p class="caption">Click directly on any numbered circle (1–7) on the underwater reef scene above or use the buttons below.</p>
 
-                        <div class="instruments-under-image">
-                            <h3 class="instruments-heading">Scientific instruments aboard the Tara Schooner &amp; reef zodiac</h3>
-                            <div class="instrument-tabs">
-                                <button class="inst-tab tab-reef active" id="tab-reef-1" onclick="selectReefInst(1)">1. Coral fragments</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-2" onclick="selectReefInst(2)">2. Reef fish</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-3" onclick="selectReefInst(3)">3. Coral coring</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-4" onclick="selectReefInst(4)">4. Colony water</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-5" onclick="selectReefInst(5)">5. Surface pumping</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-6" onclick="selectReefInst(6)">6. CTD Profiler</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-7" onclick="selectReefInst(7)">7. Diver bongo nets</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="instrument-panel">
@@ -950,12 +938,13 @@
         function selectReefInst(num) {
             const data = REEF_INSTRUMENTS[num];
             if (!data) return;
-            document.querySelectorAll('.tab-reef').forEach(b => b.classList.remove('active'));
-            document.getElementById('tab-reef-' + num).classList.add('active');
+
+            // Met en surbrillance uniquement la pastille cliquée sur l'image (1 à 7)
             document.querySelectorAll('.spot-reef').forEach(s => s.classList.remove('active-spot'));
             const el = document.getElementById('spot-reef-' + num);
             if (el) el.classList.add('active-spot');
 
+            // Met à jour le panneau de droite
             document.getElementById('reef-badge').textContent = data.badge;
             document.getElementById('reef-title').textContent = data.title;
             document.getElementById('reef-desc').textContent = data.desc;
@@ -1533,7 +1522,7 @@
                 if (brandDot) brandDot.classList.remove('hidden-dot');
             }
         });
-        
+
     </script>
 </body>
 </html>
