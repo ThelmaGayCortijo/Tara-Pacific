@@ -136,6 +136,7 @@
     <main class="main-wrapper">
 
     <!-- CONSOLE DE TIMONERIE EN TECK & LAITON (Espacée sous Welcome Aboard) -->
+    <!-- CONSOLE DE TIMONERIE EN TECK CLAIR (Sans fond bleu derrière + Boutons 100% actifs) -->
     <section class="bridge-console-strip">
         <div class="bridge-wood-frame" id="helm-console">
             
@@ -220,6 +221,57 @@
 
             </div>
         </div>
+
+        <!-- Script intégré directement ici pour garantir que la boussole et les boutons fonctionnent -->
+        <script>
+            let helmCompassDeg = -75;
+
+            function activateHelmMode(btnEl, targetDeg, hdgLabel, protocolLabel) {
+                // Active uniquement le bouton cliqué (sauf Amber Lamp qui est indépendant)
+                const buttons = btnEl.parentElement.querySelectorAll('.helm-push-btn');
+                for (let i = 0; i < 3; i++) {
+                    if (buttons[i]) buttons[i].classList.remove('active');
+                }
+                btnEl.classList.add('active');
+
+                // Tourne l'aiguille de la boussole
+                helmCompassDeg = targetDeg;
+                const needle = document.getElementById('helm-compass-needle');
+                if (needle) needle.style.transform = 'rotate(' + helmCompassDeg + 'deg)';
+
+                // Met à jour le texte de cap (HDG) et le titre du moniteur
+                const hdgEl = document.getElementById('helm-hdg-text');
+                if (hdgEl) hdgEl.textContent = hdgLabel;
+
+                const labelEl = document.getElementById('helm-Dynamic-label');
+                if (labelEl) labelEl.textContent = protocolLabel;
+
+                const degReadout = document.getElementById('compass-deg-readout');
+                const normalizedDeg = ((targetDeg % 360) + 360) % 360;
+                if (degReadout) degReadout.textContent = 'HEADING: ' + normalizedDeg + '°';
+            }
+
+            function spinCompassManual() {
+                helmCompassDeg += 55;
+                const needle = document.getElementById('helm-compass-needle');
+                if (needle) needle.style.transform = 'rotate(' + helmCompassDeg + 'deg)';
+
+                const normalizedDeg = ((helmCompassDeg % 360) + 360) % 360;
+                const degReadout = document.getElementById('compass-deg-readout');
+                if (degReadout) degReadout.textContent = 'HEADING: ' + normalizedDeg + '°';
+
+                const hdgEl = document.getElementById('helm-hdg-text');
+                if (hdgEl) hdgEl.textContent = normalizedDeg + '° • MANUAL STEERING';
+            }
+
+            function toggleHelmAmberLamp(btnEl) {
+                btnEl.classList.toggle('active');
+                const screen = document.getElementById('helm-question-screen');
+                const consoleBox = document.getElementById('helm-console');
+                if (screen) screen.classList.toggle('amber-glow');
+                if (consoleBox) consoleBox.classList.toggle('amber-console-mode');
+            }
+        </script>
     </section>
 
         <!-- 1. FOUNDATION INTRODUCTION (Logos du Consortium + Bulles Océaniques) -->
@@ -1585,98 +1637,7 @@
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
 
-// --- 5. ANIMATION DE PLONGÉE CONTRÔLÉE PAR LE SCROLL ---
-        window.addEventListener('scroll', () => {
-            const diveSection = document.getElementById('scroll-dive-section');
-            const diverEl = document.getElementById('scrolling-diver');
-            const depthValEl = document.getElementById('scroll-depth-val');
-            const titleBox = document.getElementById('abyss-title-box');
-            const navDiver = document.getElementById('navbar-diver');
-            const brandDot = document.getElementById('brand-dot-default');
-            const promptEl = document.getElementById('scroll-prompt');
 
-            if (!diveSection || !diverEl) return;
-
-            const scrollY = window.scrollY;
-            const totalDiveHeight = diveSection.offsetHeight - window.innerHeight;
-            const progress = Math.max(0, Math.min(1, scrollY / (totalDiveHeight || 1)));
-
-            // Cache le texte "Scroll down" dès qu'on commence à descendre
-            if (promptEl) {
-                promptEl.style.opacity = scrollY > 40 ? '0' : '1';
-            }
-
-            // Met à jour la profondeur affichée (de 0m à -200m)
-            const depthMeters = Math.round(progress * 200);
-            if (depthValEl) {
-                if (depthMeters < 15) depthValEl.textContent = `-${depthMeters} m — SURFACE ZONE`;
-                else if (depthMeters < 120) depthValEl.textContent = `-${depthMeters} m — EUPHOTIC ZONE`;
-                else depthValEl.textContent = `-${depthMeters} m — DEEP OBSERVATORY`;
-
-                // Fait disparaître UNIQUEMENT l'étiquette dès que le plongeur touche le titre "TARA PACIFIC EXPEDITION"
-                if (titleBox) {
-                    const diverRect = diverEl.getBoundingClientRect();
-                    const titleRect = titleBox.getBoundingClientRect();
-                    if (diverRect.bottom >= titleRect.top - 15) {
-                        depthValEl.classList.add('hide-tag');
-                    } else {
-                        depthValEl.classList.remove('hide-tag');
-                    }
-                }
-            }
-
-            // Petit mouvement latéral de nage au fil du scroll
-            const swimWave = Math.sin(progress * Math.PI * 4) * 18;
-            diverEl.style.transform = `translateX(${swimWave}px)`;
-
-            // Le plongeur reste visible sur le titre, et ne disparaît que tout en bas pour entrer dans la barre .topbar
-            if (scrollY >= diveSection.offsetHeight - 80) {
-                diverEl.style.opacity = '0';
-                if (navDiver) navDiver.classList.add('docked');
-                if (brandDot) brandDot.classList.add('hidden-dot');
-            } else {
-                diverEl.style.opacity = '1';
-                if (navDiver) navDiver.classList.remove('docked');
-                if (brandDot) brandDot.classList.remove('hidden-dot');
-            }
-        });
-
-        
-        // --- INTERACTION DU TABLEAU DE BORD (BOUTONS & BOUSSOLE) ---
-        let currentCompassAngle = -75;
-
-        function toggleHelmSwitch(btnEl, angle, headingLabel) {
-            document.querySelectorAll('.helm-switches-group .helm-push-btn:not(:last-child)').forEach(b => {
-                b.classList.remove('active');
-            });
-            btnEl.classList.add('active');
-
-            currentCompassAngle = angle;
-            const needle = document.getElementById('helm-compass-needle');
-            if (needle) {
-                needle.style.transform = `rotate(${currentCompassAngle}deg)`;
-            }
-            const hdgText = document.getElementById('helm-hdg-text');
-            if (hdgText) {
-                hdgText.textContent = headingLabel;
-            }
-        }
-
-        function spinHelmCompass() {
-            currentCompassAngle += 65;
-            const needle = document.getElementById('helm-compass-needle');
-            if (needle) {
-                needle.style.transform = `rotate(${currentCompassAngle}deg)`;
-            }
-        }
-
-        function toggleNightModeHelm(btnEl) {
-            btnEl.classList.toggle('active');
-            const screen = document.getElementById('helm-question-screen');
-            if (screen) {
-                screen.classList.toggle('amber-glow');
-            }
-        }
     </script>
 </body>
 </html>
