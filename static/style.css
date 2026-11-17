@@ -12,7 +12,7 @@
     --teal-500: #49963c;
     --cyan-600: #c4aa5c;
     --coral-500: #e05a47;
-    --sand-50: #a8c3dd;
+    --sand-50: #c7d6e6;
     --sand-100: #f1f5f9;
     --text-main: #1e293b;
     --text-muted: #64748b;
@@ -307,65 +307,175 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
-/* 4 BALANCED KPI INFOGRAPHIC CARDS */
-.kpi-grid-4 {
+/* ==========================================================================
+   SECTION 01 : STYLE ÉDITORIAL & MATRICE SCIENTIFIQUE (NON-IA / PRO)
+   ========================================================================== */
+.editorial-intro-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+}
+
+@media (max-width: 920px) {
+    .editorial-intro-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+.prose-editorial .lead-paragraph {
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: var(--navy-900);
+    margin: 0 0 16px;
+}
+
+.prose-editorial p {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: var(--text-main);
+    margin: 0 0 22px;
+}
+
+/* Barre des laboratoires partenaires (CNRS, EMBL...) */
+.consortium-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 20px;
+}
+
+.consortium-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-right: 6px;
+}
+
+.inst-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--navy-900);
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.editorial-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    text-decoration: none;
+    border-bottom: 2px solid var(--coral-500);
+    padding-bottom: 3px;
+    transition: color 0.2s, gap 0.2s;
+}
+
+.editorial-link:hover {
+    color: var(--coral-500);
+    gap: 12px;
+}
+
+/* Matrice de chiffres clés unifiée (Style Rapport Scientifique) */
+.metrics-matrix-wrapper {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--navy-900); /* Une seule ligne sobre bleu marine en haut */
+    border-radius: 6px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.matrix-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 22px;
+    background: var(--sand-100);
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: var(--text-muted);
+}
+
+.metrics-matrix {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
 }
 
 @media (max-width: 600px) {
-    .kpi-grid-4 {
+    .metrics-matrix {
         grid-template-columns: 1fr;
     }
 }
 
-.kpi-card {
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    padding: 22px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    overflow: hidden;
+.matrix-cell {
+    padding: 24px 22px;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
 }
 
-.kpi-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
+/* Enlève les bordures superflues à droite et en bas */
+.matrix-cell:nth-child(2n) {
+    border-right: none;
+}
+.matrix-cell:nth-child(3),
+.matrix-cell:nth-child(4) {
+    border-bottom: none;
 }
 
-.kpi-card.accent-blue::before { background: #38bdf8; }
-.kpi-card.accent-teal::before { background: var(--teal-600); }
-.kpi-card.accent-coral::before { background: var(--coral-500); }
-.kpi-card.accent-gold::before { background: #f59e0b; }
-
-.kpi-num {
+.matrix-index {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.1rem;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.matrix-val {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.25rem;
     font-weight: 700;
     color: var(--navy-900);
+    line-height: 1.05;
+    margin-bottom: 6px;
 }
 
-.kpi-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    display: block;
-    margin-top: 4px;
-    color: var(--teal-600);
-}
-
-.kpi-card p {
-    margin: 6px 0 0;
-    font-size: 0.83rem;
+.matrix-val small {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--text-muted);
 }
 
+.matrix-label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--teal-600);
+    margin-bottom: 6px;
+}
+
+.matrix-cell p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
 /* CREW HIGHLIGHT CARD */
 .crew-highlight-card {
     background: #ffffff;
@@ -1444,7 +1554,7 @@ h1, h2, h3 {
 /* Titre "TARA PACIFIC EXPEDITION" au fond de la zone de scroll */
 .abyss-title-Checkpoint {
     position: absolute;
-    bottom: 34vh;
+    bottom: 39vh;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
