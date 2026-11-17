@@ -17,97 +17,73 @@
 </head>
 <body>
 
-    <!-- ANIMATION D'INTRO : PLONGÉE OCÉANIQUE -->
-    <div id="ocean-dive-intro" class="dive-intro-overlay">
-        <div class="dive-ocean-bg">
-            <!-- Rayons de soleil sous-marins en surface -->
-            <div class="sun-rays"></div>
-
-            <!-- Bulles qui remontent -->
-            <div class="bubbles-container">
-                <span class="bubble b1"></span>
-                <span class="bubble b2"></span>
-                <span class="bubble b3"></span>
-                <span class="bubble b4"></span>
-                <span class="bubble b5"></span>
-                <span class="bubble b6"></span>
-            </div>
-
-            <!-- Petit plongeur dessiné (SVG animé) + indicateur de profondeur -->
-            <div class="diver-wrapper">
-                <div class="depth-badge" id="dive-depth-counter">DEPTH: -0 m</div>
-                <svg class="diver-svg" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Bulles d'expiration du détendeur -->
-                    <circle class="diver-air a1" cx="165" cy="45" r="3.5" fill="#bae6fd" />
-                    <circle class="diver-air a2" cx="175" cy="30" r="5" fill="#e0f2fe" />
-                    <circle class="diver-air a3" cx="168" cy="14" r="6.5" fill="#f0f9ff" />
-
-                    <!-- Groupe du plongeur (incliné vers les profondeurs) -->
-                    <g transform="rotate(28, 110, 70)">
-                        <!-- Palme arrière -->
-                        <g class="fin-back">
-                            <path d="M 35 72 L 8 62 L 4 75 L 35 78 Z" fill="#f59e0b" />
-                        </g>
-                        <!-- Jambe arrière -->
-                        <path d="M 70 68 L 35 74" stroke="#0f172a" stroke-width="10" stroke-linecap="round" />
-
-                        <!-- Bouteille de plongée (jaune/corail Tara) -->
-                        <rect x="82" y="42" width="44" height="15" rx="7" fill="#e05a47" stroke="#ffffff" stroke-width="1.5" />
-                        <circle cx="128" cy="49" r="3.5" fill="#94a3b8" />
-
-                        <!-- Corps / Combinaison néoprène -->
-                        <ellipse cx="105" cy="64" rx="34" ry="13" fill="#1e293b" />
-                        <!-- Bande turquoise sur la combinaison -->
-                        <path d="M 85 62 Q 105 68 128 61" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round" />
-
-                        <!-- Jambe avant -->
-                        <path d="M 74 66 L 36 66" stroke="#1e293b" stroke-width="11" stroke-linecap="round" />
-                        <!-- Palme avant -->
-                        <g class="fin-front">
-                            <path d="M 36 63 L 6 50 L 2 64 L 36 69 Z" fill="#fbbf24" />
-                        </g>
-
-                        <!-- Tête & Cagoule -->
-                        <circle cx="146" cy="62" r="13" fill="#1e293b" />
-                        <!-- Masque de plongée illuminé -->
-                        <rect x="147" y="57" width="13" height="9" rx="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
-                        <!-- Tuba / Détendeur -->
-                        <path d="M 155 68 Q 145 78 130 52" stroke="#94a3b8" stroke-width="2.5" fill="none" />
-
-                        <!-- Bras tenant une lampe torche sous-marine -->
-                        <path d="M 122 68 L 146 78 L 166 75" stroke="#1e293b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                        <!-- Lampe & Faisceau lumineux -->
-                        <rect x="164" y="71" width="9" height="6" rx="2" fill="#f59e0b" />
-                        <polygon points="173,74 218,56 218,92" fill="url(#beamGrad)" opacity="0.55" />
-                    </g>
-
-                    <defs>
-                        <linearGradient id="beamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8" />
-                            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-
-            <!-- Titre final au fond de l'océan avant d'ouvrir la page -->
-            <div class="dive-title-reveal">
-                <span class="dive-eyebrow">2016 – 2018 • 100,000 KM ACROSS 32 ARCHIPELAGOS</span>
-                <h1 class="dive-main-title">TARA PACIFIC EXPEDITION</h1>
-                <div class="dive-line"></div>
-                <p class="dive-subtitle">Entering the Scientific Observatory...</p>
+    <!-- 0. ZONE DE PLONGÉE INTERACTIVE AU SCROLL (Surface -> Profondeurs -> Titre) -->
+    <section id="scroll-dive-section" class="scroll-dive-section">
+        <!-- Surface de l'eau et ciel au tout début -->
+        <div class="ocean-surface-sky">
+            <div class="scroll-prompt" id="scroll-prompt">
+                <span>Scroll down to dive into the expedition</span>
+                <div class="scroll-arrow">&darr;</div>
             </div>
         </div>
 
-        <!-- Bouton pour passer l'intro rapidement si besoin -->
-        <button class="skip-dive-btn" onclick="skipDiveIntro()">Skip Intro &rarr;</button>
-    </div>
+        <!-- Rayons de soleil sous la surface -->
+        <div class="underwater-rays"></div>
 
-    <!-- Top Navigation Bar -->
-    <header class="topbar">
+        <!-- Petit plongeur qui suit le scroll vers le bas -->
+        <div class="scrolling-diver-sticky" id="scrolling-diver">
+            <div class="diver-depth-tag" id="scroll-depth-val">0 m — SURFACE</div>
+            <svg class="diver-scroll-svg" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+                <circle class="diver-bubble b-1" cx="165" cy="42" r="4" fill="#bae6fd" />
+                <circle class="diver-bubble b-2" cx="176" cy="24" r="5.5" fill="#e0f2fe" />
+                <g transform="rotate(32, 110, 70)">
+                    <g class="fin-anim-back"><path d="M 35 72 L 8 62 L 4 75 L 35 78 Z" fill="#f59e0b" /></g>
+                    <path d="M 70 68 L 35 74" stroke="#0f172a" stroke-width="10" stroke-linecap="round" />
+                    <rect x="82" y="42" width="44" height="15" rx="7" fill="#e05a47" stroke="#ffffff" stroke-width="1.5" />
+                    <circle cx="128" cy="49" r="3.5" fill="#94a3b8" />
+                    <ellipse cx="105" cy="64" rx="34" ry="13" fill="#1e293b" />
+                    <path d="M 85 62 Q 105 68 128 61" stroke="#38bdf8" stroke-width="3.5" fill="none" stroke-linecap="round" />
+                    <path d="M 74 66 L 36 66" stroke="#1e293b" stroke-width="11" stroke-linecap="round" />
+                    <g class="fin-anim-front"><path d="M 36 63 L 6 50 L 2 64 L 36 69 Z" fill="#fbbf24" /></g>
+                    <circle cx="146" cy="62" r="13" fill="#1e293b" />
+                    <rect x="147" y="57" width="13" height="9" rx="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+                    <path d="M 155 68 Q 145 78 130 52" stroke="#94a3b8" stroke-width="2.5" fill="none" />
+                    <path d="M 122 68 L 146 78 L 166 75" stroke="#1e293b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    <rect x="164" y="71" width="9" height="6" rx="2" fill="#f59e0b" />
+                    <polygon points="173,74 218,56 218,92" fill="rgba(254, 240, 138, 0.45)" />
+                </g>
+            </svg>
+        </div>
+
+        <!-- Titre intermédiaire dans les profondeurs (avant d'arriver sur le site) -->
+        <div class="abyss-title-Checkpoint" id="abyss-title-box">
+            <span class="abyss-eyebrow">2016 – 2018 • 100,000 KM ACROSS THE PACIFIC</span>
+            <h2 class="abyss-heading">TARA PACIFIC EXPEDITION</h2>
+            <div class="abyss-divider"></div>
+            <p class="abyss-sub">Keep scrolling to enter the Scientific Observatory &darr;</p>
+        </div>
+    </section>
+
+    <!-- Top Navigation Bar (Même couleur #07192b que le fond de la plongée + Petit plongeur garé dedans) -->
+    <header class="topbar" id="main-topbar">
         <div class="topbar-inner">
             <a href="#" class="brand">
-                <span class="brand-dot"></span>
+                <!-- Petit plongeur qui s'installe dans la barre du haut à la fin du scroll -->
+                <span class="navbar-diver-icon" id="navbar-diver" title="Diver docked in observatory">
+                    <svg viewBox="0 0 220 140" width="38" height="26" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="rotate(8, 110, 70)">
+                            <path d="M 35 72 L 8 62 L 4 75 L 35 78 Z" fill="#f59e0b" />
+                            <path d="M 70 68 L 35 74" stroke="#94a3b8" stroke-width="10" stroke-linecap="round" />
+                            <rect x="82" y="42" width="44" height="15" rx="7" fill="#e05a47" />
+                            <ellipse cx="105" cy="64" rx="34" ry="13" fill="#38bdf8" />
+                            <path d="M 74 66 L 36 66" stroke="#e2e8f0" stroke-width="11" stroke-linecap="round" />
+                            <path d="M 36 63 L 6 50 L 2 64 L 36 69 Z" fill="#fbbf24" />
+                            <circle cx="146" cy="62" r="13" fill="#e2e8f0" />
+                            <rect x="147" y="57" width="13" height="9" rx="3.5" fill="#0284c7" />
+                        </g>
+                    </svg>
+                </span>
+                <span class="brand-dot" id="brand-dot-default"></span>
                 TARA PACIFIC <span class="brand-sub">SCIENTIFIC OBSERVATORY</span>
             </a>
             <nav aria-label="Main navigation">
@@ -124,7 +100,7 @@
             </nav>
         </div>
     </header>
-
+    
     <!-- Hero Banner with Background Image -->
     <section class="hero hero-with-bg">
         <div class="hero-overlay"></div>
@@ -1505,42 +1481,48 @@
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
 
-        // --- 5. ANIMATION D'INTRO PLONGÉE OCÉANIQUE ---
-        let diveTimer = null;
-        let depthInterval = null;
+    // --- 5. ANIMATION DE PLONGÉE CONTRÔLÉE PAR LE SCROLL ---
+        window.addEventListener('scroll', () => {
+            const diveSection = document.getElementById('scroll-dive-section');
+            const diverEl = document.getElementById('scrolling-diver');
+            const depthValEl = document.getElementById('scroll-depth-val');
+            const navDiver = document.getElementById('navbar-diver');
+            const brandDot = document.getElementById('brand-dot-default');
+            const promptEl = document.getElementById('scroll-prompt');
 
-        function skipDiveIntro() {
-            const overlay = document.getElementById('ocean-dive-intro');
-            if (!overlay) return;
-            overlay.classList.add('fade-out-intro');
-            document.body.classList.remove('intro-locked');
-            if (diveTimer) clearTimeout(diveTimer);
-            if (depthInterval) clearInterval(depthInterval);
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 950);
-        }
+            if (!diveSection || !diverEl) return;
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const overlay = document.getElementById('ocean-dive-intro');
-            const depthEl = document.getElementById('dive-depth-counter');
-            if (!overlay) return;
+            const scrollY = window.scrollY;
+            const totalDiveHeight = diveSection.offsetHeight - window.innerHeight;
+            const progress = Math.max(0, Math.min(1, scrollY / (totalDiveHeight || 1)));
 
-            document.body.classList.add('intro-locked');
+            // Cache le texte "Scroll down" dès qu'on commence à descendre
+            if (promptEl) {
+                promptEl.style.opacity = scrollY > 40 ? '0' : '1';
+            }
 
-            // Fait défiler le profondimètre de 0m à -200m pendant la descente du plongeur
-            let currentDepth = 0;
-            depthInterval = setInterval(() => {
-                currentDepth += 8;
-                if (currentDepth <= 200 && depthEl) {
-                    depthEl.textContent = `DEPTH: -${currentDepth} m`;
-                }
-            }, 95);
+            // Met à jour la profondeur affichée (de 0m à -200m)
+            const depthMeters = Math.round(progress * 200);
+            if (depthValEl) {
+                if (depthMeters < 15) depthValEl.textContent = `-${depthMeters} m — SURFACE ZONE`;
+                else if (depthMeters < 120) depthValEl.textContent = `-${depthMeters} m — EUPHOTIC ZONE`;
+                else depthValEl.textContent = `-${depthMeters} m — DEEP OBSERVATORY`;
+            }
 
-            // Ouvre automatiquement la page principale après 5.1 secondes
-            diveTimer = setTimeout(() => {
-                skipDiveIntro();
-            }, 5100);
+            // Petit mouvement latéral de nage au fil du scroll
+            const swimWave = Math.sin(progress * Math.PI * 4) * 18;
+            diverEl.style.transform = `translateX(${swimWave}px)`;
+
+            // Quand on arrive en bas de la plongée (début du site), le plongeur se loge dans la barre du haut
+            if (scrollY >= diveSection.offsetHeight - 120) {
+                diverEl.style.opacity = '0';
+                if (navDiver) navDiver.classList.add('docked');
+                if (brandDot) brandDot.classList.add('hidden-dot');
+            } else {
+                diverEl.style.opacity = '1';
+                if (navDiver) navDiver.classList.remove('docked');
+                if (brandDot) brandDot.classList.remove('hidden-dot');
+            }
         });
     </script>
 </body>
