@@ -168,39 +168,34 @@
             <div class="section-header">
                 <span class="section-tag">03 / FLOATING LABORATORY</span>
                 <h2>The Schooner &amp; Interactive Sampling Architecture</h2>
-                <p class="section-sub">Click on the numbered hotspots directly on the photograph of <em>Tara</em> and on the two standardized protocol schematics below to inspect how physical and biological samples are collected at sea and on coral reefs.</p>
+                <p class="section-sub">Explore the schooner <em>Tara</em> and click on the numbered hotspots on the two standardized protocol schematics below to inspect how physical and biological samples are collected at sea and on coral reefs.</p>
             </div>
 
-            <!-- 3.1 PHOTOGRAPH OF TARA UNDER SAIL + OVERVIEW DIAGRAM -->
+            <!-- 3.1 PHOTOGRAPH OF TARA UNDER SAIL (NO HOTSPOTS) + INTRO TEXT & OVERVIEW DIAGRAM -->
             <div class="boat-interactive-layout">
                 <div class="boat-visual-wrapper">
                     <div class="hotspot-container">
                         <img src="https://www.fondation.veolia.com/sites/g/files/dvc3696/files/styles/crop_freeform/public/image/2017/10/TARAPACIFIC-SPI-FVEOLIA_0.jpg.webp?h=018d2c3d&itok=HCqRqjXv" alt="Tara Schooner under sail" class="boat-main-img">
-                        
-                        <button class="hotspot active-spot" id="spot-rosette" style="top: 68%; left: 15%;" onclick="selectInstrument('rosette')" aria-label="CTD Rosette">1</button>
-                        <button class="hotspot" id="spot-tsg" style="top: 75%; left: 28%;" onclick="selectInstrument('tsg')" aria-label="Underway Thermosalinograph">2</button>
-                        <button class="hotspot" id="spot-manta" style="top: 62%; left: 41%;" onclick="selectInstrument('manta')" aria-label="Manta & Bongo Nets">3</button>
-                        <button class="hotspot" id="spot-wetlab" style="top: 52%; left: 24%;" onclick="selectInstrument('wetlab')" aria-label="Deck Wet Lab & Filtration">4</button>
                     </div>
-                    <p class="caption">Click numbered markers (1–4) on the hull, deck, and wake of <em>Tara</em> (36m aluminum schooner).</p>
+                    <p class="caption">The 36-meter aluminum research schooner <em>Tara</em> under sail during the Pacific expedition.</p>
 
-                    <div class="instruments-under-image">
-                        <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner</h3>
-                        <div class="instrument-tabs">
-                            <button class="inst-tab active" id="tab-rosette" onclick="selectInstrument('rosette')">1. CTD &amp; Niskin Rosette</button>
-                            <button class="inst-tab" id="tab-tsg" onclick="selectInstrument('tsg')">2. Underway Sensors (SST/SSS)</button>
-                            <button class="inst-tab" id="tab-manta" onclick="selectInstrument('manta')">3. Manta &amp; Plankton Nets</button>
-                            <button class="inst-tab" id="tab-wetlab" onclick="selectInstrument('wetlab')">4. Deck Filtration Lab</button>
-                        </div>
-
-                        <div id="instrument-detail-box" class="instrument-detail-box">
-                            <span class="inst-badge">WATER COLUMN PROFILING (0–1,000m)</span>
-                            <h3 id="inst-title">1. CTD Sensor Package &amp; Niskin Bottle Rosette</h3>
-                            <p id="inst-desc">
-                                Deployed via the forward oceanographic winch, the CTD (Conductivity, Temperature, Depth) carousel measures vertical profiles of temperature, salinity, dissolved oxygen, and fluorescence. Surrounding Niskin bottles trap seawater at targeted depths (including the Deep Chlorophyll Maximum) for genomic and nutrient analysis.
-                            </p>
-                            <div class="inst-meta" id="inst-meta">
-                                <strong>Dataset link:</strong> Calibrates vertical temperature and subsurface chlorophyll maxima in <code>env_context.csv</code>.
+                    <div class="schooner-tour-card">
+                        <h3>Welcome aboard the <em>Tara</em> schooner!</h3>
+                        <p>
+                            I hope you don't get seasick. Let's take a quick tour of the boat together.
+                        </p>
+                        <p>
+                            At first glance, you might think <em>Tara</em> is a rugged 36-meter aluminum polar schooner built to withstand the harshest oceans. But beneath her sails lies a highly synchronized floating laboratory. During the <em>Tara Pacific</em> expedition (2016–2018), the vessel didn’t just cross the water; she continuously filtered it.
+                        </p>
+                        <p>
+                            The diagram on the right reveals what actually happens on deck. This work relies on two distinct rhythms:
+                        </p>
+                        <div class="rhythm-list">
+                            <div class="rhythm-item">
+                                <strong>(i) Continuous surface filtering:</strong> Even while sailing at full speed, surface water is continuously pumped through the hull directly into a cramped on-board laboratory. The ocean flows through the boat, allowing scientists to filter and preserve delicate genetic material 24/7 before it can degrade.
+                            </div>
+                            <div class="rhythm-item">
+                                <strong>(ii) Sampling stations and Plunge:</strong> When the ship stops at a sampling station, it lowers heavy sensory equipment down to 1,000 meters deep, pulling the dark, unexplored layers of the water column right up to the deck.
                             </div>
                         </div>
                     </div>
@@ -222,7 +217,11 @@
             <div class="protocol-block" style="margin-top: 42px;">
                 <div class="protocol-title-bar">
                     <span class="inst-badge">INTERACTIVE SCHEMATIC A • CONTINUOUS UNDERWAY &amp; SURFACE SAMPLING</span>
-                    <h3>Onboard Filtration Circuit &amp; Towed Nets (Markers 1–8)</h3>
+                    <h3>Onboard filtration circuit &amp; towed nets</h3>
+                    <p class="protocol-intro">
+                        Now, let's take a look at the instruments. To study marine life, the scientists on board rely on a specific set of tools to sample the water and collect data.<br>
+                        <strong>Ready to explore? Follow the numbers on the schematic to see exactly how the crew works!</strong>
+                    </p>
                 </div>
 
                 <div class="boat-interactive-layout">
@@ -230,44 +229,47 @@
                         <div class="hotspot-container">
                             <img src="{{ url_for('static', filename='schema_bateau.jpg') }}" alt="Tara Pacific Underway Sampling Schematic" class="boat-main-img">
                             
-                            <button class="hotspot spot-ocean active-spot" id="spot-ocean-1" style="top: 67.3%; left: 73.5%;" onclick="selectOceanInst(1)" title="1. Hull Seawater Intake">1</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-2" style="top: 13.9%; left: 68.8%;" onclick="selectOceanInst(2)" title="2. Mast Weather & Solar Sensor">2</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-3" style="top: 88.4%; left: 63.1%;" onclick="selectOceanInst(3)" title="3. High-Speed Dolphin Net">3</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-4" style="top: 44.5%; left: 8.1%;" onclick="selectOceanInst(4)" title="4. Optical & TSG Sensors">4</button>
-                            <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 55.5%; left: 15.6%;" onclick="selectOceanInst(5)" title="5. Sequential Membrane Filtration">5</button>
-                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 11.1%;" onclick="selectOceanInst(5)" title="5. Filtration Carboy Left">5</button>
-                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 24.2%;" onclick="selectOceanInst(5)" title="5. Filtration Carboy Right">5</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-6" style="top: 33.4%; left: 23.7%;" onclick="selectOceanInst(6)" title="6. Deck Plankton Net">6</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-7" style="top: 88.8%; left: 42.3%;" onclick="selectOceanInst(7)" title="7. Manta Net (Microplastics)">7</button>
-                            <button class="hotspot spot-ocean" id="spot-ocean-8" style="top: 39.2%; left: 93.8%;" onclick="selectOceanInst(8)" title="8. Bow Pole Sampling">8</button>
+                            <button class="hotspot spot-ocean active-spot" id="spot-ocean-1" style="top: 67.3%; left: 73.5%;" onclick="selectOceanInst(1)" title="1. Inline-Pump (Hull Intake)">1</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-2" style="top: 13.9%; left: 68.8%;" onclick="selectOceanInst(2)" title="2. Mast-Pump (Atmospheric Sampling)">2</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-3" style="top: 88.4%; left: 63.1%;" onclick="selectOceanInst(3)" title="3. Dolphin Pump">3</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-4" style="top: 44.5%; left: 8.1%;" onclick="selectOceanInst(4)" title="4. Raw Water Distribution">4</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 55.5%; left: 15.6%;" onclick="selectOceanInst(5)" title="5. 50L Carboys (20 µm Filtration)">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 11.1%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Left">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 24.2%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Right">5</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-6" style="top: 33.4%; left: 23.7%;" onclick="selectOceanInst(6)" title="6. Decknet-20">6</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-7" style="top: 88.8%; left: 42.3%;" onclick="selectOceanInst(7)" title="7. High-Speed & Manta Nets (300 µm)">7</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-8" style="top: 39.2%; left: 93.8%;" onclick="selectOceanInst(8)" title="8. Handheld Bow-Pole">8</button>
                         </div>
                         <p class="caption">Click directly on any numbered circle (1–8) on the schematic above or use the buttons below.</p>
 
                         <div class="instruments-under-image">
                             <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner (Circuit 1–8)</h3>
                             <div class="instrument-tabs">
-                                <button class="inst-tab tab-ocean active" id="tab-ocean-1" onclick="selectOceanInst(1)">1. Hull Intake</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-2" onclick="selectOceanInst(2)">2. Mast Weather</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-3" onclick="selectOceanInst(3)">3. Dolphin Net</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-4" onclick="selectOceanInst(4)">4. In-Line Sensors</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-5" onclick="selectOceanInst(5)">5. Filtration &amp; Carboys</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-6" onclick="selectOceanInst(6)">6. Deck Net</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-7" onclick="selectOceanInst(7)">7. Manta Net</button>
-                                <button class="inst-tab tab-ocean" id="tab-ocean-8" onclick="selectOceanInst(8)">8. Bow Pole</button>
+                                <button class="inst-tab tab-ocean active" id="tab-ocean-1" onclick="selectOceanInst(1)">1. Inline-Pump</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-2" onclick="selectOceanInst(2)">2. Mast-Pump</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-3" onclick="selectOceanInst(3)">3. Dolphin Pump</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-4" onclick="selectOceanInst(4)">4. Raw Water Distribution</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-5" onclick="selectOceanInst(5)">5. 50L Carboys (20 µm)</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-6" onclick="selectOceanInst(6)">6. Decknet-20</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-7" onclick="selectOceanInst(7)">7. High-Speed &amp; Manta Nets</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-8" onclick="selectOceanInst(8)">8. Handheld Bow-Pole</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="instrument-panel">
                         <div id="ocean-detail-box" class="instrument-detail-box" style="margin-top: 0;">
-                            <span class="inst-badge" id="ocean-badge">MARKER #1 • CONTINUOUS SEAWATER INTAKE</span>
-                            <h3 id="ocean-title">1. Underway Hull Seawater Intake (Depth: ~1.5 m)</h3>
+                            <span class="inst-badge" id="ocean-badge">MARKER #1 • HULL INTAKE</span>
+                            <h3 id="ocean-title">1. Inline-Pump (Hull Intake)</h3>
                             <p id="ocean-desc">
-                                Located beneath the aluminum hull of <em>Tara</em>, this intake continuously pumps surface seawater into the onboard wet laboratory while the schooner is sailing, enabling uninterrupted physical, chemical, and biological monitoring across the Pacific Ocean.
+                                The main artery of the ship. Located beneath the hull, this intake continuously pumps surface seawater directly into the on-board laboratory to feed the internal filtration systems while sailing.
                             </p>
-                            <div class="inst-meta" id="ocean-meta">
-                                <strong>Dataset role:</strong> Feeds the Thermosalinograph (SST/SSS) and fluorometer (Chlorophyll-a) recorded in <code>env_context.csv</code>.
+                            <div class="inst-img-wrap" id="ocean-img-wrap" style="display: none;">
+                                <img id="ocean-img" src="" alt="Instrument visual" class="inst-detail-img" onerror="this.parentElement.style.display='none'">
                             </div>
+                            <a id="ocean-link" href="https://oceantech.in/product/vertical-inline-single-stage-closed-coupled-split-coupled-pump/" target="_blank" rel="noopener" class="inst-source-link">
+                                View instrument reference / source &rarr;
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +279,10 @@
             <div class="protocol-block" style="margin-top: 36px;">
                 <div class="protocol-title-bar">
                     <span class="inst-badge">INTERACTIVE SCHEMATIC B • IN-SITU CORAL REEF &amp; LAGOON DIVING</span>
-                    <h3>Coral Holobiont &amp; Reef Sampling Protocol (Markers 1–7)</h3>
+                    <h3>Coral holobiont &amp; reef sampling protocol</h3>
+                    <p class="protocol-intro">
+                        Now that we have discovered the scientific instruments aboard the Tara schooner, let’s board a Zodiac inflatable boat and dive beneath the surface to explore the reef ecosystem firsthand.
+                    </p>
                 </div>
 
                 <div class="boat-interactive-layout">
@@ -285,26 +290,26 @@
                         <div class="hotspot-container">
                             <img src="{{ url_for('static', filename='schema_corail.jpg') }}" alt="Tara Pacific Coral Reef Diving Schematic" class="boat-main-img">
                             
-                            <button class="hotspot spot-reef active-spot" id="spot-reef-1" style="top: 84.1%; left: 35.5%;" onclick="selectReefInst(1)" title="1. Coral Colony Sampling">1</button>
-                            <button class="hotspot spot-reef" id="spot-reef-2" style="top: 65.5%; left: 23.3%;" onclick="selectReefInst(2)" title="2. Reef Fish Sampling">2</button>
-                            <button class="hotspot spot-reef" id="spot-reef-3" style="top: 65.1%; left: 58.2%;" onclick="selectReefInst(3)" title="3. Coral Skeleton Coring">3</button>
-                            <button class="hotspot spot-reef" id="spot-reef-4" style="top: 78.6%; left: 80.3%;" onclick="selectReefInst(4)" title="4. Reef Water Intake">4</button>
-                            <button class="hotspot spot-reef" id="spot-reef-5" style="top: 53.9%; left: 85.1%;" onclick="selectReefInst(5)" title="5. Zodiac Peristaltic Pumping">5</button>
-                            <button class="hotspot spot-reef" id="spot-reef-6" style="top: 56.1%; left: 67.8%;" onclick="selectReefInst(6)" title="6. Vertical CTD Profiler">6</button>
-                            <button class="hotspot spot-reef" id="spot-reef-7" style="top: 52.4%; left: 54.7%;" onclick="selectReefInst(7)" title="7. Diver-Towed Plankton Nets">7</button>
+                            <button class="hotspot spot-reef active-spot" id="spot-reef-1" style="top: 84.1%; left: 35.5%;" onclick="selectReefInst(1)" title="1. Coral fragments">1</button>
+                            <button class="hotspot spot-reef" id="spot-reef-2" style="top: 65.5%; left: 23.3%;" onclick="selectReefInst(2)" title="2. Reef fish">2</button>
+                            <button class="hotspot spot-reef" id="spot-reef-3" style="top: 65.1%; left: 58.2%;" onclick="selectReefInst(3)" title="3. Coral coring">3</button>
+                            <button class="hotspot spot-reef" id="spot-reef-4" style="top: 78.6%; left: 80.3%;" onclick="selectReefInst(4)" title="4. Colony water">4</button>
+                            <button class="hotspot spot-reef" id="spot-reef-5" style="top: 53.9%; left: 85.1%;" onclick="selectReefInst(5)" title="5. Surface pumping">5</button>
+                            <button class="hotspot spot-reef" id="spot-reef-6" style="top: 56.1%; left: 67.8%;" onclick="selectReefInst(6)" title="6. CTD Profiler">6</button>
+                            <button class="hotspot spot-reef" id="spot-reef-7" style="top: 52.4%; left: 54.7%;" onclick="selectReefInst(7)" title="7. Diver bongo nets">7</button>
                         </div>
                         <p class="caption">Click directly on any numbered circle (1–7) on the underwater reef scene above or use the buttons below.</p>
 
                         <div class="instruments-under-image">
                             <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner &amp; Reef Zodiac (1–7)</h3>
                             <div class="instrument-tabs">
-                                <button class="inst-tab tab-reef active" id="tab-reef-1" onclick="selectReefInst(1)">1. Coral Fragments</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-2" onclick="selectReefInst(2)">2. Reef Fish</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-3" onclick="selectReefInst(3)">3. Coral Coring</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-4" onclick="selectReefInst(4)">4. Colony Water</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-5" onclick="selectReefInst(5)">5. Surface Pumping</button>
+                                <button class="inst-tab tab-reef active" id="tab-reef-1" onclick="selectReefInst(1)">1. Coral fragments</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-2" onclick="selectReefInst(2)">2. Reef fish</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-3" onclick="selectReefInst(3)">3. Coral coring</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-4" onclick="selectReefInst(4)">4. Colony water</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-5" onclick="selectReefInst(5)">5. Surface pumping</button>
                                 <button class="inst-tab tab-reef" id="tab-reef-6" onclick="selectReefInst(6)">6. CTD Profiler</button>
-                                <button class="inst-tab tab-reef" id="tab-reef-7" onclick="selectReefInst(7)">7. Diver Bongo Nets</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-7" onclick="selectReefInst(7)">7. Diver bongo nets</button>
                             </div>
                         </div>
                     </div>
@@ -312,13 +317,16 @@
                     <div class="instrument-panel">
                         <div id="reef-detail-box" class="instrument-detail-box" style="margin-top: 0;">
                             <span class="inst-badge" id="reef-badge">MARKER #1 • BENTHIC HOLOBIONT</span>
-                            <h3 id="reef-title">1. Targeted Coral Colony Sampling (<em>Pocillopora</em>, <em>Porites</em>, <em>Millepora</em>)</h3>
+                            <h3 id="reef-title">1. Targeted coral colony sampling</h3>
                             <p id="reef-desc">
-                                SCUBA scientists collect small fragments from three target coral genera across 32 Pacific archipelagos to sequence the genome of the coral host alongside its symbiotic microalgae (<em>Symbiodiniaceae</em>), bacteria, and viruses.
+                                Scientists collect small fragments from three coral genera (Pocillopora, Porites and Millepora) across 32 Pacific archipelagos. They sequence the genome of the coral host together with its symbiotic microalgae, bacteria and viruses. The goal is to measure thermal tolerance, telomere length and microbiome shifts along warming gradients, and to compare how different conditions affect corals.
                             </p>
-                            <div class="inst-meta" id="reef-meta">
-                                <strong>Scientific goal:</strong> Evaluates thermal tolerance, telomere length, and microbiome shifts across warming gradients.
+                            <div class="inst-img-wrap" id="reef-img-wrap">
+                                <img id="reef-img" src="https://fondationtaraocean.org/wp-content/uploads/2022/01/tara-pacific-fondationtaraocean.jpg" alt="Targeted coral colony sampling" class="inst-detail-img" onerror="this.parentElement.style.display='none'">
                             </div>
+                            <a id="reef-link" href="https://fondationtaraocean.org/wp-content/uploads/2022/01/tara-pacific-fondationtaraocean.jpg" target="_blank" rel="noopener" class="inst-source-link">
+                                Open full-size image &rarr;
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -390,7 +398,7 @@
             </div>
         </section>
 
-        <!-- 5. INTERACTIVE MAP, TELEMETRY & EXPEDITION REPORT (NO EMOJIS) -->
+        <!-- 5. INTERACTIVE MAP, TELEMETRY & EXPEDITION REPORT -->
         <section id="map-observatory" class="section-block alt-bg">
             <div class="section-header">
                 <span class="section-tag">04 / SPATIAL TELEMETRY &amp; EXPEDITION REPORT</span>
@@ -418,7 +426,7 @@
                     <div id="map"></div>
                 </div>
 
-                <!-- Station Telemetry & Chlorophyll Gauge Card (NO EMOJIS) -->
+                <!-- Station Telemetry & Chlorophyll Gauge Card -->
                 <aside class="telemetry-card">
                     <div class="telemetry-header">
                         <span class="telemetry-badge" id="st-badge">SELECT A STATION</span>
@@ -480,7 +488,7 @@
             </div>
         </section>
 
-        <!-- 5. NEW SECTION: BIOGEOCHEMICAL PROVINCES & CLIMATE STRESS VALIDATION (PCA MAPS) -->
+        <!-- 5. BIOGEOCHEMICAL PROVINCES & CLIMATE STRESS VALIDATION (PCA MAPS) -->
         <section id="provinces" class="section-block">
             <div class="section-header">
                 <span class="section-tag">05 / SPATIAL MODELING &amp; VALIDATION</span>
@@ -494,21 +502,21 @@
                 <div class="figure-card">
                     <img src="{{ url_for('static', filename='pca_biogeochem.jpg') }}" alt="Biogeochemical provinces PCA and map" class="responsive-img">
                     <div class="figure-caption">
-                        <strong>Figure 5.</strong> Technical validation comparing main hydrological and biogeochemical variables with global biogeochemical provinces[cite: 19]. (A) Box-cox normalized PCA space; (B) Spatial projection of station RGB signatures onto oceanic provinces[cite: 19].
+                        <strong>Figure 5.</strong> Technical validation comparing main hydrological and biogeochemical variables with global biogeochemical provinces. (A) Box-cox normalized PCA space; (B) Spatial projection of station RGB signatures onto oceanic provinces.
                     </div>
                 </div>
 
                 <div class="figure-card">
                     <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Historical SST heatwaves PCA and map" class="responsive-img">
                     <div class="figure-caption">
-                        <strong>Figure 6.</strong> Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces[cite: 19]. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations[cite: 19].
+                        <strong>Figure 6.</strong> Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations.
                     </div>
                 </div>
             </div>
 
             <div class="prose-block" style="margin-top: 24px;">
                 <p>
-                    As illustrated in Figures 5 and 6 above[cite: 19], translating high-dimensional physical and chemical data into 3-axis RGB color codes enables direct comparison between local station observations and global oceanographic classifications. This confirms that pelagic and reef ecosystems sampled by <em>Tara</em> span highly distinct thermal and nutrient regimes across the Pacific basin.
+                    As illustrated in Figures 5 and 6 above, translating high-dimensional physical and chemical data into 3-axis RGB color codes enables direct comparison between local station observations and global oceanographic classifications. This confirms that pelagic and reef ecosystems sampled by <em>Tara</em> span highly distinct thermal and nutrient regimes across the Pacific basin.
                 </p>
             </div>
         </section>
@@ -712,99 +720,63 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // --- 1A. PHOTO OF TARA INSTRUMENTS (1-4) ---
-        const INSTRUMENTS = {
-            rosette: {
-                badge: "WATER COLUMN PROFILING (0–1,000m)",
-                title: "1. CTD Sensor Package & Niskin Bottle Rosette",
-                desc: "Deployed via the forward oceanographic winch, the CTD (Conductivity, Temperature, Depth) carousel measures vertical profiles of temperature, salinity, dissolved oxygen, and fluorescence. Surrounding Niskin bottles trap seawater at targeted depths for genomic and nutrient analysis.",
-                meta: "Dataset link: Calibrates vertical temperature and subsurface chlorophyll maxima in env_context.csv."
-            },
-            tsg: {
-                badge: "CONTINUOUS UNDERWAY TELEMETRY",
-                title: "2. Thermosalinograph (TSG) & Peristaltic Pump",
-                desc: "Pumping seawater continuously from 1.5m below the hull while Tara is sailing, the Thermosalinograph and fluorometer record high-frequency Sea Surface Temperature (mergedSST), Salinity (mergedSSS), and surface Chlorophyll-a.",
-                meta: "Dataset link: Directly populates the mergedSST, mergedSSS, and merged_chl columns across all 665 stations."
-            },
-            manta: {
-                badge: "SURFACE & MESOPELAGIC NET TOWS",
-                title: "3. Manta Net (Microplastics) & Bongo Plankton Nets",
-                desc: "Towed off the stern A-frame at 2–3 knots, the Manta net skims the top 15 cm of the ocean to quantify microplastics (>330 µm), while Bongo nets with mesh sizes from 5 µm to 680 µm capture viruses, protists, diatoms, and copepods.",
-                meta: "Dataset link: Links physical water properties to plankton biodiversity and plastic density."
-            },
-            wetlab: {
-                badge: "ONBOARD FILTRATION & CRYOPRESERVATION",
-                title: "4. Deck Wet Lab & Sequential Membrane Filtration",
-                desc: "Inside Tara's interior wet lab, seawater is filtered through sequential polycarbonate membranes (0.2 µm to 200 µm) and immediately flash-frozen in liquid nitrogen for DNA/RNA metatranscriptomics back on land.",
-                meta: "Dataset link: Preserves the 150 million marine genes sequenced by Genoscope & EMBL."
-            }
-        };
-
-        function selectInstrument(key) {
-            const data = INSTRUMENTS[key];
-            if (!data) return;
-            ['rosette', 'tsg', 'manta', 'wetlab'].forEach(k => {
-                document.getElementById('tab-' + k).classList.remove('active');
-                document.getElementById('spot-' + k).classList.remove('active-spot');
-            });
-            document.getElementById('tab-' + key).classList.add('active');
-            document.getElementById('spot-' + key).classList.add('active-spot');
-
-            document.querySelector('#instrument-detail-box .inst-badge').textContent = data.badge;
-            document.getElementById('inst-title').textContent = data.title;
-            document.getElementById('inst-desc').textContent = data.desc;
-            document.getElementById('inst-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
-        }
-
-        // --- 1B. SCHEMATIC A (schema_bateau.jpg, Markers 1-8) ---
+        // --- 1A. SCHEMATIC A (schema_bateau.jpg, Markers 1-8) ---
         const OCEAN_INSTRUMENTS = {
             1: {
-                badge: "MARKER #1 • CONTINUOUS SEAWATER INTAKE",
-                title: "1. Underway Hull Seawater Intake (Depth: ~1.5 m)",
-                desc: "Located beneath the aluminum hull of Tara, this intake continuously pumps surface seawater into the onboard wet laboratory while the schooner is sailing, enabling uninterrupted physical, chemical, and biological monitoring.",
-                meta: "Dataset role: Feeds the Thermosalinograph (SST/SSS) and fluorometer (Chlorophyll-a) in env_context.csv."
+                badge: "MARKER #1 • HULL INTAKE",
+                title: "1. Inline-Pump (Hull Intake)",
+                desc: "The main artery of the ship. Located beneath the hull, this intake continuously pumps surface seawater directly into the on-board laboratory to feed the internal filtration systems while sailing.",
+                img: "",
+                link: "https://oceantech.in/product/vertical-inline-single-stage-closed-coupled-split-coupled-pump/"
             },
             2: {
-                badge: "MARKER #2 • ATMOSPHERIC & SOLAR TELEMETRY",
-                title: "2. Masthead Weather Station & PAR Irradiance Sensor",
-                desc: "Mounted at the top of the mast to avoid sea-spray interference, this sensor suite continuously records wind speed, relative humidity, Marine Air Temperature (airTemp), and Photosynthetically Active Radiation (PAR).",
-                meta: "Dataset role: Populates the airTemp column and tracks ocean-atmosphere heat exchange."
+                badge: "MARKER #2 • ATMOSPHERIC SAMPLING",
+                title: "2. Mast-Pump (Atmospheric Sampling)",
+                desc: "Installed high on the masts to avoid sea spray and ship exhaust, this specialized pump captures aerosols and atmospheric particles, linking the ocean's surface to the air above it.",
+                img: "",
+                link: "https://weathergeeks.org/ambient-weather-ws-2902-vs-ws-1965-which-is-right-for-you/"
             },
             3: {
-                badge: "MARKER #3 • HIGH-SPEED SURFACE SAMPLING",
-                title: "3. High-Speed 'Dolphin' Plankton Sampler",
-                desc: "Towed behind the schooner even at high sailing speeds (up to 9–10 knots), the streamlined metal 'Dolphin' collector funnels surface water into a fine mesh net without damaging delicate planktonic organisms.",
-                meta: "Dataset role: Captures daytime/nighttime surface plankton along open-ocean transects."
+                badge: "MARKER #3 • HIGH-SPEED SURFACE SAMPLER",
+                title: "3. Dolphin Pump",
+                desc: "Towed alongside the ship, the \"Dolphin\" is a high-speed pump. It draws in pristine surface water away from the hull's wake and sends it directly to the deck for processing.",
+                img: "https://www.researchgate.net/publication/337896236/figure/fig4/AS:11431281239648591@1714436467347/Surface-net-and-water-samplers-The-High-Speed-Net-on-board-and-in-work-left-and.tif",
+                link: "https://www.researchgate.net/publication/337896236/figure/fig4/AS:11431281239648591@1714436467347/Surface-net-and-water-samplers-The-High-Speed-Net-on-board-and-in-work-left-and.tif"
             },
             4: {
-                badge: "MARKER #4 • IN-LINE BIOPHYSICAL SENSORS",
-                title: "4. Thermosalinograph (TSG) & Optical Sensor Loop",
-                desc: "Before water reaches the filtration membranes, it passes through high-precision optical and conductivity sensors measuring Sea Surface Temperature (mergedSST), Salinity (mergedSSS), CDOM, and Chlorophyll-a fluorescence.",
-                meta: "Dataset role: Directly generates the core environmental columns of your stations.json file."
+                badge: "MARKER #4 • IN-LINE LABORATORY CIRCUIT",
+                title: "4. Raw Water Distribution",
+                desc: "The starting point inside the lab. Before any filtration happens, this circuit distributes the raw seawater pumped from the ocean, feeding the in-line sensors that log exact ocean conditions.",
+                img: "",
+                link: ""
             },
             5: {
-                badge: "MARKER #5 • SEQUENTIAL SIZE-FRACTIONATION & CARBOYS",
-                title: "5. Multi-Stage Membrane Filtration & Reservoir Carboys",
-                desc: "Seawater is pumped into collection carboys and pushed through a cascade of filter holders (from 200 µm down to 0.22 µm) to separate giant viruses, bacteria, pico-eukaryotes, and micro-phytoplankton before flash-freezing in liquid nitrogen.",
-                meta: "Dataset role: Isolates DNA/RNA across size fractions, leading to 150 million sequenced marine genes."
+                badge: "MARKER #5 • 20 µm FILTRATION",
+                title: "5. 50L Carboys (20 µm Filtration)",
+                desc: "Seawater pumped from the ocean is pushed through a 20 µm filter and collected in these massive 50-liter carboys. This concentrates the microscopic life, preparing the samples for deeper genetic analysis.",
+                img: "",
+                link: "https://fondationtaraocean.org/actualite-scientifique/etapes-echantillon-tara/"
             },
             6: {
-                badge: "MARKER #6 • ONBOARD CONCENTRATION",
-                title: "6. Deck Conical Plankton Net & Flowmeter",
-                desc: "Pumped water flows through an electronic flowmeter (recording exact filtered volume in liters) into a suspended deck net that concentrates larger microplankton and larval stages.",
-                meta: "Dataset role: Normalizes plankton abundance per cubic meter of filtered seawater."
+                badge: "MARKER #6 • SUSPENDED DECK NET",
+                title: "6. Decknet-20",
+                desc: "Instead of towing a net through the waves, the ocean is pumped directly through this conical net suspended right on the deck. Its 20 µm mesh safely catches plankton while measuring the exact volume of water processed.",
+                img: "",
+                link: "https://www.carenews.com/carenews-info/news/tara-20-ans-d-explorations-scientifiques-au-service-de-l-ocean"
             },
             7: {
-                badge: "MARKER #7 • MICROPLASTIC QUANTIFICATION",
-                title: "7. Stern-Towed Manta Net (330 µm Mesh)",
-                desc: "Equipped with lateral metal wings that keep its rectangular mouth skimming the top 15 cm of the sea surface, the Manta net traps floating microplastics, synthetic fibers, and neustonic organisms.",
-                meta: "Dataset role: Quantifies plastic pollution accumulation in Pacific subtropical gyres."
+                badge: "MARKER #7 • SURFACE & MICROPLASTIC NETS",
+                title: "7. High-Speed & Manta Nets (300 µm)",
+                desc: "Towed off the stern, these 300 µm mesh nets skim the top layer of the ocean. The winged Manta net is specifically deployed to trap floating microplastics and larger surface plankton.",
+                img: "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg",
+                link: "https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg"
             },
             8: {
-                badge: "MARKER #8 • TRACE METAL & CONTAMINATION-FREE SAMPLING",
-                title: "8. Forward Bow Pole Sampler",
-                desc: "Operated manually from the bowsprit ahead of the schooner's wake, this extensible pole collects pristine surface water completely free of hull paint, rust, or onboard greywater contamination.",
-                meta: "Dataset role: Used for ultra-clean trace metal, carbonate chemistry, and viral assays."
+                badge: "MARKER #8 • PRISTINE BOW SAMPLING",
+                title: "8. Handheld Bow-Pole",
+                desc: "To get the absolute purest samples, scientists use an extensible pole right at the front of the ship. This grabs surface water before the hull can even touch or contaminate it.",
+                img: "",
+                link: ""
             }
         };
 
@@ -825,52 +797,69 @@
             document.getElementById('ocean-badge').textContent = data.badge;
             document.getElementById('ocean-title').textContent = data.title;
             document.getElementById('ocean-desc').textContent = data.desc;
-            document.getElementById('ocean-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
+
+            const imgWrap = document.getElementById('ocean-img-wrap');
+            const imgEl = document.getElementById('ocean-img');
+            if (data.img) {
+                imgEl.src = data.img;
+                imgEl.alt = data.title;
+                imgWrap.style.display = 'block';
+            } else {
+                imgWrap.style.display = 'none';
+            }
+
+            const linkEl = document.getElementById('ocean-link');
+            if (data.link) {
+                linkEl.href = data.link;
+                linkEl.style.display = 'inline-block';
+            } else {
+                linkEl.style.display = 'none';
+            }
         }
 
-        // --- 1C. SCHEMATIC B (schema_corail.jpg, Markers 1-7) ---
+        // --- 1B. SCHEMATIC B (schema_corail.jpg, Markers 1-7) ---
         const REEF_INSTRUMENTS = {
             1: {
                 badge: "MARKER #1 • BENTHIC HOLOBIONT",
-                title: "1. Targeted Coral Colony Sampling (Pocillopora, Porites, Millepora)",
-                desc: "SCUBA scientists collect small fragments from three target coral genera across 32 Pacific archipelagos to sequence the genome of the coral host alongside its symbiotic microalgae (Symbiodiniaceae), bacteria, and viruses.",
-                meta: "Scientific goal: Evaluates thermal tolerance, telomere length, and microbiome shifts across warming gradients."
+                title: "1. Targeted coral colony sampling",
+                desc: "Scientists collect small fragments from three coral genera (Pocillopora, Porites and Millepora) across 32 Pacific archipelagos. They sequence the genome of the coral host together with its symbiotic microalgae, bacteria and viruses. The goal is to measure thermal tolerance, telomere length and microbiome shifts along warming gradients, and to compare how different conditions affect corals.",
+                img: "https://fondationtaraocean.org/wp-content/uploads/2022/01/tara-pacific-fondationtaraocean.jpg"
             },
             2: {
                 badge: "MARKER #2 • VERTEBRATE TROPHIC LEVEL",
-                title: "2. Reef Fish Sampling (Acanthurus triostegus & Zanclus cornutus)",
-                desc: "Divers sample herbivorous surgeonfish and omnivorous Moorish idols to examine their gut microbiome, gill parasites, and physiological stress markers across pristine vs. inhabited islands.",
-                meta: "Scientific goal: Links planktonic food webs to vertebrate reef health and plastic ingestion."
+                title: "2. Reef fish sampling",
+                desc: "Divers sample herbivorous surgeonfish and omnivorous Moorish idols to study their gut microbiome, gill parasites and physiological stress markers, comparing pristine and inhabited islands. The goal is to link plankton-based food webs to the health of reef vertebrates, including plastic ingestion.",
+                img: "https://fondationtaraocean.org/wp-content/uploads/2021/08/mission-tara-pacific-recolte-echantillons-coraux-david-hannan.jpg"
             },
             3: {
                 badge: "MARKER #3 • PALEOCLIMATOLOGY ARCHIVE",
-                title: "3. Pneumatic Coral Skeleton Coring (Massive Porites)",
-                desc: "Using an underwater pneumatic drill, divers extract vertical calcium carbonate cores from centuries-old Porites domes. Like tree rings, annual density bands record past sea surface temperatures and pH.",
-                meta: "Scientific goal: Reconstructs historical thermal anomalies and acidification over the past 100–200 years."
+                title: "3. Pneumatic Coral Skeleton Coring",
+                desc: "Using an underwater pneumatic drill, divers extract vertical calcium carbonate cores from centuries-old Porites domes. Like tree rings, their annual density bands record past sea surface temperatures and pH. Scientists can thus reconstruct thermal anomalies and ocean acidification over the last 100 to 200 years.",
+                img: "https://www.sail-world.com/photos/sailworld/Photos_2014_9/Alt_839.jpg"
             },
             4: {
                 badge: "MARKER #4 • BENTHIC BOUNDARY LAYER",
-                title: "4. Coral-Surrounding Water Intake",
-                desc: "A diver positions a weighted intake nozzle directly at the surface of the coral colony to capture the immediate boundary-layer water enriched in coral mucus, metabolites, and reef bacteria.",
-                meta: "Scientific goal: Compares the coral's internal microbiome with the surrounding reef water microbial community."
+                title: "4. Coral-surrounding water intake",
+                desc: "A diver places a weighted intake nozzle right against the coral surface to capture the thin layer of water enriched in coral mucus, metabolites and reef bacteria. The goal is to compare the coral’s internal microbiome with the microbial community of the surrounding reef water.",
+                img: "https://www.lorient-agglo.bzh/fileadmin/_processed_/5/4/csm_Tara_Pacific_Plong___e_et_pr___lS__vements_avec_Sylvian_Agostini___Pete_West_-_Fondation_Tara_Ocean_web_b77f7fca3f.jpg"
             },
             5: {
                 badge: "MARKER #5 • SURFACE ZODIAC PUMPING",
-                title: "5. Umbilical Tubing & Zodiac Peristaltic Pump",
-                desc: "Flexible food-grade tubing connects the diver on the reef floor directly to the surface inflatable boat (Zodiac), where seawater is pumped into carboys for immediate filtration back aboard Tara.",
-                meta: "Scientific goal: Ensures zero degradation of delicate RNA and microbial samples between the reef and the ship."
+                title: "5. Umbilical tubing & Zodiac peristaltic pump",
+                desc: "Flexible food-grade tubing links the diver on the reef floor to the surface inflatable boat (Zodiac). There, seawater is pumped into carboys, then filtered right away aboard Tara. The goal is to prevent any degradation of fragile RNA and microbial samples between the reef and the ship.",
+                img: "https://www.zeppelin.fr/wp-content/uploads/2019/03/Zeppelin%C2%A9Vincent-Hilaire-Tara-Expeditions.jpg"
             },
             6: {
                 badge: "MARKER #6 • LAGOON HYDROLOGY",
-                title: "6. Portable Vertical CTD Profiler",
-                desc: "Lowered from the Zodiac directly over the dive site, this compact CTD probe logs exact depth, water temperature, salinity, and light penetration right down to the coral colonies.",
-                meta: "Dataset role: Links in-situ reef conditions at filtration depth with open-ocean station telemetry."
+                title: "6. Portable vertical CTD Profiler",
+                desc: "Lowered from the Zodiac directly above the dive site, this compact probe records depth, water temperature, salinity and light penetration down to the coral colonies. These data link reef conditions at the sampling depth to the open-ocean station measurements.",
+                img: "https://fondationtaraocean.org/wp-content/uploads/2022/08/rosette-instruments-hydrographiques-optiques%C2%A9maeva-bardy.jpg"
             },
             7: {
                 badge: "MARKER #7 • REEF PLANKTON & LARVAE",
                 title: "7. Diver-Propelled Double Bongo Nets",
-                desc: "Two SCUBA divers swim horizontally above the reef crest pushing paired 20 µm and 200 µm plankton nets to capture coral larvae, reef copepods, and dinoflagellates without boat propeller turbulence.",
-                meta: "Scientific goal: Characterizes shallow lagoon plankton diversity and larval connectivity between islands."
+                desc: "Two divers swim horizontally above the reef crest, pushing paired 20 µm and 200 µm plankton nets to capture coral larvae, reef copepods and dinoflagellates, without the turbulence of a boat propeller. The goal is to describe shallow lagoon plankton diversity and larval connectivity between islands.",
+                img: "https://fondationtaraocean.org/wp-content/uploads/2023/06/echantillonnage-tara-pacific-maeva-bardy.jpg"
             }
         };
 
@@ -886,10 +875,23 @@
             document.getElementById('reef-badge').textContent = data.badge;
             document.getElementById('reef-title').textContent = data.title;
             document.getElementById('reef-desc').textContent = data.desc;
-            document.getElementById('reef-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
+
+            const imgWrap = document.getElementById('reef-img-wrap');
+            const imgEl = document.getElementById('reef-img');
+            const linkEl = document.getElementById('reef-link');
+            if (data.img) {
+                imgEl.src = data.img;
+                imgEl.alt = data.title;
+                imgWrap.style.display = 'block';
+                linkEl.href = data.img;
+                linkEl.style.display = 'inline-block';
+            } else {
+                imgWrap.style.display = 'none';
+                linkEl.style.display = 'none';
+            }
         }
 
-        // --- 2. LEAFLET MAP & EXPEDITION ROUTE (NO EMOJIS IN POPUPS) ---
+        // --- 2. LEAFLET MAP & EXPEDITION ROUTE ---
         const map = L.map('map', { worldCopyJump: true }).setView([5, -145], 2);
 
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
