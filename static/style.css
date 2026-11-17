@@ -138,7 +138,7 @@ h1, h2, h3 {
     font-size: 0.78rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #5eead4;
+    color: #ffffff;
     font-weight: 700;
     margin-bottom: 14px;
 }
@@ -1329,7 +1329,7 @@ h1, h2, h3 {
 }
 
 .footer-links a {
-    color: #5eead4;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -1441,26 +1441,6 @@ h1, h2, h3 {
     100% { transform: translateY(-20px); opacity: 0; }
 }
 
-diver-depth-tag {
-    font-size: 0.62rem;        
-    font-weight: 700;
-    letter-spacing: 1.4px;    
-    color: #a0dedf;
-    background: rgba(7, 25, 43, 0.78);
-    border: 1px solid rgba(94, 234, 212, 0.35);
-    padding: 3px 9px;          /* Boîte beaucoup plus fine et compacte */
-    border-radius: 999px;
-    margin-bottom: 4px;
-    backdrop-filter: blur(4px);
-    transition: opacity 0.25s ease, transform 0.25s ease; /* Fondu fluide */
-}
-
-/* Classe ajoutée automatiquement quand le plongeur touche le titre */
-.diver-depth-tag.hide-tag {
-    opacity: 0;
-    transform: translateY(-6px) scale(0.9);
-}
-
 /* Titre "TARA PACIFIC EXPEDITION" au fond de la zone de scroll */
 .abyss-title-Checkpoint {
     position: absolute;
@@ -1477,7 +1457,7 @@ diver-depth-tag {
     display: block;
     font-size: 0.78rem;
     letter-spacing: 2.8px;
-    color: #5eead4;
+    color: #ffffff;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -1577,7 +1557,7 @@ diver-depth-tag {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #5eead4;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
