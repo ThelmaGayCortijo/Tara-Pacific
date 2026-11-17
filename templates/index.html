@@ -429,21 +429,6 @@
                 <div class="map-left-column">
                     <div class="map-wrapper">
                         <div id="map"></div>
-                        <div class="map-legend-overlay">
-                            <span class="map-legend-title">Chlorophyll-a Map Legend</span>
-                            <div class="map-legend-item">
-                                <span class="legend-circle" style="background: #e05a47;"></span>
-                                <span><strong>&lt; 0.15 mg/m³</strong> — Oligotrophic Desert</span>
-                            </div>
-                            <div class="map-legend-item">
-                                <span class="legend-circle" style="background: #008891;"></span>
-                                <span><strong>0.15 – 0.5 mg/m³</strong> — Mesotrophic Wake</span>
-                            </div>
-                            <div class="map-legend-item">
-                                <span class="legend-circle" style="background: #16a085;"></span>
-                                <span><strong>&gt; 0.50 mg/m³</strong> — Eutrophic / Upwelling</span>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Chlorophyll Gauge Card Placed Directly Under the Map -->
@@ -1061,9 +1046,9 @@
 
         // Fonction couleur unique pour corréler les points sur la carte et la jauge de chlorophylle
         function getChlColor(chl) {
-            if (chl < 0.15) return '#e05a47'; // Rouge corail : Oligotrophic Ocean Desert (< 0.15)
-            if (chl <= 0.50) return '#008891'; // Bleu canard : Mesotrophic Island Wake (0.15 - 0.5)
-            return '#16a085';                 // Vert émeraude : Eutrophic / Upwelling Zone (> 0.5)
+            if (chl < 0.15) return '#e05a47'; // Oligotrophic Ocean Desert (< 0.15)
+            if (chl <= 0.50) return '#c4aa5c'; // Mesotrophic Island Wake (0.15 - 0.5)
+            return '#49963c';                 // Eutrophic / Upwelling Zone (> 0.5)
         }
 
         function safeNum(val, fallback) {

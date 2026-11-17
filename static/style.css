@@ -1,5 +1,5 @@
 :root {
-    --box-ocean-bg: #163a5f; /* <-- MODIFIE ICI pour éclaircir ou foncer les boxs ! */
+    --box-ocean-bg: #9bb7d3; 
 
     --chl-low: #e05a47;      /* Rouge corail (< 0.15 mg/m³) */
     --chl-mid: #c4aa5c;      /* Jaune doré / Anis (0.15 - 0.5 mg/m³) */
@@ -755,62 +755,6 @@ h1, h2, h3 {
     height: 440px;
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
-}
-
-/* ON-MAP CHLOROPHYLL LEGEND (COULEURS SYNCHRONISÉES AVEC TON GRADIENT) */
-.map-legend-overlay {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    z-index: 800;
-    background: rgba(22, 58, 95, 0.94); /* Utilise le bleu plus clair */
-    backdrop-filter: blur(8px);
-    color: #ffffff;
-    padding: 12px 15px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-    font-size: 0.76rem;
-}
-
-.map-legend-title {
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #5eead4;
-    margin-bottom: 7px;
-    display: block;
-}
-
-.map-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 5px;
-}
-
-.map-legend-item:last-child {
-    margin-bottom: 0;
-}
-
-.legend-circle {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-    flex-shrink: 0;
-}
-
-/* Force les 3 pastilles de la légende sur la carte à matcher ton gradient */
-.map-legend-overlay .map-legend-item:nth-of-type(1) .legend-circle {
-    background: var(--chl-low) !important;
-}
-.map-legend-overlay .map-legend-item:nth-of-type(2) .legend-circle {
-    background: var(--chl-mid) !important;
-}
-.map-legend-overlay .map-legend-item:nth-of-type(3) .legend-circle {
-    background: var(--chl-high) !important;
 }
 
 /* CHLOROPHYLL GAUGE DIRECTLY UNDER THE MAP (FOND BLEU PLUS CLAIR) */
