@@ -1254,8 +1254,8 @@
             return (val !== null && val !== undefined && !isNaN(n)) ? n : fallback;
         }
 
-        function renderStationsOnMap(stations, totalCount) {
-            // On remplace chaque code brut (ex: OA017-I00-S00-C000) par le nom du port ou de l'archipel associé
+       function renderStationsOnMap(stations, totalCount) {
+            // On remplace chaque code brut par le nom du port ou de l'archipel associé
             stationList = stations.map((st, idx) => {
                 const rawCode = st.station || `Station #${idx + 1}`;
                 const placeName = formatStationLocation(st, idx);
@@ -1268,20 +1268,32 @@
 
             document.getElementById('station-counter').textContent = `${stationList.length} interactive stations (${totalCount} in dataset)`;
 
-            const latlngs = [];
+            // Segments de route séparés pour éviter tout trait horizontal parasite à travers le planisphère
+            const routeSegments = [];
+            let currentSegment = [];
 
             stationList.forEach((st, idx) => {
                 const lat = Number(st.lat);
                 const lon = Number(st.lon);
                 if (isNaN(lat) || isNaN(lon)) return;
 
-                latlngs.push([lat, lon]);
-
                 const chl = safeNum(st.merged_chl, 0.15);
                 const fillColor = getChlColor(chl);
 
-                const pacLon = lon < 0 ? lon + 360 : lon;
-                latlngs.push([lat, pacLon]);
+                // Convertit toutes les longitudes à l'ouest de l'Atlantique (<-30°) en [180..360] 
+                // pour centrer tout le bassin Pacifique d'un seul tenant
+                const pacLon = lon < -30 ? lon + 360 : lon;
+
+                // Si deux stations consécutives sont séparées par plus de 90° de longitude 
+                // (ex: saut entre Lorient et les Antilles, ou désordre dans le CSV), on coupe le trait
+                if (currentSegment.length > 0) {
+                    const prevLon = currentSegment[currentSegment.length - 1][1];
+                    if (Math.abs(pacLon - prevLon) > 90) {
+                        if (currentSegment.length > 1) routeSegments.push(currentSegment);
+                        currentSegment = [];
+                    }
+                }
+                currentSegment.push([lat, pacLon]);
 
                 const circle = L.circleMarker([lat, pacLon], {
                     radius: 8,
@@ -1311,14 +1323,19 @@
                 stationMarkers.push(circle);
             });
 
-            if (latlngs.length > 1) {
-                L.polyline(latlngs, {
+            if (currentSegment.length > 1) {
+                routeSegments.push(currentSegment);
+            }
+
+            // Trace uniquement les segments propres dans le Pacifique
+            routeSegments.forEach(seg => {
+                L.polyline(seg, {
                     color: '#e05a47',
                     weight: 2.2,
-                    opacity: 0.7,
+                    opacity: 0.75,
                     dashArray: '6, 6'
                 }).addTo(map);
-            }
+            });
 
             if (stationList.length > 0) {
                 updateStationDashboard(stationList[0], false);
@@ -1391,7 +1408,7 @@
             }
 
                 if (panMap && stationMarkers[currentIndex]) {
-                const pacLon = st.lon < 0 ? st.lon + 360 : st.lon;
+                const pacLon = st.lon < 30 ? st.lon + 360 : st.lon;
                 map.setView([st.lat, pacLon], 4, { animate: true });
                 stationMarkers[currentIndex].openPopup();
             }
