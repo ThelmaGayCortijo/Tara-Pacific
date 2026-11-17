@@ -831,7 +831,7 @@ h1, h2, h3 {
     position: relative;
     width: 100%;
     height: 20px;
-    background: linear-gradient(90deg, #e05a47 0%, #e05a47 28%, #008891 32%, #008891 64%, #16a085 68%, #10b981 100%);
+    background: linear-gradient(90deg, #e05a47 0%, #e05a47 28%, #c4aa5c 32%, #a8ba62 64%, #49963c 68%, #1f6d1f 100%);
     border-radius: 999px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45);
     margin: 14px 0 10px;
@@ -963,8 +963,8 @@ h1, h2, h3 {
 }
 
 .zone-explain-card.zone-oligo { border-left-color: #e05a47; }
-.zone-explain-card.zone-meso { border-left-color: #008891; }
-.zone-explain-card.zone-eutro { border-left-color: #16a085; }
+.zone-explain-card.zone-meso { border-left-color: #c4aa5c; }
+.zone-explain-card.zone-eutro { border-left-color: #4e9d40; }
 
 .zone-explain-card.active-zone {
     background: rgba(255, 255, 255, 0.14);
