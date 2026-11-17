@@ -1,5 +1,5 @@
 :root {
-    --box-ocean-bg: #8cb7df; 
+    --box-ocean-bg: #cef1f7; 
 
     --chl-low: #e05a47;      /* Rouge corail (< 0.15 mg/m³) */
     --chl-mid: #c4aa5c;      /* Jaune doré / Anis (0.15 - 0.5 mg/m³) */
@@ -779,7 +779,7 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #5eead4;
+    color: #0d2742;
 }
 
 /* Couleur de la valeur de concentration au-dessus de la jauge */
@@ -842,7 +842,7 @@ h1, h2, h3 {
     padding-top: 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
     font-size: 0.86rem;
-    color: #f1f5f9;
+    color: #0d2742;
 }
 
 /* RIGHT SIDEBAR: COMPACT TELEMETRY + 3 TROPHIC ZONES EXPLANATIONS (FOND BLEU PLUS CLAIR) */
