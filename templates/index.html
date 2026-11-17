@@ -634,9 +634,9 @@
                             <div class="gauge-pointer" id="gauge-pointer"></div>
                         </div>
                         <div class="gauge-scale">
-                            <span style="color:#fda4af;">&bull; &lt; 0.15 mg/m³ (Oligotrophic Desert)</span>
-                            <span style="color:#67e8f9;">&bull; 0.15 – 0.5 mg/m³ (Mesotrophic Wake)</span>
-                            <span style="color:#6ee7b7;">&bull; &gt; 0.5 mg/m³ (Eutrophic / Upwelling)</span>
+                            <span style="color:#e05a47;">0.15 mg/m³</span>
+                            <span style="color:#c4aa5c;">0.15 – 0.5 mg/m³</span>
+                            <span style="color:#49963c;">0.5 mg/m³</span>
                         </div>
                         <div class="trophic-diagnosis" id="trophic-status">
                             Select a station marker on the map to evaluate primary productivity and trophic regime.
@@ -1373,13 +1373,13 @@
             const diagEl = document.getElementById('trophic-status');
             if (chl < 0.15) {
                 document.getElementById('zone-card-oligo').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#fda4af;">Current Station Regime — Oligotrophic Ocean Desert (&lt; 0.15 mg/m³):</strong> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
+                diagEl.innerHTML = '<strong style="color:#fda4af;">Station regime — Oligotrophic ocean desert> Ultra-clear, nutrient-depleted gyre water relying on a Deep Chlorophyll Maximum (DCM).';
             } else if (chl <= 0.50) {
                 document.getElementById('zone-card-meso').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#67e8f9;">Current Station Regime — Mesotrophic Island Wake (0.15 – 0.5 mg/m³):</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
+                diagEl.innerHTML = '<strong style="color:#67e8f9;">Station regime — Mesotrophic island wake:</strong> Moderate primary production sustained by island wake turbulence and deep nutrient mixing.';
             } else {
                 document.getElementById('zone-card-eutro').classList.add('active-zone');
-                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Current Station Regime — Eutrophic / Upwelling Zone (&gt; 0.5 mg/m³):</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
+                diagEl.innerHTML = '<strong style="color:#6ee7b7;">Station regime - Eutrophic / upwelling zone:</strong> High primary production driven by cold nutrient-rich water; intense diatom blooms acting as carbon sinks.';
             }
 
             if (panMap && stationMarkers[currentIndex]) {

@@ -885,14 +885,13 @@ h1, h2, h3 {
     border: 1px solid var(--border-light);
 }
 
-/* CHLOROPHYLL GAUGE DIRECTLY UNDER THE MAP (FOND BLEU PLUS CLAIR) */
+/* CHLOROPHYLL GAUGE DIRECTLY UNDER THE MAP (SANS BOX / SUR FOND BLANC) */
 .gauge-under-map-card {
-    background: var(--box-ocean-bg); /* <-- Prend la couleur bleu plus clair définie en haut */
-    color: #ffffff;
-    padding: 22px 26px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: transparent;
+    color: var(--text-main);
+    padding: 16px 4px 8px;
+    border: none;
+    box-shadow: none;
 }
 
 .gauge-top {
@@ -914,17 +913,17 @@ h1, h2, h3 {
 #gauge-number {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #c4aa5c; /* Couleur par défaut assortie à ton gradient */
+    color: #c4aa5c;
 }
 
-/* Ton dégradé exact (#e05a47 -> #c4aa5c / #a8ba62 -> #49963c / #1f6d1f) */
+/* Ton dégradé exact */
 .gauge-track {
     position: relative;
     width: 100%;
     height: 20px;
     background: linear-gradient(90deg, var(--chl-low) 0%, var(--chl-low) 28%, var(--chl-mid) 32%, #a8ba62 64%, var(--chl-high) 68%, var(--chl-high-dark) 100%);
     border-radius: 999px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.45);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.35);
     margin: 14px 0 10px;
 }
 
@@ -941,8 +940,8 @@ h1, h2, h3 {
     height: 26px;
     border-radius: 50%;
     background: #ffffff;
-    border: 4px solid var(--box-ocean-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+    border: 4px solid var(--navy-900);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     transition: left 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
 }
 
@@ -954,23 +953,23 @@ h1, h2, h3 {
     margin-top: 8px;
 }
 
-/* Force les 3 étiquettes de texte sous la jauge à matcher ton gradient */
+/* Couleurs des 3 étiquettes sous la jauge bien lisibles sur fond blanc */
 .gauge-scale span:nth-child(1) {
-    color: #e05a47 !important; /* Rouge corail clair lisible sur fond bleu */
+    color: #e05a47 !important;
 }
 .gauge-scale span:nth-child(2) {
-    color: #c4aa5c !important; /* Jaune doré (#c4aa5c éclairci pour la lecture) */
+    color: #9a7b2c !important; /* Jaune doré légèrement foncé pour bien ressortir sur le blanc */
 }
 .gauge-scale span:nth-child(3) {
-    color: #49963c !important; /* Vert (#49963c éclairci pour la lecture) */
+    color: #49963c !important;
 }
 
 .trophic-diagnosis {
     margin-top: 12px;
     padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-top: 1px solid var(--border-light);
     font-size: 0.86rem;
-    color: #0d2742;
+    color: var(--text-main);
 }
 
 /* RIGHT SIDEBAR: COMPACT TELEMETRY + 3 TROPHIC ZONES EXPLANATIONS (FOND BLEU PLUS CLAIR) */
