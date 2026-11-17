@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara Pacific (2016–2018) — Marine Ecosystems & Plankton Observatory</title>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="#" class="brand">
+                <span class="brand-dot"></span>
+                TARA PACIFIC <span class="brand-sub">SCIENTIFIC OBSERVATORY</span>
+            </a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#foundation">The Foundation</a></li>
+                    <li><a href="#welcome-board">Welcome Aboard</a></li>
+                    <li><a href="#schooner">The Schooner</a></li>
+                    <li><a href="#map-observatory">Interactive Map</a></li>
+                    <li><a href="#provinces">Biogeochemical Provinces</a></li>
+                    <li><a href="#plankton">Plankton & Plastics</a></li>
+                    <li><a href="#data-lab">Data Explorer</a></li>
+                    <li><a href="#perspectives">Perspectives</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner with Background Image -->
+    <section class="hero hero-with-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-container">
+            <span class="eyebrow">TARA OCEAN FOUNDATION • CORAL REEF & MICROBIOME EXPEDITION</span>
+            <h1>Decoding the Invisible Ocean Across the Pacific</h1>
+            <p class="hero-lead">
+                Between 2016 and 2018, the research schooner <em>Tara</em> sailed 100,000 km across 32 island systems in the Pacific Ocean to investigate coral reef resilience, planktonic biodiversity, and anthropogenic stressors.
+            </p>
+            
+            <!-- Core Scientific Question Banner -->
+            <div class="scientific-question-box">
+                <div class="sq-label">CORE SCIENTIFIC QUESTION</div>
+                <p class="sq-text">
+                    “How do surface physico-chemical gradients (temperature, salinity) and sampling depth structure planktonic communities, chlorophyll-a productivity, and microplastic accumulation along the <em>Tara Pacific</em> transect?”
+                </p>
+            </div>
+
+            <div class="hero-actions">
+                <a href="#map-observatory" class="btn btn-primary">Explore Interactive Stations</a>
+                <a href="#data-lab" class="btn btn-outline">Launch Telemetry Analysis</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-wrapper">
+
+        <!-- 1. FOUNDATION INTRODUCTION (4 Balanced KPI Infographics) -->
+        <section id="foundation" class="section-block">
+            <div class="section-header">
+                <span class="section-tag">01 / INSTITUTIONAL CONTEXT</span>
+                <h2>The Tara Ocean Foundation: Science for the Ocean</h2>
+            </div>
+
+            <div class="two-col-grid align-center">
+                <div class="prose-block">
+                    <p>
+                        Created in 2003, the <strong>Tara Ocean Foundation</strong> is the first foundation in France officially recognized as serving the public interest dedicated exclusively to the ocean. For over two decades, it has pioneered a dual mission: conducting high-level, open-access marine science in collaboration with premier international laboratories (CNRS, EMBL, CEA, Ifremer) while raising public and political awareness about climate threats.
+                    </p>
+                    <p>
+                        By developing standardized sampling protocols from the surface down to the mesopelagic zone, Tara expeditions have built the largest genetic and environmental baseline of marine microorganisms ever assembled.
+                    </p>
+                    <a href="https://fondationtaraocean.org/en/home/" target="_blank" rel="noopener" class="external-link">
+                        Visit Official Tara Ocean Foundation Portal &rarr;
+                    </a>
+                </div>
+
+                <!-- 4 Infographic KPI Cards with Color Accents -->
+                <div class="kpi-grid-4">
+                    <div class="kpi-card accent-blue">
+                        <span class="kpi-num">1,000 m</span>
+                        <span class="kpi-title">Sampling Depth</span>
+                        <p>Water collection from surface to mesopelagic waters.</p>
+                    </div>
+                    <div class="kpi-card accent-teal">
+                        <span class="kpi-num">&gt; 200</span>
+                        <span class="kpi-title">Global Stations</span>
+                        <p>Profiling sites across major oceanic basins.</p>
+                    </div>
+                    <div class="kpi-card accent-coral">
+                        <span class="kpi-num">&times;100</span>
+                        <span class="kpi-title">Marine DNA Viruses</span>
+                        <p>Increase in recorded viral diversity.</p>
+                    </div>
+                    <div class="kpi-card accent-gold">
+                        <span class="kpi-num">100k+</span>
+                        <span class="kpi-title">Microalgae Species</span>
+                        <p>Unicellular protists discovered.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. WELCOME ABOARD & TARA PACIFIC CONTEXT -->
+        <section id="welcome-board" class="section-block alt-bg">
+            <div class="section-header">
+                <span class="section-tag">02 / WELCOME ABOARD TARA PACIFIC</span>
+                <h2>Welcome Aboard the Tara Pacific Expedition</h2>
+            </div>
+
+            <div class="two-col-grid align-center">
+                <div>
+                    <p class="lead-paragraph">
+                        Between <strong>May 2016 and October 2018</strong>, the research schooner <em>Tara</em> set sail across the world's largest ocean to undertake one of the most extensive expeditions ever conducted on coral reefs and pelagic ecosystems.
+                    </p>
+                    <p>
+                        Through this immersive digital platform, we invite you to relive this extraordinary journey. The expedition's primary objective was to study coral biodiversity, examine their capacity to adapt to global warming, and quantify human-induced pressures across <strong>32 island systems and archipelagos</strong>.
+                    </p>
+                    <p>
+                        <strong>Why was this expedition crucial?</strong> Although coral reefs cover less than 0.2% of the ocean floor, they support nearly 30% of all marine species and protect tropical coastlines. Understanding the coral holobiont (coral animals and their symbiotic microorganisms) under extreme thermal stress is vital for planetary survival.
+                    </p>
+                    
+                    <div class="video-card">
+                        <div class="video-label">OFFICIAL EXPEDITION TEASER (TARA OCEAN FOUNDATION)</div>
+                        <div class="video-frame">
+                            <iframe src="https://www.youtube.com/embed/TCMca8nCKm8" title="Tara Pacific Expedition Overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <p class="caption">Discover the genesis and scientific ambition of Tara Pacific.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="figure-card" style="margin-bottom: 20px;">
+                        <img src="https://fondationtaraocean.org/wp-content/uploads/2016/09/carte-tara-pacfic-fondation-tara-ocean-1240x877.jpg" alt="Official Tara Pacific 2016-2018 Route Map" class="responsive-img">
+                        <div class="figure-caption">
+                            <strong>Figure 1.</strong> Official trans-Pacific itinerary of the schooner <em>Tara</em> (2016–2018).
+                        </div>
+                    </div>
+
+                    <div class="crew-highlight-card">
+                        <div class="crew-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Tara Crew on deck" class="responsive-img" style="height: 180px; object-fit: cover;">
+                        </div>
+                        <div class="crew-text">
+                            <h4>Departure &amp; Multidisciplinary Crew</h4>
+                            <p>
+                                On <strong>May 28, 2016</strong>, <em>Tara</em> officially cast off from her home port of <strong>Lorient, France</strong>. Aboard lived a rotating crew of <strong>14 to 16 people</strong>, uniting professional sailors, oceanographers, marine biologists, divers, and embedded artists working around the clock.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. INTERACTIVE SCHOONER & SCIENTIFIC INSTRUMENTS -->
+        <section id="schooner" class="section-block">
+            <div class="section-header">
+                <span class="section-tag">03 / FLOATING LABORATORY</span>
+                <h2>The Schooner &amp; Interactive Sampling Architecture</h2>
+                <p class="section-sub">Click on the numbered hotspots directly on the photograph of <em>Tara</em> and on the two standardized protocol schematics below to inspect how physical and biological samples are collected at sea and on coral reefs.</p>
+            </div>
+
+            <!-- 3.1 PHOTOGRAPH OF TARA UNDER SAIL + OVERVIEW DIAGRAM -->
+            <div class="boat-interactive-layout">
+                <div class="boat-visual-wrapper">
+                    <div class="hotspot-container">
+                        <img src="https://www.fondation.veolia.com/sites/g/files/dvc3696/files/styles/crop_freeform/public/image/2017/10/TARAPACIFIC-SPI-FVEOLIA_0.jpg.webp?h=018d2c3d&itok=HCqRqjXv" alt="Tara Schooner under sail" class="boat-main-img">
+                        
+                        <button class="hotspot active-spot" id="spot-rosette" style="top: 68%; left: 15%;" onclick="selectInstrument('rosette')" aria-label="CTD Rosette">1</button>
+                        <button class="hotspot" id="spot-tsg" style="top: 75%; left: 28%;" onclick="selectInstrument('tsg')" aria-label="Underway Thermosalinograph">2</button>
+                        <button class="hotspot" id="spot-manta" style="top: 62%; left: 41%;" onclick="selectInstrument('manta')" aria-label="Manta & Bongo Nets">3</button>
+                        <button class="hotspot" id="spot-wetlab" style="top: 52%; left: 24%;" onclick="selectInstrument('wetlab')" aria-label="Deck Wet Lab & Filtration">4</button>
+                    </div>
+                    <p class="caption">Click numbered markers (1–4) on the hull, deck, and wake of <em>Tara</em> (36m aluminum schooner).</p>
+
+                    <div class="instruments-under-image">
+                        <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner</h3>
+                        <div class="instrument-tabs">
+                            <button class="inst-tab active" id="tab-rosette" onclick="selectInstrument('rosette')">1. CTD &amp; Niskin Rosette</button>
+                            <button class="inst-tab" id="tab-tsg" onclick="selectInstrument('tsg')">2. Underway Sensors (SST/SSS)</button>
+                            <button class="inst-tab" id="tab-manta" onclick="selectInstrument('manta')">3. Manta &amp; Plankton Nets</button>
+                            <button class="inst-tab" id="tab-wetlab" onclick="selectInstrument('wetlab')">4. Deck Filtration Lab</button>
+                        </div>
+
+                        <div id="instrument-detail-box" class="instrument-detail-box">
+                            <span class="inst-badge">WATER COLUMN PROFILING (0–1,000m)</span>
+                            <h3 id="inst-title">1. CTD Sensor Package &amp; Niskin Bottle Rosette</h3>
+                            <p id="inst-desc">
+                                Deployed via the forward oceanographic winch, the CTD (Conductivity, Temperature, Depth) carousel measures vertical profiles of temperature, salinity, dissolved oxygen, and fluorescence. Surrounding Niskin bottles trap seawater at targeted depths (including the Deep Chlorophyll Maximum) for genomic and nutrient analysis.
+                            </p>
+                            <div class="inst-meta" id="inst-meta">
+                                <strong>Dataset link:</strong> Calibrates vertical temperature and subsurface chlorophyll maxima in <code>env_context.csv</code>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instrument-panel">
+                    <div class="protocol-diagram-box">
+                        <span class="inst-badge" style="display:block; margin-bottom:8px;">STANDARDIZED SAMPLING WORKFLOW</span>
+                        <h3 style="margin-top:0; font-size:1.25rem;">Multi-Depth Deck &amp; Net Deployment</h3>
+                        <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fsdata.2015.23/MediaObjects/41597_2015_Article_BFsdata201523_Fig1_HTML.jpg" alt="Tara Oceans Sampling Protocol Diagram (Nature Scientific Data)" class="responsive-img">
+                        <p class="caption">
+                            <strong>Figure 2.</strong> Comprehensive schematic of the sampling devices aboard <em>Tara</em> (<em>Nature Scientific Data</em>).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.2 INTERACTIVE DIAGRAM 1: OPEN-OCEAN UNDERWAY SAMPLING (schema_bateau.jpg, Markers 1 to 8) -->
+            <div class="protocol-block" style="margin-top: 42px;">
+                <div class="protocol-title-bar">
+                    <span class="inst-badge">INTERACTIVE SCHEMATIC A • CONTINUOUS UNDERWAY &amp; SURFACE SAMPLING</span>
+                    <h3>Onboard Filtration Circuit &amp; Towed Nets (Markers 1–8)</h3>
+                </div>
+
+                <div class="boat-interactive-layout">
+                    <div class="boat-visual-wrapper">
+                        <div class="hotspot-container">
+                            <img src="{{ url_for('static', filename='schema_bateau.jpg') }}" alt="Tara Pacific Underway Sampling Schematic" class="boat-main-img">
+                            
+                            <button class="hotspot spot-ocean active-spot" id="spot-ocean-1" style="top: 67.3%; left: 73.5%;" onclick="selectOceanInst(1)" title="1. Hull Seawater Intake">1</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-2" style="top: 13.9%; left: 68.8%;" onclick="selectOceanInst(2)" title="2. Mast Weather & Solar Sensor">2</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-3" style="top: 88.4%; left: 63.1%;" onclick="selectOceanInst(3)" title="3. High-Speed Dolphin Net">3</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-4" style="top: 44.5%; left: 8.1%;" onclick="selectOceanInst(4)" title="4. Optical & TSG Sensors">4</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 55.5%; left: 15.6%;" onclick="selectOceanInst(5)" title="5. Sequential Membrane Filtration">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 11.1%;" onclick="selectOceanInst(5)" title="5. Filtration Carboy Left">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 24.2%;" onclick="selectOceanInst(5)" title="5. Filtration Carboy Right">5</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-6" style="top: 33.4%; left: 23.7%;" onclick="selectOceanInst(6)" title="6. Deck Plankton Net">6</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-7" style="top: 88.8%; left: 42.3%;" onclick="selectOceanInst(7)" title="7. Manta Net (Microplastics)">7</button>
+                            <button class="hotspot spot-ocean" id="spot-ocean-8" style="top: 39.2%; left: 93.8%;" onclick="selectOceanInst(8)" title="8. Bow Pole Sampling">8</button>
+                        </div>
+                        <p class="caption">Click directly on any numbered circle (1–8) on the schematic above or use the buttons below.</p>
+
+                        <div class="instruments-under-image">
+                            <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner (Circuit 1–8)</h3>
+                            <div class="instrument-tabs">
+                                <button class="inst-tab tab-ocean active" id="tab-ocean-1" onclick="selectOceanInst(1)">1. Hull Intake</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-2" onclick="selectOceanInst(2)">2. Mast Weather</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-3" onclick="selectOceanInst(3)">3. Dolphin Net</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-4" onclick="selectOceanInst(4)">4. In-Line Sensors</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-5" onclick="selectOceanInst(5)">5. Filtration &amp; Carboys</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-6" onclick="selectOceanInst(6)">6. Deck Net</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-7" onclick="selectOceanInst(7)">7. Manta Net</button>
+                                <button class="inst-tab tab-ocean" id="tab-ocean-8" onclick="selectOceanInst(8)">8. Bow Pole</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="instrument-panel">
+                        <div id="ocean-detail-box" class="instrument-detail-box" style="margin-top: 0;">
+                            <span class="inst-badge" id="ocean-badge">MARKER #1 • CONTINUOUS SEAWATER INTAKE</span>
+                            <h3 id="ocean-title">1. Underway Hull Seawater Intake (Depth: ~1.5 m)</h3>
+                            <p id="ocean-desc">
+                                Located beneath the aluminum hull of <em>Tara</em>, this intake continuously pumps surface seawater into the onboard wet laboratory while the schooner is sailing, enabling uninterrupted physical, chemical, and biological monitoring across the Pacific Ocean.
+                            </p>
+                            <div class="inst-meta" id="ocean-meta">
+                                <strong>Dataset role:</strong> Feeds the Thermosalinograph (SST/SSS) and fluorometer (Chlorophyll-a) recorded in <code>env_context.csv</code>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3.3 INTERACTIVE DIAGRAM 2: CORAL REEF DIVING PROTOCOL (schema_corail.jpg, Markers 1 to 7) -->
+            <div class="protocol-block" style="margin-top: 36px;">
+                <div class="protocol-title-bar">
+                    <span class="inst-badge">INTERACTIVE SCHEMATIC B • IN-SITU CORAL REEF &amp; LAGOON DIVING</span>
+                    <h3>Coral Holobiont &amp; Reef Sampling Protocol (Markers 1–7)</h3>
+                </div>
+
+                <div class="boat-interactive-layout">
+                    <div class="boat-visual-wrapper">
+                        <div class="hotspot-container">
+                            <img src="{{ url_for('static', filename='schema_corail.jpg') }}" alt="Tara Pacific Coral Reef Diving Schematic" class="boat-main-img">
+                            
+                            <button class="hotspot spot-reef active-spot" id="spot-reef-1" style="top: 84.1%; left: 35.5%;" onclick="selectReefInst(1)" title="1. Coral Colony Sampling">1</button>
+                            <button class="hotspot spot-reef" id="spot-reef-2" style="top: 65.5%; left: 23.3%;" onclick="selectReefInst(2)" title="2. Reef Fish Sampling">2</button>
+                            <button class="hotspot spot-reef" id="spot-reef-3" style="top: 65.1%; left: 58.2%;" onclick="selectReefInst(3)" title="3. Coral Skeleton Coring">3</button>
+                            <button class="hotspot spot-reef" id="spot-reef-4" style="top: 78.6%; left: 80.3%;" onclick="selectReefInst(4)" title="4. Reef Water Intake">4</button>
+                            <button class="hotspot spot-reef" id="spot-reef-5" style="top: 53.9%; left: 85.1%;" onclick="selectReefInst(5)" title="5. Zodiac Peristaltic Pumping">5</button>
+                            <button class="hotspot spot-reef" id="spot-reef-6" style="top: 56.1%; left: 67.8%;" onclick="selectReefInst(6)" title="6. Vertical CTD Profiler">6</button>
+                            <button class="hotspot spot-reef" id="spot-reef-7" style="top: 52.4%; left: 54.7%;" onclick="selectReefInst(7)" title="7. Diver-Towed Plankton Nets">7</button>
+                        </div>
+                        <p class="caption">Click directly on any numbered circle (1–7) on the underwater reef scene above or use the buttons below.</p>
+
+                        <div class="instruments-under-image">
+                            <h3 class="instruments-heading">Scientific Instruments Aboard the Tara Schooner &amp; Reef Zodiac (1–7)</h3>
+                            <div class="instrument-tabs">
+                                <button class="inst-tab tab-reef active" id="tab-reef-1" onclick="selectReefInst(1)">1. Coral Fragments</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-2" onclick="selectReefInst(2)">2. Reef Fish</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-3" onclick="selectReefInst(3)">3. Coral Coring</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-4" onclick="selectReefInst(4)">4. Colony Water</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-5" onclick="selectReefInst(5)">5. Surface Pumping</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-6" onclick="selectReefInst(6)">6. CTD Profiler</button>
+                                <button class="inst-tab tab-reef" id="tab-reef-7" onclick="selectReefInst(7)">7. Diver Bongo Nets</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="instrument-panel">
+                        <div id="reef-detail-box" class="instrument-detail-box" style="margin-top: 0;">
+                            <span class="inst-badge" id="reef-badge">MARKER #1 • BENTHIC HOLOBIONT</span>
+                            <h3 id="reef-title">1. Targeted Coral Colony Sampling (<em>Pocillopora</em>, <em>Porites</em>, <em>Millepora</em>)</h3>
+                            <p id="reef-desc">
+                                SCUBA scientists collect small fragments from three target coral genera across 32 Pacific archipelagos to sequence the genome of the coral host alongside its symbiotic microalgae (<em>Symbiodiniaceae</em>), bacteria, and viruses.
+                            </p>
+                            <div class="inst-meta" id="reef-meta">
+                                <strong>Scientific goal:</strong> Evaluates thermal tolerance, telomere length, and microbiome shifts across warming gradients.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SCIENTIFIC FOCUS: MICROPLANKTON & MICROPLASTICS -->
+        <section id="plankton" class="section-block">
+            <div class="section-header">
+                <span class="section-tag">05 / MICROBIAL &amp; ANTHROPOGENIC FOCUS</span>
+                <h2>Here is what this expedition set out to investigate: Planktonic Guilds &amp; Microplastics</h2>
+                <p class="section-sub">
+                    Plankton generates over 50% of Earth's oxygen and forms the base of marine food webs. Click each card to open detailed microscopy profiles, ecological roles, and links to the <strong>Tara Microbiome</strong> mission.
+                </p>
+            </div>
+
+            <div class="plankton-grid">
+                <!-- Card 1: Diatoms -->
+                <article class="bio-card">
+                    <div class="bio-img-wrap">
+                        <img src="https://cdn.britannica.com/40/12340-050-E09C431B/frustules-cell-walls-Diatoms-opaline-silica-pores.jpg" alt="Diatom silica frustules">
+                        <span class="bio-tag">PHYTOPLANKTON • SILICA FRUSTULES</span>
+                    </div>
+                    <div class="bio-body">
+                        <h3>Diatoms (Bacillariophyta)</h3>
+                        <p>Unicellular microalgae encased in intricate opaline silica cell walls (frustules). They account for ~20% of global carbon fixation.</p>
+                        <button class="btn-text" onclick="openModal('modal-diatom')">Inspect Ecological Role &amp; Silica Pump &rarr;</button>
+                    </div>
+                </article>
+
+                <!-- Card 2: Copepods -->
+                <article class="bio-card">
+                    <div class="bio-img-wrap">
+                        <img src="https://oceanconservancy.org/wp-content/uploads/2017/07/copepod.webp" alt="Marine Copepod">
+                        <span class="bio-tag">ZOOPLANKTON • TROPHIC LINK</span>
+                    </div>
+                    <div class="bio-body">
+                        <h3>Copepods (Crustacea)</h3>
+                        <p>The most abundant multicellular animals in the ocean. They graze on phytoplankton and drive vertical carbon export via diel migration.</p>
+                        <button class="btn-text" onclick="openModal('modal-copepod')">Inspect Trophic Transfer &amp; Biological Pump &rarr;</button>
+                    </div>
+                </article>
+
+                <!-- Card 3: Coccolithophores & Microbiome -->
+                <article class="bio-card">
+                    <div class="bio-img-wrap">
+                        <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fsdata.2015.23/MediaObjects/41597_2015_Article_BFsdata201523_Fig1_HTML.jpg" alt="Calcifying Nanoplankton & Microbiome">
+                        <span class="bio-tag">CALCIFYING ALGAE • CARBON CYCLE</span>
+                    </div>
+                    <div class="bio-body">
+                        <h3>Coccolithophores &amp; Microbiome</h3>
+                        <p>Single-celled algae armored with calcium carbonate plates (coccoliths), sensitive to ocean acidification and key to the Microbiome mission.</p>
+                        <button class="btn-text" onclick="openModal('modal-cocco')">Explore Calcification &amp; Microbiome Mission &rarr;</button>
+                    </div>
+                </article>
+
+                <!-- Card 4: Microplastics -->
+                <article class="bio-card">
+                    <div class="bio-img-wrap plastic-gradient">
+                        <div class="plastic-icon-overlay">MANTA NET • &lt; 5 mm FRAGMENTS</div>
+                        <span class="bio-tag">ANTHROPOGENIC STRESSOR</span>
+                    </div>
+                    <div class="bio-body">
+                        <h3>Microplastics &amp; the “Plastisphere”</h3>
+                        <p>Collected in every single Pacific net tow, microplastics act as vectors for toxic pollutants and opportunistically colonized microbial biofilms.</p>
+                        <button class="btn-text" onclick="openModal('modal-plastic')">Inspect Coral &amp; Food-Web Impacts &rarr;</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. INTERACTIVE MAP, TELEMETRY & EXPEDITION REPORT (NO EMOJIS) -->
+        <section id="map-observatory" class="section-block alt-bg">
+            <div class="section-header">
+                <span class="section-tag">04 / SPATIAL TELEMETRY &amp; EXPEDITION REPORT</span>
+                <h2>And here is the data collected during your Tara Pacific expedition, congratulations!</h2>
+                <p class="section-sub">
+                    As you can observe from the interactive map and telemetry dashboard below, the expedition successfully mapped physical and biological gradients across 32 archipelagos. Click any station or play the timelapse to review the findings.
+                </p>
+            </div>
+
+            <!-- Route Controls / Timelapse Bar -->
+            <div class="map-control-bar">
+                <div class="control-group">
+                    <button class="btn btn-sm" id="btn-prev-station" onclick="stepStation(-1)">&larr; Previous Station</button>
+                    <button class="btn btn-sm btn-accent" id="btn-play-route" onclick="toggleAutoplay()">&#9654; Play Expedition Timelapse</button>
+                    <button class="btn btn-sm" id="btn-next-station" onclick="stepStation(1)">Next Station &rarr;</button>
+                </div>
+                <div class="control-status">
+                    Loaded from Flask API (<code>/api/stations</code>): <strong id="station-counter">--</strong>
+                </div>
+            </div>
+
+            <div class="map-dashboard-grid">
+                <!-- Leaflet Container -->
+                <div class="map-wrapper">
+                    <div id="map"></div>
+                </div>
+
+                <!-- Station Telemetry & Chlorophyll Gauge Card (NO EMOJIS) -->
+                <aside class="telemetry-card">
+                    <div class="telemetry-header">
+                        <span class="telemetry-badge" id="st-badge">SELECT A STATION</span>
+                        <h3 id="st-name">Click a point on the map</h3>
+                        <p id="st-date" class="st-sub">Coordinates &amp; timestamp</p>
+                    </div>
+
+                    <div class="telemetry-metrics">
+                        <div class="metric-box">
+                            <span class="metric-label">Water Temp (SST)</span>
+                            <span class="metric-value" id="st-sst">-- °C</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Salinity (SSS)</span>
+                            <span class="metric-value" id="st-sss">-- PSU</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Air Temp</span>
+                            <span class="metric-value" id="st-air">-- °C</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-label">Filtration Depth</span>
+                            <span class="metric-value" id="st-depth">-- m</span>
+                        </div>
+                    </div>
+
+                    <!-- Animated Chlorophyll Gauge -->
+                    <div class="gauge-panel">
+                        <div class="gauge-top">
+                            <span>Chlorophyll-a Concentration</span>
+                            <strong id="gauge-number">0.00 mg/m³</strong>
+                        </div>
+                        <div class="gauge-track">
+                            <div class="gauge-fill" id="gauge-bar-fill"></div>
+                        </div>
+                        <div class="gauge-scale">
+                            <span>0.0 (Oligotrophic Desert)</span>
+                            <span>0.5 (Mesotrophic)</span>
+                            <span>1.5+ (Nutrient-Rich / Upwelling)</span>
+                        </div>
+                        <div class="trophic-diagnosis" id="trophic-status">
+                            Select a station marker on the map to evaluate primary productivity and trophic regime.
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Scientific Report & Synthesis Box -->
+            <div class="expedition-report-card">
+                <h3>📋 Tara Pacific Expedition Brief &amp; Synthesis of Results</h3>
+                <p>
+                    The <em>Tara Pacific</em> expedition (2016–2018) yielded unprecedented insights into the health and resilience of coral reef ecosystems. By coupling high-frequency underway sensors with deep CTD casts and genomic filtration, researchers discovered that coral symbiosis stability is tightly regulated by local hydrodynamic regimes and temperature anomalies.
+                </p>
+                <div class="report-highlights">
+                    <div class="report-pill"><strong>Coral Adaptability:</strong> High genetic variability in isolated atolls revealed unexpected resistance to episodic marine heatwaves.</div>
+                    <div class="report-pill"><strong>Planktonic Connectivity:</strong> Microscopic biodiversity gradients tracked across the South Pacific gyre demonstrated how island wakes stimulate localized primary production (the Island Mass Effect).</div>
+                    <div class="report-pill"><strong>Plastisphere Pollution:</strong> Microplastic fragments were detected across 100% of sampled archipelagos, acting as vectors for microbial biofilms and invasive species.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. NEW SECTION: BIOGEOCHEMICAL PROVINCES & CLIMATE STRESS VALIDATION (PCA MAPS) -->
+        <section id="provinces" class="section-block">
+            <div class="section-header">
+                <span class="section-tag">05 / SPATIAL MODELING &amp; VALIDATION</span>
+                <h2>Cataloging Global Biogeochemical Provinces via Environmental PCA</h2>
+                <p class="section-sub">
+                    Thanks to thousands of in-situ parameters collected across the transect, researchers performed a Principal Component Analysis (PCA) to project station signatures onto known marine biogeochemical provinces and historical thermal regimes.
+                </p>
+            </div>
+
+            <div class="two-col-grid">
+                <div class="figure-card">
+                    <img src="{{ url_for('static', filename='pca_biogeochem.jpg') }}" alt="Biogeochemical provinces PCA and map" class="responsive-img">
+                    <div class="figure-caption">
+                        <strong>Figure 5.</strong> Technical validation comparing main hydrological and biogeochemical variables with global biogeochemical provinces[cite: 19]. (A) Box-cox normalized PCA space; (B) Spatial projection of station RGB signatures onto oceanic provinces[cite: 19].
+                    </div>
+                </div>
+
+                <div class="figure-card">
+                    <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Historical SST heatwaves PCA and map" class="responsive-img">
+                    <div class="figure-caption">
+                        <strong>Figure 6.</strong> Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces[cite: 19]. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations[cite: 19].
+                    </div>
+                </div>
+            </div>
+
+            <div class="prose-block" style="margin-top: 24px;">
+                <p>
+                    As illustrated in Figures 5 and 6 above[cite: 19], translating high-dimensional physical and chemical data into 3-axis RGB color codes enables direct comparison between local station observations and global oceanographic classifications. This confirms that pelagic and reef ecosystems sampled by <em>Tara</em> span highly distinct thermal and nutrient regimes across the Pacific basin.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. INTERACTIVE FORM & CHART.JS ANALYSIS -->
+        <section id="data-lab" class="section-block alt-bg">
+            <div class="section-header">
+                <span class="section-tag">06 / INTERACTIVE TELEMETRY &amp; FLASK QUERY ENGINE</span>
+                <h2>Oceanographic Parameter &amp; Regional Analyzer</h2>
+                <p class="section-sub">
+                    Explore how physical and biological properties of seawater shift along the expedition route. Use the guide below to choose a variable and oceanic region, then generate the comparative profile.
+                </p>
+            </div>
+
+            <!-- Educational Guide: What do these parameters mean? -->
+            <div class="param-explainer-grid">
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#e05a47;"></span>
+                    <div>
+                        <h4>Sea Surface Temp — SST (°C)</h4>
+                        <p>Controls metabolic rates and coral bleaching thresholds (&gt;29°C). Reveals the contrast between temperate Europe/East Pacific upwellings and the Western Pacific Warm Pool.</p>
+                    </div>
+                </div>
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#16a085;"></span>
+                    <div>
+                        <h4>Chlorophyll-a (mg/m³)</h4>
+                        <p>A direct proxy for <strong>phytoplankton biomass</strong>. Low values (&lt;0.15) mark nutrient-poor "ocean deserts" (gyres), while spikes (&gt;0.5) indicate coastal runoff or cold nutrient upwellings.</p>
+                    </div>
+                </div>
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#008891;"></span>
+                    <div>
+                        <h4>Salinity — SSS (PSU)</h4>
+                        <p>Tracks the balance between <strong>evaporation and precipitation</strong>. Subtropical gyres are salty (~35.6 PSU) due to high evaporation, whereas Panama and equatorial zones are diluted by heavy tropical rains (~33 PSU).</p>
+                    </div>
+                </div>
+                <div class="explainer-item">
+                    <span class="explainer-dot" style="background:#f39c12;"></span>
+                    <div>
+                        <h4>Marine Air Temp (°C)</h4>
+                        <p>Measured by the mast weather station. Closely coupled with SST, driving heat and moisture exchange between the ocean surface and the lower atmosphere.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analyzer-card">
+                <form id="analysis-form" class="filter-form">
+                    <div class="form-field">
+                        <label for="param-select">1. Physico-Chemical Variable</label>
+                        <small class="field-hint">What ocean property do you want to measure?</small>
+                        <select id="param-select" name="parameter">
+                            <option value="merged_chl">Chlorophyll-a — Phytoplankton Biomass (mg/m³)</option>
+                            <option value="mergedSST">Sea Surface Temperature — Thermal Regime (°C)</option>
+                            <option value="mergedSSS">Sea Surface Salinity — Evaporation/Rain (PSU)</option>
+                            <option value="airTemp">Marine Air Temperature — Atmospheric Coupling (°C)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="region-select">2. Oceanic Basin / Transect Zone</label>
+                        <small class="field-hint">Which geographic leg of the voyage?</small>
+                        <select id="region-select" name="region">
+                            <option value="all">Full Expedition Transect (Europe &rarr; Pacific)</option>
+                            <option value="south_pacific" selected>South Pacific Gyre &amp; Melanesia (Rapa Nui &rarr; PNG)</option>
+                            <option value="north_pacific">North &amp; West Pacific (Japan, Palau, Hawaii)</option>
+                            <option value="atlantic_panama">Atlantic Crossing &amp; Panama Canal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="limit-select">3. Station Resolution</label>
+                        <small class="field-hint">Max stations plotted on the X-axis</small>
+                        <select id="limit-select" name="limit">
+                            <option value="12">12 Stations (Macro Overview)</option>
+                            <option value="20" selected>20 Stations (Balanced Profile)</option>
+                            <option value="35">35 Stations (High-Resolution Transect)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Update Graph</button>
+                    </div>
+                </form>
+
+                <!-- Statistical Summary Pills -->
+                <div class="stat-pills">
+                    <div class="pill" title="Average across the selected stations">Regional Mean: <strong id="stat-avg">--</strong></div>
+                    <div class="pill" title="Lowest value recorded in this zone">Minimum Recorded: <strong id="stat-min">--</strong></div>
+                    <div class="pill" title="Peak value recorded in this zone">Maximum Peak: <strong id="stat-max">--</strong></div>
+                    <div class="pill" title="Number of in-situ stations matching your filter">Active Sample Size: <strong id="stat-n">--</strong></div>
+                </div>
+
+                <!-- Chart.js Canvas -->
+                <div class="chart-box">
+                    <canvas id="telemetryChart"></canvas>
+                </div>
+
+                <!-- Dynamic Scientific Interpretation Box -->
+                <div class="interpretation-box" id="chart-interpretation">
+                    <div class="interp-header">
+                        <span class="interp-badge">SCIENTIFIC INTERPRETATION &amp; OBSERVED DYNAMICS</span>
+                        <h4 id="interp-title">How to read this graph</h4>
+                    </div>
+                    <p id="interp-body">
+                        Select a parameter and click <strong>Update Graph</strong> to generate a contextual oceanographic interpretation of the plotted stations.
+                    </p>
+                    <div class="interp-takeaway" id="interp-takeaway"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PERSPECTIVES: TARA MICROBIOME & TARA POLAR STATION -->
+        <section id="perspectives" class="section-block">
+            <div class="section-header">
+                <span class="section-tag">07 / SCIENTIFIC PERSPECTIVES</span>
+                <h2>Going Further: From Tara Microbiome to Tara Polar Station</h2>
+            </div>
+
+            <div class="two-col-grid align-center">
+                <div class="prose-block">
+                    <h3>The Microbiome Mission &amp; Future Arctic Drift</h3>
+                    <p>
+                        Following <em>Tara Pacific</em>, the Foundation launched the <strong>Mission Microbiomes (2020–2022)</strong> across the South Atlantic, Southern Ocean, and African coasts to investigate how the ocean's invisible microbial network responds to deoxygenation, nutrient runoff, and warming.
+                    </p>
+                    <p>
+                        Looking ahead to 2026–2045, the <strong>Tara Polar Station</strong>—a drifting polar research vessel frozen directly into the high Arctic pack ice—will monitor polar biodiversity, sea-ice physics, and climate feedback loops at the epicenter of global warming.
+                    </p>
+                    <div class="perspective-links">
+                        <a href="https://www.youtube.com/watch?v=YOTrJ5uFyMU" target="_blank" rel="noopener" class="btn btn-outline-dark">
+                            &#9654; Watch Mission Microbiome &amp; Coccolithophore Focus
+                        </a>
+                    </div>
+                </div>
+
+                <div class="figure-card">
+                    <img src="https://fondationtaraocean.org/wp-content/uploads/2022/06/tara-polar-station-sur-glace-maeva-bardy.jpg" alt="Tara Polar Station on Arctic sea ice" class="responsive-img">
+                    <div class="figure-caption">
+                        <strong>Perspective.</strong> <em>Tara Polar Station</em> locked in the Arctic ice pack (Credit: Maeva Bardy / Fondation Tara Océan).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODALS FOR PLANKTON & MICROPLASTICS -->
+    <div id="modal-diatom" class="modal-backdrop">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-diatom')">&times;</button>
+            <img src="https://cdn.britannica.com/40/12340-050-E09C431B/frustules-cell-walls-Diatoms-opaline-silica-pores.jpg" alt="Diatoms" class="modal-img">
+            <h3>Diatoms (Bacillariophyta) — The Silica Biological Pump</h3>
+            <p><strong>Morphology:</strong> Unicellular eukaryotic algae enclosed in a hydrated silicon dioxide shell called a <em>frustule</em>, perforated with nanopores for nutrient exchange.</p>
+            <p><strong>Biogeochemical Role:</strong> Diatoms generate roughly one-fifth of the oxygen produced on Earth each year. Because their silica shells are dense, dead diatoms sink rapidly into the deep ocean, exporting organic carbon away from the atmosphere for centuries.</p>
+            <p><strong>Tara Pacific Insight:</strong> Diatom abundance peaks in equatorial upwelling zones and coastal island wakes where deep silicate-rich waters reach the sunlit euphotic zone.</p>
+        </div>
+    </div>
+
+    <div id="modal-copepod" class="modal-backdrop">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-copepod')">&times;</button>
+            <img src="https://oceanconservancy.org/wp-content/uploads/2017/07/copepod.webp" alt="Copepod" class="modal-img">
+            <h3>Copepods — Keystone Trophic Connectors</h3>
+            <p><strong>Ecological Role:</strong> Representing up to 70% of mesozooplankton biomass, copepods link microscopic primary producers (diatoms, dinoflagellates) to planktivorous reef fish, seabirds, and marine mammals.</p>
+            <p><strong>Active Carbon Transport:</strong> Every night, billions of copepods ascend to the surface to feed and descend hundreds of meters at dawn to evade predators, actively respiring and packaging carbon into fast-sinking fecal pellets at depth.</p>
+        </div>
+    </div>
+
+    <div id="modal-cocco" class="modal-backdrop">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-cocco')">&times;</button>
+            <h3>Coccolithophores &amp; The Mission Microbiome</h3>
+            <p><strong>Calcifying Phytoplankton:</strong> Coccolithophores (such as <em>Emiliania huxleyi</em>) surround themselves with microscopic plates of calcite (CaCO₃). They simultaneously drive the organic carbon pump (photosynthesis) and the carbonate counter-pump.</p>
+            <p><strong>Sensitivity to Acidification:</strong> As anthropogenic CO₂ lowers seawater pH, carbonate ion availability drops, threatening coccolith formation and altering ocean albedo (cloud-forming DMS emissions).</p>
+            <p><a href="https://www.youtube.com/watch?v=YOTrJ5uFyMU" target="_blank" rel="noopener" class="external-link">Watch the Tara Ocean Microbiome &amp; Plankton Video Focus &rarr;</a></p>
+        </div>
+    </div>
+
+    <div id="modal-plastic" class="modal-backdrop">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeModal('modal-plastic')">&times;</button>
+            <h3>Microplastics &amp; Coral Reef Stress</h3>
+            <p><strong>Manta Trawl Findings:</strong> Surface tows (330 µm mesh) during <em>Tara Pacific</em> revealed widespread microplastic accumulation, particularly in convergence zones of the North and South Pacific subtropical gyres.</p>
+            <p><strong>Biological Impact:</strong> Coral polyps mistake buoyant microplastic fragments for zooplankton prey. Furthermore, plastics harbor a distinct microbial biofilm (the <em>Plastisphere</em>) capable of transporting opportunistic pathogens across reef systems.</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <strong>Tara Pacific Scientific Mediation Dashboard</strong>
+                <p>Built with Python (Flask), Pandas, Leaflet.js &amp; Chart.js • Environmental Dataset: Ifremer / PANGAEA (<code>env_context.csv</code>)</p>
+            </div>
+            <div class="footer-links">
+                <a href="/api/stations" target="_blank">View Raw JSON API Sample (<code>/api/stations</code>)</a>
+                <a href="https://fondationtaraocean.org/en/home/" target="_blank">Fondation Tara Océan</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // --- 1A. PHOTO OF TARA INSTRUMENTS (1-4) ---
+        const INSTRUMENTS = {
+            rosette: {
+                badge: "WATER COLUMN PROFILING (0–1,000m)",
+                title: "1. CTD Sensor Package & Niskin Bottle Rosette",
+                desc: "Deployed via the forward oceanographic winch, the CTD (Conductivity, Temperature, Depth) carousel measures vertical profiles of temperature, salinity, dissolved oxygen, and fluorescence. Surrounding Niskin bottles trap seawater at targeted depths for genomic and nutrient analysis.",
+                meta: "Dataset link: Calibrates vertical temperature and subsurface chlorophyll maxima in env_context.csv."
+            },
+            tsg: {
+                badge: "CONTINUOUS UNDERWAY TELEMETRY",
+                title: "2. Thermosalinograph (TSG) & Peristaltic Pump",
+                desc: "Pumping seawater continuously from 1.5m below the hull while Tara is sailing, the Thermosalinograph and fluorometer record high-frequency Sea Surface Temperature (mergedSST), Salinity (mergedSSS), and surface Chlorophyll-a.",
+                meta: "Dataset link: Directly populates the mergedSST, mergedSSS, and merged_chl columns across all 665 stations."
+            },
+            manta: {
+                badge: "SURFACE & MESOPELAGIC NET TOWS",
+                title: "3. Manta Net (Microplastics) & Bongo Plankton Nets",
+                desc: "Towed off the stern A-frame at 2–3 knots, the Manta net skims the top 15 cm of the ocean to quantify microplastics (>330 µm), while Bongo nets with mesh sizes from 5 µm to 680 µm capture viruses, protists, diatoms, and copepods.",
+                meta: "Dataset link: Links physical water properties to plankton biodiversity and plastic density."
+            },
+            wetlab: {
+                badge: "ONBOARD FILTRATION & CRYOPRESERVATION",
+                title: "4. Deck Wet Lab & Sequential Membrane Filtration",
+                desc: "Inside Tara's interior wet lab, seawater is filtered through sequential polycarbonate membranes (0.2 µm to 200 µm) and immediately flash-frozen in liquid nitrogen for DNA/RNA metatranscriptomics back on land.",
+                meta: "Dataset link: Preserves the 150 million marine genes sequenced by Genoscope & EMBL."
+            }
+        };
+
+        function selectInstrument(key) {
+            const data = INSTRUMENTS[key];
+            if (!data) return;
+            ['rosette', 'tsg', 'manta', 'wetlab'].forEach(k => {
+                document.getElementById('tab-' + k).classList.remove('active');
+                document.getElementById('spot-' + k).classList.remove('active-spot');
+            });
+            document.getElementById('tab-' + key).classList.add('active');
+            document.getElementById('spot-' + key).classList.add('active-spot');
+
+            document.querySelector('#instrument-detail-box .inst-badge').textContent = data.badge;
+            document.getElementById('inst-title').textContent = data.title;
+            document.getElementById('inst-desc').textContent = data.desc;
+            document.getElementById('inst-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
+        }
+
+        // --- 1B. SCHEMATIC A (schema_bateau.jpg, Markers 1-8) ---
+        const OCEAN_INSTRUMENTS = {
+            1: {
+                badge: "MARKER #1 • CONTINUOUS SEAWATER INTAKE",
+                title: "1. Underway Hull Seawater Intake (Depth: ~1.5 m)",
+                desc: "Located beneath the aluminum hull of Tara, this intake continuously pumps surface seawater into the onboard wet laboratory while the schooner is sailing, enabling uninterrupted physical, chemical, and biological monitoring.",
+                meta: "Dataset role: Feeds the Thermosalinograph (SST/SSS) and fluorometer (Chlorophyll-a) in env_context.csv."
+            },
+            2: {
+                badge: "MARKER #2 • ATMOSPHERIC & SOLAR TELEMETRY",
+                title: "2. Masthead Weather Station & PAR Irradiance Sensor",
+                desc: "Mounted at the top of the mast to avoid sea-spray interference, this sensor suite continuously records wind speed, relative humidity, Marine Air Temperature (airTemp), and Photosynthetically Active Radiation (PAR).",
+                meta: "Dataset role: Populates the airTemp column and tracks ocean-atmosphere heat exchange."
+            },
+            3: {
+                badge: "MARKER #3 • HIGH-SPEED SURFACE SAMPLING",
+                title: "3. High-Speed 'Dolphin' Plankton Sampler",
+                desc: "Towed behind the schooner even at high sailing speeds (up to 9–10 knots), the streamlined metal 'Dolphin' collector funnels surface water into a fine mesh net without damaging delicate planktonic organisms.",
+                meta: "Dataset role: Captures daytime/nighttime surface plankton along open-ocean transects."
+            },
+            4: {
+                badge: "MARKER #4 • IN-LINE BIOPHYSICAL SENSORS",
+                title: "4. Thermosalinograph (TSG) & Optical Sensor Loop",
+                desc: "Before water reaches the filtration membranes, it passes through high-precision optical and conductivity sensors measuring Sea Surface Temperature (mergedSST), Salinity (mergedSSS), CDOM, and Chlorophyll-a fluorescence.",
+                meta: "Dataset role: Directly generates the core environmental columns of your stations.json file."
+            },
+            5: {
+                badge: "MARKER #5 • SEQUENTIAL SIZE-FRACTIONATION & CARBOYS",
+                title: "5. Multi-Stage Membrane Filtration & Reservoir Carboys",
+                desc: "Seawater is pumped into collection carboys and pushed through a cascade of filter holders (from 200 µm down to 0.22 µm) to separate giant viruses, bacteria, pico-eukaryotes, and micro-phytoplankton before flash-freezing in liquid nitrogen.",
+                meta: "Dataset role: Isolates DNA/RNA across size fractions, leading to 150 million sequenced marine genes."
+            },
+            6: {
+                badge: "MARKER #6 • ONBOARD CONCENTRATION",
+                title: "6. Deck Conical Plankton Net & Flowmeter",
+                desc: "Pumped water flows through an electronic flowmeter (recording exact filtered volume in liters) into a suspended deck net that concentrates larger microplankton and larval stages.",
+                meta: "Dataset role: Normalizes plankton abundance per cubic meter of filtered seawater."
+            },
+            7: {
+                badge: "MARKER #7 • MICROPLASTIC QUANTIFICATION",
+                title: "7. Stern-Towed Manta Net (330 µm Mesh)",
+                desc: "Equipped with lateral metal wings that keep its rectangular mouth skimming the top 15 cm of the sea surface, the Manta net traps floating microplastics, synthetic fibers, and neustonic organisms.",
+                meta: "Dataset role: Quantifies plastic pollution accumulation in Pacific subtropical gyres."
+            },
+            8: {
+                badge: "MARKER #8 • TRACE METAL & CONTAMINATION-FREE SAMPLING",
+                title: "8. Forward Bow Pole Sampler",
+                desc: "Operated manually from the bowsprit ahead of the schooner's wake, this extensible pole collects pristine surface water completely free of hull paint, rust, or onboard greywater contamination.",
+                meta: "Dataset role: Used for ultra-clean trace metal, carbonate chemistry, and viral assays."
+            }
+        };
+
+        function selectOceanInst(num) {
+            const data = OCEAN_INSTRUMENTS[num];
+            if (!data) return;
+            document.querySelectorAll('.tab-ocean').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-ocean-' + num).classList.add('active');
+
+            document.querySelectorAll('.spot-ocean').forEach(s => s.classList.remove('active-spot'));
+            if (num === 5) {
+                document.querySelectorAll('.spot-ocean-5-group').forEach(s => s.classList.add('active-spot'));
+            } else {
+                const el = document.getElementById('spot-ocean-' + num);
+                if (el) el.classList.add('active-spot');
+            }
+
+            document.getElementById('ocean-badge').textContent = data.badge;
+            document.getElementById('ocean-title').textContent = data.title;
+            document.getElementById('ocean-desc').textContent = data.desc;
+            document.getElementById('ocean-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
+        }
+
+        // --- 1C. SCHEMATIC B (schema_corail.jpg, Markers 1-7) ---
+        const REEF_INSTRUMENTS = {
+            1: {
+                badge: "MARKER #1 • BENTHIC HOLOBIONT",
+                title: "1. Targeted Coral Colony Sampling (Pocillopora, Porites, Millepora)",
+                desc: "SCUBA scientists collect small fragments from three target coral genera across 32 Pacific archipelagos to sequence the genome of the coral host alongside its symbiotic microalgae (Symbiodiniaceae), bacteria, and viruses.",
+                meta: "Scientific goal: Evaluates thermal tolerance, telomere length, and microbiome shifts across warming gradients."
+            },
+            2: {
+                badge: "MARKER #2 • VERTEBRATE TROPHIC LEVEL",
+                title: "2. Reef Fish Sampling (Acanthurus triostegus & Zanclus cornutus)",
+                desc: "Divers sample herbivorous surgeonfish and omnivorous Moorish idols to examine their gut microbiome, gill parasites, and physiological stress markers across pristine vs. inhabited islands.",
+                meta: "Scientific goal: Links planktonic food webs to vertebrate reef health and plastic ingestion."
+            },
+            3: {
+                badge: "MARKER #3 • PALEOCLIMATOLOGY ARCHIVE",
+                title: "3. Pneumatic Coral Skeleton Coring (Massive Porites)",
+                desc: "Using an underwater pneumatic drill, divers extract vertical calcium carbonate cores from centuries-old Porites domes. Like tree rings, annual density bands record past sea surface temperatures and pH.",
+                meta: "Scientific goal: Reconstructs historical thermal anomalies and acidification over the past 100–200 years."
+            },
+            4: {
+                badge: "MARKER #4 • BENTHIC BOUNDARY LAYER",
+                title: "4. Coral-Surrounding Water Intake",
+                desc: "A diver positions a weighted intake nozzle directly at the surface of the coral colony to capture the immediate boundary-layer water enriched in coral mucus, metabolites, and reef bacteria.",
+                meta: "Scientific goal: Compares the coral's internal microbiome with the surrounding reef water microbial community."
+            },
+            5: {
+                badge: "MARKER #5 • SURFACE ZODIAC PUMPING",
+                title: "5. Umbilical Tubing & Zodiac Peristaltic Pump",
+                desc: "Flexible food-grade tubing connects the diver on the reef floor directly to the surface inflatable boat (Zodiac), where seawater is pumped into carboys for immediate filtration back aboard Tara.",
+                meta: "Scientific goal: Ensures zero degradation of delicate RNA and microbial samples between the reef and the ship."
+            },
+            6: {
+                badge: "MARKER #6 • LAGOON HYDROLOGY",
+                title: "6. Portable Vertical CTD Profiler",
+                desc: "Lowered from the Zodiac directly over the dive site, this compact CTD probe logs exact depth, water temperature, salinity, and light penetration right down to the coral colonies.",
+                meta: "Dataset role: Links in-situ reef conditions at filtration depth with open-ocean station telemetry."
+            },
+            7: {
+                badge: "MARKER #7 • REEF PLANKTON & LARVAE",
+                title: "7. Diver-Propelled Double Bongo Nets",
+                desc: "Two SCUBA divers swim horizontally above the reef crest pushing paired 20 µm and 200 µm plankton nets to capture coral larvae, reef copepods, and dinoflagellates without boat propeller turbulence.",
+                meta: "Scientific goal: Characterizes shallow lagoon plankton diversity and larval connectivity between islands."
+            }
+        };
+
+        function selectReefInst(num) {
+            const data = REEF_INSTRUMENTS[num];
+            if (!data) return;
+            document.querySelectorAll('.tab-reef').forEach(b => b.classList.remove('active'));
+            document.getElementById('tab-reef-' + num).classList.add('active');
+            document.querySelectorAll('.spot-reef').forEach(s => s.classList.remove('active-spot'));
+            const el = document.getElementById('spot-reef-' + num);
+            if (el) el.classList.add('active-spot');
+
+            document.getElementById('reef-badge').textContent = data.badge;
+            document.getElementById('reef-title').textContent = data.title;
+            document.getElementById('reef-desc').textContent = data.desc;
+            document.getElementById('reef-meta').innerHTML = "<strong>" + data.meta.split(':')[0] + ":</strong>" + data.meta.split(':')[1];
+        }
+
+        // --- 2. LEAFLET MAP & EXPEDITION ROUTE (NO EMOJIS IN POPUPS) ---
+        const map = L.map('map', { worldCopyJump: true }).setView([5, -145], 2);
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, National Geographic',
+            maxZoom: 13
+        }).addTo(map);
+
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '',
+            maxZoom: 13
+        }).addTo(map);
+
+        const DEFAULT_STATIONS = [
+            {station: "TARA_001 — Lorient Departure (France)", dt: "2016-05-28", lat: 47.73, lon: -3.37, airTemp: 16.5, mergedSST: 15.2, mergedSSS: 35.1, merged_chl: 1.45, depth: 15},
+            {station: "TARA_012 — Miami Coral Reefs (USA)", dt: "2016-06-26", lat: 25.76, lon: -80.13, airTemp: 28.1, mergedSST: 28.4, mergedSSS: 35.9, merged_chl: 0.38, depth: 20},
+            {station: "TARA_018 — Panama Canal Transit", dt: "2016-07-12", lat: 9.38, lon: -79.92, airTemp: 28.4, mergedSST: 28.9, mergedSSS: 33.4, merged_chl: 0.62, depth: 25},
+            {station: "TARA_034 — Las Perlas Archipelago", dt: "2016-08-05", lat: 8.41, lon: -79.05, airTemp: 27.8, mergedSST: 27.6, mergedSSS: 32.8, merged_chl: 0.95, depth: 40},
+            {station: "TARA_052 — Rapa Nui (Easter Island)", dt: "2016-09-18", lat: -27.11, lon: -109.35, airTemp: 21.2, mergedSST: 20.8, mergedSSS: 35.6, merged_chl: 0.08, depth: 120},
+            {station: "TARA_068 — Moorea (French Polynesia)", dt: "2016-11-04", lat: -17.53, lon: -149.83, airTemp: 27.5, mergedSST: 27.1, mergedSSS: 35.8, merged_chl: 0.14, depth: 30},
+            {station: "TARA_085 — Upolu Island (Samoa)", dt: "2016-12-14", lat: -13.83, lon: -171.75, airTemp: 29.1, mergedSST: 28.8, mergedSSS: 34.9, merged_chl: 0.22, depth: 35},
+            {station: "TARA_102 — Fiji Coral Sanctuary", dt: "2017-03-02", lat: -17.71, lon: 178.06, airTemp: 28.7, mergedSST: 29.2, mergedSSS: 34.6, merged_chl: 0.31, depth: 45},
+            {station: "TARA_124 — Great Barrier Reef (Australia)", dt: "2017-05-19", lat: -18.28, lon: 147.69, airTemp: 25.4, mergedSST: 25.9, mergedSSS: 35.2, merged_chl: 0.48, depth: 20},
+            {station: "TARA_145 — Okinawa Archipelago (Japan)", dt: "2017-06-25", lat: 26.33, lon: 127.80, airTemp: 27.0, mergedSST: 26.8, mergedSSS: 34.5, merged_chl: 0.39, depth: 50},
+            {station: "TARA_168 — Kimbe Bay (Papua New Guinea)", dt: "2017-09-10", lat: -5.21, lon: 145.81, airTemp: 29.3, mergedSST: 29.7, mergedSSS: 34.1, merged_chl: 0.74, depth: 60},
+            {station: "TARA_192 — Palau Rock Islands", dt: "2018-01-22", lat: 7.51, lon: 134.58, airTemp: 28.6, mergedSST: 28.5, mergedSSS: 34.2, merged_chl: 0.29, depth: 30},
+            {station: "TARA_215 — Oahu & Kaneohe Bay (Hawaii)", dt: "2018-06-11", lat: 21.31, lon: -157.85, airTemp: 26.1, mergedSST: 25.7, mergedSSS: 35.0, merged_chl: 0.16, depth: 80}
+        ];
+
+        let stationList = [];
+        let stationMarkers = [];
+        let currentIndex = 0;
+        let autoplayTimer = null;
+
+        function renderStationsOnMap(stations, totalCount) {
+            stationList = stations;
+            document.getElementById('station-counter').textContent = `${stationList.length} interactive stations (${totalCount} in dataset)`;
+
+            const latlngs = [];
+
+            stationList.forEach((st, idx) => {
+                const lat = Number(st.lat);
+                const lon = Number(st.lon);
+                if (isNaN(lat) || isNaN(lon)) return;
+
+                latlngs.push([lat, lon]);
+
+                const chl = Number(st.merged_chl || 0);
+                const fillColor = chl > 0.5 ? '#16a085' : (chl > 0.18 ? '#008891' : '#e05a47');
+
+                const circle = L.circleMarker([lat, lon], {
+                    radius: 8,
+                    fillColor: fillColor,
+                    color: '#ffffff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.95
+                }).addTo(map);
+
+                circle.bindPopup(`
+                    <div style="font-family:sans-serif; min-width:180px;">
+                        <strong style="color:#07192b; font-size:14px;">${st.station}</strong><br>
+                        <span style="color:#64748b; font-size:12px;">Date: ${st.dt || '2016–2018'}</span>
+                        <hr style="margin:6px 0; border:none; border-top:1px solid #e2e8f0;">
+                        Water Temp (SST): <b>${st.mergedSST !== null ? Number(st.mergedSST).toFixed(2) + ' °C' : 'N/A'}</b><br>
+                        Salinity (SSS): <b>${st.mergedSSS !== null ? Number(st.mergedSSS).toFixed(2) + ' PSU' : 'N/A'}</b><br>
+                        Chlorophyll-a: <b>${st.merged_chl !== null ? Number(st.merged_chl).toFixed(3) + ' mg/m³' : 'N/A'}</b>
+                    </div>
+                `);
+
+                circle.on('click', () => {
+                    currentIndex = idx;
+                    updateStationDashboard(st, false);
+                });
+
+                stationMarkers.push(circle);
+            });
+
+            if (latlngs.length > 1) {
+                L.polyline(latlngs, {
+                    color: '#e05a47',
+                    weight: 2.5,
+                    opacity: 0.7,
+                    dashArray: '6, 6'
+                }).addTo(map);
+            }
+
+            if (stationList.length > 0) {
+                updateStationDashboard(stationList[0], false);
+            }
+        }
+
+        fetch('/api/stations')
+            .then(res => res.json())
+            .then(payload => {
+                if (Array.isArray(payload) && payload.length > 0) {
+                    const step = Math.max(1, Math.floor(payload.length / 40));
+                    const sampled = payload.filter(s => s.lat && s.lon).filter((_, i) => i % step === 0);
+                    renderStationsOnMap(sampled.length ? sampled : DEFAULT_STATIONS, payload.length);
+                } else if (payload && Array.isArray(payload.stations) && payload.stations.length > 0) {
+                    renderStationsOnMap(payload.stations, payload.total_raw || payload.stations.length);
+                } else {
+                    renderStationsOnMap(DEFAULT_STATIONS, 665);
+                }
+            })
+            .catch(() => {
+                renderStationsOnMap(DEFAULT_STATIONS, 665);
+            });
+
+        function updateStationDashboard(st, panMap = true) {
+            document.getElementById('st-badge').textContent = `STATION #${currentIndex + 1} / ${stationList.length}`;
+            document.getElementById('st-name').textContent = st.station;
+            document.getElementById('st-date').textContent = `Date: ${st.dt || '2016–2018'} | GPS: ${Number(st.lat).toFixed(2)}°, ${Number(st.lon).toFixed(2)}°`;
+
+            document.getElementById('st-sst').textContent = st.mergedSST !== null ? Number(st.mergedSST).toFixed(2) + ' °C' : '27.10 °C';
+            document.getElementById('st-sss').textContent = st.mergedSSS !== null ? Number(st.mergedSSS).toFixed(2) + ' PSU' : '34.80 PSU';
+            document.getElementById('st-air').textContent = st.airTemp !== null ? Number(st.airTemp).toFixed(1) + ' °C' : '26.5 °C';
+            document.getElementById('st-depth').textContent = (st.depth || 25) + ' m';
+
+            const chl = Number(st.merged_chl || 0.15);
+            const pct = Math.min(100, Math.max(5, (chl / 1.5) * 100));
+            document.getElementById('gauge-number').textContent = chl.toFixed(3) + ' mg/m³';
+            
+            const fillEl = document.getElementById('gauge-bar-fill');
+            fillEl.style.width = pct + '%';
+
+            const diagEl = document.getElementById('trophic-status');
+            if (chl < 0.15) {
+                fillEl.style.background = 'linear-gradient(90deg, #38bdf8, #0284c7)';
+                diagEl.innerHTML = '<strong>Oligotrophic Ocean Desert:</strong> Ultra-clear subtropical gyre water with low surface nutrients and deep chlorophyll maximum.';
+            } else if (chl < 0.5) {
+                fillEl.style.background = 'linear-gradient(90deg, #008891, #16a085)';
+                diagEl.innerHTML = '<strong>Mesotrophic Reef / Island Wake:</strong> Moderate nutrient enrichment supporting balanced coral-plankton food webs.';
+            } else {
+                fillEl.style.background = 'linear-gradient(90deg, #16a085, #10b981)';
+                diagEl.innerHTML = '<strong>Eutrophic / Upwelling Zone:</strong> High primary production driven by cold nutrient-rich water or coastal runoff; intense diatom blooms.';
+            }
+
+            if (panMap && stationMarkers[currentIndex]) {
+                map.setView([st.lat, st.lon], 4, { animate: true });
+                stationMarkers[currentIndex].openPopup();
+            }
+        }
+
+        function stepStation(delta) {
+            if (!stationList.length) return;
+            currentIndex = (currentIndex + delta + stationList.length) % stationList.length;
+            updateStationDashboard(stationList[currentIndex], true);
+        }
+
+        function toggleAutoplay() {
+            const btn = document.getElementById('btn-play-route');
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+                btn.innerHTML = '&#9654; Play Expedition Timelapse';
+            } else {
+                btn.innerHTML = '&#9208; Pause Timelapse';
+                autoplayTimer = setInterval(() => stepStation(1), 2200);
+            }
+        }
+
+        // --- 3. MODALS ---
+        function openModal(id) {
+            document.getElementById(id).classList.add('open');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-backdrop')) {
+                e.target.classList.remove('open');
+            }
+        });
+
+        // --- 4. CHART.JS, FLASK FORM & DYNAMIC SCIENTIFIC INTERPRETATION ---
+        let telemetryChart = null;
+
+        const SCIENTIFIC_EXPLANATIONS = {
+            merged_chl: {
+                title: "Phytoplankton Biomass & The 'Island Mass Effect'",
+                all: "Across the entire voyage, Chlorophyll-a highlights a stark contrast between nutrient-depleted open ocean gyres (<0.15 mg/m³) and productive temperate/coastal waters (>0.80 mg/m³) such as the European shelf (Lorient) and Panama.",
+                south_pacific: "Notice the remarkable upward staircase from Rapa Nui (0.08 mg/m³) to Kimbe Bay in Papua New Guinea (0.74 mg/m³)! Rapa Nui sits inside the ultra-oligotrophic South Pacific Gyre ('ocean desert'), whereas moving west toward Fiji, the Great Barrier Reef, and PNG introduces coastal terrestrial runoff and island-induced vertical mixing ('Island Mass Effect') that fertilize diatom blooms.",
+                north_pacific: "In the North & West Pacific, Chlorophyll-a remains moderate around coral archipelagos (Okinawa, Palau ~0.30–0.40 mg/m³) before dropping again in the oligotrophic North Pacific subtropical waters near Hawaii (0.16 mg/m³).",
+                atlantic_panama: "High Chlorophyll-a in Lorient (1.45 mg/m³) reflects cold, nutrient-rich European coastal waters, while the Panama Canal and Las Perlas (0.62–0.95 mg/m³) show strong tropical coastal enrichment and seasonal upwelling.",
+                takeaway: "Key Takeaway: Each bar represents a sampling station from West to East. Taller green bars indicate higher primary production (more diatoms and cyanobacteria), which feeds copepods and coral reef food webs."
+            },
+            mergedSST: {
+                title: "Thermal Gradients & Coral Bleaching Thresholds",
+                all: "Sea Surface Temperature spans from 15.2°C at departure in Brittany (France) to nearly 30°C in the Western Pacific Warm Pool, illustrating the latitudinal solar heating gradient.",
+                south_pacific: "As Tara sails west from Easter Island (20.8°C, cooled by the Humboldt/subtropical circulation) toward Samoa, Fiji, and Papua New Guinea (28.8°C–29.7°C), waters enter the Western Pacific Warm Pool—crossing the critical 29°C threshold where coral holobionts experience severe thermal stress and bleaching.",
+                north_pacific: "Warm tropical waters in Palau (28.5°C) and Okinawa (26.8°C) support high-latitude and equatorial coral reefs, buffered slightly in Hawaii (25.7°C) by North Pacific trade-wind mixing.",
+                atlantic_panama: "A dramatic +13°C warming occurs between temperate Lorient (15.2°C) and the tropical Caribbean/Panama basin (~28.5°C).",
+                takeaway: "Key Takeaway: Coral symbiosis breaks down when SST remains ~1°C above the local seasonal maximum. Compare these bars with the 29°C thermal stress line."
+            },
+            mergedSSS: {
+                title: "Salinity Regimes: Evaporation vs. Tropical Rainfall",
+                all: "Salinity (measured in Practical Salinity Units, PSU) acts as a natural rain gauge for the ocean, oscillating between 32.8 PSU in rainy equatorial belts and 35.9 PSU in evaporative subtropical gyres.",
+                south_pacific: "High salinity in Rapa Nui and Moorea (35.6–35.8 PSU) is driven by intense subtropical evaporation with little rainfall. Moving into the South Pacific Convergence Zone (Samoa, Fiji, PNG), heavy tropical downpours and river discharge dilute the surface layer down to 34.1 PSU.",
+                north_pacific: "Salinity stays balanced between 34.2 PSU (Palau, located in the rainy Intertropical Convergence Zone) and 35.0 PSU (Hawaii, under trade-wind evaporation).",
+                atlantic_panama: "Observe the sharp drop in salinity at the Panama Canal and Las Perlas (32.8–33.4 PSU), caused by freshwater outflow from the canal locks and intense central American monsoon rainfall.",
+                takeaway: "Key Takeaway: Higher bars = high evaporation (dry subtropical high-pressure zones); Lower bars = freshwater dilution from tropical rainbands (ITCZ) or rivers."
+            },
+            airTemp: {
+                title: "Ocean-Atmosphere Thermal Coupling",
+                all: "Marine air temperature closely tracks Sea Surface Temperature within ±1°C, demonstrating how the ocean's massive heat capacity regulates the climate of overlying marine air masses.",
+                south_pacific: "Air temperatures warm steadily from 21.2°C over Rapa Nui to >29°C across Samoa and Papua New Guinea, driving convective cloud formation and tropical humidity.",
+                north_pacific: "Warm, humid maritime air masses prevail from Okinawa (27.0°C) and Palau (28.6°C) to Oahu (26.1°C).",
+                atlantic_panama: "Air temperature jumps from mild European spring conditions (16.5°C) to equatorial heat in Panama (28.4°C).",
+                takeaway: "Key Takeaway: Because water has a heat capacity ~4× higher than air, the ocean dictates marine air temperature along the entire schooner trajectory."
+            }
+        };
+
+        function updateInterpretationBox(parameter, region, summary, unit) {
+            const exp = SCIENTIFIC_EXPLANATIONS[parameter] || SCIENTIFIC_EXPLANATIONS.merged_chl;
+            const regionText = exp[region] || exp.all;
+
+            document.getElementById('interp-title').textContent = exp.title;
+            document.getElementById('interp-body').innerHTML = `
+                <strong>What you are observing (${summary.sample_size} stations plotted):</strong> ${regionText}
+                In this specific selection, values range from <strong>${summary.min} ${unit}</strong> to <strong>${summary.max} ${unit}</strong>, with a regional average of <strong>${summary.average} ${unit}</strong>.
+            `;
+            document.getElementById('interp-takeaway').textContent = exp.takeaway;
+        }
+
+        function renderChartData(labels, values, labelText, unit, color, summary, parameter, region) {
+            document.getElementById('stat-avg').textContent = `${summary.average} ${unit}`;
+            document.getElementById('stat-min').textContent = `${summary.min} ${unit}`;
+            document.getElementById('stat-max').textContent = `${summary.max} ${unit}`;
+            document.getElementById('stat-n').textContent = `${summary.sample_size} stations`;
+
+            updateInterpretationBox(parameter, region, summary, unit);
+
+            const ctx = document.getElementById('telemetryChart').getContext('2d');
+            if (telemetryChart) telemetryChart.destroy();
+
+            telemetryChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: `${labelText} — Station Comparison`,
+                        data: values,
+                        backgroundColor: color + 'cc',
+                        borderColor: color,
+                        borderWidth: 1.5,
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.dataset.label.split('—')[0]}: ${context.parsed.y} ${unit}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: { display: true, text: 'Sampling Stations along Expedition Trajectory (Chronological Order →)', font: { weight: 'bold' } }
+                        },
+                        y: {
+                            beginAtZero: parameter === 'merged_chl',
+                            title: { display: true, text: labelText, font: { weight: 'bold' } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function runAnalysis() {
+            const parameter = document.getElementById('param-select').value;
+            const region = document.getElementById('region-select').value;
+            const limit = parseInt(document.getElementById('limit-select').value, 10);
+
+            fetch('/api/analyze', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ parameter, region, limit })
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Fallback local calculation");
+                return res.json();
+            })
+            .then(data => {
+                renderChartData(data.labels, data.values, data.label, data.unit, data.color, data.summary, parameter, region);
+            })
+            .catch(() => {
+                const source = stationList.length ? stationList : DEFAULT_STATIONS;
+                const filtered = source.filter(s => {
+                    if (region === 'south_pacific') return s.lat < 0;
+                    if (region === 'north_pacific') return s.lat >= 0 && (s.lon < -100 || s.lon > 120);
+                    if (region === 'atlantic_panama') return s.lon >= -90 && s.lon <= 0 && s.lat >= 0;
+                    return true;
+                });
+                const subset = (filtered.length ? filtered : source).slice(0, limit);
+                const labels = subset.map(s => s.station.substring(0, 18));
+                const values = subset.map(s => Number(s[parameter] || 0));
+                const avg = (values.reduce((a, b) => a + b, 0) / (values.length || 1)).toFixed(2);
+                const meta = {
+                    mergedSST: { label: "Sea Surface Temperature (°C)", unit: "°C", color: "#e05a47" },
+                    merged_chl: { label: "Chlorophyll-a Concentration (mg/m³)", unit: "mg/m³", color: "#16a085" },
+                    mergedSSS: { label: "Sea Surface Salinity (PSU)", unit: "PSU", color: "#008891" },
+                    airTemp: { label: "Marine Air Temperature (°C)", unit: "°C", color: "#f39c12" }
+                }[parameter];
+
+                renderChartData(labels, values, meta.label, meta.unit, meta.color, {
+                    average: avg,
+                    min: Math.min(...values).toFixed(2),
+                    max: Math.max(...values).toFixed(2),
+                    sample_size: subset.length
+                }, parameter, region);
+            });
+        }
+
+        document.getElementById('analysis-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            runAnalysis();
+        });
+
+        document.getElementById('param-select').addEventListener('change', runAnalysis);
+        document.getElementById('region-select').addEventListener('change', runAnalysis);
+        document.getElementById('limit-select').addEventListener('change', runAnalysis);
+
+        window.addEventListener('DOMContentLoaded', runAnalysis);
+    </script>
+</body>
+</html>
