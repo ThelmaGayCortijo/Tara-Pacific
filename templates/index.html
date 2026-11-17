@@ -27,9 +27,6 @@
             </div>
         </div>
 
-        <!-- Rayons de soleil sous la surface -->
-        <div class="underwater-rays"></div>
-
         <!-- Petit plongeur qui suit le scroll vers le bas -->
         <div class="scrolling-diver-sticky" id="scrolling-diver">
             <div class="diver-depth-tag" id="scroll-depth-val">0 m — SURFACE</div>
@@ -1481,11 +1478,12 @@
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
 
-    // --- 5. ANIMATION DE PLONGÉE CONTRÔLÉE PAR LE SCROLL ---
+// --- 5. ANIMATION DE PLONGÉE CONTRÔLÉE PAR LE SCROLL ---
         window.addEventListener('scroll', () => {
             const diveSection = document.getElementById('scroll-dive-section');
             const diverEl = document.getElementById('scrolling-diver');
             const depthValEl = document.getElementById('scroll-depth-val');
+            const titleBox = document.getElementById('abyss-title-box');
             const navDiver = document.getElementById('navbar-diver');
             const brandDot = document.getElementById('brand-dot-default');
             const promptEl = document.getElementById('scroll-prompt');
@@ -1507,14 +1505,25 @@
                 if (depthMeters < 15) depthValEl.textContent = `-${depthMeters} m — SURFACE ZONE`;
                 else if (depthMeters < 120) depthValEl.textContent = `-${depthMeters} m — EUPHOTIC ZONE`;
                 else depthValEl.textContent = `-${depthMeters} m — DEEP OBSERVATORY`;
+
+                // Fait disparaître UNIQUEMENT l'étiquette dès que le plongeur touche le titre "TARA PACIFIC EXPEDITION"
+                if (titleBox) {
+                    const diverRect = diverEl.getBoundingClientRect();
+                    const titleRect = titleBox.getBoundingClientRect();
+                    if (diverRect.bottom >= titleRect.top - 15) {
+                        depthValEl.classList.add('hide-tag');
+                    } else {
+                        depthValEl.classList.remove('hide-tag');
+                    }
+                }
             }
 
             // Petit mouvement latéral de nage au fil du scroll
             const swimWave = Math.sin(progress * Math.PI * 4) * 18;
             diverEl.style.transform = `translateX(${swimWave}px)`;
 
-            // Quand on arrive en bas de la plongée (début du site), le plongeur se loge dans la barre du haut
-            if (scrollY >= diveSection.offsetHeight - 120) {
+            // Le plongeur reste visible sur le titre, et ne disparaît que tout en bas pour entrer dans la barre .topbar
+            if (scrollY >= diveSection.offsetHeight - 80) {
                 diverEl.style.opacity = '0';
                 if (navDiver) navDiver.classList.add('docked');
                 if (brandDot) brandDot.classList.add('hidden-dot');
@@ -1524,6 +1533,7 @@
                 if (brandDot) brandDot.classList.remove('hidden-dot');
             }
         });
+        
     </script>
 </body>
 </html>
