@@ -712,7 +712,7 @@
             </div>
         </section>
 
-        <!-- 5. BIOGEOCHEMICAL PROVINCES & CLIMATE STRESS VALIDATION (PCA MAPS) -->
+    <!-- PARTIE 5. BIOGEOCHEMICAL PROVINCES & CLIMATE STRESS VALIDATION (PCA MAPS) -->
         <section id="provinces" class="section-block">
             <div class="section-header">
                 <span class="section-tag">05 / SPATIAL MODELING &amp; VALIDATION</span>
@@ -722,20 +722,43 @@
                 </p>
             </div>
 
-            <div class="two-col-grid">
-                <div class="figure-card">
-                    <img src="{{ url_for('static', filename='pca_biogeochem.jpg') }}" alt="Biogeochemical provinces PCA and map" class="responsive-img">
-                    <div class="figure-caption">
-                        <strong>Figure 5.</strong> Technical validation comparing main hydrological and biogeochemical variables with global biogeochemical provinces. (A) Box-cox normalized PCA space; (B) Spatial projection of station RGB signatures onto oceanic provinces.
+            <!-- CAROUSEL / CARTE QUI SE RETOURNE (FIGURE 5 & 6) -->
+            <div class="pca-flip-container" id="pcaFlipCard">
+                
+                <!-- FACE A : FIGURE 5 -->
+                <div class="pca-card-face pca-card-front active-face" id="pcaFace5">
+                    <div class="pca-img-wrapper">
+                        <img src="{{ url_for('static', filename='pca_biogeochem.jpg') }}" alt="Figure 5. Technical validation comparing hydrological variables">
+                    </div>
+                    <div class="pca-caption-box">
+                        <div class="pca-cap-header">
+                            <span class="fig-badge">FIGURE 5</span>
+                            <button type="button" class="flip-action-btn" onclick="togglePcaFlip()">
+                                <span>Passer à la Figure 6</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                        <p>Technical validation comparing main hydrological and biogeochemical variables with global biogeochemical provinces. (A) Box-cox normalized PCA space; (B) Spatial projection of station RGB signatures onto oceanic provinces.</p>
                     </div>
                 </div>
 
-                <div class="figure-card">
-                    <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Historical SST heatwaves PCA and map" class="responsive-img">
-                    <div class="figure-caption">
-                        <strong>Figure 6.</strong> Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations.
+                <!-- FACE B : FIGURE 6 -->
+                <div class="pca-card-face pca-card-back" id="pcaFace6">
+                    <div class="pca-img-wrapper">
+                        <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Figure 6. Technical validation of historical SST heatwaves">
+                    </div>
+                    <div class="pca-caption-box">
+                        <div class="pca-cap-header">
+                            <span class="fig-badge">FIGURE 6</span>
+                            <button type="button" class="flip-action-btn" onclick="togglePcaFlip()">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                <span>Revenir à la Figure 5</span>
+                            </button>
+                        </div>
+                        <p>Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations.</p>
                     </div>
                 </div>
+
             </div>
 
             <div class="prose-block" style="margin-top: 24px;">
@@ -1623,7 +1646,19 @@
 
         window.addEventListener('DOMContentLoaded', runAnalysis);
 
-
+        // cartes qui tournent dans la partie 5
+function togglePcaFlip() {
+            const face5 = document.getElementById('pcaFace5');
+            const face6 = document.getElementById('pcaFace6');
+            
+            if (face5.classList.contains('active-face')) {
+                face5.classList.remove('active-face');
+                face6.classList.add('active-face');
+            } else {
+                face6.classList.remove('active-face');
+                face5.classList.add('active-face');
+            }
+        }
     </script>
 </body>
 </html>

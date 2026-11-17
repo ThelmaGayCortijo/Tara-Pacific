@@ -964,14 +964,6 @@ h1, h2, h3 {
     color: #49963c !important;
 }
 
-.trophic-diagnosis {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border-light);
-    font-size: 0.86rem;
-    color: var(--text-main);
-}
-
 /* RIGHT SIDEBAR: COMPACT TELEMETRY + 3 TROPHIC ZONES EXPLANATIONS (FOND BLEU PLUS CLAIR) */
 .telemetry-card {
     background: var(--box-ocean-bg); /* <-- Prend la couleur bleu plus clair définie en haut */
@@ -2058,4 +2050,105 @@ h1, h2, h3 {
     font-weight: 500;
     line-height: 1.62;
     color: #ffffff;
+}
+
+/* ==========================================================================
+   CARTE FLIP / BASCULE POUR LES FIGURES PCA (GRAND FORMAT)
+   ========================================================================== */
+.pca-flip-container {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto 32px;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.pca-card-face {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.pca-card-face.active-face {
+    display: block;
+    opacity: 1;
+}
+
+/* Grand format pour que les graphiques A et B soient parfaitement lisibles */
+.pca-img-wrapper {
+    width: 100%;
+    max-height: 520px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-light);
+    padding: 12px;
+}
+
+.pca-img-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+}
+
+.pca-caption-box {
+    padding: 22px 28px;
+    background: #ffffff;
+}
+
+.pca-cap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.fig-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: var(--navy-900);
+    background: var(--sand-100, #e2e8f0);
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+/* Bouton élégant de bascule sur le côté */
+.flip-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy-900, #07192b);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(7, 25, 43, 0.2);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.flip-action-btn:hover {
+    background: var(--teal-600, #005f6b);
+    transform: translateY(-1px);
+}
+
+.pca-caption-box p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.55;
 }
