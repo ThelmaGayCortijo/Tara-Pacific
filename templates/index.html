@@ -106,73 +106,83 @@
 
     <main class="main-wrapper">
 
-        <!-- CONSOLE DE TIMONERIE EN TECK CLAIR (Sans le titre "Decoding..." et avec les nouveaux boutons) -->
-        <section class="bridge-console-strip">
-            <div class="bridge-wood-frame" id="helm-console">
+<!-- TABLE À CARTES & CARNET D'EXPÉDITION (STYLE ATLAS MARIN / NAT GEO) -->
+        <section class="chart-table-strip">
+            <div class="nautical-atlas-card" id="helm-console">
                 
-                <div class="bridge-hud-topbar">
-                    <div class="hud-status-group">
-                        <span class="hud-led" id="main-helm-led"></span>
-                        <span class="hud-code">HELM CONSOLE • TARA SCHOONER (36M)</span>
+                <!-- Règle supérieure : Coordonnées de navigation & Sélecteurs de relevés -->
+                <div class="atlas-ruler-topbar">
+                    <div class="atlas-coord-group">
+                        <span class="atlas-marker-dot"></span>
+                        <span class="atlas-code">NAUTICAL CHART TABLE • R/V TARA (36M)</span>
                     </div>
 
-                    <div class="helm-switches-group">
-                        <button type="button" class="helm-push-btn active" onclick="activateHelmMode(this, -75, '265° W • PACIFIC TRANSECT', 'CORE SCIENTIFIC QUESTION')">
-                            <span class="btn-led"></span>TRANSECT
+                    <!-- Onglets d'instruments style étiquettes de carnet de bord -->
+                    <div class="atlas-tabs-group">
+                        <button type="button" class="atlas-tab-btn active" onclick="activateHelmMode(this, -75, '265° W • PACIFIC TRANSECT', 'CORE SCIENTIFIC QUESTION // TRANSECT LOG')">
+                            <span class="tab-dot"></span>TRANSECT
                         </button>
-                        <button type="button" class="helm-push-btn" onclick="activateHelmMode(this, -35, '315° NW • KIMBE REEF SONAR', 'BATHYMETRIC SONAR')">
-                            <span class="btn-led"></span>REEF SONAR
+                        <button type="button" class="atlas-tab-btn" onclick="activateHelmMode(this, -35, '315° NW • KIMBE REEF SONAR', 'BATHYMETRIC SONAR // REEF SURVEY')">
+                            <span class="tab-dot"></span>REEF SONAR
                         </button>
-                        <button type="button" class="helm-push-btn" onclick="activateHelmMode(this, 110, '190° S • SUBTROPICAL GYRE', 'GYRE DRIFT TELEMETRY')">
-                            <span class="btn-led"></span>GYRE DRIFT
-                        </button>
-                        <button type="button" class="helm-push-btn" onclick="toggleHelmAmberLamp(this)">
-                            <span class="btn-led"></span>AMBER LAMP
+                        <button type="button" class="atlas-tab-btn" onclick="activateHelmMode(this, 110, '190° S • SUBTROPICAL GYRE', 'GYRE DRIFT TELEMETRY // PLASTISPHERE')">
+                            <span class="tab-dot"></span>GYRE DRIFT
                         </button>
                     </div>
 
-                    <div class="hud-telemetry-readout">
-                        <span>HDG <strong id="helm-hdg-text">265° W • PACIFIC TRANSECT</strong></span>
-                        <span>DIST <strong>100,000 KM</strong></span>
+                    <div class="atlas-telemetry-readout">
+                        <span>BEARING <strong id="helm-hdg-text">265° W • PACIFIC TRANSECT</strong></span>
+                        <span>TRACK <strong>100,000 KM</strong></span>
                     </div>
                 </div>
 
-                <div class="opening-inner bridge-main-grid">
+                <!-- Corps de la table à cartes (2 colonnes éditoriales) -->
+                <div class="atlas-main-grid">
                     
-                    <!-- Colonne gauche : Briefing de mission (sans le gros titre) & nouveaux boutons -->
-                    <div class="opening-left">
-                        <span class="opening-eyebrow">TARA OCEAN FOUNDATION • CORAL REEF &amp; MICROBIOME EXPEDITION</span>
-                        <p class="opening-lead">
-                            Between 2016 and 2018, the research schooner <em>Tara</em> sailed 100,000 km across 32 island systems in the Pacific Ocean to investigate coral reef resilience, planktonic biodiversity, and anthropogenic stressors.
-                        </p>
-                        <div class="opening-actions">
-                            <a href="#map-observatory" class="btn-compact-primary">Explore the interactive map</a>
-                            <a href="#data-lab" class="btn-compact-outline">Look at the data results</a>
+                    <!-- Colonne gauche : Briefing de mission avec filet corail & Grande lettrine -->
+                    <div class="atlas-briefing-left">
+                        <span class="atlas-eyebrow">TARA OCEAN FOUNDATION • CORAL REEF &amp; MICROBIOME EXPEDITION</span>
+                        <div class="briefing-editorial-quote">
+                            <p class="atlas-lead">
+                                <span class="dropcap-letter">B</span>etween 2016 and 2018, the research schooner <em>Tara</em> sailed 100,000 km across 32 island systems in the Pacific Ocean to investigate coral reef resilience, planktonic biodiversity, and anthropogenic stressors.
+                            </p>
+                        </div>
+                        <div class="atlas-actions">
+                            <a href="#map-observatory" class="btn btn-primary">Explore the interactive map</a>
+                            <a href="#data-lab" class="btn-atlas-secondary">Look at the data results &rarr;</a>
                         </div>
                     </div>
 
-                    <!-- Colonne droite : Boussole marine interactive + Question scientifique -->
-                    <div class="opening-right">
-                        <div class="bridge-monitor-card" id="helm-question-screen">
-                            <div class="monitor-compass-layout">
-                                <div class="nautical-compass-box" onclick="spinCompassManual()" title="Click to rotate compass">
-                                    <div class="compass-dial">
+                    <!-- Colonne droite : Fiche de terrain épinglée + Rose des vents au trait fin -->
+                    <div class="atlas-fieldnote-right">
+                        <div class="field-dossier-card" id="helm-question-screen">
+                            <span class="dossier-corner-tag">FIELD LOG #2016-18</span>
+                            
+                            <div class="dossier-compass-layout">
+                                <!-- Rose des vents cartographique au trait fin (cliquable) -->
+                                <div class="carto-compass-box" onclick="spinCompassManual()" title="Click to rotate compass rose">
+                                    <div class="carto-compass-dial">
+                                        <!-- Cercles gradués et réticule fin -->
+                                        <span class="carto-crosshair-h"></span>
+                                        <span class="carto-crosshair-v"></span>
                                         <span class="c-dir c-n">N</span>
                                         <span class="c-dir c-e">E</span>
                                         <span class="c-dir c-s">S</span>
                                         <span class="c-dir c-w">W</span>
+                                        <!-- Aiguille bicolore Corail / Bleu Marine -->
                                         <div class="compass-needle-wrap" id="helm-compass-needle" style="transform: rotate(-75deg);">
-                                            <span class="needle-north"></span>
-                                            <span class="needle-south"></span>
-                                            <span class="needle-pivot"></span>
+                                            <span class="needle-north-carto"></span>
+                                            <span class="needle-south-carto"></span>
+                                            <span class="needle-pivot-carto"></span>
                                         </div>
                                     </div>
-                                    <span class="compass-caption" id="compass-deg-readout">CLICK COMPASS (265°)</span>
+                                    <span class="carto-compass-caption" id="compass-deg-readout">AZIMUTH: 285°</span>
                                 </div>
 
-                                <div class="monitor-question-content">
-                                    <span class="cq-label" id="helm-Dynamic-label">CORE SCIENTIFIC QUESTION // TRANSECT LOG</span>
-                                    <p class="cq-text-clean">
+                                <!-- Fiche de la question scientifique -->
+                                <div class="dossier-question-content">
+                                    <span class="dossier-label" id="helm-Dynamic-label">CORE SCIENTIFIC QUESTION // TRANSECT LOG</span>
+                                    <p class="dossier-text">
                                         How do surface physico-chemical gradients (temperature, salinity, nutrients) structure planktonic communities, chlorophyll-a productivity, and dissolved oxygen along the Tara Pacific transect?
                                     </p>
                                 </div>
@@ -187,10 +197,8 @@
                 let helmCompassDeg = -75;
 
                 function activateHelmMode(btnEl, targetDeg, hdgLabel, protocolLabel) {
-                    const buttons = btnEl.parentElement.querySelectorAll('.helm-push-btn');
-                    for (let i = 0; i < 3; i++) {
-                        if (buttons[i]) buttons[i].classList.remove('active');
-                    }
+                    const buttons = btnEl.parentElement.querySelectorAll('.atlas-tab-btn');
+                    buttons.forEach(b => b.classList.remove('active'));
                     btnEl.classList.add('active');
 
                     helmCompassDeg = targetDeg;
@@ -205,31 +213,23 @@
 
                     const degReadout = document.getElementById('compass-deg-readout');
                     const normalizedDeg = ((targetDeg % 360) + 360) % 360;
-                    if (degReadout) degReadout.textContent = 'HEADING: ' + normalizedDeg + '°';
+                    if (degReadout) degReadout.textContent = 'AZIMUTH: ' + normalizedDeg + '°';
                 }
 
                 function spinCompassManual() {
-                    helmCompassDeg += 55;
+                    helmCompassDeg += 45;
                     const needle = document.getElementById('helm-compass-needle');
                     if (needle) needle.style.transform = 'rotate(' + helmCompassDeg + 'deg)';
 
                     const normalizedDeg = ((helmCompassDeg % 360) + 360) % 360;
                     const degReadout = document.getElementById('compass-deg-readout');
-                    if (degReadout) degReadout.textContent = 'HEADING: ' + normalizedDeg + '°';
+                    if (degReadout) degReadout.textContent = 'AZIMUTH: ' + normalizedDeg + '°';
 
                     const hdgEl = document.getElementById('helm-hdg-text');
-                    if (hdgEl) hdgEl.textContent = normalizedDeg + '° • MANUAL STEERING';
-                }
-
-                function toggleHelmAmberLamp(btnEl) {
-                    btnEl.classList.toggle('active');
-                    const screen = document.getElementById('helm-question-screen');
-                    const consoleBox = document.getElementById('helm-console');
-                    if (screen) screen.classList.toggle('amber-glow');
-                    if (consoleBox) consoleBox.classList.toggle('amber-console-mode');
+                    if (hdgEl) hdgEl.textContent = normalizedDeg + '° • MANUAL BEARING';
                 }
             </script>
-        </section>
+        </section>        
 
         <!-- 01 / THE FOUNDATION -->
         <section id="foundation" class="section-block">
