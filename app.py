@@ -224,18 +224,17 @@ def index():
   return render_template("index.html")
 
 
-@app.route("/api/stations")
-def api_stations():
-  """Retourne les stations échantillonnées pour la carte interactive (max 45 pour ne pas surcharger)."""
+@app.route('/api/all_stations')
+def api_all_stations():
+  """Retourne un large échantillon des vraies stations du fichier JSON pour les graphes."""
   stations = load_stations()
-  if len(stations) > 45:
-    step = max(1, len(stations) // 45)
+  # Prend jusqu'à 150 vraies stations réparties sur tout le dataset
+  if len(stations) > 150:
+    step = max(1, len(stations) // 150)
     sampled = stations[::step]
   else:
     sampled = stations
-  return jsonify(
-      {"count": len(sampled), "total_raw": len(stations), "stations": sampled}
-  )
+  return jsonify({'count': len(sampled), 'stations': sampled})
 
 
 if __name__ == "__main__":

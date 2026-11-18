@@ -492,9 +492,9 @@
                         <span class="bio-tag">PHYTOPLANKTON • SILICA FRUSTULES</span>
                     </div>
                     <div class="bio-body">
-                        <h3>Diatoms (Bacillariophyta)</h3>
+                        <h3>Diatoms</h3>
                         <p>Unicellular microalgae encased in intricate opaline silica cell walls (frustules). They account for ~20% of global carbon fixation.</p>
-                        <button class="btn-text" onclick="openModal('modal-diatom')">Inspect Ecological Role &amp; Silica Pump &rarr;</button>
+                        <button class="btn-text" onclick="openModal('modal-diatom')">Inspect ecological role &amp; Silica pump &rarr;</button>
                     </div>
                 </article>
 
@@ -507,14 +507,14 @@
                     <div class="bio-body">
                         <h3>Copepods (Crustacea)</h3>
                         <p>The most abundant multicellular animals in the ocean. They graze on phytoplankton and drive vertical carbon export via diel migration.</p>
-                        <button class="btn-text" onclick="openModal('modal-copepod')">Inspect Trophic Transfer &amp; Biological Pump &rarr;</button>
+                        <button class="btn-text" onclick="openModal('modal-copepod')">Inspect trophic transfer &amp; biological pump &rarr;</button>
                     </div>
                 </article>
 
                 <!-- Card 3: Coccolithophores & Microbiome (Mise à jour avec image SEM et nouveau texte) -->
                 <article class="bio-card">
                     <div class="bio-img-wrap">
-                        <img src="https://media.sciencephoto.com/image/c0253147/800wm/C0253147-Coccolithophore,_SEM.jpg" 
+                        <img src="https://cdn8.futura-sciences.com/a1080/coccolithophores-rechauffement-climatique.jpg" 
                              onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Gephyrocapsa_oceanica_color.jpg/800px-Gephyrocapsa_oceanica_color.jpg';" 
                              alt="Coccolithophores SEM">
                         <span class="bio-tag">CALCIFYING ALGAE • CARBON CYCLE</span>
@@ -522,14 +522,14 @@
                     <div class="bio-body">
                         <h3>Coccolithophores &amp; Microbiome</h3>
                         <p>Single-celled phytoplankton armored with calcium carbonate (CaCO₃) plates called coccoliths.</p>
-                        <button class="btn-text" onclick="openModal('modal-cocco')">Explore Calcification &amp; Acidification Threat &rarr;</button>
+                        <button class="btn-text" onclick="openModal('modal-cocco')">Inspect calcification &amp; acidification threat &rarr;</button>
                     </div>
                 </article>
 
                 <!-- Card 4: Microplastics (Mise à jour avec image Manta Net Tara et nouveau texte) -->
                 <article class="bio-card">
                     <div class="bio-img-wrap">
-                        <img src="https://fondationtaraocean.org/wp-content/uploads/2019/05/microplastiques-tara-expeditions.jpg" 
+                        <img src="https://fondationtaraocean.org/wp-content/uploads/2021/07/mission-tara-microplastiques-noelie-pansiot.jpg" 
                              onerror="this.onerror=null; this.src='https://cdn.futura-sciences.com/cdn-cgi/image/width=1024,quality=60,format=auto/sources/images/filet-recuperation-plastique-tara-oceans.jpg';" 
                              alt="Microplastics Tara Pacific">
                         <span class="bio-tag">ANTHROPOGENIC STRESSOR</span>
@@ -537,7 +537,7 @@
                     <div class="bio-body">
                         <h3>Microplastics &amp; the “Plastisphere”</h3>
                         <p>Using surface Manta nets, the expedition documented widespread microplastic pollution (fragments under 5mm) heavily accumulated within the convergence zones of the Pacific subtropical gyres.</p>
-                        <button class="btn-text" onclick="openModal('modal-plastic')">Inspect Plastisphere &amp; Coral Impacts &rarr;</button>
+                        <button class="btn-text" onclick="openModal('modal-plastic')">Inspect plastisphere &amp; coral impacts &rarr;</button>
                     </div>
                 </article>
             </div>
@@ -583,10 +583,6 @@
                     <button class="btn btn-sm btn-accent" id="btn-play-route" onclick="toggleAutoplay()">&#9654; Play Expedition Timelapse</button>
                     <button class="btn btn-sm" id="btn-next-station" onclick="stepStation(1)">Next Station &rarr;</button>
                 </div>
-                <div class="control-status">
-                    Loaded from Flask API (<code>/api/stations</code>): <strong id="station-counter">--</strong>
-                </div>
-            </div>
 
             <div class="map-dashboard-grid">
                 <!-- Colonne gauche plus large : Carte agrandie + Jauge compactée en dessous -->
@@ -837,10 +833,10 @@
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal('modal-diatom')">&times;</button>
             <img src="https://cdn.britannica.com/40/12340-050-E09C431B/frustules-cell-walls-Diatoms-opaline-silica-pores.jpg" alt="Diatoms" class="modal-img">
-            <h3>Diatoms (Bacillariophyta) — The Silica Biological Pump</h3>
+            <h3>Diatoms : the Silica biological pump</h3>
             <p><strong>Morphology:</strong> Unicellular eukaryotic algae enclosed in a hydrated silicon dioxide shell called a <em>frustule</em>, perforated with nanopores for nutrient exchange.</p>
-            <p><strong>Biogeochemical Role:</strong> Diatoms generate roughly one-fifth of the oxygen produced on Earth each year. Because their silica shells are dense, dead diatoms sink rapidly into the deep ocean, exporting organic carbon away from the atmosphere for centuries.</p>
-            <p><strong>Tara Pacific Insight:</strong> Diatom abundance peaks in equatorial upwelling zones and coastal island wakes where deep silicate-rich waters reach the sunlit euphotic zone.</p>
+            <p><strong>Biogeochemical role:</strong> Diatoms generate roughly one-fifth of the oxygen produced on Earth each year. Because their silica shells are dense, dead diatoms sink rapidly into the deep ocean, exporting organic carbon away from the atmosphere for centuries.</p>
+            <p><strong>Tara Pacific insight:</strong> Diatom abundance peaks in equatorial upwelling zones and coastal island wakes where deep silicate-rich waters reach the sunlit euphotic zone.</p>
         </div>
     </div>
 
@@ -848,9 +844,9 @@
         <div class="modal-window">
             <button class="modal-close" onclick="closeModal('modal-copepod')">&times;</button>
             <img src="https://oceanconservancy.org/wp-content/uploads/2017/07/copepod.webp" alt="Copepod" class="modal-img">
-            <h3>Copepods — Keystone Trophic Connectors</h3>
-            <p><strong>Ecological Role:</strong> Representing up to 70% of mesozooplankton biomass, copepods link microscopic primary producers (diatoms, dinoflagellates) to planktivorous reef fish, seabirds, and marine mammals.</p>
-            <p><strong>Active Carbon Transport:</strong> Every night, billions of copepods ascend to the surface to feed and descend hundreds of meters at dawn to evade predators, actively respiring and packaging carbon into fast-sinking fecal pellets at depth.</p>
+            <h3>Copepods : trophic connectors</h3>
+            <p><strong>Ecological role:</strong> Representing up to 70% of mesozooplankton biomass, copepods link microscopic primary producers (diatoms, dinoflagellates) to planktivorous reef fish, seabirds, and marine mammals.</p>
+            <p><strong>Active carbon transport:</strong> Every night, billions of copepods ascend to the surface to feed and descend hundreds of meters at dawn to evade predators, actively respiring and packaging carbon into fast-sinking fecal pellets at depth.</p>
         </div>
     </div>
 
@@ -862,9 +858,9 @@
                  onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Gephyrocapsa_oceanica_color.jpg/800px-Gephyrocapsa_oceanica_color.jpg';" 
                  alt="Coccolithophores SEM" class="modal-img">
             <h3>Coccolithophores &amp; Microbiome</h3>
-            <p><strong>Biogeochemical Role:</strong> They are vital to the marine carbon cycle. They produce oxygen via photosynthesis and build heavy shells that eventually sink to the ocean floor, locking away carbon for millennia.</p>
-            <p><strong>The Acidification Threat:</strong> As the ocean absorbs human-made CO₂, seawater pH drops. This acidification reduces the carbonate ions available in the water, making it difficult for these microalgae to biocalcify and maintain their protective shells.</p>
-            <p><a href="https://www.sciencephoto.com/media/680720/view/coccolithophores-sem" target="_blank" rel="noopener" class="external-link">View Coccolithophores SEM Reference (Science Photo Library) &rarr;</a></p>
+            <p><strong>Biogeochemical role:</strong> They are vital to the marine carbon cycle. They produce oxygen via photosynthesis and build heavy shells that eventually sink to the ocean floor, locking away carbon for millennia.</p>
+            <p><strong>The acidification threat:</strong> As the ocean absorbs human-made CO₂, seawater pH drops. This acidification reduces the carbonate ions available in the water, making it difficult for these microalgae to biocalcify and maintain their protective shells.</p>
+            <p><a href="https://www.sciencephoto.com/media/680720/view/coccolithophores-sem" target="_blank" rel="noopener" class="external-link">View Coccolithophores SEM reference &rarr;</a></p>
         </div>
     </div>
 
@@ -877,7 +873,7 @@
                  alt="Microplastics Tara Pacific" class="modal-img">
             <h3>Microplastics &amp; the “Plastisphere”</h3>
             <p>Plastic in the ocean is not biologically sterile. It is rapidly colonized by a dense microbial biofilm (bacteria, algae, and pathogens) called the <strong>Plastisphere</strong>.</p>
-            <p><strong>Impact on Coral Reefs:</strong> Corals frequently mistake these buoyant, microbe-covered plastics for zooplankton prey. Ingestion causes physical blockage and tissue damage, while the Plastisphere biofilm introduces opportunistic diseases and toxic chemicals directly into the reef ecosystem.</p>
+            <p><strong>Impact on coral reefs:</strong> Corals frequently mistake these buoyant, microbe-covered plastics for zooplankton prey. Ingestion causes physical blockage and tissue damage, while the Plastisphere biofilm introduces opportunistic diseases and toxic chemicals directly into the reef ecosystem.</p>
         </div>
     </div>
 
@@ -1240,8 +1236,6 @@
                 };
             });
 
-            document.getElementById('station-counter').textContent = `${stationList.length} interactive stations (${totalCount} in dataset)`;
-
             const routeSegments = [];
             let currentSegment = [];
 
@@ -1418,10 +1412,10 @@
             }
         });
 
-        // --- 4. SECTION 06: BIOLOGICAL RESPONSE TO ENVIRONMENT CONDITIONS ---
+    // --- 4. SECTION 06: BIOLOGICAL RESPONSE TO ENVIRONMENT CONDITIONS (VRAIES DONNÉES) ---
         let telemetryChart = null;
+        let realGraphStations = []; // Stockera tes vraies stations de data/stations.json
 
-        // Tes 3 textes exacts traduits en anglais, sans rien de plus
         const SCENARIO_TEXTS = {
             "no3__merged_chl": {
                 title: "1. The Limiting Nutrient (Nitrates vs. Chlorophyll-a)",
@@ -1466,14 +1460,18 @@
 
             syncPresetHighlight(xParam, yParam);
 
-            // Utilise les 38 stations dédiées au graphe pour tracer des courbes superbes et bien marquées
-            const points = GRAPH_STATIONS_DATASET.map(s => ({
-                x: Number(s[xParam]),
-                y: Number(s[yParam]),
-                station: s.station
-            })).sort((a, b) => a.x - b.x);
+            // Utilise les vraies stations chargées depuis Flask (/api/all_stations)
+            const sourceData = realGraphStations.length ? realGraphStations : (stationList.length ? stationList : DEFAULT_STATIONS);
 
-            // Uniquement les noms simples des données prises en compte par les axes
+            const points = sourceData
+                .filter(s => s[xParam] !== null && s[xParam] !== undefined && s[yParam] !== null && s[yParam] !== undefined)
+                .map((s, idx) => ({
+                    x: Number(s[xParam]),
+                    y: Number(s[yParam]),
+                    station: formatStationLocation(s, idx)
+                }))
+                .filter(p => !isNaN(p.x) && !isNaN(p.y));
+
             const metaMap = {
                 no3: { label: "Nitrates — NO₃ (µmol/L)", unit: "µmol/L" },
                 mergedSST: { label: "Sea Surface Temperature — SST (°C)", unit: "°C" },
@@ -1490,7 +1488,7 @@
             }
 
             document.getElementById('stat-max').textContent = trendLabel;
-            document.getElementById('stat-n').textContent = `${points.length} stations`;
+            document.getElementById('stat-n').textContent = `${points.length} real stations`;
 
             const key = `${xParam}__${yParam}`;
             const exp = SCENARIO_TEXTS[key] || SCENARIO_TEXTS["no3__merged_chl"];
@@ -1512,13 +1510,12 @@
                     datasets: [{
                         label: exp.title,
                         data: points,
-                        showLine: true,
-                        tension: 0.35,
-                        backgroundColor: plotColor,
+                        showLine: false, // Nuage de points réel (sans ligne artificielle reliant les points)
+                        backgroundColor: plotColor + 'cc',
                         borderColor: plotColor,
-                        borderWidth: 2.8,
-                        pointRadius: 5.5,
-                        pointHoverRadius: 8
+                        borderWidth: 1.2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7.5
                     }]
                 },
                 options: {
@@ -1536,7 +1533,7 @@
                             callbacks: {
                                 label: function(context) {
                                     const pt = context.raw;
-                                    return `${pt.station}: ${pt.x} ${xMeta.unit} → ${pt.y} ${yMeta.unit}`;
+                                    return `${pt.station}: ${pt.x} ${xMeta.unit} | ${pt.y} ${yMeta.unit}`;
                                 }
                             }
                         }
@@ -1566,6 +1563,17 @@
             });
         }
 
+        // Charge les ~150 vraies stations depuis Flask pour les graphes au démarrage
+        fetch('/api/all_stations')
+            .then(res => res.json())
+            .then(data => {
+                if (data && Array.isArray(data.stations)) {
+                    realGraphStations = data.stations;
+                }
+                runAnalysis();
+            })
+            .catch(() => runAnalysis());
+
         document.getElementById('analysis-form').addEventListener('submit', (e) => {
             e.preventDefault();
             runAnalysis();
@@ -1573,21 +1581,7 @@
 
         document.getElementById('x-select').addEventListener('change', runAnalysis);
         document.getElementById('y-select').addEventListener('change', runAnalysis);
-
-        window.addEventListener('DOMContentLoaded', runAnalysis);
-
-        function togglePcaFlip() {
-            const face5 = document.getElementById('pcaFace5');
-            const face6 = document.getElementById('pcaFace6');
-            
-            if (face5.classList.contains('active-face')) {
-                face5.classList.remove('active-face');
-                face6.classList.add('active-face');
-            } else {
-                face6.classList.remove('active-face');
-                face5.classList.add('active-face');
-            }
-        }
+        
     </script>
 </body>
 </html>
