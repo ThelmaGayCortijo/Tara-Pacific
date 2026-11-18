@@ -1968,20 +1968,19 @@ p {
 
 .pca-img-wrapper {
     width: 100%;
-    max-height: 520px;
-    background: #f8fafc;
+    height: 440px; /* Hauteur fixe stricte (au lieu de max-height) */
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     border-bottom: 1px solid var(--border-light);
-    padding: 12px;
+    padding: 16px 24px;
 }
 
 .pca-img-wrapper img {
     width: 100%;
-    height: auto;
-    max-height: 500px;
+    height: 100%; /* Force les 2 images à occuper exactement le même cadre */
     object-fit: contain;
     display: block;
 }
@@ -1989,6 +1988,10 @@ p {
 .pca-caption-box {
     padding: 22px 28px;
     background: #ffffff;
+    min-height: 135px; /* Garantit que la zone de texte en bas fait aussi exactement la même hauteur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pca-cap-header {
