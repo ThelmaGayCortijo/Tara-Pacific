@@ -43,7 +43,7 @@ body {
     font-size: 0.96rem;
 }
 
-/* HIÉRARCHIE TYPOGRAPHIQUE UNIFIÉE (Plus de mélange de polices) */
+/* HIÉRARCHIE TYPOGRAPHIQUE UNIFIÉE */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
     color: var(--navy-900);
@@ -219,6 +219,11 @@ p {
     border-color: var(--box-ocean-bg);
 }
 
+.btn-accent:hover {
+    background: #5a8f99;
+    border-color: #5a8f99;
+}
+
 /* SECTIONS & LAYOUT */
 .main-wrapper {
     max-width: 1240px;
@@ -291,13 +296,13 @@ p {
 }
 
 /* ==========================================================================
-   SECTION 01 : LOGOS DÉTOURÉS & BULLES D'EAU TRANSLUCIDES
+   SECTION 01 : LOGOS DÉTOURÉS & 4 RONDS BLEUS SIMPLES ET FIXES
    ========================================================================== */
 .editorial-intro-layout {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: 48px;
-    align-items: start;
+    align-items: center;
 }
 
 @media (max-width: 920px) {
@@ -385,44 +390,20 @@ p {
     gap: 12px;
 }
 
+/* Grille 2x2 de ronds bleus simples et fixes (sans animation ni bulles autour) */
 .ocean-bubbles-cluster {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px 20px;
+    gap: 22px;
     justify-items: center;
     align-items: center;
-    padding: 12px;
-}
-
-.ocean-bubbles-cluster::before,
-.ocean-bubbles-cluster::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.75), rgba(56, 189, 248, 0.25) 60%, rgba(14, 116, 144, 0.35));
-    border: 1px solid rgba(255, 255, 255, 0.65);
-    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.7);
-    pointer-events: none;
-}
-
-.ocean-bubbles-cluster::before {
-    width: 22px;
-    height: 22px;
-    top: 6%;
-    left: 49%;
-}
-
-.ocean-bubbles-cluster::after {
-    width: 14px;
-    height: 14px;
-    bottom: 8%;
-    left: 45%;
+    padding: 8px;
 }
 
 .kpi-water-bubble {
+    width: 172px;
+    height: 172px;
     border-radius: 50%;
-    aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -430,48 +411,9 @@ p {
     text-align: center;
     padding: 18px;
     color: #ffffff;
-    background: radial-gradient(
-        circle at 30% 25%,
-        rgba(125, 211, 252, 0.38) 0%,
-        rgba(28, 100, 148, 0.68) 48%,
-        rgba(15, 52, 92, 0.82) 100%
-    );
-    backdrop-filter: blur(6px);
-    border: 1.5px solid rgba(255, 255, 255, 0.55);
-    box-shadow:
-        inset 0 8px 18px rgba(255, 255, 255, 0.45),
-        inset 0 -8px 18px rgba(14, 116, 144, 0.35),
-        0 8px 20px rgba(13, 39, 66, 0.12);
-    position: relative;
-    will-change: transform;
-    animation: gentleWaterFloat 4.5s ease-in-out infinite alternate;
-}
-
-.kpi-water-bubble::after {
-    content: '';
-    position: absolute;
-    top: 12%;
-    left: 20%;
-    width: 28%;
-    height: 11%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 75%);
-    transform: rotate(-28deg);
-    pointer-events: none;
-}
-
-.kpi-water-bubble.bubble-xl { width: 182px; height: 182px; }
-.kpi-water-bubble.bubble-lg { width: 170px; height: 170px; }
-.kpi-water-bubble.bubble-md { width: 156px; height: 156px; }
-
-.b-pos-1 { animation-delay: 0s; }
-.b-pos-2 { animation-delay: 1.2s; margin-top: 18px; }
-.b-pos-3 { animation-delay: 0.6s; margin-top: -10px; }
-.b-pos-4 { animation-delay: 1.8s; margin-top: 8px; }
-
-@keyframes gentleWaterFloat {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-7px); }
+    background-color: var(--navy-800);
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 6px 18px rgba(13, 39, 66, 0.12);
 }
 
 .bubble-val {
@@ -481,13 +423,13 @@ p {
     font-weight: 800;
     color: #ffffff;
     line-height: 1.05;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 }
 
 .bubble-val small {
     font-size: 0.88rem;
     font-weight: 600;
-    color: #e0f2fe;
+    color: #bae6fd;
 }
 
 .bubble-title {
@@ -502,10 +444,16 @@ p {
 
 .kpi-water-bubble p {
     margin: 0;
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     color: rgba(255, 255, 255, 0.92);
     line-height: 1.3;
-    max-width: 125px;
+    max-width: 130px;
+}
+
+@media (max-width: 600px) {
+    .ocean-bubbles-cluster {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* CREW HIGHLIGHT CARD & VIDEO */
@@ -787,7 +735,6 @@ p {
     flex-wrap: wrap;
 }
 
-/* Plus de largeur pour la carte (1.65fr) et colonne droite plus compacte (0.9fr) */
 .map-dashboard-grid {
     display: grid;
     grid-template-columns: 1.65fr 0.9fr;
@@ -811,7 +758,6 @@ p {
     position: relative;
 }
 
-/* Carte nettement agrandie (540px au lieu de 440px) */
 #map {
     width: 100%;
     height: 540px;
@@ -819,7 +765,6 @@ p {
     border: 1px solid var(--border-light);
 }
 
-/* Jauge de chlorophylle plus compacte sous la carte */
 .gauge-under-map-card {
     background: transparent;
     color: var(--text-main);
@@ -889,7 +834,6 @@ p {
 .gauge-scale span:nth-child(2) { color: #9a7b2c !important; }
 .gauge-scale span:nth-child(3) { color: #49963c !important; }
 
-/* Panneau latéral droit plus compact */
 .telemetry-card {
     background: var(--box-ocean-bg);
     color: #ffffff;
@@ -1138,7 +1082,6 @@ p {
     transition: all 0.2s;
 }
 
-/* Couleurs des 3 scénarios assorties à leur courbe */
 .preset-btn.scen-green {
     color: #16a085;
     border-color: #16a085;
@@ -1194,7 +1137,7 @@ p {
 
 .form-field select {
     width: 100%;
-    padding: 11px 40px 11px 14px; /* 40px à droite pour laisser de la place à la flèche */
+    padding: 11px 40px 11px 14px;
     border-radius: var(--radius-md);
     border: 1px solid #cbd5e1;
     font-family: var(--font-main);
@@ -1202,13 +1145,9 @@ p {
     color: var(--text-main);
     background-color: #ffffff;
     cursor: pointer;
-
-    /* Masque la flèche collée au bord du navigateur */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
-    /* Replace une flèche propre décalée de 16px vers la gauche depuis le bord droit */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d2742' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 16px center;
@@ -1560,22 +1499,21 @@ p {
 }
 
 /* ==========================================================================
-   TABLE À CARTES & CARNET D'EXPÉDITION (STYLE ATLAS MARIN / NAT GEO)
+   TABLE À CARTES & CARNET D'EXPÉDITION
    ========================================================================== */
 .chart-table-strip {
     padding: 48px 0 28px;
 }
 
-/* Grand panneau papier carte marine avec quadrillage de méridiens très subtil */
 .nautical-atlas-card {
     max-width: 1240px;
     margin: 0 auto;
     background-color: #fcfbf7;
     background-image:
-        linear-gradient(to right, rgba(13, 39, 66, 0.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(13, 39, 66, 0.045) 1px, transparent 1px),
-        radial-gradient(circle at 82% 50%, rgba(107, 161, 171, 0.09) 0%, transparent 55%);
-    background-size: 36px 36px, 36px 36px, 100% 100%;
+        linear-gradient(to right, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
+        radial-gradient(circle at 82% 50%, rgba(107, 161, 171, 0.12) 0%, transparent 55%);
+    background-size: 32px 32px, 32px 32px, 100% 100%;
     border: 1.5px solid #cbd5e1;
     border-radius: 16px;
     box-shadow:
@@ -1585,7 +1523,6 @@ p {
     color: var(--text-main);
 }
 
-/* Bandeau supérieur gradué façon règle de carte marine */
 .atlas-ruler-topbar {
     display: flex;
     justify-content: space-between;
@@ -1619,7 +1556,6 @@ p {
     color: var(--navy-900);
 }
 
-/* Grille principale à 2 colonnes */
 .atlas-main-grid {
     padding: 38px 36px;
     display: grid;
@@ -1635,7 +1571,6 @@ p {
     }
 }
 
-/* Filet vertical corail + Grande lettrine éditoriale */
 .briefing-editorial-quote {
     border-left: 4px solid var(--coral-500);
     padding-left: 20px;
@@ -1643,27 +1578,28 @@ p {
 }
 
 .atlas-lead {
-    font-size: 1.05rem;
+    font-size: 1.04rem;
     line-height: 1.75;
     color: var(--navy-900);
     margin: 0;
-}
-
-.dropcap-letter {
-    float: left;
-    font-size: 2.7rem;
-    font-weight: 800;
-    line-height: 0.85;
-    padding-right: 10px;
-    padding-top: 4px;
-    color: var(--coral-500);
 }
 
 .atlas-actions {
     display: flex;
     align-items: center;
     gap: 14px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+
+.atlas-actions .btn,
+.atlas-actions .btn-atlas-secondary {
+    white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+    .atlas-actions {
+        flex-wrap: wrap;
+    }
 }
 
 .btn-atlas-secondary {
@@ -1684,7 +1620,6 @@ p {
     color: #ffffff;
 }
 
-/* Colonne droite : Fiche de terrain épinglée */
 .field-dossier-card {
     position: relative;
     background: #ffffff;
@@ -1721,7 +1656,6 @@ p {
     }
 }
 
-/* Rose des vents cartographique au trait fin */
 .carto-compass-box {
     flex-shrink: 0;
     display: flex;
@@ -1746,7 +1680,6 @@ p {
     transform: scale(1.05);
 }
 
-/* Réticule fin de carte marine */
 .carto-crosshair-h {
     position: absolute;
     top: 50%;
@@ -1847,10 +1780,9 @@ p {
 }
 
 /* ==========================================================================
-   CARTE FLIP / BASCULE POUR LES FIGURES PCA (GRAND FORMAT)
+   CADRE FIXE POUR LA FIGURE 6 (GRAND FORMAT UNIQUE)
    ========================================================================== */
-.pca-flip-container {
-    position: relative;
+.pca-single-container {
     max-width: 950px;
     margin: 0 auto 32px;
     background: #ffffff;
@@ -1858,23 +1790,11 @@ p {
     border-radius: 14px;
     box-shadow: var(--shadow-soft);
     overflow: hidden;
-    transition: all 0.4s ease;
-}
-
-.pca-card-face {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.pca-card-face.active-face {
-    display: block;
-    opacity: 1;
 }
 
 .pca-img-wrapper {
     width: 100%;
-    height: 440px; /* Hauteur fixe stricte (au lieu de max-height) */
+    height: 440px;
     background: #ffffff;
     display: flex;
     align-items: center;
@@ -1886,27 +1806,20 @@ p {
 
 .pca-img-wrapper img {
     width: 100%;
-    height: 100%; /* Force les 2 images à occuper exactement le même cadre */
+    height: 100%;
     object-fit: contain;
     display: block;
 }
 
 .pca-caption-box {
-    padding: 22px 28px;
+    padding: 20px 28px;
     background: #ffffff;
-    min-height: 135px; /* Garantit que la zone de texte en bas fait aussi exactement la même hauteur */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .pca-cap-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 12px;
+    margin-bottom: 8px;
 }
 
 .fig-badge {
@@ -1917,28 +1830,6 @@ p {
     background: var(--sand-100, #e2e8f0);
     padding: 4px 10px;
     border-radius: 5px;
-}
-
-.flip-action-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--navy-900, #07192b);
-    color: #ffffff;
-    border: none;
-    border-radius: 8px;
-    padding: 9px 16px;
-    font-family: var(--font-main);
-    font-size: 0.84rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(7, 25, 43, 0.2);
-    transition: background 0.2s, transform 0.2s;
-}
-
-.flip-action-btn:hover {
-    background: var(--teal-600, #005f6b);
-    transform: translateY(-1px);
 }
 
 .pca-caption-box p {
