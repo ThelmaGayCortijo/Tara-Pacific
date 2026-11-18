@@ -1232,12 +1232,32 @@ p {
 
 .form-field select {
     width: 100%;
-    padding: 11px 12px;
+    padding: 11px 40px 11px 14px; /* 40px à droite pour laisser de la place à la flèche */
     border-radius: var(--radius-md);
     border: 1px solid #cbd5e1;
     font-family: var(--font-main);
     font-size: 0.9rem;
-    background: #ffffff;
+    color: var(--text-main);
+    background-color: #ffffff;
+    cursor: pointer;
+
+    /* Masque la flèche collée au bord du navigateur */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Replace une flèche propre décalée de 16px vers la gauche depuis le bord droit */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d2742' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field select:hover,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--navy-900);
 }
 
 .stat-pills {
