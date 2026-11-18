@@ -687,7 +687,8 @@
             </div>
 
             <div class="pca-flip-container" id="pcaFlipCard">
-                <div class="pca-card-face pca-card-front active-face" id="pcaFace5">
+                <!-- FACE A : FIGURE 5 -->
+                <div class="pca-card-face pca-card-front active-face" id="pcaFace5" style="display: block; opacity: 1;">
                     <div class="pca-img-wrapper">
                         <img src="{{ url_for('static', filename='pca_biogeochem.jpg') }}" alt="Figure 5. Technical validation comparing hydrological variables">
                     </div>
@@ -703,7 +704,8 @@
                     </div>
                 </div>
 
-                <div class="pca-card-face pca-card-back" id="pcaFace6">
+                <!-- FACE B : FIGURE 6 -->
+                <div class="pca-card-face pca-card-back" id="pcaFace6" style="display: none; opacity: 0;">
                     <div class="pca-img-wrapper">
                         <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Figure 6. Technical validation of historical SST heatwaves">
                     </div>
@@ -719,6 +721,33 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Script autonome pour la bascule Figure 5 <-> Figure 6 -->
+            <script>
+                function togglePcaFlip() {
+                    const face5 = document.getElementById('pcaFace5');
+                    const face6 = document.getElementById('pcaFace6');
+                    if (!face5 || !face6) return;
+
+                    if (face5.style.display !== 'none') {
+                        face5.classList.remove('active-face');
+                        face5.style.display = 'none';
+                        face5.style.opacity = '0';
+
+                        face6.classList.add('active-face');
+                        face6.style.display = 'block';
+                        face6.style.opacity = '1';
+                    } else {
+                        face6.classList.remove('active-face');
+                        face6.style.display = 'none';
+                        face6.style.opacity = '0';
+
+                        face5.classList.add('active-face');
+                        face5.style.display = 'block';
+                        face5.style.opacity = '1';
+                    }
+                }
+            </script>
 
             <div class="prose-block" style="margin-top: 24px;">
                 <p>
