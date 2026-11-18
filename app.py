@@ -6,9 +6,10 @@ from flask import Flask, jsonify, render_template, request
 app = Flask(__name__)
 
 # Stations de secours pour la carte interactive (non surchargée)
+# 22 stations couvrant tout l'itinéraire depuis Lorient jusqu'à la fin du Pacifique
 FALLBACK_STATIONS = [
     {
-        "station": "TARA_001 (Lorient Departure)",
+        "station": "Port of Lorient (Brittany, France)",
         "dt": "2016-05-28",
         "lat": 47.73,
         "lon": -3.37,
@@ -19,7 +20,18 @@ FALLBACK_STATIONS = [
         "o2": 258.4,
     },
     {
-        "station": "TARA_012 (Miami Coral Reefs)",
+        "station": "Azores Archipelago (North Atlantic)",
+        "dt": "2016-06-08",
+        "lat": 37.74,
+        "lon": -25.67,
+        "mergedSST": 19.8,
+        "mergedSSS": 36.1,
+        "merged_chl": 0.42,
+        "no3": 1.8,
+        "o2": 234.0,
+    },
+    {
+        "station": "Miami & Florida Reef Tract (USA)",
         "dt": "2016-06-26",
         "lat": 25.76,
         "lon": -80.13,
@@ -30,7 +42,7 @@ FALLBACK_STATIONS = [
         "o2": 199.5,
     },
     {
-        "station": "TARA_018 (Panama Canal)",
+        "station": "Port of Colón & Panama Canal",
         "dt": "2016-07-12",
         "lat": 9.38,
         "lon": -79.92,
@@ -41,7 +53,7 @@ FALLBACK_STATIONS = [
         "o2": 196.2,
     },
     {
-        "station": "TARA_034 (Las Perlas, Panama)",
+        "station": "Las Perlas Archipelago (Panama)",
         "dt": "2016-08-05",
         "lat": 8.41,
         "lon": -79.05,
@@ -52,7 +64,18 @@ FALLBACK_STATIONS = [
         "o2": 203.1,
     },
     {
-        "station": "TARA_052 (Easter Island / Rapa Nui)",
+        "station": "Equatorial East Pacific (Galápagos)",
+        "dt": "2016-08-24",
+        "lat": -0.95,
+        "lon": -90.96,
+        "mergedSST": 21.4,
+        "mergedSSS": 34.8,
+        "merged_chl": 0.82,
+        "no3": 3.8,
+        "o2": 228.5,
+    },
+    {
+        "station": "Rapa Nui / Easter Island (Chile)",
         "dt": "2016-09-18",
         "lat": -27.11,
         "lon": -109.35,
@@ -63,7 +86,29 @@ FALLBACK_STATIONS = [
         "o2": 231.5,
     },
     {
-        "station": "TARA_068 (Moorea, French Polynesia)",
+        "station": "Ducie & Pitcairn Islands",
+        "dt": "2016-10-06",
+        "lat": -24.67,
+        "lon": -124.78,
+        "mergedSST": 23.4,
+        "mergedSSS": 35.7,
+        "merged_chl": 0.09,
+        "no3": 0.15,
+        "o2": 219.8,
+    },
+    {
+        "station": "Gambier Archipelago (French Polynesia)",
+        "dt": "2016-10-20",
+        "lat": -23.11,
+        "lon": -134.97,
+        "mergedSST": 24.8,
+        "mergedSSS": 35.6,
+        "merged_chl": 0.12,
+        "no3": 0.21,
+        "o2": 214.2,
+    },
+    {
+        "station": "Moorea & Papeete Port (French Polynesia)",
         "dt": "2016-11-04",
         "lat": -17.53,
         "lon": -149.83,
@@ -74,7 +119,29 @@ FALLBACK_STATIONS = [
         "o2": 205.8,
     },
     {
-        "station": "TARA_085 (Samoa Archipelago)",
+        "station": "Aitutaki & Cook Islands",
+        "dt": "2016-11-22",
+        "lat": -18.85,
+        "lon": -159.78,
+        "mergedSST": 27.5,
+        "mergedSSS": 35.5,
+        "merged_chl": 0.16,
+        "no3": 0.32,
+        "o2": 203.6,
+    },
+    {
+        "station": "Niue Coral Atoll (South Pacific)",
+        "dt": "2016-12-03",
+        "lat": -19.05,
+        "lon": -169.86,
+        "mergedSST": 27.9,
+        "mergedSSS": 35.3,
+        "merged_chl": 0.18,
+        "no3": 0.45,
+        "o2": 201.2,
+    },
+    {
+        "station": "Upolu Island & Apia Port (Samoa)",
         "dt": "2016-12-14",
         "lat": -13.83,
         "lon": -171.75,
@@ -85,7 +152,7 @@ FALLBACK_STATIONS = [
         "o2": 197.4,
     },
     {
-        "station": "TARA_102 (Fiji Islands)",
+        "station": "Fiji Archipelago & Suva Port",
         "dt": "2017-03-02",
         "lat": -17.71,
         "lon": 178.06,
@@ -96,7 +163,29 @@ FALLBACK_STATIONS = [
         "o2": 195.1,
     },
     {
-        "station": "TARA_124 (Great Barrier Reef)",
+        "station": "Port of Auckland (New Zealand)",
+        "dt": "2017-04-02",
+        "lat": -36.84,
+        "lon": 174.76,
+        "mergedSST": 19.4,
+        "mergedSSS": 35.4,
+        "merged_chl": 0.68,
+        "no3": 3.10,
+        "o2": 236.5,
+    },
+    {
+        "station": "Nouméa & Chesterfield Reefs (New Caledonia)",
+        "dt": "2017-04-28",
+        "lat": -20.50,
+        "lon": 162.00,
+        "mergedSST": 26.2,
+        "mergedSSS": 35.2,
+        "merged_chl": 0.28,
+        "no3": 0.95,
+        "o2": 209.4,
+    },
+    {
+        "station": "Great Barrier Reef (Coral Sea, Australia)",
         "dt": "2017-05-19",
         "lat": -18.28,
         "lon": 147.69,
@@ -107,7 +196,29 @@ FALLBACK_STATIONS = [
         "o2": 211.0,
     },
     {
-        "station": "TARA_145 (Okinawa, Japan)",
+        "station": "Kimbe Bay (Papua New Guinea)",
+        "dt": "2017-06-05",
+        "lat": -5.21,
+        "lon": 145.81,
+        "mergedSST": 29.7,
+        "mergedSSS": 34.1,
+        "merged_chl": 0.74,
+        "no3": 3.40,
+        "o2": 193.0,
+    },
+    {
+        "station": "Guam & Mariana Islands",
+        "dt": "2017-06-15",
+        "lat": 13.44,
+        "lon": 144.79,
+        "mergedSST": 28.9,
+        "mergedSSS": 34.6,
+        "merged_chl": 0.15,
+        "no3": 0.30,
+        "o2": 196.8,
+    },
+    {
+        "station": "Okinawa & Ryukyu Archipelago (Japan)",
         "dt": "2017-06-25",
         "lat": 26.33,
         "lon": 127.80,
@@ -118,18 +229,7 @@ FALLBACK_STATIONS = [
         "o2": 206.9,
     },
     {
-        "station": "TARA_168 (Papua New Guinea)",
-        "dt": "2017-09-10",
-        "lat": -5.21,
-        "lon": 145.81,
-        "mergedSST": 29.7,
-        "mergedSSS": 34.1,
-        "merged_chl": 0.74,
-        "no3": 3.40,
-        "o2": 193.0,
-    },
-    {
-        "station": "TARA_192 (Palau Coral Sanctuary)",
+        "station": "Palau Rock Islands Sanctuary",
         "dt": "2018-01-22",
         "lat": 7.51,
         "lon": 134.58,
@@ -140,7 +240,7 @@ FALLBACK_STATIONS = [
         "o2": 198.8,
     },
     {
-        "station": "TARA_215 (Hawaii Archipelago)",
+        "station": "Oahu & Kaneohe Bay (Hawaii, USA)",
         "dt": "2018-06-11",
         "lat": 21.31,
         "lon": -157.85,
@@ -221,22 +321,38 @@ def load_stations():
 
 @app.route("/")
 def index():
-  return render_template("index.html")
+    return render_template("index.html")
 
 
-@app.route('/api/all_stations')
+@app.route("/api/stations")
+def api_stations():
+    """1. Route pour la CARTE : renvoie 22 stations bien espacées (avec Lorient au départ)."""
+    stations = load_stations()
+    if len(stations) > 22:
+        step = max(1, len(stations) // 21)
+        sampled = stations[::step][:21]
+        # Ajoute toujours Lorient en premier point si le JSON ne commence pas en Bretagne
+        if abs(sampled[0]["lat"] - 47.73) > 5:
+            sampled.insert(0, FALLBACK_STATIONS[0])
+    else:
+        sampled = stations
+    return jsonify(
+        {"count": len(sampled), "total_raw": len(stations), "stations": sampled}
+    )
+
+
+@app.route("/api/all_stations")
 def api_all_stations():
-  """Retourne un large échantillon des vraies stations du fichier JSON pour les graphes."""
-  stations = load_stations()
-  # Prend jusqu'à 150 vraies stations réparties sur tout le dataset
-  if len(stations) > 150:
-    step = max(1, len(stations) // 150)
-    sampled = stations[::step]
-  else:
-    sampled = stations
-  return jsonify({'count': len(sampled), 'stations': sampled})
+    """2. Route pour le GRAPHE : renvoie jusqu'à 150 vraies stations du fichier JSON."""
+    stations = load_stations()
+    if len(stations) > 150:
+        step = max(1, len(stations) // 150)
+        sampled = stations[::step]
+    else:
+        sampled = stations
+    return jsonify({"count": len(sampled), "stations": sampled})
 
 
 if __name__ == "__main__":
-  port = int(os.environ.get("PORT", 5000))
-  app.run(host="0.0.0.0", port=port, debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
