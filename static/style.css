@@ -214,9 +214,9 @@ p {
 }
 
 .btn-accent {
-    background: var(--teal-600);
+    background: var(--box-ocean-bg);
     color: #ffffff;
-    border-color: var(--teal-600);
+    border-color: var(--box-ocean-bg);
 }
 
 /* SECTIONS & LAYOUT */
@@ -769,44 +769,6 @@ p {
 /* ==========================================================================
    SECTION 05 : CARTE AGRANDIE + JAUGE & PANNEAU LATÉRAL PLUS COMPACTS
    ========================================================================== */
-.param-explainer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-bottom: 22px;
-}
-
-.explainer-item {
-    background: var(--sand-100);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    padding: 16px 18px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.explainer-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 5px;
-}
-
-.explainer-item h4 {
-    margin: 0 0 4px;
-    font-size: 0.96rem;
-    color: var(--navy-900);
-}
-
-.explainer-item p {
-    margin: 0;
-    font-size: 0.84rem;
-    color: var(--text-muted);
-    line-height: 1.48;
-}
-
 .map-control-bar {
     display: flex;
     justify-content: space-between;
