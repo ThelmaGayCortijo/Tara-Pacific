@@ -1619,66 +1619,6 @@ p {
     color: var(--navy-900);
 }
 
-/* Boutons d'onglets cartographiques */
-.atlas-tabs-group {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.atlas-tab-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    background: #ffffff;
-    color: var(--text-muted);
-    border: 1px solid #cbd5e1;
-    border-radius: 999px;
-    padding: 6px 14px;
-    font-family: var(--font-main);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.atlas-tab-btn:hover {
-    border-color: var(--navy-900);
-    color: var(--navy-900);
-}
-
-.atlas-tab-btn.active {
-    background: var(--navy-900);
-    color: #ffffff;
-    border-color: var(--navy-900);
-}
-
-.atlas-tab-btn .tab-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #cbd5e1;
-}
-
-.atlas-tab-btn.active .tab-dot {
-    background: var(--coral-500);
-}
-
-.atlas-telemetry-readout {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.atlas-telemetry-readout strong {
-    color: var(--navy-900);
-    font-weight: 800;
-    margin-left: 3px;
-}
-
 /* Grille principale à 2 colonnes */
 .atlas-main-grid {
     padding: 38px 36px;
@@ -1693,16 +1633,6 @@ p {
         grid-template-columns: 1fr;
         padding: 28px 22px;
     }
-}
-
-.atlas-eyebrow {
-    display: inline-block;
-    font-size: 0.74rem;
-    font-weight: 800;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    color: var(--teal-600);
-    margin-bottom: 14px;
 }
 
 /* Filet vertical corail + Grande lettrine éditoriale */
