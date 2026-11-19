@@ -123,7 +123,7 @@
                 <div class="atlas-ruler-topbar">
                     <div class="atlas-coord-group">
                         <span class="atlas-marker-dot"></span>
-                        <span class="atlas-code">NAUTICAL CHART TABLE • R/V TARA (36M)</span>
+                        <span class="atlas-code">NAUTICAL CHART TABLE • TARA (36M)</span>
                     </div>
                 </div>
 
@@ -183,7 +183,7 @@
         <section id="foundation" class="section-block">
             <div class="section-header">
                 <span class="section-tag">01 / THE FOUNDATION</span>
-                <h2>The Tara Ocean Foundation: Science for the Ocean</h2>
+                <h2>The Tara Ocean Foundation: science for the ocean</h2>
             </div>
 
             <div class="editorial-intro-layout">
@@ -207,7 +207,7 @@
                     </div>
 
                     <a href="https://fondationtaraocean.org/en/home/" target="_blank" rel="noopener" class="editorial-link">
-                        Consult Official Foundation Portal <span>&rarr;</span>
+                        Consult official foundation portal <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -242,7 +242,7 @@
         <section id="welcome-board" class="section-block alt-bg">
             <div class="section-header">
                 <span class="section-tag">02 / OUR EXPEDITION</span>
-                <h2>Welcome Aboard the Tara Pacific Expedition</h2>
+                <h2>Welcome aboard the Tara Pacific expedition</h2>
             </div>
 
             <div class="two-col-grid align-center">
@@ -579,7 +579,7 @@
 
                         <div class="zone-explain-card zone-eutro" id="zone-card-eutro">
                             <h4>
-                                <span>Eutrophic / Upwelling Zone (&gt; 0.5 mg/m³)</span>
+                                <span>Eutrophic / Upwelling zone (&gt; 0.5 mg/m³)</span>
                                 <span class="legend-circle" style="background:#16a085;"></span>
                             </h4>
                             <p>
@@ -592,12 +592,12 @@
         </section>
 
         <!-- ==================================================================
-             # PART 9 : SECTION 06A — SPATIAL PCA FIGURE 6 (#provinces)
+             # PART 9 : SECTION 06A — SPATIAL PCA FIGURE 3 (#provinces)
              ================================================================== -->
         <section id="provinces" class="section-block">
             <div class="section-header">
                 <span class="section-tag">06 / DATA ANALYSIS — SPATIAL PCA</span>
-                <h2>Cataloging Global Biogeochemical Provinces via Environmental PCA</h2>
+                <h2>Cataloging global biogeochemical provinces via environmental PCA</h2>
                 <p class="section-sub">
                     Thanks to thousands of in-situ parameters collected across the transect, researchers performed a Principal Component Analysis (PCA) to project station signatures onto known marine biogeochemical provinces and historical thermal regimes.
                 </p>
@@ -605,11 +605,11 @@
 
             <div class="pca-single-container">
                 <div class="pca-img-wrapper">
-                    <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Figure 6. Technical validation of historical SST heatwaves">
+                    <img src="{{ url_for('static', filename='pca_heatwaves.jpg') }}" alt="Figure 3. Technical validation of historical SST heatwaves">
                 </div>
                 <div class="pca-caption-box">
                     <div class="pca-cap-header">
-                        <span class="fig-badge">FIGURE 6</span>
+                        <span class="fig-badge">FIGURE 3</span>
                     </div>
                     <p>Technical validation of historical SST heatwaves and cold waves parameters relative to biogeochemical provinces. (A) Thermal stress PCA space; (B) Spatial mapping of marine thermal anomaly exposure across Pacific stations.</p>
                 </div>
@@ -617,7 +617,7 @@
 
             <div class="prose-block" style="margin-top: 24px;">
                 <p>
-                    As illustrated in Figure 6 above, translating high-dimensional physical and chemical data into 3-axis RGB color codes enables direct comparison between local station observations and global oceanographic classifications. This confirms that pelagic and reef ecosystems sampled by <em>Tara</em> span highly distinct thermal and nutrient regimes across the Pacific basin.
+                    As illustrated in Figure 3 above, translating high-dimensional physical and chemical data into 3-axis RGB color codes enables direct comparison between local station observations and global oceanographic classifications. This confirms that pelagic and reef ecosystems sampled by <em>Tara</em> span highly distinct thermal and nutrient regimes across the Pacific basin.
                 </p>
             </div>
         </section>
@@ -628,7 +628,7 @@
         <section id="data-lab" class="section-block alt-bg">
             <div class="section-header">
                 <span class="section-tag">06 / DATA ANALYSIS</span>
-                <h2>Biological response to Environment Conditions</h2>
+                <h2>Biological response to environment conditions</h2>
                 <p class="section-sub">
                     Select an environmental parameter on the X-axis (Nitrates or Sea Surface Temperature) and a biological/chemical response on the Y-axis (Chlorophyll-a or Dissolved Oxygen), or click one of the 3 principal oceanographic scenarios below.
                 </p>
@@ -636,13 +636,13 @@
 
             <div class="scenario-presets">
                 <button type="button" class="preset-btn scen-green active-preset" id="btn-scen-a" onclick="selectScenario('no3', 'merged_chl', 'btn-scen-a')">
-                    1. The Limiting Nutrient (Nitrates vs. Chlorophyll-a)
+                    1. The limiting nutrient (Nitrates vs. Chlorophyll-a)
                 </button>
                 <button type="button" class="preset-btn scen-blue" id="btn-scen-b" onclick="selectScenario('mergedSST', 'o2', 'btn-scen-b')">
-                    2. Henry's Law (SST vs. Dissolved O₂)
+                    2. Henry's law (SST vs. Dissolved O₂)
                 </button>
                 <button type="button" class="preset-btn scen-coral" id="btn-scen-c" onclick="selectScenario('mergedSST', 'merged_chl', 'btn-scen-c')">
-                    3. Temperature Impact (SST vs. Chlorophyll-a)
+                    3. Temperature impact (SST vs. Chlorophyll-a)
                 </button>
             </div>
 
@@ -676,7 +676,7 @@
 
                 <div class="interpretation-box" id="chart-interpretation">
                     <div class="interp-header">
-                        <h4 id="interp-title">1. The Limiting Nutrient (Nitrates vs. Chlorophyll-a)</h4>
+                        <h4 id="interp-title">1. The limiting nutrient (Nitrates vs. Chlorophyll-a)</h4>
                     </div>
                     <p id="interp-body"></p>
                 </div>
@@ -689,17 +689,17 @@
         <section id="perspectives" class="section-block">
             <div class="section-header">
                 <span class="section-tag">07 / PERSPECTIVES</span>
-                <h2>Going Further: From Tara Microbiome to Tara Polar Station</h2>
+                <h2>Going further: from Tara Microbiome to Tara Polar Station</h2>
             </div>
 
             <div class="two-col-grid align-center">
                 <div class="prose-block">
-                    <h3>The Microbiome Mission &amp; Future Arctic Drift</h3>
+                    <h3>The Microbiome mission &amp; future arctic drift</h3>
                     <p>
                         Following <em>Tara Pacific</em>, the Foundation launched the <strong>Mission Microbiomes (2020–2022)</strong> across the South Atlantic, Southern Ocean, and African coasts to investigate how the ocean's invisible microbial network responds to deoxygenation, nutrient runoff, and warming.
                     </p>
                     <p>
-                        Looking ahead to 2026–2045, the <strong>Tara Polar Station</strong>—a drifting polar research vessel frozen directly into the high Arctic pack ice—will monitor polar biodiversity, sea-ice physics, and climate feedback loops at the epicenter of global warming.
+                        Looking ahead to 2026–2045, the <strong>Tara Polar Station</strong>, a drifting polar research vessel frozen directly into the high Arctic pack ice, will monitor polar biodiversity, sea-ice physics, and climate feedback loops at the epicenter of global warming.
                     </p>
                 </div>
 
@@ -788,8 +788,13 @@
     <!-- ======================================================================
          # PART 13 : FOOTER (.site-footer)
          ====================================================================== -->
+
     <footer class="site-footer">
-        <div class="footer-inner"></div>
+        <p class="footer-contact-title">Contact us</p>
+        <div class="footer-contacts">
+            <p>Alice CHAMLEY — <a href="mailto:alice.chamley@psl.eu">alice.chamley@psl.eu</a></p>
+            <p>Thelma GAY-CORTIJO — <a href="mailto:thelma.gaycortijo@psl.eu">thelma.gaycortijo@psl.eu</a></p>
+        </div>
     </footer>
 
     <!-- ======================================================================
@@ -1303,17 +1308,17 @@
 
         const SCENARIO_TEXTS = {
             "no3__merged_chl": {
-                title: "1. The Limiting Nutrient (Nitrates vs. Chlorophyll-a)",
+                title: "1. The limiting nutrient (Nitrates vs. Chlorophyll-a)",
                 color: "#16a085",
                 body: "This proves that chlorophyllous organisms require nitrates to grow. As soon as nitrate concentrations increase, chlorophyll-a explodes. Because nitrates are stored in deep waters, this explains why regions with strong vertical mixing are rich in chlorophyll."
             },
             "mergedSST__o2": {
-                title: "2. Henry's Law (SST vs. Dissolved Oxygen)",
+                title: "2. Henry's law (SST vs. Dissolved oxygen)",
                 color: "#0284c7",
-                body: "Here we observe a clear inverse correlation. This corresponds to Henry's Law, which states that the warmer the water, the less dissolved gas it can hold. This curve allows us to understand how climate change will drive ocean deoxygenation, endangering marine fauna and flora."
+                body: "Here we observe a clear inverse correlation. This corresponds to Henry's law, which states that the warmer the water, the less dissolved gas it can hold. This curve allows us to understand how climate change will drive ocean deoxygenation, endangering marine fauna and flora."
             },
             "mergedSST__merged_chl": {
-                title: "3. Temperature Impact (SST vs. Chlorophyll-a)",
+                title: "3. Temperature impact (SST vs. Chlorophyll-a)",
                 color: "#e05a47",
                 body: "The warmest waters (>21°C) exhibit the lowest chlorophyll levels; chlorophyll concentration decreases as temperature increases. Because warm water has a lower density, it remains at the surface and prevents cold, nutrient-rich deep waters from rising. The ocean is thermally stratified and surface waters become nutrient-depleted, preventing the development of chlorophyllous organisms."
             },
