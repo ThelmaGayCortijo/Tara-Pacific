@@ -318,7 +318,7 @@ def load_stations():
       print("Erreur lecture stations.json, utilisation du fallback :", e)
   return FALLBACK_STATIONS
 
-
+# permet d'aller chercher fichier HTLM dans dossier templates dès que site utilisé
 @app.route("/")
 def index():
     return render_template("index.html")

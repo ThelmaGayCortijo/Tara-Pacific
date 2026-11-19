@@ -1,39 +1,49 @@
+/* ==========================================================================
+   # PART 00 : GLOBAL VARIABLES (:root), RESET & TYPOGRAPHY
+   # Ce bloc définit toute la charte graphique en variables réutilisables
+   # (couleurs, arrondis, ombres, police) et uniformise le comportement de la page.
+   ========================================================================== */
+
+/* :root stocke les variables CSS accessibles partout via var(--nom) */
 :root {
-    --box-ocean-bg: #6ba1ab;
+    --box-ocean-bg: #6ba1ab; /* Bleu-gris océan (panneau latéral de la carte et bouton Timelapse) */
 
-    --chl-low: #e05a47;      /* Rouge corail (< 0.15 mg/m³) */
-    --chl-mid: #c4aa5c;      /* Jaune doré / Anis (0.15 - 0.5 mg/m³) */
-    --chl-high: #49963c;     /* Vert ( > 0.5 mg/m³) */
-    --chl-high-dark: #1f6d1f;/* Vert foncé fin de jauge */
+    --chl-low: #e05a47;      /* Rouge corail : zone oligotrophe pauvre en nutriments (< 0.15 mg/m³) */
+    --chl-mid: #c4aa5c;      /* Jaune doré : zone mésotrophe d'effet d'île (0.15 - 0.5 mg/m³) */
+    --chl-high: #49963c;     /* Vert : zone eutrophe / upwelling riche (> 0.5 mg/m³) */
+    --chl-high-dark: #1f6d1f;/* Vert foncé pour l'extrémité droite de la jauge de chlorophylle */
 
-    --navy-900: #0d2742;
-    --navy-800: #163a5f;
-    --teal-600: #143a8d;
+    --navy-900: #0d2742;     /* Bleu marine très foncé pour les titres principaux et bordures */
+    --navy-800: #163a5f;     /* Bleu marine moyen (fond des 4 ronds fixes de la Section 01) */
+    --teal-600: #143a8d;     /* Bleu soutenu pour les tags de section ("01 / THE FOUNDATION") */
     --teal-500: #49963c;
     --cyan-600: #c4aa5c;
-    --coral-500: #e05a47;
-    --sand-50: #c7d6e6;
-    --sand-100: #f1f5f9;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --border-light: #e2e8f0;
-    --radius-lg: 14px;
-    --radius-md: 8px;
-    --shadow-soft: 0 10px 30px -5px rgba(7, 25, 43, 0.07);
+    --coral-500: #e05a47;    /* Rouge corail vif (boutons principaux, pastilles hotspots, filets) */
+    --sand-50: #c7d6e6;      /* Couleur de fond générale du body (bleu-gris très doux) */
+    --sand-100: #f1f5f9;     /* Gris-bleu très clair pour l'intérieur des boîtes secondaires */
+    --text-main: #1e293b;    /* Gris anthracite foncé pour le texte des paragraphes */
+    --text-muted: #64748b;   /* Gris moyen pour les légendes d'images et sous-titres */
+    --border-light: #e2e8f0; /* Couleur des bordures fines de séparation */
+    --radius-lg: 14px;       /* Rayon d'arrondi des grandes cartes blanches */
+    --radius-md: 8px;        /* Rayon d'arrondi des boutons et sous-encadrés */
+    --shadow-soft: 0 10px 30px -5px rgba(7, 25, 43, 0.07); /* Ombre portée légère sous les cartes */
 
     /* Police unique harmonisée sur tout le site */
     --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Sélecteur universel (*) : inclut le padding et les bordures dans la largeur totale des boîtes (évite les débordements) */
 * {
     box-sizing: border-box;
 }
 
+/* Balise racine <html> : active le défilement fluide (smooth scroll) quand on clique sur le sommaire */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
 
+/* Corps de la page <body> : enlève les marges par défaut du navigateur et applique la police et le fond */
 body {
     margin: 0;
     font-family: var(--font-main);
@@ -43,7 +53,7 @@ body {
     font-size: 0.96rem;
 }
 
-/* HIÉRARCHIE TYPOGRAPHIQUE UNIFIÉE */
+/* Unifie tous les niveaux de titres (h1 à h6) avec la même police et le bleu marine */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
     color: var(--navy-900);
@@ -51,39 +61,329 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
 }
 
-h2 {
+h2 { font-size: 2rem; font-weight: 800; }   /* Grands titres de chaque section (01 à 07) */
+h3 { font-size: 1.25rem; font-weight: 700; }/* Sous-titres de cartes */
+h4 { font-size: 1rem; font-weight: 700; }   /* Petits titres d'encadrés */
+p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
+
+/* Classe de base .btn pour tous les boutons du site (espacement interne, arrondi, transition douce) */
+.btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+/* Bouton d'action principal en rouge corail (ex: "Explore the interactive map") */
+.btn-primary {
+    background: var(--coral-500);
+    color: #ffffff;
+}
+
+/* Effet au survol de la souris (:hover) : fonce légèrement et remonte de 1 pixel */
+.btn-primary:hover {
+    background: #c94633;
+    transform: translateY(-1px);
+}
+
+/* Bouton secondaire transparent à bordure blanche */
+.btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Bouton plein bleu marine (utilisé dans la section 07 Perspectives) */
+.btn-outline-dark {
+    background: var(--navy-900);
+    color: #ffffff;
+    padding: 11px 20px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+
+/* Petits boutons de contrôle au-dessus de la carte ("Previous Station" / "Next Station") */
+.btn-sm {
+    padding: 8px 14px;
+    font-size: 0.84rem;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    color: var(--navy-900);
+}
+
+/* Bouton "Play expedition timelapse" assorti à la couleur bleu-gris du panneau de droite */
+.btn-accent {
+    background: var(--box-ocean-bg);
+    color: #ffffff;
+    border-color: var(--box-ocean-bg);
+}
+
+.btn-accent:hover {
+    background: #5a8f99;
+    border-color: #5a8f99;
+}
+
+/* Conteneur central <main> : centre tout le contenu du site avec une largeur maximale de 1240px */
+.main-wrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+}
+
+/* Espacement vertical (56px en haut et en bas) pour chaque grande section numérotée */
+.section-block {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* Fond blanc arrondi appliqué aux sections 02, 05 et 06B pour rythmer visuellement la lecture */
+.alt-bg {
+    background: #ffffff;
+    margin: 0 -24px;
+    padding: 56px 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+/* En-tête de chaque section (contient le tag bleu, le titre h2 et le sous-titre explicatif) */
+.section-header {
+    margin-bottom: 32px;
+}
+
+/* Petit intitulé en majuscules au-dessus des titres (ex: "03 / THE SCHOONER") */
+.section-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    color: var(--teal-600);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.section-header h2 {
     font-size: 2rem;
-    font-weight: 800;
+    margin: 0 0 10px;
 }
 
-h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-h4 {
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-p {
+/* Sous-titre d'introduction sous le h2, étendu sur toute la largeur */
+.section-sub {
+    color: var(--text-muted);
+    max-width: 100%;
+    margin: 0;
     font-size: 0.96rem;
-    line-height: 1.65;
 }
+
+/* Grille générique à 2 colonnes auto-adaptative (passe en 1 colonne si l'écran fait moins de 340px) */
+.two-col-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+}
+
+/* Centre verticalement les deux colonnes d'une grille */
+.align-center {
+    align-items: center;
+}
+
+/* Style des liens externes dans les fenêtres modales */
+.external-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--teal-600);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Premier paragraphe mis en valeur (plus grand et en bleu marine) dans les sections 01 et 02 */
+.lead-paragraph {
+    font-size: 1.04rem;
+    line-height: 1.7;
+    color: var(--navy-900);
+    margin: 0 0 16px;
+}
+
 
 /* ==========================================================================
-   TOP NAVIGATION : TITRE EN HAUT + SOMMAIRE EN 1 LIGNE EN DESSOUS
+   # PART 0 : DIVER SCROLLING DOWN (Surface -> Profondeurs -> Titre)
+   # Crée la scène d'introduction où l'utilisateur plonge de la surface (0%)
+   # jusqu'aux abysses (100%) en faisant défiler la page.
+   ========================================================================== */
+
+/* Conteneur de plongée : haut de 245vh (2,45x la hauteur de l'écran) avec dégradé simulant la profondeur */
+.scroll-dive-section {
+    position: relative;
+    width: 100%;
+    height: 245vh;
+    background: linear-gradient(
+        180deg,
+        #bae6fd 0%,
+        #38bdf8 10%,
+        #0284c7 28%,
+        #0369a1 48%,
+        #0d2742 74%,
+        #07192b 92%,
+        #07192b 100%
+    );
+    overflow: clip;
+}
+
+/* Bandeau clair tout en haut représentant le ciel et la surface de l'eau */
+.ocean-surface-sky {
+    height: 26vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.55);
+    background: linear-gradient(180deg, #e0f2fe 0%, #7dd3fc 100%);
+}
+
+/* Texte d'invitation "Scroll down to dive into the expedition" */
+.scroll-prompt {
+    text-align: center;
+    color: #07192b;
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Flèche vers le bas animée en boucle avec @keyframes bounceDown */
+.scroll-arrow {
+    font-size: 1.5rem;
+    margin-top: 4px;
+    animation: bounceDown 1.2s infinite alternate;
+}
+
+/* Fait rebondir la flèche verticalement de 0 à 8px */
+@keyframes bounceDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(8px); }
+}
+
+/* ASTUCE CLÉ : position: sticky garde le plongeur accroché à 32% du haut de l'écran pendant tout le scroll */
+.scrolling-diver-sticky {
+    position: sticky;
+    top: 32vh;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* Taille et ombre portée du dessin vectoriel SVG du plongeur */
+.diver-scroll-svg {
+    width: 195px;
+    height: auto;
+    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.45));
+}
+
+/* Applique l'animation de battement de palmes en opposition de phase (alternate vs alternate-reverse) */
+.fin-anim-front {
+    transform-origin: 36px 66px;
+    animation: swimKick 0.45s ease-in-out infinite alternate;
+}
+.fin-anim-back {
+    transform-origin: 35px 74px;
+    animation: swimKick 0.45s ease-in-out infinite alternate-reverse;
+}
+
+/* Fait osciller les palmes entre -13° et +13° */
+@keyframes swimKick {
+    0% { transform: rotate(-13deg); }
+    100% { transform: rotate(13deg); }
+}
+
+/* Applique l'animation de remontée des bulles d'air du plongeur */
+.diver-bubble {
+    animation: bubbleFloat 1.2s ease-out infinite;
+}
+.diver-bubble.b-2 { animation-delay: 0.4s; }
+
+/* Fait monter les bulles de 20px tout en les faisant disparaître (opacity: 0) */
+@keyframes bubbleFloat {
+    0% { transform: translateY(0); opacity: 0.9; }
+    100% { transform: translateY(-20px); opacity: 0; }
+}
+
+/* Bloc de titre "TARA PACIFIC EXPEDITION" positionné au fond de la zone de plongée */
+.abyss-title-Checkpoint {
+    position: absolute;
+    bottom: 45vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+    max-width: 820px;
+    z-index: 20;
+}
+
+.abyss-eyebrow {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 2.5px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.abyss-heading {
+    color: #ffffff;
+    font-family: var(--font-main);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0 0 14px;
+    text-shadow: 0 8px 26px rgba(0, 0, 0, 0.6);
+}
+
+.abyss-divider {
+    width: 80px;
+    height: 4px;
+    background: #e05a47;
+    margin: 0 auto 14px;
+    border-radius: 999px;
+}
+
+.abyss-sub {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   # PART 1 : TOP NAVIGATION BAR (.topbar)
+   # Barre de navigation qui reste collée en haut de l'écran (sticky, top: 0)
+   # dès qu'on termine la plongée initiale.
    ========================================================================== */
 .topbar {
     position: sticky;
     top: 0;
-    z-index: 1100;
-    background: #07192b !important;
+    z-index: 1100; /* z-index élevé pour passer au-dessus de la carte Leaflet */
+    background: #07192b !important; /* Même bleu nuit que le bas de la plongée pour une transition sans coupure */
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     transition: box-shadow 0.3s ease;
 }
 
+/* Empile verticalement le titre du site (en haut) et les 7 liens du sommaire (en bas) */
 .topbar-inner {
     max-width: 1240px;
     margin: 0 auto;
@@ -95,6 +395,7 @@ p {
     gap: 8px;
 }
 
+/* Nom principal du site "TARA PACIFIC SCIENTIFIC OBSERVATORY" */
 .brand {
     color: #ffffff;
     text-decoration: none;
@@ -106,6 +407,7 @@ p {
     gap: 10px;
 }
 
+/* Petit point rouge corail à gauche du titre dans la navbar */
 .brand-dot {
     width: 10px;
     height: 10px;
@@ -120,12 +422,31 @@ p {
     font-size: 0.82rem;
 }
 
+/* Mini-icône du plongeur dans la barre de navigation */
+.navbar-diver-icon {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transform: translateY(-12px) scale(0.7);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navbar-diver-icon.docked {
+    opacity: 1;
+    width: 42px;
+    margin-right: 4px;
+    transform: translateY(0) scale(1);
+}
+
 .topbar-nav {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
+/* Liste horizontale des 7 liens du sommaire */
 .nav-links {
     list-style: none;
     margin: 0;
@@ -153,6 +474,7 @@ p {
     background: rgba(255, 255, 255, 0.06);
 }
 
+/* Permet aux liens du menu de passer sur 2 lignes sur téléphone/tablette (< 860px) */
 @media (max-width: 860px) {
     .nav-links {
         flex-wrap: wrap;
@@ -160,143 +482,378 @@ p {
     }
 }
 
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 11px 20px;
-    border-radius: var(--radius-md);
+
+/* ==========================================================================
+   # PART 2 : WELCOME ABOARD HERO BANNER (.welcome-hero-banner)
+   # Grande photographie d'introduction (Kimbe Bay) avec titre superposé.
+   ========================================================================== */
+.welcome-hero-banner {
+    position: relative;
+    width: 100%;
+    background: #07192b;
+    padding: 0;
+    margin: 0;
+}
+
+.banner-img-container {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+/* object-fit: cover remplit tout le cadre sans jamais déformer les proportions de la photo */
+.welcome-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dégradé sombre sur la moitié inférieure de la photo pour que le texte blanc ressorte */
+.banner-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 25, 43, 0.1) 40%, rgba(7, 25, 43, 0.82) 100%);
+    pointer-events: none;
+}
+
+/* Positionne le texte "WELCOME ABOARD" en bas à gauche de la photo */
+.welcome-banner-caption {
+    position: absolute;
+    bottom: 48px;
+    left: 56px;
+    z-index: 5;
+}
+
+.banner-subtext {
+    display: block;
     font-family: var(--font-main);
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.btn-primary {
-    background: var(--coral-500);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: #ffffff;
+    margin-bottom: 8px;
 }
 
-.btn-primary:hover {
-    background: #c94633;
-    transform: translateY(-1px);
-}
-
-.btn-outline {
-    background: transparent;
+.banner-title {
+    font-family: var(--font-main);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+    margin: 0;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
 
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.12);
+
+/* ==========================================================================
+   # PART 3 : NAUTICAL CHART TABLE & COMPASS (.chart-table-strip)
+   # Table à cartes style Atlas Marin avec quadrillage de méridiens en fond,
+   # briefing à gauche et fiche de la question scientifique + boussole à droite.
+   ========================================================================== */
+.chart-table-strip {
+    padding: 48px 0 28px;
 }
 
-.btn-outline-dark {
-    background: var(--navy-900);
-    color: #ffffff;
-    padding: 11px 20px;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    display: inline-block;
+/* Crée le fond papier (#fcfbf7) et dessine le quadrillage 32x32px avec deux linear-gradient croisés */
+.nautical-atlas-card {
+    max-width: 1240px;
+    margin: 0 auto;
+    background-color: #fcfbf7;
+    background-image:
+        linear-gradient(to right, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
+        radial-gradient(circle at 82% 50%, rgba(107, 161, 171, 0.12) 0%, transparent 55%);
+    background-size: 32px 32px, 32px 32px, 100% 100%;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    box-shadow:
+        0 18px 40px -10px rgba(13, 39, 66, 0.1),
+        inset 0 0 0 5px #ffffff;
+    overflow: hidden;
+    color: var(--text-main);
 }
 
-.btn-sm {
-    padding: 8px 14px;
-    font-size: 0.84rem;
-    background: #ffffff;
-    border: 1px solid var(--border-light);
+/* Bandeau supérieur gris clair "NAUTICAL CHART TABLE • R/V TARA (36M)" */
+.atlas-ruler-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 12px 28px;
+    background: #f1f5f9;
+    border-bottom: 1px solid #cbd5e1;
+    font-size: 0.72rem;
+    letter-spacing: 1.2px;
     color: var(--navy-900);
 }
 
-.btn-accent {
-    background: var(--box-ocean-bg);
-    color: #ffffff;
-    border-color: var(--box-ocean-bg);
+.atlas-coord-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.btn-accent:hover {
-    background: #5a8f99;
-    border-color: #5a8f99;
+.atlas-marker-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--coral-500);
+    box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.2);
 }
 
-/* SECTIONS & LAYOUT */
-.main-wrapper {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 20px 24px 60px;
+.atlas-code {
+    font-weight: 800;
+    color: var(--navy-900);
 }
 
-.section-block {
-    padding: 56px 0;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.alt-bg {
-    background: #ffffff;
-    margin: 0 -24px;
-    padding: 56px 24px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-}
-
-.section-header {
-    margin-bottom: 32px;
-}
-
-.section-tag {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1.6px;
-    color: var(--teal-600);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 6px;
-}
-
-.section-header h2 {
-    font-size: 2rem;
-    margin: 0 0 10px;
-}
-
-.section-sub {
-    color: var(--text-muted);
-    max-width: 100%;
-    margin: 0;
-    font-size: 0.96rem;
-}
-
-.two-col-grid {
+/* Grille à 2 colonnes : colonne gauche (1.1fr) pour le texte/boutons, colonne droite (1fr) pour la boussole */
+.atlas-main-grid {
+    padding: 38px 36px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: 1.1fr 1fr;
     gap: 40px;
-}
-
-.align-center {
     align-items: center;
 }
 
-.external-link {
-    display: inline-block;
-    margin-top: 12px;
-    color: var(--teal-600);
-    font-weight: 700;
-    text-decoration: none;
+@media (max-width: 940px) {
+    .atlas-main-grid {
+        grid-template-columns: 1fr;
+        padding: 28px 22px;
+    }
 }
 
-.lead-paragraph {
-    font-size: 1.04rem;
-    line-height: 1.7;
-    color: var(--navy-900);
-    margin: 0 0 16px;
+/* Ajoute le filet vertical rouge corail à gauche du texte d'introduction */
+.briefing-editorial-quote {
+    border-left: 4px solid var(--coral-500);
+    padding-left: 20px;
+    margin-bottom: 26px;
 }
+
+.atlas-lead {
+    font-size: 1.04rem;
+    line-height: 1.75;
+    color: var(--navy-900);
+    margin: 0;
+}
+
+/* Force les 2 boutons ("Explore the interactive map" et "Look at the data results") à rester côte à côte */
+.atlas-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+}
+
+.atlas-actions .btn,
+.atlas-actions .btn-atlas-secondary {
+    white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+    .atlas-actions {
+        flex-wrap: wrap;
+    }
+}
+
+/* Style du second bouton blanc à bordure bleu marine */
+.btn-atlas-secondary {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: var(--radius-md);
+    background: #ffffff;
+    color: var(--navy-900);
+    border: 1.5px solid var(--navy-900);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-atlas-secondary:hover {
+    background: var(--navy-900);
+    color: #ffffff;
+}
+
+/* Carte blanche de droite contenant la boussole et la question scientifique */
+.field-dossier-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-top: 4px solid var(--box-ocean-bg);
+    border-radius: 12px;
+    padding: 26px 24px 24px;
+    box-shadow: 0 12px 28px -8px rgba(13, 39, 66, 0.08);
+}
+
+/* Étiquette "FIELD LOG #2016-18" à cheval sur la bordure supérieure de la fiche */
+.dossier-corner-tag {
+    position: absolute;
+    top: -11px;
+    right: 20px;
+    background: var(--box-ocean-bg);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+/* Aligne la boussole à gauche et le texte de la question scientifique à droite */
+.dossier-compass-layout {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+@media (max-width: 580px) {
+    .dossier-compass-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Conteneur cliquable de la boussole */
+.carto-compass-box {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Cadran circulaire de 96x96px de la rose des vents */
+.carto-compass-dial {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1.5px solid var(--navy-900);
+    box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5px #cbd5e1;
+    transition: transform 0.25s ease;
+}
+
+.carto-compass-box:hover .carto-compass-dial {
+    transform: scale(1.05);
+}
+
+/* Fines lignes horizontale et verticale (réticule) au centre de la boussole */
+.carto-crosshair-h {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    right: 14px;
+    height: 1px;
+    background: #cbd5e1;
+}
+
+.carto-crosshair-v {
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    bottom: 14px;
+    width: 1px;
+    background: #cbd5e1;
+}
+
+/* Positionnement des 4 points cardinaux N, S, E, W sur le cadran */
+.carto-compass-dial .c-dir {
+    position: absolute;
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: var(--navy-900);
+    background: #f8fafc;
+    padding: 0 2px;
+}
+.carto-compass-dial .c-n { top: 5px; left: 50%; transform: translateX(-50%); color: var(--coral-500); }
+.carto-compass-dial .c-s { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.carto-compass-dial .c-e { right: 6px; top: 50%; transform: translateY(-50%); }
+.carto-compass-dial .c-w { left: 6px; top: 50%; transform: translateY(-50%); }
+
+/* Conteneur de l'aiguille qui tourne avec un effet ressort (cubic-bezier) quand JS modifie transform: rotate() */
+.compass-needle-wrap {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Demi-aiguille Nord (triangle CSS rouge corail) */
+.needle-north-carto {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 32px solid var(--coral-500);
+}
+
+/* Demi-aiguille Sud (triangle CSS bleu marine) */
+.needle-south-carto {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 32px solid var(--navy-900);
+}
+
+/* Pivot central rond de l'aiguille */
+.needle-pivot-carto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2.5px solid var(--navy-900);
+}
+
+/* Texte "AZIMUTH: 285°" sous la boussole */
+.carto-compass-caption {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+.dossier-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 8px;
+}
+
+.dossier-text {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.62;
+    color: var(--text-main);
+}
+
 
 /* ==========================================================================
-   SECTION 01 : LOGOS DÉTOURÉS & 4 RONDS BLEUS SIMPLES ET FIXES
+   # PART 4 : SECTION 01 — THE FOUNDATION (#foundation)
+   # Présentation de la Fondation, logos partenaires détourés et 4 ronds bleus fixes.
    ========================================================================== */
 .editorial-intro-layout {
     display: grid;
@@ -319,6 +876,7 @@ p {
     margin: 0 0 22px;
 }
 
+/* Encadre la rangée des logos partenaires (CNRS, EMBL, CEA, Ifremer, PSL) */
 .consortium-logos-wrap {
     padding: 18px 0;
     border-top: 1px solid rgba(13, 39, 66, 0.14);
@@ -343,6 +901,7 @@ p {
     gap: 28px;
 }
 
+/* ASTUCE CSS : mix-blend-mode: multiply fusionne le fond blanc des logos avec le fond de la page */
 .partner-logo {
     height: 38px;
     width: auto;
@@ -372,6 +931,7 @@ p {
     transform: scale(1.12);
 }
 
+/* Lien souligné en corail vers le portail officiel de la Fondation Tara Océan */
 .editorial-link {
     display: inline-flex;
     align-items: center;
@@ -390,7 +950,7 @@ p {
     gap: 12px;
 }
 
-/* Grille 2x2 de ronds bleus simples et fixes (sans animation ni bulles autour) */
+/* Grille 2x2 contenant les 4 ronds bleus de chiffres clés */
 .ocean-bubbles-cluster {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -400,6 +960,7 @@ p {
     padding: 8px;
 }
 
+/* Rond bleu uni fixe (172x172px, border-radius: 50%) */
 .kpi-water-bubble {
     width: 172px;
     height: 172px;
@@ -456,7 +1017,11 @@ p {
     }
 }
 
-/* CREW HIGHLIGHT CARD & VIDEO */
+
+/* ==========================================================================
+   # PART 5 : SECTION 02 — OUR EXPEDITION (#welcome-board)
+   # Vidéo YouTube responsive (format 16:9), carte officielle et carte équipage.
+   ========================================================================== */
 .crew-highlight-card {
     background: #ffffff;
     border: 1px solid var(--border-light);
@@ -497,6 +1062,7 @@ p {
     margin-bottom: 10px;
 }
 
+/* Maintient un ratio 16:9 parfait (9 / 16 = 56.25%) pour le lecteur YouTube */
 .video-frame {
     position: relative;
     padding-bottom: 56.25%;
@@ -534,7 +1100,14 @@ p {
     margin-top: 10px;
 }
 
-/* SCHOONER TOUR CARD & RHYTHM LIST */
+
+/* ==========================================================================
+   # PART 6 : SECTION 03 — THE SCHOONER & INTERACTIVE SCHEMATICS (#schooner)
+   # Carte explicative du bateau (sans sous-boîtes) et schémas A et B avec
+   # pastilles cliquables (.hotspot) positionnées en pourcentages.
+   ========================================================================== */
+
+/* Grande boîte blanche "Welcome aboard the Tara schooner!" avec bordure gauche corail */
 .schooner-tour-card {
     background: #ffffff;
     border: 1px solid var(--border-light);
@@ -557,27 +1130,28 @@ p {
     color: var(--text-main);
 }
 
+/* Espacement vertical entre les deux points (i) et (ii) */
 .rhythm-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 14px;
+    gap: 10px;
+    margin-top: 12px;
 }
 
+/* Texte direct et propre sans boîte grise ni bordure autour de (i) et (ii) */
 .rhythm-item {
-    background: var(--sand-100);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    padding: 0;
     font-size: 0.92rem;
-    line-height: 1.55;
+    line-height: 1.6;
 }
 
 .rhythm-item strong {
     color: var(--teal-600);
 }
 
-/* INTERACTIVE BOAT HOTSPOTS & PROTOCOL BLOCKS */
+/* Grand conteneur blanc entourant chaque schéma interactif (A et B) */
 .protocol-block {
     background: #ffffff;
     border: 1px solid var(--border-light);
@@ -604,6 +1178,7 @@ p {
     max-width: 880px;
 }
 
+/* Grille plaçant le schéma cliquable à gauche (1.25fr) et la fiche descriptive à droite (0.95fr) */
 .boat-interactive-layout {
     display: grid;
     grid-template-columns: 1.25fr 0.95fr;
@@ -617,6 +1192,7 @@ p {
     }
 }
 
+/* Conteneur de l'image en position: relative : sert de repère (0% à 100%) aux pastilles .hotspot */
 .hotspot-container {
     position: relative;
     border-radius: var(--radius-lg);
@@ -630,6 +1206,7 @@ p {
     display: block;
 }
 
+/* Pastille numérotée (1 à 8) positionnée en % (top/left) par-dessus le schéma */
 .hotspot {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -651,6 +1228,7 @@ p {
     z-index: 10;
 }
 
+/* Quand une pastille est active (.active-spot) ou survolée, elle passe en bleu nuit et grossit (scale 1.25) */
 .hotspot:hover,
 .hotspot.active-spot {
     transform: translate(-50%, -50%) scale(1.25);
@@ -659,6 +1237,7 @@ p {
     z-index: 15;
 }
 
+/* Boîte de droite affichant les détails de l'instrument sélectionné */
 .instrument-detail-box {
     background: var(--sand-100);
     border: 1px solid var(--border-light);
@@ -714,8 +1293,138 @@ p {
     box-shadow: var(--shadow-soft);
 }
 
+
 /* ==========================================================================
-   SECTION 05 : CARTE AGRANDIE + JAUGE & PANNEAU LATÉRAL PLUS COMPACTS
+   # PART 7 : SECTION 04 — PLANKTONIC GUIDE & MODALS (#plankton)
+   # Grille de 4 cartes d'espèces planctoniques et fenêtres pop-up (modales).
+   ========================================================================== */
+.plankton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.bio-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-img-wrap {
+    position: relative;
+    height: 195px;
+    background: #07192b;
+    overflow: hidden;
+}
+
+.bio-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bio-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(7, 25, 43, 0.85);
+    color: #efecec;
+    padding: 4px 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.bio-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bio-body h3 {
+    margin: 0 0 8px;
+    font-size: 1.18rem;
+}
+
+.bio-body p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-main);
+    color: var(--teal-600);
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    text-align: left;
+}
+
+.btn-text:hover {
+    color: var(--coral-500);
+}
+
+/* Fond sombre plein écran des fenêtres pop-up (caché par défaut avec display: none) */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 25, 43, 0.72);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Affiché en Flexbox centré dès que la fonction JS openModal() ajoute la classe .open */
+.modal-backdrop.open {
+    display: flex;
+}
+
+.modal-window {
+    background: #ffffff;
+    max-width: 600px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+}
+
+.modal-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navy-900);
+}
+
+
+/* ==========================================================================
+   # PART 8 : SECTION 05 — INTERACTIVE MAP, GAUGE & TELEMETRY (#map-observatory)
+   # Carte Leaflet interactive (540px de haut), jauge de chlorophylle tricolore
+   # et panneau latéral droit de télémétrie.
    ========================================================================== */
 .map-control-bar {
     display: flex;
@@ -735,6 +1444,7 @@ p {
     flex-wrap: wrap;
 }
 
+/* Grille donnant 65% de la largeur à la carte (1.65fr) et 35% au panneau droit (0.9fr) */
 .map-dashboard-grid {
     display: grid;
     grid-template-columns: 1.65fr 0.9fr;
@@ -758,6 +1468,7 @@ p {
     position: relative;
 }
 
+/* Cadre de la carte interactive Leaflet */
 #map {
     width: 100%;
     height: 540px;
@@ -765,6 +1476,7 @@ p {
     border: 1px solid var(--border-light);
 }
 
+/* Conteneur de la jauge de chlorophylle sous la carte */
 .gauge-under-map-card {
     background: transparent;
     color: var(--text-main);
@@ -794,6 +1506,7 @@ p {
     color: #c4aa5c;
 }
 
+/* Barre horizontale avec dégradé continu Corail -> Doré -> Vert */
 .gauge-track {
     position: relative;
     width: 100%;
@@ -808,6 +1521,7 @@ p {
     display: none;
 }
 
+/* Curseur rond blanc qui se déplace de 3% à 97% (left) via JS selon la chlorophylle de la station */
 .gauge-pointer {
     position: absolute;
     top: 50%;
@@ -834,6 +1548,7 @@ p {
 .gauge-scale span:nth-child(2) { color: #9a7b2c !important; }
 .gauge-scale span:nth-child(3) { color: #49963c !important; }
 
+/* Panneau latéral droit de télémétrie en bleu-gris (#6ba1ab) */
 .telemetry-card {
     background: var(--box-ocean-bg);
     color: #ffffff;
@@ -911,6 +1626,7 @@ p {
     margin: 2px 0 0;
 }
 
+/* Les 3 boîtes des régimes trophiques (Oligotrophe, Mésotrophe, Eutrophe) */
 .zone-explain-card {
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.16);
@@ -924,10 +1640,7 @@ p {
 .zone-explain-card.zone-meso { border-left-color: var(--chl-mid); }
 .zone-explain-card.zone-eutro { border-left-color: var(--chl-high); }
 
-.zone-explain-card.zone-oligo .legend-circle { background: var(--chl-low) !important; }
-.zone-explain-card.zone-meso .legend-circle { background: var(--chl-mid) !important; }
-.zone-explain-card.zone-eutro .legend-circle { background: var(--chl-high) !important; }
-
+/* Classe ajoutée par JS pour illuminer le régime trophique de la station active */
 .zone-explain-card.active-zone {
     background: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.42);
@@ -950,7 +1663,7 @@ p {
     line-height: 1.4;
 }
 
-/* EXPEDITION REPORT CARD */
+/* Carte blanche de synthèse sous la carte interactive */
 .expedition-report-card {
     margin-top: 28px;
     background: #ffffff;
@@ -983,804 +1696,10 @@ p {
     line-height: 1.5;
 }
 
-/* PLANKTON GRID */
-.plankton-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-}
-
-.bio-card {
-    background: #ffffff;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-}
-
-.bio-img-wrap {
-    position: relative;
-    height: 195px;
-    background: #07192b;
-    overflow: hidden;
-}
-
-.bio-img-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.bio-tag {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(7, 25, 43, 0.85);
-    color: #efecec;
-    padding: 4px 10px;
-    font-size: 0.68rem;
-    font-weight: 700;
-    border-radius: 4px;
-}
-
-.bio-body {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.bio-body h3 {
-    margin: 0 0 8px;
-    font-size: 1.18rem;
-}
-
-.bio-body p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin: 0 0 16px;
-}
-
-.btn-text {
-    background: none;
-    border: none;
-    padding: 0;
-    font-family: var(--font-main);
-    color: var(--teal-600);
-    font-weight: 700;
-    font-size: 0.88rem;
-    cursor: pointer;
-    text-align: left;
-}
-
-.btn-text:hover {
-    color: var(--coral-500);
-}
 
 /* ==========================================================================
-   SECTION 06 : GRAPHE DE CORRÉLATION & BOUTONS COLORÉS SELON LA COURBE
-   ========================================================================== */
-.scenario-presets {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.preset-btn {
-    background: #ffffff;
-    border: 2px solid var(--border-light);
-    padding: 10px 18px;
-    border-radius: 999px;
-    font-family: var(--font-main);
-    font-size: 0.86rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.preset-btn.scen-green {
-    color: #16a085;
-    border-color: #16a085;
-}
-.preset-btn.scen-green:hover,
-.preset-btn.scen-green.active-preset {
-    background: #16a085;
-    color: #ffffff;
-}
-
-.preset-btn.scen-blue {
-    color: #0284c7;
-    border-color: #0284c7;
-}
-.preset-btn.scen-blue:hover,
-.preset-btn.scen-blue.active-preset {
-    background: #0284c7;
-    color: #ffffff;
-}
-
-.preset-btn.scen-coral {
-    color: #e05a47;
-    border-color: #e05a47;
-}
-.preset-btn.scen-coral:hover,
-.preset-btn.scen-coral.active-preset {
-    background: #e05a47;
-    color: #ffffff;
-}
-
-.analyzer-card {
-    background: var(--sand-100);
-    padding: 28px;
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-light);
-}
-
-.filter-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-    align-items: end;
-    margin-bottom: 20px;
-}
-
-.form-field label {
-    display: block;
-    font-size: 0.86rem;
-    font-weight: 700;
-    margin-bottom: 6px;
-    color: var(--navy-900);
-}
-
-.form-field select {
-    width: 100%;
-    padding: 11px 40px 11px 14px;
-    border-radius: var(--radius-md);
-    border: 1px solid #cbd5e1;
-    font-family: var(--font-main);
-    font-size: 0.9rem;
-    color: var(--text-main);
-    background-color: #ffffff;
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d2742' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    background-size: 15px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.form-field select:hover,
-.form-field select:focus {
-    outline: none;
-    border-color: var(--navy-900);
-}
-
-.stat-pills {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.pill {
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 0.86rem;
-}
-
-.chart-box {
-    position: relative;
-    height: 400px;
-    width: 100%;
-    background: #ffffff;
-    padding: 18px;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-light);
-}
-
-.interpretation-box {
-    margin-top: 22px;
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    border-left: 5px solid #16a085;
-    border-radius: var(--radius-md);
-    padding: 22px 26px;
-    box-shadow: var(--shadow-soft);
-}
-
-.interp-header h4 {
-    margin: 0 0 10px;
-    font-family: var(--font-main);
-    font-size: 1.18rem;
-    font-weight: 800;
-    color: #16a085;
-}
-
-#interp-body {
-    margin: 0;
-    font-size: 0.96rem;
-    color: var(--text-main);
-    line-height: 1.65;
-}
-
-/* MODALS */
-.modal-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(7, 25, 43, 0.72);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal-backdrop.open {
-    display: flex;
-}
-
-.modal-window {
-    background: #ffffff;
-    max-width: 600px;
-    width: 100%;
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-}
-
-.modal-img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    margin-bottom: 16px;
-}
-
-.modal-close {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--navy-900);
-}
-
-/* FOOTER */
-.site-footer {
-    background: var(--navy-900);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 36px 24px;
-    margin-top: 60px;
-}
-
-.footer-inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    font-size: 0.88rem;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-/* ==========================================================================
-   PLONGÉE AU SCROLL (SURFACE -> PROFONDEURS -> BARRE DU HAUT)
-   ========================================================================== */
-.scroll-dive-section {
-    position: relative;
-    width: 100%;
-    height: 245vh;
-    background: linear-gradient(
-        180deg,
-        #bae6fd 0%,
-        #38bdf8 10%,
-        #0284c7 28%,
-        #0369a1 48%,
-        #0d2742 74%,
-        #07192b 92%,
-        #07192b 100%
-    );
-    overflow: clip;
-}
-
-.ocean-surface-sky {
-    height: 26vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 3px solid rgba(255, 255, 255, 0.55);
-    background: linear-gradient(180deg, #e0f2fe 0%, #7dd3fc 100%);
-}
-
-.scroll-prompt {
-    text-align: center;
-    color: #07192b;
-    font-weight: 700;
-    font-size: 0.92rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.scroll-arrow {
-    font-size: 1.5rem;
-    margin-top: 4px;
-    animation: bounceDown 1.2s infinite alternate;
-}
-
-@keyframes bounceDown {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(8px); }
-}
-
-.scrolling-diver-sticky {
-    position: sticky;
-    top: 32vh;
-    z-index: 25;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.diver-scroll-svg {
-    width: 195px;
-    height: auto;
-    filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.45));
-}
-
-.fin-anim-front {
-    transform-origin: 36px 66px;
-    animation: swimKick 0.45s ease-in-out infinite alternate;
-}
-.fin-anim-back {
-    transform-origin: 35px 74px;
-    animation: swimKick 0.45s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes swimKick {
-    0% { transform: rotate(-13deg); }
-    100% { transform: rotate(13deg); }
-}
-
-.diver-bubble {
-    animation: bubbleFloat 1.2s ease-out infinite;
-}
-.diver-bubble.b-2 { animation-delay: 0.4s; }
-
-@keyframes bubbleFloat {
-    0% { transform: translateY(0); opacity: 0.9; }
-    100% { transform: translateY(-20px); opacity: 0; }
-}
-
-.abyss-title-Checkpoint {
-    position: absolute;
-    bottom: 45vh;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 90%;
-    max-width: 820px;
-    z-index: 20;
-}
-
-.abyss-eyebrow {
-    display: block;
-    font-size: 0.78rem;
-    letter-spacing: 2.5px;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.abyss-heading {
-    color: #ffffff;
-    font-family: var(--font-main);
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-    font-weight: 800;
-    letter-spacing: 1px;
-    margin: 0 0 14px;
-    text-shadow: 0 8px 26px rgba(0, 0, 0, 0.6);
-}
-
-.abyss-divider {
-    width: 80px;
-    height: 4px;
-    background: #e05a47;
-    margin: 0 auto 14px;
-    border-radius: 999px;
-}
-
-.abyss-sub {
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 0.95rem;
-    margin: 0;
-}
-
-.navbar-diver-icon {
-    display: inline-flex;
-    align-items: center;
-    opacity: 0;
-    width: 0;
-    overflow: hidden;
-    transform: translateY(-12px) scale(0.7);
-    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.navbar-diver-icon.docked {
-    opacity: 1;
-    width: 42px;
-    margin-right: 4px;
-    transform: translateY(0) scale(1);
-}
-
-/* ==========================================================================
-   BANNIÈRE VISUELLE "WELCOME ABOARD"
-   ========================================================================== */
-.welcome-hero-banner {
-    position: relative;
-    width: 100%;
-    background: #07192b;
-    padding: 0;
-    margin: 0;
-}
-
-.banner-img-container {
-    position: relative;
-    width: 100%;
-    height: 85vh;
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.welcome-banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.banner-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(7, 25, 43, 0.1) 40%, rgba(7, 25, 43, 0.82) 100%);
-    pointer-events: none;
-}
-
-.welcome-banner-caption {
-    position: absolute;
-    bottom: 48px;
-    left: 56px;
-    z-index: 5;
-}
-
-.banner-subtext {
-    display: block;
-    font-family: var(--font-main);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 8px;
-}
-
-.banner-title {
-    font-family: var(--font-main);
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 1px;
-    margin: 0;
-    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-}
-
-/* ==========================================================================
-   TABLE À CARTES & CARNET D'EXPÉDITION
-   ========================================================================== */
-.chart-table-strip {
-    padding: 48px 0 28px;
-}
-
-.nautical-atlas-card {
-    max-width: 1240px;
-    margin: 0 auto;
-    background-color: #fcfbf7;
-    background-image:
-        linear-gradient(to right, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(13, 39, 66, 0.075) 1px, transparent 1px),
-        radial-gradient(circle at 82% 50%, rgba(107, 161, 171, 0.12) 0%, transparent 55%);
-    background-size: 32px 32px, 32px 32px, 100% 100%;
-    border: 1.5px solid #cbd5e1;
-    border-radius: 16px;
-    box-shadow:
-        0 18px 40px -10px rgba(13, 39, 66, 0.1),
-        inset 0 0 0 5px #ffffff;
-    overflow: hidden;
-    color: var(--text-main);
-}
-
-.atlas-ruler-topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    padding: 12px 28px;
-    background: #f1f5f9;
-    border-bottom: 1px solid #cbd5e1;
-    font-size: 0.72rem;
-    letter-spacing: 1.2px;
-    color: var(--navy-900);
-}
-
-.atlas-coord-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.atlas-marker-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--coral-500);
-    box-shadow: 0 0 0 3px rgba(224, 90, 71, 0.2);
-}
-
-.atlas-code {
-    font-weight: 800;
-    color: var(--navy-900);
-}
-
-.atlas-main-grid {
-    padding: 38px 36px;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-@media (max-width: 940px) {
-    .atlas-main-grid {
-        grid-template-columns: 1fr;
-        padding: 28px 22px;
-    }
-}
-
-.briefing-editorial-quote {
-    border-left: 4px solid var(--coral-500);
-    padding-left: 20px;
-    margin-bottom: 26px;
-}
-
-.atlas-lead {
-    font-size: 1.04rem;
-    line-height: 1.75;
-    color: var(--navy-900);
-    margin: 0;
-}
-
-.atlas-actions {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: nowrap;
-}
-
-.atlas-actions .btn,
-.atlas-actions .btn-atlas-secondary {
-    white-space: nowrap;
-}
-
-@media (max-width: 520px) {
-    .atlas-actions {
-        flex-wrap: wrap;
-    }
-}
-
-.btn-atlas-secondary {
-    display: inline-block;
-    padding: 11px 20px;
-    border-radius: var(--radius-md);
-    background: #ffffff;
-    color: var(--navy-900);
-    border: 1.5px solid var(--navy-900);
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.btn-atlas-secondary:hover {
-    background: var(--navy-900);
-    color: #ffffff;
-}
-
-.field-dossier-card {
-    position: relative;
-    background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-top: 4px solid var(--box-ocean-bg);
-    border-radius: 12px;
-    padding: 26px 24px 24px;
-    box-shadow: 0 12px 28px -8px rgba(13, 39, 66, 0.08);
-}
-
-.dossier-corner-tag {
-    position: absolute;
-    top: -11px;
-    right: 20px;
-    background: var(--box-ocean-bg);
-    color: #ffffff;
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    padding: 3px 10px;
-    border-radius: 4px;
-}
-
-.dossier-compass-layout {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-@media (max-width: 580px) {
-    .dossier-compass-layout {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-.carto-compass-box {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.carto-compass-dial {
-    position: relative;
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: #f8fafc;
-    border: 1.5px solid var(--navy-900);
-    box-shadow: inset 0 0 0 4px #ffffff, inset 0 0 0 5px #cbd5e1;
-    transition: transform 0.25s ease;
-}
-
-.carto-compass-box:hover .carto-compass-dial {
-    transform: scale(1.05);
-}
-
-.carto-crosshair-h {
-    position: absolute;
-    top: 50%;
-    left: 14px;
-    right: 14px;
-    height: 1px;
-    background: #cbd5e1;
-}
-
-.carto-crosshair-v {
-    position: absolute;
-    left: 50%;
-    top: 14px;
-    bottom: 14px;
-    width: 1px;
-    background: #cbd5e1;
-}
-
-.carto-compass-dial .c-dir {
-    position: absolute;
-    font-size: 0.62rem;
-    font-weight: 800;
-    color: var(--navy-900);
-    background: #f8fafc;
-    padding: 0 2px;
-}
-.carto-compass-dial .c-n { top: 5px; left: 50%; transform: translateX(-50%); color: var(--coral-500); }
-.carto-compass-dial .c-s { bottom: 5px; left: 50%; transform: translateX(-50%); }
-.carto-compass-dial .c-e { right: 6px; top: 50%; transform: translateY(-50%); }
-.carto-compass-dial .c-w { left: 6px; top: 50%; transform: translateY(-50%); }
-
-.compass-needle-wrap {
-    position: absolute;
-    inset: 0;
-    transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.needle-north-carto {
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 32px solid var(--coral-500);
-}
-
-.needle-south-carto {
-    position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 32px solid var(--navy-900);
-}
-
-.needle-pivot-carto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 2.5px solid var(--navy-900);
-}
-
-.carto-compass-caption {
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    margin-top: 8px;
-}
-
-.dossier-label {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 1.3px;
-    text-transform: uppercase;
-    color: var(--teal-600);
-    margin-bottom: 8px;
-}
-
-.dossier-text {
-    margin: 0;
-    font-size: 0.92rem;
-    font-weight: 500;
-    line-height: 1.62;
-    color: var(--text-main);
-}
-
-/* ==========================================================================
-   CADRE FIXE POUR LA FIGURE 6 (GRAND FORMAT UNIQUE)
+   # PART 9 : SECTION 06A — SPATIAL PCA FIGURE 6 (#provinces)
+   # Conteneur fixe unique pour afficher la Figure 6 (pca_heatwaves.jpg).
    ========================================================================== */
 .pca-single-container {
     max-width: 950px;
@@ -1837,4 +1756,176 @@ p {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.55;
+}
+
+
+/* ==========================================================================
+   # PART 10 : SECTION 06B — CORRELATION GRAPH & SCENARIO BUTTONS (#data-lab)
+   # Boutons des 3 scénarios biophysiques, menus déroulants et graphe Chart.js.
+   ========================================================================== */
+.scenario-presets {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.preset-btn {
+    background: #ffffff;
+    border: 2px solid var(--border-light);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-family: var(--font-main);
+    font-size: 0.86rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* Couleurs assorties aux 3 courbes : Vert (#16a085), Bleu (#0284c7), Corail (#e05a47) */
+.preset-btn.scen-green { color: #16a085; border-color: #16a085; }
+.preset-btn.scen-green:hover,
+.preset-btn.scen-green.active-preset { background: #16a085; color: #ffffff; }
+
+.preset-btn.scen-blue { color: #0284c7; border-color: #0284c7; }
+.preset-btn.scen-blue:hover,
+.preset-btn.scen-blue.active-preset { background: #0284c7; color: #ffffff; }
+
+.preset-btn.scen-coral { color: #e05a47; border-color: #e05a47; }
+.preset-btn.scen-coral:hover,
+.preset-btn.scen-coral.active-preset { background: #e05a47; color: #ffffff; }
+
+.analyzer-card {
+    background: var(--sand-100);
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--navy-900);
+}
+
+/* Menu déroulant <select> avec flèche SVG personnalisée à 16px du bord droit */
+.form-field select {
+    width: 100%;
+    padding: 11px 40px 11px 14px;
+    border-radius: var(--radius-md);
+    border: 1px solid #cbd5e1;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background-color: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d2742' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field select:hover,
+.form-field select:focus {
+    outline: none;
+    border-color: var(--navy-900);
+}
+
+.stat-pills {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.pill {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 0.86rem;
+}
+
+/* Cadre de 400px de haut contenant le canvas Chart.js */
+.chart-box {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background: #ffffff;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+}
+
+/* Boîte d'interprétation scientifique sous le graphe */
+.interpretation-box {
+    margin-top: 22px;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-left: 5px solid #16a085;
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    box-shadow: var(--shadow-soft);
+}
+
+.interp-header h4 {
+    margin: 0 0 10px;
+    font-family: var(--font-main);
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #16a085;
+}
+
+#interp-body {
+    margin: 0;
+    font-size: 0.96rem;
+    color: var(--text-main);
+    line-height: 1.65;
+}
+
+
+/* ==========================================================================
+   # PART 11 : FOOTER (.site-footer)
+   # Pied de page bleu marine épuré en fin de page.
+   ========================================================================== */
+.site-footer {
+    background: var(--navy-900);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 36px 24px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 0.88rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
 }
