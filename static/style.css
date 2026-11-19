@@ -1,49 +1,41 @@
 /* ==========================================================================
    # PART 00 : GLOBAL VARIABLES (:root), RESET & TYPOGRAPHY
-   # Ce bloc définit toute la charte graphique en variables réutilisables
-   # (couleurs, arrondis, ombres, police) et uniformise le comportement de la page.
    ========================================================================== */
-
-/* :root stocke les variables CSS accessibles partout via var(--nom) */
 :root {
-    --box-ocean-bg: #6ba1ab; /* Bleu-gris océan (panneau latéral de la carte et bouton Timelapse) */
+    --box-ocean-bg: #6ba1ab;
 
-    --chl-low: #e05a47;      /* Rouge corail : zone oligotrophe pauvre en nutriments (< 0.15 mg/m³) */
-    --chl-mid: #c4aa5c;      /* Jaune doré : zone mésotrophe d'effet d'île (0.15 - 0.5 mg/m³) */
-    --chl-high: #49963c;     /* Vert : zone eutrophe / upwelling riche (> 0.5 mg/m³) */
-    --chl-high-dark: #1f6d1f;/* Vert foncé pour l'extrémité droite de la jauge de chlorophylle */
+    --chl-low: #e05a47;      /* Rouge corail : zone oligotrophe (< 0.15 mg/m³) */
+    --chl-mid: #c4aa5c;      /* Jaune doré : zone mésotrophe (0.15 - 0.5 mg/m³) */
+    --chl-high: #49963c;     /* Vert : zone eutrophe (> 0.5 mg/m³) */
+    --chl-high-dark: #1f6d1f;
 
-    --navy-900: #0d2742;     /* Bleu marine très foncé pour les titres principaux et bordures */
-    --navy-800: #163a5f;     /* Bleu marine moyen (fond des 4 ronds fixes de la Section 01) */
-    --teal-600: #143a8d;     /* Bleu soutenu pour les tags de section ("01 / THE FOUNDATION") */
+    --navy-900: #0d2742;
+    --navy-800: #163a5f;
+    --teal-600: #143a8d;
     --teal-500: #49963c;
     --cyan-600: #c4aa5c;
-    --coral-500: #e05a47;    /* Rouge corail vif (boutons principaux, pastilles hotspots, filets) */
-    --sand-50: #c7d6e6;      /* Couleur de fond générale du body (bleu-gris très doux) */
-    --sand-100: #f1f5f9;     /* Gris-bleu très clair pour l'intérieur des boîtes secondaires */
-    --text-main: #1e293b;    /* Gris anthracite foncé pour le texte des paragraphes */
-    --text-muted: #64748b;   /* Gris moyen pour les légendes d'images et sous-titres */
-    --border-light: #e2e8f0; /* Couleur des bordures fines de séparation */
-    --radius-lg: 14px;       /* Rayon d'arrondi des grandes cartes blanches */
-    --radius-md: 8px;        /* Rayon d'arrondi des boutons et sous-encadrés */
-    --shadow-soft: 0 10px 30px -5px rgba(7, 25, 43, 0.07); /* Ombre portée légère sous les cartes */
+    --coral-500: #e05a47;
+    --sand-50: #c7d6e6;
+    --sand-100: #f1f5f9;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-light: #e2e8f0;
+    --radius-lg: 14px;
+    --radius-md: 8px;
+    --shadow-soft: 0 10px 30px -5px rgba(7, 25, 43, 0.07);
 
-    /* Police unique harmonisée sur tout le site */
     --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Sélecteur universel (*) : inclut le padding et les bordures dans la largeur totale des boîtes (évite les débordements) */
 * {
     box-sizing: border-box;
 }
 
-/* Balise racine <html> : active le défilement fluide (smooth scroll) quand on clique sur le sommaire */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
 
-/* Corps de la page <body> : enlève les marges par défaut du navigateur et applique la police et le fond */
 body {
     margin: 0;
     font-family: var(--font-main);
@@ -53,7 +45,6 @@ body {
     font-size: 0.96rem;
 }
 
-/* Unifie tous les niveaux de titres (h1 à h6) avec la même police et le bleu marine */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-main);
     color: var(--navy-900);
@@ -61,12 +52,12 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
 }
 
-h2 { font-size: 2rem; font-weight: 800; }   /* Grands titres de chaque section (01 à 07) */
-h3 { font-size: 1.25rem; font-weight: 700; }/* Sous-titres de cartes */
-h4 { font-size: 1rem; font-weight: 700; }   /* Petits titres d'encadrés */
-p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
+h2 { font-size: 2rem; font-weight: 800; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+h4 { font-size: 1rem; font-weight: 700; }
+p  { font-size: 0.96rem; line-height: 1.65; }
 
-/* Classe de base .btn pour tous les boutons du site (espacement interne, arrondi, transition douce) */
+/* BUTTONS */
 .btn {
     display: inline-block;
     padding: 11px 20px;
@@ -80,19 +71,16 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     transition: all 0.2s ease;
 }
 
-/* Bouton d'action principal en rouge corail (ex: "Explore the interactive map") */
 .btn-primary {
     background: var(--coral-500);
     color: #ffffff;
 }
 
-/* Effet au survol de la souris (:hover) : fonce légèrement et remonte de 1 pixel */
 .btn-primary:hover {
     background: #c94633;
     transform: translateY(-1px);
 }
 
-/* Bouton secondaire transparent à bordure blanche */
 .btn-outline {
     background: transparent;
     color: #ffffff;
@@ -103,7 +91,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     background: rgba(255, 255, 255, 0.12);
 }
 
-/* Bouton plein bleu marine (utilisé dans la section 07 Perspectives) */
 .btn-outline-dark {
     background: var(--navy-900);
     color: #ffffff;
@@ -115,7 +102,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     display: inline-block;
 }
 
-/* Petits boutons de contrôle au-dessus de la carte ("Previous Station" / "Next Station") */
 .btn-sm {
     padding: 8px 14px;
     font-size: 0.84rem;
@@ -124,7 +110,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--navy-900);
 }
 
-/* Bouton "Play expedition timelapse" assorti à la couleur bleu-gris du panneau de droite */
 .btn-accent {
     background: var(--box-ocean-bg);
     color: #ffffff;
@@ -136,20 +121,18 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border-color: #5a8f99;
 }
 
-/* Conteneur central <main> : centre tout le contenu du site avec une largeur maximale de 1240px */
+/* LAYOUT & SECTIONS */
 .main-wrapper {
     max-width: 1240px;
     margin: 0 auto;
     padding: 20px 24px 60px;
 }
 
-/* Espacement vertical (56px en haut et en bas) pour chaque grande section numérotée */
 .section-block {
     padding: 56px 0;
     border-bottom: 1px solid var(--border-light);
 }
 
-/* Fond blanc arrondi appliqué aux sections 02, 05 et 06B pour rythmer visuellement la lecture */
 .alt-bg {
     background: #ffffff;
     margin: 0 -24px;
@@ -158,12 +141,10 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     box-shadow: var(--shadow-soft);
 }
 
-/* En-tête de chaque section (contient le tag bleu, le titre h2 et le sous-titre explicatif) */
 .section-header {
     margin-bottom: 32px;
 }
 
-/* Petit intitulé en majuscules au-dessus des titres (ex: "03 / THE SCHOONER") */
 .section-tag {
     font-size: 0.75rem;
     font-weight: 700;
@@ -179,7 +160,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin: 0 0 10px;
 }
 
-/* Sous-titre d'introduction sous le h2, étendu sur toute la largeur */
 .section-sub {
     color: var(--text-muted);
     max-width: 100%;
@@ -187,19 +167,16 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     font-size: 0.96rem;
 }
 
-/* Grille générique à 2 colonnes auto-adaptative (passe en 1 colonne si l'écran fait moins de 340px) */
 .two-col-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 40px;
 }
 
-/* Centre verticalement les deux colonnes d'une grille */
 .align-center {
     align-items: center;
 }
 
-/* Style des liens externes dans les fenêtres modales */
 .external-link {
     display: inline-block;
     margin-top: 12px;
@@ -208,7 +185,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     text-decoration: none;
 }
 
-/* Premier paragraphe mis en valeur (plus grand et en bleu marine) dans les sections 01 et 02 */
 .lead-paragraph {
     font-size: 1.04rem;
     line-height: 1.7;
@@ -219,11 +195,7 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 0 : DIVER SCROLLING DOWN (Surface -> Profondeurs -> Titre)
-   # Crée la scène d'introduction où l'utilisateur plonge de la surface (0%)
-   # jusqu'aux abysses (100%) en faisant défiler la page.
    ========================================================================== */
-
-/* Conteneur de plongée : haut de 245vh (2,45x la hauteur de l'écran) avec dégradé simulant la profondeur */
 .scroll-dive-section {
     position: relative;
     width: 100%;
@@ -241,7 +213,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     overflow: clip;
 }
 
-/* Bandeau clair tout en haut représentant le ciel et la surface de l'eau */
 .ocean-surface-sky {
     height: 26vh;
     display: flex;
@@ -252,7 +223,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     background: linear-gradient(180deg, #e0f2fe 0%, #7dd3fc 100%);
 }
 
-/* Texte d'invitation "Scroll down to dive into the expedition" */
 .scroll-prompt {
     text-align: center;
     color: #07192b;
@@ -262,20 +232,17 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     text-transform: uppercase;
 }
 
-/* Flèche vers le bas animée en boucle avec @keyframes bounceDown */
 .scroll-arrow {
     font-size: 1.5rem;
     margin-top: 4px;
     animation: bounceDown 1.2s infinite alternate;
 }
 
-/* Fait rebondir la flèche verticalement de 0 à 8px */
 @keyframes bounceDown {
     0% { transform: translateY(0); }
     100% { transform: translateY(8px); }
 }
 
-/* ASTUCE CLÉ : position: sticky garde le plongeur accroché à 32% du haut de l'écran pendant tout le scroll */
 .scrolling-diver-sticky {
     position: sticky;
     top: 32vh;
@@ -287,14 +254,12 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     pointer-events: none;
 }
 
-/* Taille et ombre portée du dessin vectoriel SVG du plongeur */
 .diver-scroll-svg {
     width: 195px;
     height: auto;
     filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.45));
 }
 
-/* Applique l'animation de battement de palmes en opposition de phase (alternate vs alternate-reverse) */
 .fin-anim-front {
     transform-origin: 36px 66px;
     animation: swimKick 0.45s ease-in-out infinite alternate;
@@ -304,25 +269,21 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     animation: swimKick 0.45s ease-in-out infinite alternate-reverse;
 }
 
-/* Fait osciller les palmes entre -13° et +13° */
 @keyframes swimKick {
     0% { transform: rotate(-13deg); }
     100% { transform: rotate(13deg); }
 }
 
-/* Applique l'animation de remontée des bulles d'air du plongeur */
 .diver-bubble {
     animation: bubbleFloat 1.2s ease-out infinite;
 }
 .diver-bubble.b-2 { animation-delay: 0.4s; }
 
-/* Fait monter les bulles de 20px tout en les faisant disparaître (opacity: 0) */
 @keyframes bubbleFloat {
     0% { transform: translateY(0); opacity: 0.9; }
     100% { transform: translateY(-20px); opacity: 0; }
 }
 
-/* Bloc de titre "TARA PACIFIC EXPEDITION" positionné au fond de la zone de plongée */
 .abyss-title-Checkpoint {
     position: absolute;
     bottom: 45vh;
@@ -370,20 +331,17 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 1 : TOP NAVIGATION BAR (.topbar)
-   # Barre de navigation qui reste collée en haut de l'écran (sticky, top: 0)
-   # dès qu'on termine la plongée initiale.
    ========================================================================== */
 .topbar {
     position: sticky;
     top: 0;
-    z-index: 1100; /* z-index élevé pour passer au-dessus de la carte Leaflet */
-    background: #07192b !important; /* Même bleu nuit que le bas de la plongée pour une transition sans coupure */
+    z-index: 1100;
+    background: #07192b !important;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     transition: box-shadow 0.3s ease;
 }
 
-/* Empile verticalement le titre du site (en haut) et les 7 liens du sommaire (en bas) */
 .topbar-inner {
     max-width: 1240px;
     margin: 0 auto;
@@ -395,7 +353,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     gap: 8px;
 }
 
-/* Nom principal du site "TARA PACIFIC SCIENTIFIC OBSERVATORY" */
 .brand {
     color: #ffffff;
     text-decoration: none;
@@ -407,7 +364,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     gap: 10px;
 }
 
-/* Petit point rouge corail à gauche du titre dans la navbar */
 .brand-dot {
     width: 10px;
     height: 10px;
@@ -422,7 +378,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     font-size: 0.82rem;
 }
 
-/* Mini-icône du plongeur dans la barre de navigation */
 .navbar-diver-icon {
     display: inline-flex;
     align-items: center;
@@ -446,7 +401,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     justify-content: center;
 }
 
-/* Liste horizontale des 7 liens du sommaire */
 .nav-links {
     list-style: none;
     margin: 0;
@@ -474,7 +428,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     background: rgba(255, 255, 255, 0.06);
 }
 
-/* Permet aux liens du menu de passer sur 2 lignes sur téléphone/tablette (< 860px) */
 @media (max-width: 860px) {
     .nav-links {
         flex-wrap: wrap;
@@ -485,7 +438,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 2 : WELCOME ABOARD HERO BANNER (.welcome-hero-banner)
-   # Grande photographie d'introduction (Kimbe Bay) avec titre superposé.
    ========================================================================== */
 .welcome-hero-banner {
     position: relative;
@@ -503,7 +455,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     overflow: hidden;
 }
 
-/* object-fit: cover remplit tout le cadre sans jamais déformer les proportions de la photo */
 .welcome-banner-img {
     width: 100%;
     height: 100%;
@@ -511,7 +462,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     display: block;
 }
 
-/* Dégradé sombre sur la moitié inférieure de la photo pour que le texte blanc ressorte */
 .banner-gradient-overlay {
     position: absolute;
     inset: 0;
@@ -519,7 +469,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     pointer-events: none;
 }
 
-/* Positionne le texte "WELCOME ABOARD" en bas à gauche de la photo */
 .welcome-banner-caption {
     position: absolute;
     bottom: 48px;
@@ -551,14 +500,11 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 3 : NAUTICAL CHART TABLE & COMPASS (.chart-table-strip)
-   # Table à cartes style Atlas Marin avec quadrillage de méridiens en fond,
-   # briefing à gauche et fiche de la question scientifique + boussole à droite.
    ========================================================================== */
 .chart-table-strip {
     padding: 48px 0 28px;
 }
 
-/* Crée le fond papier (#fcfbf7) et dessine le quadrillage 32x32px avec deux linear-gradient croisés */
 .nautical-atlas-card {
     max-width: 1240px;
     margin: 0 auto;
@@ -577,7 +523,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--text-main);
 }
 
-/* Bandeau supérieur gris clair "NAUTICAL CHART TABLE • R/V TARA (36M)" */
 .atlas-ruler-topbar {
     display: flex;
     justify-content: space-between;
@@ -611,7 +556,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--navy-900);
 }
 
-/* Grille à 2 colonnes : colonne gauche (1.1fr) pour le texte/boutons, colonne droite (1fr) pour la boussole */
 .atlas-main-grid {
     padding: 38px 36px;
     display: grid;
@@ -627,7 +571,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     }
 }
 
-/* Ajoute le filet vertical rouge corail à gauche du texte d'introduction */
 .briefing-editorial-quote {
     border-left: 4px solid var(--coral-500);
     padding-left: 20px;
@@ -641,7 +584,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin: 0;
 }
 
-/* Force les 2 boutons ("Explore the interactive map" et "Look at the data results") à rester côte à côte */
 .atlas-actions {
     display: flex;
     align-items: center;
@@ -660,7 +602,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     }
 }
 
-/* Style du second bouton blanc à bordure bleu marine */
 .btn-atlas-secondary {
     display: inline-block;
     padding: 11px 20px;
@@ -679,7 +620,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: #ffffff;
 }
 
-/* Carte blanche de droite contenant la boussole et la question scientifique */
 .field-dossier-card {
     position: relative;
     background: #ffffff;
@@ -690,7 +630,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     box-shadow: 0 12px 28px -8px rgba(13, 39, 66, 0.08);
 }
 
-/* Étiquette "FIELD LOG #2016-18" à cheval sur la bordure supérieure de la fiche */
 .dossier-corner-tag {
     position: absolute;
     top: -11px;
@@ -704,7 +643,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border-radius: 4px;
 }
 
-/* Aligne la boussole à gauche et le texte de la question scientifique à droite */
 .dossier-compass-layout {
     display: flex;
     align-items: center;
@@ -718,7 +656,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     }
 }
 
-/* Conteneur cliquable de la boussole */
 .carto-compass-box {
     flex-shrink: 0;
     display: flex;
@@ -728,7 +665,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     user-select: none;
 }
 
-/* Cadran circulaire de 96x96px de la rose des vents */
 .carto-compass-dial {
     position: relative;
     width: 96px;
@@ -744,7 +680,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     transform: scale(1.05);
 }
 
-/* Fines lignes horizontale et verticale (réticule) au centre de la boussole */
 .carto-crosshair-h {
     position: absolute;
     top: 50%;
@@ -763,7 +698,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     background: #cbd5e1;
 }
 
-/* Positionnement des 4 points cardinaux N, S, E, W sur le cadran */
 .carto-compass-dial .c-dir {
     position: absolute;
     font-size: 0.62rem;
@@ -777,14 +711,12 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 .carto-compass-dial .c-e { right: 6px; top: 50%; transform: translateY(-50%); }
 .carto-compass-dial .c-w { left: 6px; top: 50%; transform: translateY(-50%); }
 
-/* Conteneur de l'aiguille qui tourne avec un effet ressort (cubic-bezier) quand JS modifie transform: rotate() */
 .compass-needle-wrap {
     position: absolute;
     inset: 0;
     transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Demi-aiguille Nord (triangle CSS rouge corail) */
 .needle-north-carto {
     position: absolute;
     top: 16px;
@@ -797,7 +729,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border-bottom: 32px solid var(--coral-500);
 }
 
-/* Demi-aiguille Sud (triangle CSS bleu marine) */
 .needle-south-carto {
     position: absolute;
     bottom: 16px;
@@ -810,7 +741,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border-top: 32px solid var(--navy-900);
 }
 
-/* Pivot central rond de l'aiguille */
 .needle-pivot-carto {
     position: absolute;
     top: 50%;
@@ -823,7 +753,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border: 2.5px solid var(--navy-900);
 }
 
-/* Texte "AZIMUTH: 285°" sous la boussole */
 .carto-compass-caption {
     font-size: 0.62rem;
     font-weight: 800;
@@ -853,7 +782,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 4 : SECTION 01 — THE FOUNDATION (#foundation)
-   # Présentation de la Fondation, logos partenaires détourés et 4 ronds bleus fixes.
    ========================================================================== */
 .editorial-intro-layout {
     display: grid;
@@ -876,7 +804,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin: 0 0 22px;
 }
 
-/* Encadre la rangée des logos partenaires (CNRS, EMBL, CEA, Ifremer, PSL) */
 .consortium-logos-wrap {
     padding: 18px 0;
     border-top: 1px solid rgba(13, 39, 66, 0.14);
@@ -901,7 +828,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     gap: 28px;
 }
 
-/* ASTUCE CSS : mix-blend-mode: multiply fusionne le fond blanc des logos avec le fond de la page */
 .partner-logo {
     height: 38px;
     width: auto;
@@ -931,7 +857,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     transform: scale(1.12);
 }
 
-/* Lien souligné en corail vers le portail officiel de la Fondation Tara Océan */
 .editorial-link {
     display: inline-flex;
     align-items: center;
@@ -950,7 +875,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     gap: 12px;
 }
 
-/* Grille 2x2 contenant les 4 ronds bleus de chiffres clés */
 .ocean-bubbles-cluster {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -960,7 +884,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     padding: 8px;
 }
 
-/* Rond bleu uni fixe (172x172px, border-radius: 50%) */
 .kpi-water-bubble {
     width: 172px;
     height: 172px;
@@ -1020,7 +943,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 5 : SECTION 02 — OUR EXPEDITION (#welcome-board)
-   # Vidéo YouTube responsive (format 16:9), carte officielle et carte équipage.
    ========================================================================== */
 .crew-highlight-card {
     background: #ffffff;
@@ -1062,7 +984,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin-bottom: 10px;
 }
 
-/* Maintient un ratio 16:9 parfait (9 / 16 = 56.25%) pour le lecteur YouTube */
 .video-frame {
     position: relative;
     padding-bottom: 56.25%;
@@ -1103,11 +1024,7 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 6 : SECTION 03 — THE SCHOONER & INTERACTIVE SCHEMATICS (#schooner)
-   # Carte explicative du bateau (sans sous-boîtes) et schémas A et B avec
-   # pastilles cliquables (.hotspot) positionnées en pourcentages.
    ========================================================================== */
-
-/* Grande boîte blanche "Welcome aboard the Tara schooner!" avec bordure gauche corail */
 .schooner-tour-card {
     background: #ffffff;
     border: 1px solid var(--border-light);
@@ -1130,7 +1047,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--text-main);
 }
 
-/* Espacement vertical entre les deux points (i) et (ii) */
 .rhythm-list {
     display: flex;
     flex-direction: column;
@@ -1138,7 +1054,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin-top: 12px;
 }
 
-/* Texte direct et propre sans boîte grise ni bordure autour de (i) et (ii) */
 .rhythm-item {
     background: transparent;
     border: none;
@@ -1151,7 +1066,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--teal-600);
 }
 
-/* Grand conteneur blanc entourant chaque schéma interactif (A et B) */
 .protocol-block {
     background: #ffffff;
     border: 1px solid var(--border-light);
@@ -1178,7 +1092,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     max-width: 880px;
 }
 
-/* Grille plaçant le schéma cliquable à gauche (1.25fr) et la fiche descriptive à droite (0.95fr) */
 .boat-interactive-layout {
     display: grid;
     grid-template-columns: 1.25fr 0.95fr;
@@ -1192,7 +1105,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     }
 }
 
-/* Conteneur de l'image en position: relative : sert de repère (0% à 100%) aux pastilles .hotspot */
 .hotspot-container {
     position: relative;
     border-radius: var(--radius-lg);
@@ -1206,7 +1118,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     display: block;
 }
 
-/* Pastille numérotée (1 à 8) positionnée en % (top/left) par-dessus le schéma */
 .hotspot {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -1228,7 +1139,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     z-index: 10;
 }
 
-/* Quand une pastille est active (.active-spot) ou survolée, elle passe en bleu nuit et grossit (scale 1.25) */
 .hotspot:hover,
 .hotspot.active-spot {
     transform: translate(-50%, -50%) scale(1.25);
@@ -1237,7 +1147,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     z-index: 15;
 }
 
-/* Boîte de droite affichant les détails de l'instrument sélectionné */
 .instrument-detail-box {
     background: var(--sand-100);
     border: 1px solid var(--border-light);
@@ -1296,7 +1205,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 7 : SECTION 04 — PLANKTONIC GUIDE & MODALS (#plankton)
-   # Grille de 4 cartes d'espèces planctoniques et fenêtres pop-up (modales).
    ========================================================================== */
 .plankton-grid {
     display: grid;
@@ -1374,7 +1282,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--coral-500);
 }
 
-/* Fond sombre plein écran des fenêtres pop-up (caché par défaut avec display: none) */
 .modal-backdrop {
     display: none;
     position: fixed;
@@ -1386,7 +1293,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     padding: 20px;
 }
 
-/* Affiché en Flexbox centré dès que la fonction JS openModal() ajoute la classe .open */
 .modal-backdrop.open {
     display: flex;
 }
@@ -1423,8 +1329,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 8 : SECTION 05 — INTERACTIVE MAP, GAUGE & TELEMETRY (#map-observatory)
-   # Carte Leaflet interactive (540px de haut), jauge de chlorophylle tricolore
-   # et panneau latéral droit de télémétrie.
    ========================================================================== */
 .map-control-bar {
     display: flex;
@@ -1444,7 +1348,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     flex-wrap: wrap;
 }
 
-/* Grille donnant 65% de la largeur à la carte (1.65fr) et 35% au panneau droit (0.9fr) */
 .map-dashboard-grid {
     display: grid;
     grid-template-columns: 1.65fr 0.9fr;
@@ -1468,7 +1371,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     position: relative;
 }
 
-/* Cadre de la carte interactive Leaflet */
 #map {
     width: 100%;
     height: 540px;
@@ -1476,7 +1378,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border: 1px solid var(--border-light);
 }
 
-/* Conteneur de la jauge de chlorophylle sous la carte */
 .gauge-under-map-card {
     background: transparent;
     color: var(--text-main);
@@ -1506,7 +1407,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: #c4aa5c;
 }
 
-/* Barre horizontale avec dégradé continu Corail -> Doré -> Vert */
 .gauge-track {
     position: relative;
     width: 100%;
@@ -1521,7 +1421,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     display: none;
 }
 
-/* Curseur rond blanc qui se déplace de 3% à 97% (left) via JS selon la chlorophylle de la station */
 .gauge-pointer {
     position: absolute;
     top: 50%;
@@ -1548,7 +1447,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 .gauge-scale span:nth-child(2) { color: #9a7b2c !important; }
 .gauge-scale span:nth-child(3) { color: #49963c !important; }
 
-/* Panneau latéral droit de télémétrie en bleu-gris (#6ba1ab) */
 .telemetry-card {
     background: var(--box-ocean-bg);
     color: #ffffff;
@@ -1626,7 +1524,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     margin: 2px 0 0;
 }
 
-/* Les 3 boîtes des régimes trophiques (Oligotrophe, Mésotrophe, Eutrophe) */
 .zone-explain-card {
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(255, 255, 255, 0.16);
@@ -1640,7 +1537,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 .zone-explain-card.zone-meso { border-left-color: var(--chl-mid); }
 .zone-explain-card.zone-eutro { border-left-color: var(--chl-high); }
 
-/* Classe ajoutée par JS pour illuminer le régime trophique de la station active */
 .zone-explain-card.active-zone {
     background: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.42);
@@ -1663,43 +1559,9 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     line-height: 1.4;
 }
 
-/* Carte blanche de synthèse sous la carte interactive */
-.expedition-report-card {
-    margin-top: 28px;
-    background: #ffffff;
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    box-shadow: var(--shadow-soft);
-}
-
-.expedition-report-card h3 {
-    margin-top: 0;
-    font-size: 1.25rem;
-    color: var(--navy-900);
-}
-
-.report-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
-}
-
-.report-pill {
-    background: var(--sand-50);
-    border: 1px solid var(--border-light);
-    padding: 14px 18px;
-    border-radius: var(--radius-md);
-    font-size: 0.88rem;
-    color: var(--text-main);
-    line-height: 1.5;
-}
-
 
 /* ==========================================================================
    # PART 9 : SECTION 06A — SPATIAL PCA FIGURE 6 (#provinces)
-   # Conteneur fixe unique pour afficher la Figure 6 (pca_heatwaves.jpg).
    ========================================================================== */
 .pca-single-container {
     max-width: 950px;
@@ -1761,7 +1623,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 /* ==========================================================================
    # PART 10 : SECTION 06B — CORRELATION GRAPH & SCENARIO BUTTONS (#data-lab)
-   # Boutons des 3 scénarios biophysiques, menus déroulants et graphe Chart.js.
    ========================================================================== */
 .scenario-presets {
     display: flex;
@@ -1782,7 +1643,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     transition: all 0.2s;
 }
 
-/* Couleurs assorties aux 3 courbes : Vert (#16a085), Bleu (#0284c7), Corail (#e05a47) */
 .preset-btn.scen-green { color: #16a085; border-color: #16a085; }
 .preset-btn.scen-green:hover,
 .preset-btn.scen-green.active-preset { background: #16a085; color: #ffffff; }
@@ -1818,7 +1678,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     color: var(--navy-900);
 }
 
-/* Menu déroulant <select> avec flèche SVG personnalisée à 16px du bord droit */
 .form-field select {
     width: 100%;
     padding: 11px 40px 11px 14px;
@@ -1860,7 +1719,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     font-size: 0.86rem;
 }
 
-/* Cadre de 400px de haut contenant le canvas Chart.js */
 .chart-box {
     position: relative;
     height: 400px;
@@ -1871,7 +1729,6 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     border: 1px solid var(--border-light);
 }
 
-/* Boîte d'interprétation scientifique sous le graphe */
 .interpretation-box {
     margin-top: 22px;
     background: #ffffff;
@@ -1899,14 +1756,69 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
 
 
 /* ==========================================================================
-   # PART 11 : FOOTER (.site-footer)
-   # Pied de page bleu marine épuré en fin de page.
+   # PART 12 : SOURCES & PROVENANCE METADATA (#sources)
+   ========================================================================== */
+.sources-section {
+    padding: 36px 0 12px;
+}
+
+.sources-card {
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--navy-900);
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.sources-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    color: var(--navy-900);
+}
+
+.sources-list {
+    margin: 0 0 12px;
+    padding-left: 18px;
+}
+
+.sources-list li {
+    margin-bottom: 4px;
+}
+
+.sources-card p {
+    margin: 0 0 10px;
+    font-size: 0.84rem;
+    line-height: 1.6;
+}
+
+.sources-card p:last-child {
+    margin-bottom: 0;
+}
+
+.sources-card a {
+    color: var(--teal-600);
+    text-decoration: none;
+    word-break: break-word;
+}
+
+.sources-card a:hover {
+    text-decoration: underline;
+    color: var(--coral-500);
+}
+
+
+/* ==========================================================================
+   # PART 13 : FOOTER (.site-footer)
    ========================================================================== */
 .site-footer {
     background: var(--navy-900);
     color: rgba(255, 255, 255, 0.8);
-    padding: 36px 24px;
-    margin-top: 60px;
+    padding: 24px;
+    margin-top: 40px;
 }
 
 .footer-inner {
@@ -1918,14 +1830,4 @@ p  { font-size: 0.96rem; line-height: 1.65; }/* Paragraphes standards */
     flex-wrap: wrap;
     gap: 20px;
     font-size: 0.88rem;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
 }

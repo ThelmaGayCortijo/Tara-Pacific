@@ -3,9 +3,6 @@
 <head>
     <!-- ======================================================================
          # PART 00 : DOCUMENT HEAD & EXTERNAL LIBRARIES
-         # Charge l'encodage UTF-8, la police Google Font (Plus Jakarta Sans),
-         # la feuille de style de Leaflet.js, ton fichier style.css via Flask
-         # (url_for) et la librairie graphique Chart.js.
          ====================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,10 +21,6 @@
 
     <!-- ======================================================================
          # PART 0 : DIVER SCROLLING DOWN (Surface -> Profondeurs -> Titre)
-         # Contient :
-         #  1. .ocean-surface-sky : le bandeau de surface avec la flèche animée
-         #  2. .scrolling-diver-sticky : le plongeur en SVG qui suit le scroll
-         #  3. .abyss-title-Checkpoint : le grand titre au fond de l'océan
          ====================================================================== -->
     <section id="scroll-dive-section" class="scroll-dive-section">
         <div class="ocean-surface-sky">
@@ -70,8 +63,6 @@
 
     <!-- ======================================================================
          # PART 1 : TOP NAVIGATION BAR (.topbar)
-         # En-tête collant (sticky) contenant le titre de l'observatoire et
-         # la liste <ul> des 7 ancres menant directement à chaque section.
          ====================================================================== -->
     <header class="topbar" id="main-topbar">
         <div class="topbar-inner">
@@ -109,7 +100,6 @@
     
     <!-- ======================================================================
          # PART 2 : WELCOME ABOARD HERO BANNER
-         # Grande bannière photographique de la goélette Tara à Kimbe Bay.
          ====================================================================== -->
     <section class="welcome-hero-banner">
         <div class="banner-img-container">
@@ -126,10 +116,6 @@
 
         <!-- ==================================================================
              # PART 3 : NAUTICAL CHART TABLE & INTERACTIVE COMPASS
-             # Table à cartes avec :
-             #  - À gauche (.atlas-briefing-left) : texte d'accroche + 2 boutons
-             #  - À droite (.atlas-fieldnote-right) : boussole cliquable qui
-             #    déclenche onclick="spinCompassManual()" + question scientifique.
              ================================================================== -->
         <section class="chart-table-strip">
             <div class="nautical-atlas-card" id="helm-console">
@@ -193,8 +179,6 @@
 
         <!-- ==================================================================
              # PART 4 : SECTION 01 — THE FOUNDATION (#foundation)
-             # Colonne gauche : présentation de la Fondation + 5 logos partenaires.
-             # Colonne droite : grille 2x2 de 4 ronds bleus fixes (.kpi-water-bubble).
              ================================================================== -->
         <section id="foundation" class="section-block">
             <div class="section-header">
@@ -254,8 +238,6 @@
 
         <!-- ==================================================================
              # PART 5 : SECTION 02 — OUR EXPEDITION (#welcome-board)
-             # Colonne gauche : enjeux des récifs coralliens + teaser YouTube.
-             # Colonne droite : Figure 1 (carte officielle) + photo de l'équipage.
              ================================================================== -->
         <section id="welcome-board" class="section-block alt-bg">
             <div class="section-header">
@@ -309,12 +291,6 @@
 
         <!-- ==================================================================
              # PART 6 : SECTION 03 — THE SCHOONER & INTERACTIVE SCHEMATICS (#schooner)
-             # Contient 3 sous-ensembles :
-             #  1. Présentation générale de la goélette + Figure 2 (Nature Sci. Data)
-             #  2. SCHEMATIC A : schema_bateau.jpg avec 8 pastilles cliquables
-             #     qui appellent onclick="selectOceanInst(1..8)"
-             #  3. SCHEMATIC B : schema_corail.jpg avec 7 pastilles cliquables
-             #     qui appellent onclick="selectReefInst(1..7)"
              ================================================================== -->
         <section id="schooner" class="section-block">
             <div class="section-header">
@@ -381,8 +357,8 @@
                             <button class="hotspot spot-ocean" id="spot-ocean-3" style="top: 88.4%; left: 63.1%;" onclick="selectOceanInst(3)" title="3. Dolphin pump">3</button>
                             <button class="hotspot spot-ocean" id="spot-ocean-4" style="top: 44.5%; left: 8.1%;" onclick="selectOceanInst(4)" title="4. Raw water distribution">4</button>
                             <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 55.5%; left: 15.6%;" onclick="selectOceanInst(5)" title="5. 50L carboys (20 µm filtration)">5</button>
-                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 11.1%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Left">5</button>
-                            <button class="hotspot spot-ocean spot-ocean-5-group" style="top: 79.8%; left: 24.2%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Right">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 79.8%; left: 11.1%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Left">5</button>
+                            <button class="hotspot spot-ocean spot-ocean-5-group" id="spot-ocean-5" style="top: 79.8%; left: 24.2%;" onclick="selectOceanInst(5)" title="5. 50L Carboys Right">5</button>
                             <button class="hotspot spot-ocean" id="spot-ocean-6" style="top: 33.4%; left: 23.7%;" onclick="selectOceanInst(6)" title="6. Decknet-20">6</button>
                             <button class="hotspot spot-ocean" id="spot-ocean-7" style="top: 88.8%; left: 42.3%;" onclick="selectOceanInst(7)" title="7. High-speed & Manta nets (300 µm)">7</button>
                             <button class="hotspot spot-ocean" id="spot-ocean-8" style="top: 39.2%; left: 93.8%;" onclick="selectOceanInst(8)" title="8. Handheld Bow-Pole">8</button>
@@ -452,8 +428,6 @@
 
         <!-- ==================================================================
              # PART 7 : SECTION 04 — PLANKTONIC GUIDE (#plankton)
-             # Grille de 4 cartes (Diatoms, Copepods, Coccolithophores,
-             # Microplastics) dont les boutons appellent openModal('modal-...').
              ================================================================== -->
         <section id="plankton" class="section-block">
             <div class="section-header">
@@ -521,11 +495,6 @@
 
         <!-- ==================================================================
              # PART 8 : SECTION 05 — INTERACTIVE MAP & TELEMETRY (#map-observatory)
-             # Contient :
-             #  - La barre de boutons Previous / Play Timelapse / Next
-             #  - Le conteneur #map (où Leaflet dessine l'océan Pacifique)
-             #  - La jauge de chlorophylle (#gauge-pointer et #gauge-number)
-             #  - Le panneau latéral droit (#st-name, #st-sst, #st-sss et les 3 zones)
              ================================================================== -->
         <section id="map-observatory" class="section-block alt-bg">
             <div class="section-header">
@@ -620,23 +589,10 @@
                     </div>
                 </aside>
             </div>
-
-            <div class="expedition-report-card">
-                <h3>Tara Pacific expedition brief &amp; synthesis of results</h3>
-                <p>
-                    The <em>Tara Pacific</em> expedition (2016–2018) yielded unprecedented insights into the health and resilience of coral reef ecosystems. By coupling high-frequency underway sensors with deep CTD casts and genomic filtration, researchers discovered that coral symbiosis stability is tightly regulated by local hydrodynamic regimes and temperature anomalies.
-                </p>
-                <div class="report-highlights">
-                    <div class="report-pill"><strong>Coral Adaptability:</strong> High genetic variability in isolated atolls revealed unexpected resistance to episodic marine heatwaves.</div>
-                    <div class="report-pill"><strong>Planktonic Connectivity:</strong> Microscopic biodiversity gradients tracked across the South Pacific gyre demonstrated how island wakes stimulate localized primary production (the Island Mass Effect).</div>
-                    <div class="report-pill"><strong>Plastisphere Pollution:</strong> Microplastic fragments were detected across 100% of sampled archipelagos, acting as vectors for microbial biofilms and invasive species.</div>
-                </div>
-            </div>
         </section>
 
         <!-- ==================================================================
              # PART 9 : SECTION 06A — SPATIAL PCA FIGURE 6 (#provinces)
-             # Affiche uniquement la Figure 6 (pca_heatwaves.jpg) dans un cadre fixe.
              ================================================================== -->
         <section id="provinces" class="section-block">
             <div class="section-header">
@@ -668,10 +624,6 @@
 
         <!-- ==================================================================
              # PART 10 : SECTION 06B — BIOLOGICAL RESPONSE GRAPH (#data-lab)
-             # Contient les 3 boutons de scénarios (selectScenario), les deux
-             # menus déroulants (#x-select et #y-select) qui mettent à jour le
-             # graphe automatiquement, le <canvas> Chart.js et l'encadré
-             # d'explication dynamique (#chart-interpretation).
              ================================================================== -->
         <section id="data-lab" class="section-block alt-bg">
             <div class="section-header">
@@ -733,7 +685,6 @@
 
         <!-- ==================================================================
              # PART 11 : SECTION 07 — PERSPECTIVES (#perspectives)
-             # Ouverture vers Mission Microbiomes et Tara Polar Station.
              ================================================================== -->
         <section id="perspectives" class="section-block">
             <div class="section-header">
@@ -761,12 +712,32 @@
             </div>
         </section>
 
+        <!-- ==================================================================
+             # PART 12 : SOURCES & PROVENANCE METADATA (#sources)
+             ================================================================== -->
+        <section id="sources" class="sources-section">
+            <div class="sources-card">
+                <h3>Sources</h3>
+                <ul class="sources-list">
+                    <li><a href="https://archimer.ifremer.fr/doc/00840/95226/102973.pdf" target="_blank" rel="noopener">https://archimer.ifremer.fr/doc/00840/95226/102973.pdf</a></li>
+                    <li><a href="https://doi.pangaea.de/10.1594/PANGAEA.944548" target="_blank" rel="noopener">https://doi.pangaea.de/10.1594/PANGAEA.944548</a></li>
+                </ul>
+                <p>
+                    <strong>Provenance metadata.</strong> Tara Pacific datasets are articulated around a consistent set of provenance metadata that provide temporal (UTC date and time) and spatial (latitude, longitude, depth or altitude) references as well as annotations about environmental features and place names, using controlled vocabulary from the environmental ontology (<a href="https://www.ebi.ac.uk/ols/ontologies/envo" target="_blank" rel="noopener">https://www.ebi.ac.uk/ols/ontologies/envo</a>) and the marine regions gazetteers (<a href="https://www.marineregions.org/" target="_blank" rel="noopener">https://www.marineregions.org/</a>). These metadata are available at three granular levels: sampling stations and sites, sampling events, and samples collected at a specific depth.
+                </p>
+                <p>
+                    <strong>The full list of sampling events:</strong>
+                    <a href="https://doi.pangaea.de/10.1594/PANGAEA.944548" target="_blank" rel="noopener">https://doi.pangaea.de/10.1594/PANGAEA.944548</a>
+                    and
+                    <a href="https://fondationtaraocean.org/expedition/tara-pacific/" target="_blank" rel="noopener">https://fondationtaraocean.org/expedition/tara-pacific/</a>
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <!-- ======================================================================
          # PART 7 (SUITE HTML) : LES 4 FENÊTRES MODALES DU GUIDE PLANCTONIQUE
-         # Cachées par défaut, elles s'ouvrent quand on clique sur l'une des
-         # 4 cartes de la Section 04.
          ====================================================================== -->
     <div id="modal-diatom" class="modal-backdrop">
         <div class="modal-window">
@@ -815,7 +786,7 @@
     </div>
 
     <!-- ======================================================================
-         # PART 12 : FOOTER (.site-footer)
+         # PART 13 : FOOTER (.site-footer)
          ====================================================================== -->
     <footer class="site-footer">
         <div class="footer-inner"></div>
@@ -826,14 +797,7 @@
          ====================================================================== -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        /* ====================================================================
-           # JS PART 3 : NAUTICAL COMPASS ROSE (Table à cartes en haut du site)
-           # Fonction : spinCompassManual()
-           # Ce qu'elle fait :
-           #   1. Ajoute +45° à l'angle actuel (helmCompassDeg) à chaque clic.
-           #   2. Modifie le style CSS transform: rotate(...) de l'aiguille.
-           #   3. Calcule l'angle entre 0° et 360° (modulo 360) et affiche "AZIMUTH: X°".
-           ==================================================================== */
+        /* # JS PART 3 : NAUTICAL COMPASS ROSE */
         let helmCompassDeg = -75;
 
         function spinCompassManual() {
@@ -846,18 +810,7 @@
             if (degReadout) degReadout.textContent = 'AZIMUTH: ' + normalizedDeg + '°';
         }
 
-
-        /* ====================================================================
-           # JS PART 6A : SCHEMATIC A — ONBOARD FILTRATION (schema_bateau.jpg)
-           # Dictionnaire OCEAN_INSTRUMENTS (clés 1 à 8) + Fonction selectOceanInst(num)
-           # Ce que fait selectOceanInst(num) quand on clique sur un numéro :
-           #   1. Récupère les infos de l'instrument n° "num" dans OCEAN_INSTRUMENTS.
-           #   2. Retire la classe .active-spot de toutes les pastilles du bateau,
-           #      puis l'ajoute sur la pastille cliquée (et sur les 3 pastilles n°5
-           #      simultanément si num === 5).
-           #   3. Met à jour le texte de #ocean-badge, #ocean-title et #ocean-desc.
-           #   4. Affiche la photo (#ocean-img-wrap) uniquement si data.img n'est pas vide.
-           ==================================================================== */
+        /* # JS PART 6A : SCHEMATIC A — ONBOARD FILTRATION (schema_bateau.jpg) */
         const OCEAN_INSTRUMENTS = {
             1: {
                 badge: "MARKER #1 • HULL INTAKE",
@@ -936,15 +889,7 @@
             }
         }
 
-
-        /* ====================================================================
-           # JS PART 6B : SCHEMATIC B — CORAL REEF DIVING (schema_corail.jpg)
-           # Dictionnaire REEF_INSTRUMENTS (clés 1 à 7) + Fonction selectReefInst(num)
-           # Ce que fait selectReefInst(num) :
-           #   1. Allume la pastille cliquée sur le schéma sous-marin (.spot-reef).
-           #   2. Met à jour le badge, le titre et l'explication du protocole.
-           #   3. Change l'image (#reef-img) et le lien plein écran (#reef-link).
-           ==================================================================== */
+        /* # JS PART 6B : SCHEMATIC B — CORAL REEF DIVING (schema_corail.jpg) */
         const REEF_INSTRUMENTS = {
             1: {
                 badge: "MARKER #1 • BENTHIC HOLOBIONT",
@@ -1017,15 +962,7 @@
             }
         }
 
-
-        /* ====================================================================
-           # JS PART 7 : PLANKTONIC GUIDE MODALS (Section 04)
-           # Fonctions :
-           #  - openModal(id) : Ajoute la classe .open pour afficher la pop-up.
-           #  - closeModal(id) : Retire la classe .open quand on clique sur "×".
-           #  - window.addEventListener('click', ...) : Ferme la pop-up si on
-           #    clique sur le fond sombre autour de la fenêtre.
-           ==================================================================== */
+        /* # JS PART 7 : PLANKTONIC GUIDE MODALS */
         function openModal(id) {
             document.getElementById(id).classList.add('open');
         }
@@ -1040,14 +977,7 @@
             }
         });
 
-
-        /* ====================================================================
-           # JS PART 8 : INTERACTIVE PACIFIC MAP & TELEMETRY (Section 05)
-           # Détail de chaque bloc et fonction de la carte :
-           ==================================================================== */
-
-        // 8.1 Initialisation de la carte Leaflet centrée sur le Pacifique ([5, 195])
-        // worldCopyJump: false empêche la carte de sauter brusquement quand on la fait glisser
+        /* # JS PART 8 : INTERACTIVE PACIFIC MAP & TELEMETRY */
         const map = L.map('map', {
             center: [5, 195],
             zoom: 3,
@@ -1056,19 +986,16 @@
             maxBounds: [[-85, -360], [85, 720]]
         });
 
-        // Calque bathymétrique Esri World Ocean Base (fond océanique avec relief sous-marin)
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, National Geographic',
             maxZoom: 13
         }).addTo(map);
 
-        // Calque des noms géographiques marins (Esri World Ocean Reference)
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Reference/MapServer/tile/{z}/{y}/{x}', {
             attribution: '',
             maxZoom: 13
         }).addTo(map);
 
-        // 8.2 Base de référence de 46 archipels et ports connus de l'expédition Tara Pacific
         const TARA_LOCATIONS = [
             { name: "Port of Lorient (France)", lat: 47.73, lon: -3.37 },
             { name: "Bay of Biscay (North-East Atlantic)", lat: 43.50, lon: -9.00 },
@@ -1118,9 +1045,6 @@
             { name: "Clipperton Atoll (Eastern Tropical Pacific)", lat: 10.30, lon: -109.21 }
         ];
 
-        // 8.3 Fonction formatStationLocation(st, idx) :
-        // Convertit un code station brut (ex: "OA001") en nom géographique lisible
-        // en calculant la distance sphérique (formule de Haversine) avec TARA_LOCATIONS.
         function formatStationLocation(st, idx) {
             const rawName = String(st.station || '').trim();
             if (rawName && !/^(OA\d|TARA_\d{3}$|Station_)/i.test(rawName)) {
@@ -1162,7 +1086,6 @@
             return "Equatorial Pacific Transect";
         }
 
-        // 8.4 Liste de secours des 22 stations au cas où le serveur Flask ne répondrait pas
         const DEFAULT_STATIONS = [
             {station: "Port of Lorient (Brittany, France)", dt: "2016-05-28", lat: 47.73, lon: -3.37, mergedSST: 15.2, mergedSSS: 35.1, merged_chl: 1.45, depth: 15, no3: 6.8, o2: 258.4},
             {station: "Azores Archipelago (North Atlantic)", dt: "2016-06-08", lat: 37.74, lon: -25.67, mergedSST: 19.8, mergedSSS: 36.1, merged_chl: 0.42, depth: 20, no3: 1.8, o2: 234.0},
@@ -1193,22 +1116,17 @@
         let currentIndex = 0;
         let autoplayTimer = null;
 
-        // 8.5 Fonction getChlColor(chl) : attribue le code couleur selon les 3 seuils trophiques
         function getChlColor(chl) {
-            if (chl < 0.15) return '#e05a47';  // Rouge corail : Oligotrophe
-            if (chl <= 0.50) return '#c4aa5c'; // Jaune doré : Mésotrophe
-            return '#49963c';                  // Vert : Eutrophe
+            if (chl < 0.15) return '#e05a47';
+            if (chl <= 0.50) return '#c4aa5c';
+            return '#49963c';
         }
 
-        // Fonction utilitaire safeNum : évite les erreurs d'affichage si une valeur est absente
         function safeNum(val, fallback) {
             const n = Number(val);
             return (val !== null && val !== undefined && !isNaN(n)) ? n : fallback;
         }
 
-        // 8.6 Fonction renderStationsOnMap(stations, totalCount) :
-        // Place chaque station sur la carte, relie Lorient au Pacifique en passant
-        // les longitudes négatives en +360° (pacLon), et duplique sur [-360, 0, 360].
         function renderStationsOnMap(stations, totalCount) {
             stationList = stations.map((st, idx) => {
                 const rawCode = st.station || `Station #${idx + 1}`;
@@ -1231,7 +1149,6 @@
                 const chl = safeNum(st.merged_chl, 0.15);
                 const fillColor = getChlColor(chl);
 
-                // Translation mathématique : Lorient (-3.37°) devient +356.63° pour être relié à Miami (+279.87°)
                 const pacLon = lon < 0 ? lon + 360 : lon;
 
                 if (currentSegment.length > 0) {
@@ -1297,7 +1214,6 @@
             }
         }
 
-        // 8.7 Appel asynchrone fetch('/api/stations') vers ton serveur Python Flask (app.py)
         fetch('/api/stations')
             .then(res => res.json())
             .then(payload => {
@@ -1317,9 +1233,6 @@
                 runAnalysis();
             });
 
-        // 8.8 Fonction updateStationDashboard(st, panMap) :
-        // Met à jour le panneau droit (nom, date, GPS, SST, SSS), déplace le curseur
-        // de la jauge de chlorophylle (#gauge-pointer) et allume la boîte trophique active.
         function updateStationDashboard(st, panMap = true) {
             document.getElementById('st-badge').textContent = `STOPOVER #${currentIndex + 1} / ${stationList.length}`;
             document.getElementById('st-name').textContent = st.station;
@@ -1366,8 +1279,6 @@
             }
         }
 
-        // 8.9 Fonctions stepStation(delta) et toggleAutoplay() :
-        // Permettent d'avancer/reculer d'une station ou de lancer le timelapse automatique (toutes les 2,2s).
         function stepStation(delta) {
             if (!stationList.length) return;
             currentIndex = (currentIndex + delta + stationList.length) % stationList.length;
@@ -1386,15 +1297,10 @@
             }
         }
 
-
-        /* ====================================================================
-           # JS PART 10 : BIOLOGICAL RESPONSE SCATTER GRAPH (Section 06B)
-           # Détail des fonctions du graphique Chart.js :
-           ==================================================================== */
+        /* # JS PART 10 : BIOLOGICAL RESPONSE SCATTER GRAPH */
         let telemetryChart = null;
         let realGraphStations = [];
 
-        // 10.1 Textes scientifiques et couleurs associés à chaque couple de variables (X__Y)
         const SCENARIO_TEXTS = {
             "no3__merged_chl": {
                 title: "1. The Limiting Nutrient (Nitrates vs. Chlorophyll-a)",
@@ -1418,8 +1324,6 @@
             }
         };
 
-        // 10.2 Fonction selectScenario(xVal, yVal, btnId) :
-        // Appelée quand on clique sur l'un des 3 boutons de scénarios en haut du graphe.
         function selectScenario(xVal, yVal, btnId) {
             document.getElementById('x-select').value = xVal;
             document.getElementById('y-select').value = yVal;
@@ -1428,8 +1332,6 @@
             runAnalysis();
         }
 
-        // 10.3 Fonction syncPresetHighlight(xVal, yVal) :
-        // Allume automatiquement le bouton de scénario correspondant si on utilise les menus déroulants.
         function syncPresetHighlight(xVal, yVal) {
             document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active-preset'));
             if (xVal === 'no3' && yVal === 'merged_chl') document.getElementById('btn-scen-a').classList.add('active-preset');
@@ -1437,9 +1339,6 @@
             else if (xVal === 'mergedSST' && yVal === 'merged_chl') document.getElementById('btn-scen-c').classList.add('active-preset');
         }
 
-        // 10.4 Fonction runAnalysis() :
-        // Extrait les coordonnées (x, y) des ~150 vraies stations, met à jour l'encadré
-        // d'interprétation et redessine le nuage de points (scatter) avec Chart.js.
         function runAnalysis() {
             const xParam = document.getElementById('x-select').value;
             const yParam = document.getElementById('y-select').value;
@@ -1548,7 +1447,6 @@
             });
         }
 
-        // 10.5 Appel asynchrone fetch('/api/all_stations') vers Flask au démarrage pour alimenter le graphe
         fetch('/api/all_stations')
             .then(res => res.json())
             .then(data => {
@@ -1559,7 +1457,6 @@
             })
             .catch(() => runAnalysis());
 
-        // 10.6 Écouteurs d'événements sur les menus déroulants pour mise à jour automatique
         document.getElementById('x-select').addEventListener('change', runAnalysis);
         document.getElementById('y-select').addEventListener('change', runAnalysis);
     </script>
